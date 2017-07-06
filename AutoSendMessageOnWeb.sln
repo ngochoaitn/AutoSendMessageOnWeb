@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoSendMessageOnWeb", "AutoSendMessageOnWeb\AutoSendMessageOnWeb.csproj", "{659369DE-8CC6-4C42-81B0-97B29F24886B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoSendMessageOnWeb.Lib", "AutoSendMessageOnWeb.Lib\AutoSendMessageOnWeb.Lib.csproj", "{1A73BBCF-70A9-46B3-B834-C918981A6200}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoSendMessageOnWeb.Data", "AutoSendMessageOnWeb.Data\AutoSendMessageOnWeb.Data.csproj", "{C66AE77A-3145-459A-BF8C-6B0CE6759FC1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThuVienWinform.UI", "..\..\..\#Library\ThuVienWinform\ThuVienWinform.UI\ThuVienWinform.UI.csproj", "{DA0FBCF4-1CCD-4F73-AF07-508A5F17B7C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThuVienWinform.UI.FLat.CommonControls", "..\..\..\#Library\ThuVienWinform\ThuVienWinform.UI.FLat.CommonControls\ThuVienWinform.UI.FLat.CommonControls.csproj", "{12AD93D2-CC00-444A-B750-8F26BE50B5B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThuVienWinform.UI.Flat.Containers", "..\..\..\#Library\ThuVienWinform\ThuVienWinform.UI.Flat.Containers\ThuVienWinform.UI.Flat.Containers.csproj", "{172CF22C-6278-444B-9408-572223AC2EE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThuVienWinform.UI.Flat.Data", "..\..\..\#Library\ThuVienWinform\ThuVienWinform.UI.Flat.Data\ThuVienWinform.UI.Flat.Data.csproj", "{5EF00A08-FF21-41C8-BA9A-AF4A7C0E8F23}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{659369DE-8CC6-4C42-81B0-97B29F24886B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{659369DE-8CC6-4C42-81B0-97B29F24886B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{659369DE-8CC6-4C42-81B0-97B29F24886B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{659369DE-8CC6-4C42-81B0-97B29F24886B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A73BBCF-70A9-46B3-B834-C918981A6200}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A73BBCF-70A9-46B3-B834-C918981A6200}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A73BBCF-70A9-46B3-B834-C918981A6200}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A73BBCF-70A9-46B3-B834-C918981A6200}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C66AE77A-3145-459A-BF8C-6B0CE6759FC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C66AE77A-3145-459A-BF8C-6B0CE6759FC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C66AE77A-3145-459A-BF8C-6B0CE6759FC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C66AE77A-3145-459A-BF8C-6B0CE6759FC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA0FBCF4-1CCD-4F73-AF07-508A5F17B7C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA0FBCF4-1CCD-4F73-AF07-508A5F17B7C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA0FBCF4-1CCD-4F73-AF07-508A5F17B7C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA0FBCF4-1CCD-4F73-AF07-508A5F17B7C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12AD93D2-CC00-444A-B750-8F26BE50B5B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12AD93D2-CC00-444A-B750-8F26BE50B5B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12AD93D2-CC00-444A-B750-8F26BE50B5B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12AD93D2-CC00-444A-B750-8F26BE50B5B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{172CF22C-6278-444B-9408-572223AC2EE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{172CF22C-6278-444B-9408-572223AC2EE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{172CF22C-6278-444B-9408-572223AC2EE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{172CF22C-6278-444B-9408-572223AC2EE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EF00A08-FF21-41C8-BA9A-AF4A7C0E8F23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EF00A08-FF21-41C8-BA9A-AF4A7C0E8F23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EF00A08-FF21-41C8-BA9A-AF4A7C0E8F23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EF00A08-FF21-41C8-BA9A-AF4A7C0E8F23}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
