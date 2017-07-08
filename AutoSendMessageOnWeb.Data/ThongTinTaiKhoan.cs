@@ -20,5 +20,24 @@ namespace AutoSendMessageOnWeb.Data
         public string TrangThai { set; get; }
         [DefaultValue(true)]
         public bool ChoPhepGuiNhan { set; get; }
+
+        public int SoThuSeGui
+        {
+            get
+            {
+                return _soThuSeGui;
+            }
+
+            set
+            {
+                _soThuSeGui = value;
+            }
+        }
+
+        private int _soThuSeGui = 10;
+
+        public string TinhTrangHonNhan { set; get; }
+        public int? Tuoi { set; get; }
+        public string NoiO { set; get; }
     }
 }

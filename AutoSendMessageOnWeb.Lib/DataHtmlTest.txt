@@ -1,0 +1,1727 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    
+    <title>TESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSss</title>
+    <meta name="description" content="Tim Ban Bon Phuong, Tim ban gai, Tim ban trai, tim ban chat, tim nguoi yeu, tim mot nua cua doi minh? Bạn muốn làm quen với bạn bè khắp nơi trên cả nước và toàn thế giới?" />
+    <meta name="keywords" content="Tim Ban Bon Phuong, Tim ban gai, Tim ban trai, Tim ban chat, tim nguoi yeu, tim ban, Ket Ban, Tam Su, Hen Ho, lam quen, tim mot nua, tim mot nua cua doi minh, tim ban tam su, tim nguoi yeu di choi" />
+    <meta property="og:url" content="http://henho2.com/Home/Index?gtinh=-1&amp;countryid=237&amp;province=-1&amp;maritial=-1&amp;objective=-1&amp;ageFrom=&amp;ageTo=&amp;name=&amp;pageindex=20000" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="henho2.com - Website tìm bạn bốn phương." />
+    <meta property="og:description" content="Trang web tìm bạn, tìm người yêu hàng đầu Việt Nam." />
+    <meta property="og:image" content="http://henho2.com/content/UploadImages/Profile/0.jpg" />
+
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta property="fb:admins" content="1482018404" />
+    <meta property="fb:app_id" content="830065407091954" />
+    <meta http-equiv="content-language" content="vi,en" />
+
+    <link href="/Content/Custom/css?v=2d4DQB4ygYxJyrxxYJPDhPI8WXO1tfEdnuuwNYFA7Ho1" rel="stylesheet"/>
+
+    <script src="/bundles/modernizr?v=wBEWDufH_8Md-Pbioxomt90vm6tJN2Pyy9u9zHtWsPo1"></script>
+
+
+    <!--[if lt IE 9]>
+    <script src="/bundles/ie?v=aRz6u4oOKeTc57grlzXnZcqPVjyJD0J5NXLw9zLiipo1"></script>
+
+    <![endif]-->
+
+        <script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+
+            ga('create', 'UA-90299239-2', 'auto');
+            ga('send', 'pageview');
+        </script>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <link rel="alternate" href="http://henho2.com/en" hreflang="en" />
+        <link rel="alternate" href="http://henho2.com" hreflang="vi-vn" />
+</head>
+<body data-twttr-rendered="true">
+    
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=256011991504004";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+    <!-- Place this tag in your head or just before your close body tag. -->
+    
+
+    
+<header>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <h2>
+                    <a class="navbar-brand" href="/">Hẹn H&#242;</a>
+                </h2>
+<a class="btn btn-info btn-xs visible-xs navbar-brand" href="/Account/Login">Đăng nhập</a><a class="btn btn-primary btn-xs visible-xs navbar-brand" href="/Account/OpenAuth">Đăng k&#253;</a>            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/timban/nu"><strong>Tìm bạn gái</strong></a></li>
+                    <li><a href="/timban/nam">Tìm bạn trai</a></li>
+                    <li><a href="/timban/lesbian">Les</a></li>
+                    <li><a href="/timban/gay">Gay</a></li>
+                </ul>
+
+                    <form class="navbar-form navbar-left hidden-xs" role="search">
+                        <div class="form-group">
+                            <div>
+                                <a class="btn btn-primary btn-sm" href="/Account/Login">Đăng nhập</a>
+                                <a class="btn btn-info btn-sm" href="/Account/OpenAuth">Đăng k&#253;</a>
+                            </div>
+                        </div>
+                    </form>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="vi">&nbsp;</span> <span>Tiếng Việt</span>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+
+                            <li><a href="/en/home/index"><span class="en">&nbsp;</span> English</a></li>
+                            <li><a href="#"><span class="vi">&nbsp;</span> Tiếng Việt</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right hidden-xs">
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+    </nav>
+</header>
+
+    
+    <div class="container">
+        <div class="row">
+            
+<div class="modal fade" id="custom-search-modal" tabindex="-1" role="dialog" aria-labelledby="custom-search-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Tìm kiếm nâng cao</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label for="search-gender" class="col-xs-3 control-label">Giới tính</label>
+                        <div class="col-xs-9">
+                            <select class="form-control" id="search-gender" name="search-gender"><option selected="selected" value="-1">Tất cả</option>
+<option value="0">Nam</option>
+<option value="1">Nữ</option>
+<option value="2">Gay</option>
+<option value="3">Les</option>
+</select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="search-maritial" class="col-xs-3 control-label">Hôn nhân</label>
+                        <div class="col-xs-9">
+                            <select class="form-control" id="search-maritial" name="search-maritial"><option selected="selected" value="-1">Tất cả</option>
+<option value="0">Độc th&#226;n</option>
+<option value="1">Đang c&#243; người y&#234;u</option>
+<option value="2">Đ&#227; c&#243; gia đ&#236;nh</option>
+<option value="3">Ly dị</option>
+<option value="4">Ở g&#243;a</option>
+</select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="search-objective" class="col-xs-3 control-label">Mục tiêu</label>
+                        <div class="col-xs-9">
+                            <select class="form-control" id="search-objective" name="search-objective"><option selected="selected" value="-1">Tất cả</option>
+<option value="0">Người y&#234;u l&#226;u d&#224;i</option>
+<option value="1">Người y&#234;u ngắn hạn</option>
+<option value="2">T&#236;m bạn b&#232; mới</option>
+<option value="3">T&#236;m bạn t&#226;m sự</option>
+</select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="search-country" class="col-xs-3 control-label">Quốc gia</label>
+                        <div class="col-xs-9">
+                            <select class="form-control" id="search-country" name="search-country"><option value="1">Afghanistan</option>
+<option value="2">Albania</option>
+<option value="3">Algeria</option>
+<option value="4">American Samoa</option>
+<option value="5">Andorra</option>
+<option value="6">Angola</option>
+<option value="7">Anguilla</option>
+<option value="8">Antarctica</option>
+<option value="9">Antigua and Barbuda</option>
+<option value="10">Argentina</option>
+<option value="11">Armenia</option>
+<option value="12">Aruba</option>
+<option value="13">Australia</option>
+<option value="14">Austria</option>
+<option value="15">Azerbaijan</option>
+<option value="16">Bahamas</option>
+<option value="17">Bahrain</option>
+<option value="18">Bangladesh</option>
+<option value="19">Barbados</option>
+<option value="20">Belarus</option>
+<option value="21">Belgium</option>
+<option value="22">Belize</option>
+<option value="23">Benin</option>
+<option value="24">Bermuda</option>
+<option value="25">Bhutan</option>
+<option value="26">Bolivia</option>
+<option value="27">Bosnia and Herzegovina</option>
+<option value="28">Botswana</option>
+<option value="29">Bouvet Island</option>
+<option value="30">Brazil</option>
+<option value="31">British Indian Ocean Territory</option>
+<option value="32">Brunei Darussalam</option>
+<option value="33">Bulgaria</option>
+<option value="34">Burkina Faso</option>
+<option value="35">Burundi</option>
+<option value="36">Cambodia</option>
+<option value="37">Cameroon</option>
+<option value="38">Canada</option>
+<option value="39">Cape Verde</option>
+<option value="40">Cayman Islands</option>
+<option value="41">Central African Republic</option>
+<option value="42">Chad</option>
+<option value="43">Chile</option>
+<option value="44">China</option>
+<option value="45">Christmas Island</option>
+<option value="46">Cocos (Keeling) Islands</option>
+<option value="47">Colombia</option>
+<option value="48">Comoros</option>
+<option value="49">Congo</option>
+<option value="50">Cook Islands</option>
+<option value="51">Costa Rica</option>
+<option value="52">Croatia (Hrvatska)</option>
+<option value="53">Cuba</option>
+<option value="54">Cyprus</option>
+<option value="55">Czech Republic</option>
+<option value="56">Denmark</option>
+<option value="57">Djibouti</option>
+<option value="58">Dominica</option>
+<option value="59">Dominican Republic</option>
+<option value="60">East Timor</option>
+<option value="61">Ecuador</option>
+<option value="62">Egypt</option>
+<option value="63">El Salvador</option>
+<option value="64">Equatorial Guinea</option>
+<option value="65">Eritrea</option>
+<option value="66">Estonia</option>
+<option value="67">Ethiopia</option>
+<option value="68">Falkland Islands (Malvinas)</option>
+<option value="69">Faroe Islands</option>
+<option value="70">Fiji</option>
+<option value="71">Finland</option>
+<option value="72">France</option>
+<option value="73">France, Metropolitan</option>
+<option value="74">French Guiana</option>
+<option value="75">French Polynesia</option>
+<option value="76">French Southern Territories</option>
+<option value="77">Gabon</option>
+<option value="78">Gambia</option>
+<option value="79">Georgia</option>
+<option value="80">Germany</option>
+<option value="81">Ghana</option>
+<option value="82">Gibraltar</option>
+<option value="83">Guernsey</option>
+<option value="84">Greece</option>
+<option value="85">Greenland</option>
+<option value="86">Grenada</option>
+<option value="87">Guadeloupe</option>
+<option value="88">Guam</option>
+<option value="89">Guatemala</option>
+<option value="90">Guinea</option>
+<option value="91">Guinea-Bissau</option>
+<option value="92">Guyana</option>
+<option value="93">Haiti</option>
+<option value="94">Heard and Mc Donald Islands</option>
+<option value="95">Honduras</option>
+<option value="96">Hong Kong</option>
+<option value="97">Hungary</option>
+<option value="98">Iceland</option>
+<option value="99">India</option>
+<option value="100">Isle of Man</option>
+<option value="101">Indonesia</option>
+<option value="102">Iran (Islamic Republic of)</option>
+<option value="103">Iraq</option>
+<option value="104">Ireland</option>
+<option value="105">Israel</option>
+<option value="106">Italy</option>
+<option value="107">Ivory Coast</option>
+<option value="108">Jersey</option>
+<option value="109">Jamaica</option>
+<option value="110">Japan</option>
+<option value="111">Jordan</option>
+<option value="112">Kazakhstan</option>
+<option value="113">Kenya</option>
+<option value="114">Kiribati</option>
+<option value="115">Korea, Democratic People&#39;s Republic of</option>
+<option value="116">Korea, Republic of</option>
+<option value="117">Kosovo</option>
+<option value="118">Kuwait</option>
+<option value="119">Kyrgyzstan</option>
+<option value="120">Lao People&#39;s Democratic Republic</option>
+<option value="121">Latvia</option>
+<option value="122">Lebanon</option>
+<option value="123">Lesotho</option>
+<option value="124">Liberia</option>
+<option value="125">Libyan Arab Jamahiriya</option>
+<option value="126">Liechtenstein</option>
+<option value="127">Lithuania</option>
+<option value="128">Luxembourg</option>
+<option value="129">Macau</option>
+<option value="130">Macedonia</option>
+<option value="131">Madagascar</option>
+<option value="132">Malawi</option>
+<option value="133">Malaysia</option>
+<option value="134">Maldives</option>
+<option value="135">Mali</option>
+<option value="136">Malta</option>
+<option value="137">Marshall Islands</option>
+<option value="138">Martinique</option>
+<option value="139">Mauritania</option>
+<option value="140">Mauritius</option>
+<option value="141">Mayotte</option>
+<option value="142">Mexico</option>
+<option value="143">Micronesia, Federated States of</option>
+<option value="144">Moldova, Republic of</option>
+<option value="145">Monaco</option>
+<option value="146">Mongolia</option>
+<option value="147">Montenegro</option>
+<option value="148">Montserrat</option>
+<option value="149">Morocco</option>
+<option value="150">Mozambique</option>
+<option value="151">Myanmar</option>
+<option value="152">Namibia</option>
+<option value="153">Nauru</option>
+<option value="154">Nepal</option>
+<option value="155">Netherlands</option>
+<option value="156">Netherlands Antilles</option>
+<option value="157">New Caledonia</option>
+<option value="158">New Zealand</option>
+<option value="159">Nicaragua</option>
+<option value="160">Niger</option>
+<option value="161">Nigeria</option>
+<option value="162">Niue</option>
+<option value="163">Norfolk Island</option>
+<option value="164">Northern Mariana Islands</option>
+<option value="165">Norway</option>
+<option value="166">Oman</option>
+<option value="167">Pakistan</option>
+<option value="168">Palau</option>
+<option value="169">Palestine</option>
+<option value="170">Panama</option>
+<option value="171">Papua New Guinea</option>
+<option value="172">Paraguay</option>
+<option value="173">Peru</option>
+<option value="174">Philippines</option>
+<option value="175">Pitcairn</option>
+<option value="176">Poland</option>
+<option value="177">Portugal</option>
+<option value="178">Puerto Rico</option>
+<option value="179">Qatar</option>
+<option value="180">Reunion</option>
+<option value="181">Romania</option>
+<option value="182">Russian Federation</option>
+<option value="183">Rwanda</option>
+<option value="184">Saint Kitts and Nevis</option>
+<option value="185">Saint Lucia</option>
+<option value="186">Saint Vincent and the Grenadines</option>
+<option value="187">Samoa</option>
+<option value="188">San Marino</option>
+<option value="189">Sao Tome and Principe</option>
+<option value="190">Saudi Arabia</option>
+<option value="191">Senegal</option>
+<option value="192">Serbia</option>
+<option value="193">Seychelles</option>
+<option value="194">Sierra Leone</option>
+<option value="195">Singapore</option>
+<option value="196">Slovakia</option>
+<option value="197">Slovenia</option>
+<option value="198">Solomon Islands</option>
+<option value="199">Somalia</option>
+<option value="200">South Africa</option>
+<option value="201">South Georgia South Sandwich Islands</option>
+<option value="202">Spain</option>
+<option value="203">Sri Lanka</option>
+<option value="204">St. Helena</option>
+<option value="205">St. Pierre and Miquelon</option>
+<option value="206">Sudan</option>
+<option value="207">Suriname</option>
+<option value="208">Svalbard and Jan Mayen Islands</option>
+<option value="209">Swaziland</option>
+<option value="210">Sweden</option>
+<option value="211">Switzerland</option>
+<option value="212">Syrian Arab Republic</option>
+<option value="213">Taiwan</option>
+<option value="214">Tajikistan</option>
+<option value="215">Tanzania, United Republic of</option>
+<option value="216">Thailand</option>
+<option value="217">Togo</option>
+<option value="218">Tokelau</option>
+<option value="219">Tonga</option>
+<option value="220">Trinidad and Tobago</option>
+<option value="221">Tunisia</option>
+<option value="222">Turkey</option>
+<option value="223">Turkmenistan</option>
+<option value="224">Turks and Caicos Islands</option>
+<option value="225">Tuvalu</option>
+<option value="226">Uganda</option>
+<option value="227">Ukraine</option>
+<option value="228">United Arab Emirates</option>
+<option value="229">United Kingdom</option>
+<option value="230">United States</option>
+<option value="231">United States minor outlying islands</option>
+<option value="232">Uruguay</option>
+<option value="233">Uzbekistan</option>
+<option value="234">Vanuatu</option>
+<option value="235">Vatican City State</option>
+<option value="236">Venezuela</option>
+<option selected="selected" value="237">Vietnam</option>
+<option value="238">Virgin Islands (British)</option>
+<option value="239">Virgin Islands (U.S.)</option>
+<option value="240">Wallis and Futuna Islands</option>
+<option value="241">Western Sahara</option>
+<option value="242">Yemen</option>
+<option value="243">Yugoslavia</option>
+<option value="244">Zaire</option>
+<option value="245">Zambia</option>
+<option value="246">Zimbabwe</option>
+</select>
+                        </div>
+                    </div>
+                    <div class="form-group" id="divSearchProvince">
+                        <label for="search-province" class="col-xs-3 control-label">Đến từ</label>
+                        <div class="col-xs-9">
+                            <select class="form-control" id="search-province" name="search-province"><option selected="selected" value="-1">Tất cả</option>
+<option value="58">TP Hồ Ch&#237; Minh</option>
+<option value="24">H&#224; Nội</option>
+<option value="15">Đ&#224; Nẵng</option>
+<option value="1">An Giang</option>
+<option value="2">B&#224; Rịa - Vũng T&#224;u</option>
+<option value="3">Bắc Giang</option>
+<option value="4">Bắc Kạn</option>
+<option value="5">Bạc Li&#234;u</option>
+<option value="6">Bắc Ninh</option>
+<option value="7">Bến Tre</option>
+<option value="8">B&#236;nh Định</option>
+<option value="9">B&#236;nh Dương</option>
+<option value="10">B&#236;nh Phước</option>
+<option value="11">B&#236;nh Thuận</option>
+<option value="12">C&#224; Mau</option>
+<option value="13">Cần Thơ</option>
+<option value="14">Cao Bằng</option>
+<option value="16">Đăk Lăk</option>
+<option value="17">Đăk N&#244;ng</option>
+<option value="18">Điện Bi&#234;n</option>
+<option value="19">Đồng Nai</option>
+<option value="20">Đồng Th&#225;p</option>
+<option value="21">Gia Lai</option>
+<option value="22">H&#224; Giang</option>
+<option value="23">H&#224; Nam</option>
+<option value="25">H&#224; Tĩnh</option>
+<option value="26">Hải Dương</option>
+<option value="27">Hải Ph&#242;ng</option>
+<option value="28">Hậu Giang</option>
+<option value="29">Ho&#224; B&#236;nh</option>
+<option value="30">Hưng Y&#234;n</option>
+<option value="31">Kh&#225;nh H&#242;a</option>
+<option value="32">Ki&#234;n Giang</option>
+<option value="33">Kon Tum</option>
+<option value="34">Lai Ch&#226;u</option>
+<option value="35">L&#226;m Đồng</option>
+<option value="36">Lạng Sơn</option>
+<option value="37">L&#224;o Cai</option>
+<option value="38">Long An</option>
+<option value="39">Nam Định</option>
+<option value="40">Nghệ An</option>
+<option value="41">Ninh B&#236;nh</option>
+<option value="42">Ninh Thuận</option>
+<option value="43">Ph&#250; Thọ</option>
+<option value="44">Ph&#250; Y&#234;n</option>
+<option value="45">Quảng B&#236;nh</option>
+<option value="46">Quảng Nam</option>
+<option value="47">Quảng Ng&#227;i</option>
+<option value="48">Quảng Ninh</option>
+<option value="49">Quảng Trị</option>
+<option value="50">S&#243;c Trăng</option>
+<option value="51">Sơn La</option>
+<option value="52">T&#226;y Ninh</option>
+<option value="53">Th&#225;i B&#236;nh</option>
+<option value="54">Th&#225;i Nguy&#234;n</option>
+<option value="55">Thanh H&#243;a</option>
+<option value="56">Thừa Thi&#234;n-Huế</option>
+<option value="57">Tiền Giang</option>
+<option value="59">Tr&#224; Vinh</option>
+<option value="60">Tuy&#234;n Quang</option>
+<option value="61">Vĩnh Long</option>
+<option value="62">Vĩnh Ph&#250;c</option>
+<option value="63">Y&#234;n B&#225;i</option>
+</select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="search-agefrom" class="col-xs-3 control-label">Tuổi</label>
+                        <div class="col-xs-9">
+                            <select class="form-control col-xs-4" id="search-agefrom" name="search-agefrom"><option value="">Từ</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option>
+<option value="25">25</option>
+<option value="26">26</option>
+<option value="27">27</option>
+<option value="28">28</option>
+<option value="29">29</option>
+<option value="30">30</option>
+<option value="31">31</option>
+<option value="32">32</option>
+<option value="33">33</option>
+<option value="34">34</option>
+<option value="35">35</option>
+<option value="36">36</option>
+<option value="37">37</option>
+<option value="38">38</option>
+<option value="39">39</option>
+<option value="40">40</option>
+<option value="41">41</option>
+<option value="42">42</option>
+<option value="43">43</option>
+<option value="44">44</option>
+<option value="45">45</option>
+<option value="46">46</option>
+<option value="47">47</option>
+<option value="48">48</option>
+<option value="49">49</option>
+<option value="50">50</option>
+<option value="51">51</option>
+<option value="52">52</option>
+<option value="53">53</option>
+<option value="54">54</option>
+<option value="55">55</option>
+<option value="56">56</option>
+<option value="57">57</option>
+<option value="58">58</option>
+<option value="59">59</option>
+<option value="60">60</option>
+<option value="61">61</option>
+<option value="62">62</option>
+<option value="63">63</option>
+<option value="64">64</option>
+<option value="65">65</option>
+<option value="66">66</option>
+<option value="67">67</option>
+<option value="68">68</option>
+<option value="69">69</option>
+</select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label"></label>
+                        <div class="col-xs-9">
+                            <select class="form-control col-xs-4" id="search-ageto" name="search-ageto"><option value="">Đến</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option>
+<option value="25">25</option>
+<option value="26">26</option>
+<option value="27">27</option>
+<option value="28">28</option>
+<option value="29">29</option>
+<option value="30">30</option>
+<option value="31">31</option>
+<option value="32">32</option>
+<option value="33">33</option>
+<option value="34">34</option>
+<option value="35">35</option>
+<option value="36">36</option>
+<option value="37">37</option>
+<option value="38">38</option>
+<option value="39">39</option>
+<option value="40">40</option>
+<option value="41">41</option>
+<option value="42">42</option>
+<option value="43">43</option>
+<option value="44">44</option>
+<option value="45">45</option>
+<option value="46">46</option>
+<option value="47">47</option>
+<option value="48">48</option>
+<option value="49">49</option>
+<option value="50">50</option>
+<option value="51">51</option>
+<option value="52">52</option>
+<option value="53">53</option>
+<option value="54">54</option>
+<option value="55">55</option>
+<option value="56">56</option>
+<option value="57">57</option>
+<option value="58">58</option>
+<option value="59">59</option>
+<option value="60">60</option>
+<option value="61">61</option>
+<option value="62">62</option>
+<option value="63">63</option>
+<option value="64">64</option>
+<option value="65">65</option>
+<option value="66">66</option>
+<option value="67">67</option>
+<option value="68">68</option>
+<option value="69">69</option>
+</select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label">Tên</label>
+                        <div class="col-xs-9">
+                            <input class="form-control col-xs-4" id="search-name" name="search-name" placeholder="Tên" type="text" value="" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="Home.search()">Tìm kiếm</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+    <!-- /.modal-content -->
+</div>
+<!-- /modal-->
+
+            
+
+
+
+<div class="col-sm-12">
+    
+                <!-- hh_head -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-1286014838505558"
+                     data-ad-slot="3002911020"
+                     data-ad-format="auto"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                    <div class="clearfix"></div>
+
+</div>
+<div class="clearfix"></div>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <ul id="menu">
+            <li><a href="/timban/vip"><span class="glyphicon glyphicon-circle-arrow-right">
+            </span><strong>VIP</strong></a> </li>
+            <li><a href="/timban/nu"><span class="glyphicon glyphicon-circle-arrow-right">
+            </span>Nữ</a> </li>
+            <li><a href="/timban/nam"><span class="glyphicon glyphicon-circle-arrow-right">
+            </span>Nam</a> </li>
+            <li><a href="/timban/lesbian"><span class="glyphicon glyphicon-circle-arrow-right">
+            </span>Les</a> </li>
+            <li><a href="/timban/gay"><span class="glyphicon glyphicon-circle-arrow-right">
+            </span>Gay</a> </li>
+            <li><a href="/timban/li-di"><span class="glyphicon glyphicon-circle-arrow-right">
+            </span>Ly dị</a> </li>
+            <li><a href="/timban/tam-su"><span class="glyphicon glyphicon-circle-arrow-right">
+            </span>Tìm bạn tâm sự</a> </li>
+            <li><a href="/timban/tim-ban-be-moi"><span class="glyphicon glyphicon-circle-arrow-right">
+            </span>Tìm bạn bè mới</a> </li>
+            <li><a href="/timban/lau-dai"><span class="glyphicon glyphicon-circle-arrow-right">
+            </span>Người yêu lâu dài</a> </li>
+            <li><a href="/timban/thoi-vu"><span class="glyphicon glyphicon-circle-arrow-right">
+            </span>Người yêu ngắn hạn</a> </li>
+            <li><a href="/timban/doc-than"><span class="glyphicon glyphicon-circle-arrow-right">
+            </span>Độc thân</a> </li>
+            <li><a href="/timban/o-goa"><span class="glyphicon glyphicon-circle-arrow-right">
+            </span>Ở góa</a> </li>
+            <li><a href="/timban/dang-co-nguoi-yeu"><span class="glyphicon glyphicon-circle-arrow-right">
+            </span>Đang có người yêu</a> </li>
+            <li><a href="/timban/co-gia-dinh"><span class="glyphicon glyphicon-circle-arrow-right">
+            </span>Đã có gia đình</a> </li>
+            <li><a href="/Home/Country/United%20States"><span class="glyphicon glyphicon-circle-arrow-right">
+            </span>Nước Mỹ</a> </li>
+            
+            <li><a data-toggle="modal" href="#custom-search-modal" class="btn btn-danger btn-sm">
+                <strong><span class="glyphicon glyphicon-search"></span>Tìm kiếm</strong></a>
+            </li>
+        </ul>
+        
+    </div>
+    
+</div>
+
+<div class="clearfix"></div>
+
+    <div class="col-sm-12">
+        
+<div class="row">
+    <div class="col-sm-7 col-md-8">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title c" id="chat-box-header"><a href="/">TÌM BẠN CHAT</a> - <a href="/">Kết Bạn bốn phương</a></h3>
+            </div>
+            <div class="panel-body">
+                <div class="col-sm-12 chat-height" id="chat-box-group"></div>
+                <div class="clearfix"></div>
+                <div class="col-sm-8">
+                    <input type="text" id="chat-text" class="form-control emoticon" placeholder="Đăng nhập để giao lưu, chat chit" maxlength="200" />
+                </div>
+                <div class="col-sm-4">
+                    <button type="submit" class="btn btn-primary btn-sm" id="chat-box-button">Chat</button>
+                    <div class="btn-group" id="yahoo">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+        <img src="/Content/emotion-Chat/1.gif" alt="" />
+    </button>
+    <ul class="dropdown-menu" role="menu">
+        <img src="/Content/custom/img/spin.gif" />
+    </ul>
+</div>
+<div class="btn-group" id="rabbit">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+        <img src="/Content/emotion-Chat/149.gif" alt="" style="height: 18px;" />
+    </button>
+    <ul class="dropdown-menu" role="menu">
+        <img src="/Content/custom/img/spin.gif" />
+    </ul>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-5 col-md-4">
+        <div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title c" id="chat-box-header">Online Users</h3>
+    </div>
+    <div class="panel-body">
+        <div id="divusers" class="chat-height">
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-sm-12">
+            <input type="text" id="search" placeholder="T&#236;m kiếm" class="form-control" />
+        </div>
+    </div>
+</div>
+
+<script id="msgTmpls" type="text/x-jquery-tmpl">
+    <li>
+        <small>${DateString}</small>
+        <span><a href="/Home/Details/${PersonId}" style="color: ${Home.SexColor(Sex)}"><b>${UserName}</b></a>: </span>
+        <span>{{html Message}} </span>
+    </li>
+</script>
+
+<script id="onlCurrent" type="text/x-jquery-tmpl">
+    <div class="loginUser">${UserName}</div>
+</script>
+
+    <script id="onlUsers" type="text/x-jquery-tmpl">
+        <div class="user" id="onl_${Id}">
+            <a href="/Home/Details/${Id}" style="color: ${Home.SexColor(Sex)}">
+                ${UserName}
+            </a>
+            - <a id="${Id}">Chat</a>
+        </div>
+    </script>
+
+    </div>
+</div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="clearfix"></div>
+
+<div class="clearfix"></div>
+
+<div class="col-sm-7 col-md-8">
+        <h1 class="text-success">
+            T&#236;m bạn bốn phương
+        </h1>
+
+    <table class="table table-striped table-bordered table-hover table-fixed">
+        <tbody>
+            <tr class="success">
+                <th style="width: 120px;">
+                    Hình ảnh
+                </th>
+                <th>
+                    Thông tin
+                </th>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="text-center">
+                        <ul class='pagination'><li><a href='http://henho2.com/Home/Index?gtinh=-1&countryid=237&province=-1&maritial=-1&objective=-1&ageFrom=&ageTo=&name=&pageindex=19994' title='19994'>&lt;&lt;</a></li><li class='pagenav'><a href='http://henho2.com/Home/Index?gtinh=-1&countryid=237&province=-1&maritial=-1&objective=-1&ageFrom=&ageTo=&name=&pageindex=19995' title='19995'>19995</a></li><li class='pagenav'><a href='http://henho2.com/Home/Index?gtinh=-1&countryid=237&province=-1&maritial=-1&objective=-1&ageFrom=&ageTo=&name=&pageindex=19996' title='19996'>19996</a></li><li class='pagenav'><a href='http://henho2.com/Home/Index?gtinh=-1&countryid=237&province=-1&maritial=-1&objective=-1&ageFrom=&ageTo=&name=&pageindex=19997' title='19997'>19997</a></li><li class='pagenav'><a href='http://henho2.com/Home/Index?gtinh=-1&countryid=237&province=-1&maritial=-1&objective=-1&ageFrom=&ageTo=&name=&pageindex=19998' title='19998'>19998</a></li><li class='pagenav'><a href='http://henho2.com/Home/Index?gtinh=-1&countryid=237&province=-1&maritial=-1&objective=-1&ageFrom=&ageTo=&name=&pageindex=19999' title='19999'>19999</a></li><li class='active'><a>20000</a></li><li class='pagenav'><a href='http://henho2.com/Home/Index?gtinh=-1&countryid=237&province=-1&maritial=-1&objective=-1&ageFrom=&ageTo=&name=&pageindex=20001' title='20001'>20001</a></li><li class='pagenav'><a href='http://henho2.com/Home/Index?gtinh=-1&countryid=237&province=-1&maritial=-1&objective=-1&ageFrom=&ageTo=&name=&pageindex=20002' title='20002'>20002</a></li><li class='pagenav'><a href='http://henho2.com/Home/Index?gtinh=-1&countryid=237&province=-1&maritial=-1&objective=-1&ageFrom=&ageTo=&name=&pageindex=20003' title='20003'>20003</a></li><li class='pagenav'><a href='http://henho2.com/Home/Index?gtinh=-1&countryid=237&province=-1&maritial=-1&objective=-1&ageFrom=&ageTo=&name=&pageindex=20004' title='20004'>20004</a></li><li class='pagenav'><a href='http://henho2.com/Home/Index?gtinh=-1&countryid=237&province=-1&maritial=-1&objective=-1&ageFrom=&ageTo=&name=&pageindex=20005' title='20005'>20005</a></li><li class='pagenav'><a href='http://henho2.com/Home/Index?gtinh=-1&countryid=237&province=-1&maritial=-1&objective=-1&ageFrom=&ageTo=&name=&pageindex=20006' title='20006'>&gt;&gt;</a></li></ul>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="col-sm-5 col-md-4">
+    
+    
+                <!-- hh_auto -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-1286014838505558"
+                     data-ad-slot="4479644226"
+                     data-ad-format="auto"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                    <div class="clearfix"></div>
+
+    <div class="clearfix"></div>
+    <div class="alert alert-success" role="alert">
+        Nếu cần hỗ trợ, vui lòng <a href="/home/contact">liên hệ admin tại đây</a> hoặc qua email <a href="mailto:henho2.com@yahoo.com">henho2.com@yahoo.com</a>
+    </div>
+    <div class="clearfix"></div>
+
+
+        <h4 class="text-success"><strong>Like</strong> để nhận thông tin nhanh nhất</h4>
+        <div class="fb-page" data-href="https://www.facebook.com/henho2com" data-small-header="true" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/henho2com" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/henho2com">Hẹn hò</a></blockquote></div>
+        <div class="clearfix"></div>
+
+    
+
+
+    
+
+<h4 class="text-success">Mới đăng ký</h4>
+<ul class="nav nav-tabs" id="tabOthers1">
+    <li><a href="#nu1" data-toggle="tab">Nữ</a></li>
+    <li><a href="#lesbian1" data-toggle="tab">Les</a></li>
+    <li><a href="#nam1" data-toggle="tab">Nam</a></li>
+    <li><a href="#gay1" data-toggle="tab">Gay</a></li>
+</ul>
+
+<div class="tab-content">
+        <div class="tab-pane fade in active" id="nu1">
+                    <div class="media ">
+            <a class="pull-left" href="/Home/Details/496606">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/ban_gai_tim_ban_trai_bon_phuong_496606.jpg" alt="T&#226;m Nhi&#234;n" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/496606">T&#226;m Nhi&#234;n</a></h4>
+                Chững chạc v&#224; biết suy nghĩ! Ai kh&#244;ng l&#224;nh mạnh hay ăn chơi th&#236; đừng pm! 
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/496600">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/ban_gai_tim_ban_trai_bon_phuong_496600.jpg" alt="Gấu" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/496600">Gấu</a></h4>
+                Chung thuỷ, t&#237;nh t&#236;nh thoải m&#225;i, c&#244;ng việc ổn định, sinh sống v&#224; l&#224;m việc tại H&#224; Nội, cao 170 cm trở l&#234;n
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/496578">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/ban_trai_tim_ban_gai_bon_phuong_496578.jpg" alt="Alone " style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/496578">Alone </a></h4>
+                Muốn kết bạn c&#249;ng t&#244;i 
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/496570">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/ban_gai_tim_ban_trai_bon_phuong_496570.jpg" alt="Hue Phuong" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/496570">Hue Phuong</a></h4>
+                Nghi&#234;m t&#250;c, kh&#244;ng đ&#249;a cợt
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/496568">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/ban_gai_tim_ban_trai_bon_phuong_496568.jpg" alt="Xu&#226;n Mai Trần" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/496568">Xu&#226;n Mai Trần</a></h4>
+                biết quan t&#226;m, thấu hiểu, chia sẻ, ho&#224; đồng, kh lớn hơn qu&#225; 5 tuổi, cao 1m78 trở l&#234;n
+
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/495743">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/ban_gai_tim_ban_trai_bon_phuong_495743.jpg" alt="Huế" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/495743">Huế</a></h4>
+                Tuỳ duy&#234;n. 
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/496313">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/ban_gai_tim_ban_trai_bon_phuong_496313.jpg" alt="Tran" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/496313">Tran</a></h4>
+                T&#236;m a gi&#250;p đỡ t&#224;i ch&#237;nh một mối quan hệ l&#226;u d&#224;i k rằng buộc .sẽ lang nghe chia sẻ nỗi buồn m&#224; ai đ&#243; k thể ...
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/496046">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/ban_gai_tim_ban_trai_bon_phuong_496046.jpg" alt="Bloom" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/496046">Bloom</a></h4>
+                đơn giản, thẳng thắn. t&#236;m kiếm mối quan hệ ko phức tạp, c&#243; đk kinh tế. đ&#244;i b&#234;n gi&#250;p đỡ lẫn nhau
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/496526">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/ban_gai_tim_ban_trai_bon_phuong_496526.jpg" alt="Giang" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/496526">Giang</a></h4>
+                Gi&#250;p đỡ cuộc sống tốt hơn
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/495662">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/ban_gai_tim_ban_trai_bon_phuong_495662.jpg" alt="Mỹ Thuận" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/495662">Mỹ Thuận</a></h4>
+                Tương đồng giống t&#244;i. Nhỏ tuổi hơn xin đừng l&#224;m phiền ạ! Thanks v&#236; đ&#227; đọc th&#244;ng tin.
+            </div>
+        </div>
+
+        </div>
+            <div class="tab-pane fade" id="lesbian1">
+                    <div class="media ">
+            <a class="pull-left" href="/Home/Details/496521">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/tim_ban_les_bon_phuong_496521.jpg" alt="Keshi" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/496521">Keshi</a></h4>
+                T&#236;m người c&#243; t&#237;nh t&#236;nh vui vẻ, lạc quan, y&#234;u đời, c&#243; khả năng lắng nghe, ch&#226;n th&#224;nh
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/496373">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/tim_ban_les_bon_phuong_496373.jpg" alt="Như Quỳnh" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/496373">Như Quỳnh</a></h4>
+                Bạn l&#224; SB, lớn hơn hoặc bằng 24 tuổi, trưởng th&#224;nh, nghi&#234;m t&#250;c trong tc. chung thủy v&#224; độc lập t&#224;i ch&#237;nh,c&#244;ng ...
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/496348">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/tim_ban_les_bon_phuong_496348.jpg" alt="Minh T&#250;" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/496348">Minh T&#250;</a></h4>
+                T&#243;c d&#224;i. Dễ gần. Đơn giản 
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/496339">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/tim_ban_les_bon_phuong_496339.jpg" alt="Daisy" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/496339">Daisy</a></h4>
+                1 night stand.
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/496310">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/tim_ban_les_bon_phuong_496310.jpg" alt=" Min " style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/496310"> Min </a></h4>
+                Người đơn giản như t&#244;i.&#128524; t&#243;c d&#224;i 
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/496177">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/tim_ban_les_bon_phuong_496177.jpg" alt="Hạnh Nguyễn" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/496177">Hạnh Nguyễn</a></h4>
+                Ai cho t&#244;i t&#236;nh y&#234;u.. trọn vẹn
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/495605">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/tim_ban_les_bon_phuong_495605.jpg" alt="Hiếu Phan" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/495605">Hiếu Phan</a></h4>
+                Cho d&#249; l&#224; t&#236;nh bạn hay t&#236;nh y&#234;u, h&#227;y đến với nhau bằng tất cả sự ch&#226;n th&#224;nh.
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/495652">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/ban_gai_tim_ban_trai_bon_phuong_495652.jpg" alt="Linh Linh" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/495652">Linh Linh</a></h4>
+                Ho&#224; đồng , vui vẻ dễ mến .
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/495586">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/tim_ban_les_bon_phuong_495586.jpg" alt="Irish Nguyễn" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/495586">Irish Nguyễn</a></h4>
+                Nữ t&#243;c d&#224;i ,Vui t&#237;nh.T&#236;m bạn b&#225;nh b&#232;o kh&#244;ng th&#237;ch mấy bạn men. Kh&#244;ng sống ảo . Sống thật tốt nhất . Lớn tuổi ...
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/496009">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/tim_ban_les_bon_phuong_496009.jpg" alt="H&#226;n" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/496009">H&#226;n</a></h4>
+                Xinh một ch&#250;t, ưa nh&#236;n, c&#243; gu ăn mặc, đang đi học hoặc đi l&#224;m, lớn hơn v&#224;i tuổi c&#224;ng tốt.
+            </div>
+        </div>
+
+        </div>
+            <div class="tab-pane fade" id="nam1">
+                    <div class="media ">
+            <a class="pull-left" href="/Home/Details/496579">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/ban_trai_tim_ban_gai_bon_phuong_496579.jpg" alt="Tuấn Ho&#224;ng Minh" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/496579">Tuấn Ho&#224;ng Minh</a></h4>
+                Nu, an noi nhe nhang, hoat bat, co trinh do va hay cười 
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/496572">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/ban_trai_tim_ban_gai_bon_phuong_496572.jpg" alt="Hoang Minh" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/496572">Hoang Minh</a></h4>
+                phụ nữ tại HCM, tuổi t&#225;c kh&#244;ng quan trọng, miễn sao n&#243;i chuyện hợp v&#224; c&#243; gi&#226;y ph&#250;t b&#234;n nhau thoải m&#225;i, được ...
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/496534">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/ban_trai_tim_ban_gai_bon_phuong_496534.jpg" alt="Zuno" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/496534">Zuno</a></h4>
+                - Kh&#244;ng lừa dối phương, chung thủy, t&#244;n trọng, biết chia sẻ v&#224; lắng nghe ......
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/496505">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/ban_trai_tim_ban_gai_bon_phuong_496505.jpg" alt="H&#249;ng" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/496505">H&#249;ng</a></h4>
+                D&#225;m l&#224;m d&#225;m nhận, d&#225;m đương đầu với những g&#236; m&#236;nh đ&#227; l&#224;m.
+
+T&#244;i l&#224; d&#226;n kinh tế n&#234;n cần t&#236;m một Đối t&#225;c nữ ...
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/496483">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/ban_trai_tim_ban_gai_bon_phuong_496483.jpg" alt="Huy L&#226;m" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/496483">Huy L&#226;m</a></h4>
+                T&#236;m bạn g&#225;i để t&#226;m sự trao đổi về cuộc sống 
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/495578">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/ban_trai_tim_ban_gai_bon_phuong_495578.jpg" alt="Break time !" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/495578">Break time !</a></h4>
+                I am leaving for a while and be back soon . 
+Just wait for me !
+Love you all !
+
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/496060">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/ban_trai_tim_ban_gai_bon_phuong_496060.jpg" alt="CONGTU" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/496060">CONGTU</a></h4>
+                hợp nhau
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/495621">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/ban_trai_tim_ban_gai_bon_phuong_495621.jpg" alt="Nam" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/495621">Nam</a></h4>
+                C&#243; vẻ đẹp của người con g&#225;i hiện đại.
+L&#224;m hết sức, chơi hết m&#236;nh, biết nặng, biết nhẹ.
+::D
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/495738">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/ban_trai_tim_ban_gai_bon_phuong_495738.jpg" alt="flowerpecker" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/495738">flowerpecker</a></h4>
+                Anh c&#243; những khoảng tối, những mệt mỏi v&#236; chuyện đời chuyện l&#242;ng người, c&#243; l&#250;c anh cảm thấy anh mạnh mẽ, c&#243; ...
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/496308">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/ban_trai_tim_ban_gai_bon_phuong_496308.jpg" alt="Raymond" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/496308">Raymond</a></h4>
+                T&#236;m bạn tr&#242; chuyện :D, th&#237;ch những bạn biết nấu ăn, dọn dẹp v&#224; chăm lo cho gia đ&#236;nh :D, m&#236;nh qu&#234; gốc miền ...
+            </div>
+        </div>
+
+        </div>
+            <div class="tab-pane fade" id="gay1">
+                    <div class="media ">
+            <a class="pull-left" href="/Home/Details/496527">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/ban_trai_tim_ban_gai_bon_phuong_496527.jpg" alt="Edward" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/496527">Edward</a></h4>
+                 Kh&#244;ng mong một người tốt về mọi thứ
+ Chỉ mong người thật về mọi mặt
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/496525">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/ban_trai_tim_ban_gai_bon_phuong_496525.jpg" alt="Ho&#224;ng" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/496525">Ho&#224;ng</a></h4>
+                C&#244;ng..vui t&#237;nh ga lăng
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/496494">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/ban_trai_tim_ban_gai_bon_phuong_496494.jpg" alt="Kha Ho" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/496494">Kha Ho</a></h4>
+                T&#244;i l&#224; bot. Từng tự h&#224;o về cuộc đời tự do, k vướng bận của 1 thằng FA. Nhưng đ&#243; l&#224; l&#250;c trước. Giờ nh&#236;n những ...
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/496424">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/tim_ban_gay_bon_phuong_496424.jpg" alt="Tường Huy " style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/496424">Tường Huy </a></h4>
+                Top sống đơn giản, c&#243; ch&#250;t h&#224;i hước. 
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/496362">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/tim_ban_gay_bon_phuong_496362.jpg" alt="Alonely" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/496362">Alonely</a></h4>
+                T&#236;m người mạnh mẽ, chững chạc, nghi&#234;m t&#250;c
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/495589">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/tim_ban_gay_bon_phuong_495589.jpg" alt="Thanh Hiệp" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/495589">Thanh Hiệp</a></h4>
+                c&#249;ng sở th&#237;ch v&#224; t&#237;nh c&#225;ch(50% l&#224; được).
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/495851">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/tim_ban_gay_bon_phuong_495851.jpg" alt="ruacan1988" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/495851">ruacan1988</a></h4>
+                Một người bạn ch&#226;n th&#224;nh, vui vẻ, thoải m&#225;i, biết lắng nghe v&#224; y&#234;u thương cuộc sống, y&#234;u thương bản th&#226;n m&#236;nh.
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/496221">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/tim_ban_gay_bon_phuong_496221.jpg" alt="Kum" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/496221">Kum</a></h4>
+                T&#236;m một anh biết quan t&#226;m, chiều chuộng. Th&#237;ch ăn vặt n&#234;n muốn c&#243; người chở đi ăn vặt c&#249;ng.. Phải biết t&#244;n ...
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/496305">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/tim_ban_gay_bon_phuong_496305.jpg" alt="我信诚" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/496305">我信诚</a></h4>
+                At present i still single. I&#39;m want to find new friend &amp; if chatting together well so became my sweetheart. ...
+            </div>
+        </div>
+
+        </div>
+</div>
+
+    
+    
+    <div class="clearfix"></div>
+
+    
+
+<h4 class="text-success">Xem nhiều nhất</h4>
+<ul class="nav nav-tabs" id="tabOthers">
+    <li><a href="#nu" data-toggle="tab">Hot Girl</a></li>
+    <li><a href="#lesbian" data-toggle="tab">Hot Les</a></li>
+    <li><a href="#nam" data-toggle="tab">Hot Boy</a></li>
+    <li><a href="#gay" data-toggle="tab">Hot Gay</a></li>
+</ul>
+
+<div class="tab-content">
+        <div class="tab-pane fade in active" id="nu">
+                    <div class="media ">
+            <a class="pull-left" href="/Home/Details/54766">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/ban_gai_tim_ban_trai_bon_phuong_54766.jpg" alt="Hi Vọng Ở Tương Lai" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/54766">Hi Vọng Ở Tương Lai</a></h4>
+                Một người đ&#224;n &#244;ng tinh tế v&#224; ch&#226;n th&#224;nh!
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/224129">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/ban_gai_tim_ban_trai_bon_phuong_224129.jpg" alt="Hoang Lan" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/224129">Hoang Lan</a></h4>
+                Tự trọng,Th&#224;nh đạt, s&#226;u sắc, tr&#225;i tim nồng ấm.
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/351825">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/ban_gai_tim_ban_trai_bon_phuong_351825.jpg" alt="July" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/351825">July</a></h4>
+                Lịch sự, vui vẻ, biết t&#244;n trọng đối phương. S&#242;ng phẳng, kh&#244;ng t&#237;nh to&#225;n. C&#243; thể c&#249;ng nhau đi du lịch, ăn uống, ...
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/162533">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/ban_gai_tim_ban_trai_bon_phuong_162533.jpg" alt="Ngọc Lan" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/162533">Ngọc Lan</a></h4>
+                Sao người c&#242;n nghĩ thiệt hơn /
+Để m&#224;u nhung nhớ t&#237;m sờn tim em 
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/351271">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/ban_gai_tim_ban_trai_bon_phuong_351271.jpg" alt="Girl Buồn" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/351271">Girl Buồn</a></h4>
+                xuống tận c&#249;ng dưới đ&#225;y thấy m&#234;nh mong rộng c&#245;i trời,h&#227;y mở l&#242;ng ch&#250;ng ta đ&#243;n nhận chuyện t&#236;nh y&#234;u,c&#243; ngh&#236;n ...
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/129360">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/129360.jpg" alt="Nguyễn &#193;nh Ngọc " style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/129360">Nguyễn &#193;nh Ngọc </a></h4>
+                ng` đ&#243; l&#224; ng` biết cảm th&#244;ng v&#236; t&#244;i bị bệnh từ nhỏ ( bị yếu hệ vận động, đi lại yếu, tay yếu, n&#243;i ngọng), ...
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/189329">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/ban_gai_tim_ban_trai_bon_phuong_189329.jpg" alt="August" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/189329">August</a></h4>
+                Người hiểu biết, h&#224;i hước v&#224; dễ thương
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/84717">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/ban_gai_tim_ban_trai_bon_phuong_84717.jpg" alt="B&#249;i" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/84717">B&#249;i</a></h4>
+                *: ti&#234;u chuẩn hok l&#224; tuyệt đối, 1 khi tym lỡ thương th&#236; biết l&#224;m s, cơ m&#224; chưa c&#243; ai chinh phục đc tr&#225;i tym ...
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/250113">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/250113.jpg" alt="Trinh" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/250113">Trinh</a></h4>
+                	M&#236;nh muốn t&#236;m một bạn nam duy nhất để t&#236;m hiểu v&#224; tiến tới h&#244;n nh&#226;n. Nhưng... Một nửa của em ơi ! Anh trốn ...
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/294965">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/ban_gai_tim_ban_trai_bon_phuong_294965.jpg" alt="Tuyết" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/294965">Tuyết</a></h4>
+                Một người nghi&#234;m t&#250;c trong tất cả mối quan hệ.
+            </div>
+        </div>
+
+        </div>
+            <div class="tab-pane fade" id="lesbian">
+                    <div class="media ">
+            <a class="pull-left" href="/Home/Details/233668">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/tim_ban_les_bon_phuong_233668.jpg" alt="Jun" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/233668">Jun</a></h4>
+                Dễ thương đ&#225;ng y&#234;u hơn t&#244;i. 
+Đừng lầy lội hơn t&#244;i. 
+Y&#234;u thương t&#244;i...
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/324841">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/tim_ban_les_bon_phuong_324841.jpg" alt="Chin-su^^" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/324841">Chin-su^^</a></h4>
+                Th&#226;n th&#226;n...thương thương... :)
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/60090">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/60090.jpg" alt="quỳnh" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/60090">quỳnh</a></h4>
+                bạn,ny.........
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/389380">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/tim_ban_les_bon_phuong_389380.jpg" alt="Veronica" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/389380">Veronica</a></h4>
+                T&#244;i th&#237;ch những c&#244; g&#225;i th&#244;ng minh v&#224; tự chủ, người hiểu r&#245; m&#236;nh cần g&#236; v&#224; muốn g&#236;.
+We might as well be a symphony
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/337107">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/tim_ban_les_bon_phuong_337107.jpg" alt="win" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/337107">win</a></h4>
+                C&#243; thể l&#224;m bạn b&#232; tốt, th&#244;ng cảm v&#224; thấu hiểu.. 
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/178208">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/0.jpg" alt="Hoa xuong rong" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/178208">Hoa xuong rong</a></h4>
+                Tim nguoi lang mang,biet quan tam,co the cung toi di den cuoi con duong.zalo.Vui l&#242;ng PM để trao đổi SDT
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/261778">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/tim_ban_les_bon_phuong_261778.jpg" alt="Kh&#244;ng C&#242;n Nợ Nhau" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/261778">Kh&#244;ng C&#242;n Nợ Nhau</a></h4>
+                Tuỳ duy&#234;n! 
+T&#244;i th&#237;ch người ch&#237;nh chắn, đầm t&#237;nh... V&#224; t&#236;m kiếm nhưng ng bạn l&#226;u d&#224;i. N&#234;n ai k c&#243; thiện &#253; ...
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/228153">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/tim_ban_les_bon_phuong_228153.jpg" alt="JalliHoang" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/228153">JalliHoang</a></h4>
+                Vui l&#224; ch&#237;nh, t&#236;m kẻ hợp cạ l&#224; chủ yếu
+Kh&#244;ng ph&#226;n biệt B, SB, F, Bi, TR...
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/383525">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/tim_ban_les_bon_phuong_383525.jpg" alt="Smile" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/383525">Smile</a></h4>
+                khi người lớn c&#244; đơn :) nếu bạn cần ai đ&#243; n&#243;i chuyện hay lắng nghe, send message cho m&#236;nh nh&#233; 
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/276472">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/0.jpg" alt="ngọc" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/276472">ngọc</a></h4>
+                T&#236;m bạn n&#243;i chuyện vui vẻ ch&#250;t&#128514;
+
+            </div>
+        </div>
+
+        </div>
+            <div class="tab-pane fade" id="nam">
+                    <div class="media ">
+            <a class="pull-left" href="/Home/Details/105436">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/105436.jpg" alt="Huy" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/105436">Huy</a></h4>
+                T&#236;m c&#225;c bạn nữ lớn tuổi, độc than hay đ&#227; li dị để c&#249;ng nhau xd m&#225;i ấm gd
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/189707">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/ban_trai_tim_ban_gai_bon_phuong_189707.jpg" alt="Cố nh&#226;n...!!! " style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/189707">Cố nh&#226;n...!!! </a></h4>
+                Kh&#244;ng y&#234;u th&#234;m nữa...
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/80556">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/ban_trai_tim_ban_gai_bon_phuong_80556.jpg" alt="H&#217;NG➇T" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/80556">H&#217;NG➇T</a></h4>
+                Th&#226;n tặng thơ t&#236;nh:...... T&#226;m tư thổn thức thẫn thờ... T&#236;nh t&#244;i trao tặng th&#224;nh thơ tuyệt t&#236;nh... Th&#244;i th&#236; ...
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/259410">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/ban_trai_tim_ban_gai_bon_phuong_259410.jpg" alt="H Hu&#226;n" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/259410">H Hu&#226;n</a></h4>
+                 ..........................................
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/147635">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/0.jpg" alt="NGƯỜI C&#212; ĐƠN" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/147635">NGƯỜI C&#212; ĐƠN</a></h4>
+                t&#236;m người y&#234;u  thật l&#242;ng... CO THE TIM HIEU
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/201562">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/ban_trai_tim_ban_gai_bon_phuong_201562.jpg" alt="Andy P." style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/201562">Andy P.</a></h4>
+                T&#236;m người chung đường, 30+.
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/147352">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/ban_trai_tim_ban_gai_bon_phuong_147352.jpg" alt="Hung Nguyen" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/147352">Hung Nguyen</a></h4>
+                Hợp gu - l&#226;u d&#224;i 
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/61527">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/ban_trai_tim_ban_gai_bon_phuong_61527.jpg" alt="MAKE FRIEND AND LOVE !!" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/61527">MAKE FRIEND AND LOVE !!</a></h4>
+                KẾT BẠN VỚI : 
+- BẠN Ở GẦN C&#211; THỂ ĐI ĂN, CAFE T&#193;M CHO VUI NH&#201; ( KH&#212;NG TH&#205;CH BẠN ẢO ) 
+- BẠN C&#211; DỊP THĂM ...
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/347581">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/0.jpg" alt="Xa nh&#224;, buồn...!" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/347581">Xa nh&#224;, buồn...!</a></h4>
+                Tim ban gai dang hoang, hien lanh, lịch sự để hẹn h&#242;...
+
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/92278">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/ban_trai_tim_ban_gai_bon_phuong_92278.jpg" alt="đừng l&#224; hạt mưa " style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/92278">đừng l&#224; hạt mưa </a></h4>
+                muốn được bao l&#226;u
+            </div>
+        </div>
+
+        </div>
+        <div class="tab-pane fade" id="gay">
+                    <div class="media ">
+            <a class="pull-left" href="/Home/Details/397679">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/tim_ban_gay_bon_phuong_397679.jpg" alt="anh tuấn" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/397679">anh tuấn</a></h4>
+                Hiểu chuyện lớn tuổi hơn. Đừng qu&#225; ốm nha
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/195282">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/0.jpg" alt="Nguy&#234;n" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/195282">Nguy&#234;n</a></h4>
+                T&#236;m Top, ch&#226;n th&#224;nh, ngoại h&#236;nh cao r&#225;o. N&#243;i chung l&#224; b&#236;nh thường v&#224; đơn giản giống như t&#244;i. Sống v&#224; l&#224;m việc ...
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/221653">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/0.jpg" alt="ĐI T&#204;M" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/221653">ĐI T&#204;M</a></h4>
+                T&#236;m Top ch&#226;n th&#224;nh...tuổi dưới 35, sống v&#224; l&#224;m việc ở tpHCM. T&#244;i ko cần ti&#234;u chuẩn nhiều về Top v&#224; sao cũng ...
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/274075">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/tim_ban_gay_bon_phuong_274075.jpg" alt="ho&#224;ng" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/274075">ho&#224;ng</a></h4>
+                t&#236;m TOP t&#237;nh t&#236;nh vui vẻ, h&#242;a đồng, men kh&#244;ng cần biết nhi&#234;u tuổi, xấu hay đẹp chỉ cần thật l&#242;ng l&#224; dc
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/354966">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/0.jpg" alt="Quang Huy" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/354966">Quang Huy</a></h4>
+                TOP, ch&#226;n th&#224;nh, ch&#237;n chắn, c&#243; &#253; định x&#226;y dựng tương lai.
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/409353">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/tim_ban_gay_bon_phuong_409353.jpg" alt="Đạt" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/409353">Đạt</a></h4>
+                &quot; Đừng mơ ước những ai ngo&#224;i tầm với
+M&#226;y của trời h&#227;y để gi&#243; cuốn đi &quot;
+
+
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/477172">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/tim_ban_gay_bon_phuong_477172.jpg" alt="Audi " style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/477172">Audi </a></h4>
+                TOP..Một bờ vai vững chắc, một tr&#225;i tim ấm, một c&#225;i &#244;m thật chặt, ch&#226;n th&#224;nh, thật l&#242;ng, chia sẻ, c&#249;ng nhau ...
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/424102">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/tim_ban_gay_bon_phuong_424102.jpg" alt="key" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/424102">key</a></h4>
+                t&#244;i t&#236;m một bạn bot, c&#243; t&#237;nh c&#225;ch dễ thương, dễ gần, tui muốn bạn phải l&#224; người tự tin, c&#225; t&#237;nh... ngoan x&#237;u, ...
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/367709">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/0.jpg" alt="L&#226;m Huỳnh" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/367709">L&#226;m Huỳnh</a></h4>
+                Đơn giản, lịch sự, ko ẻo l&#227;
+            </div>
+        </div>
+        <div class="media ">
+            <a class="pull-left" href="/Home/Details/456201">
+                    <img class="media-object" src="http://content.henho2.com/UploadImages/Profile/0.jpg" alt="Hoang anh" style="width: 64px;" />
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/Home/Details/456201">Hoang anh</a></h4>
+                T&#236;m bạn Binh thuong ,Bot  trẻ k&#237;n manly ,mạnh mẽ , t&#236;m một mối quan hệ b&#237; mật v&#224; l&#226;u d&#224;i với nhau ,o th&#237;ch ...
+            </div>
+        </div>
+
+        </div>
+</div>
+
+
+    <div class="clearfix"></div>
+
+
+
+    <div class="clearfix"></div>
+    <div class="panel panel-default hidden-xs">
+    <span class="large">Tags</span>: <a href="/timban/nu" class="large">Tim ban gai</a>
+    - <a href="/timban/nam">Tìm bạn trai</a>
+    - <a href="/">Tim ban bon phuong</a>
+    - <a href="/" class="large">Kết bạn</a>
+    - <a href="/">Kết bạn bốn phương</a>
+    - <a href="/" class="large">Tim ban tinh</a>
+    - <a href="/timban/lesbian" class="large">Cộng đồng les</a>
+    - <a href="/timban/lesbian">Tìm les</a>
+    - <a href="/timban/lesbian">Tìm fem</a>
+    - <a href="/timban/lesbian">Tìm sbm</a>
+    - <a href="/timban/gay" class="large">Cộng đồng Gay</a>
+    - <a href="/timban/gay">Gay Top</a>
+    - <a href="/timban/gay">Gay Bot</a>
+</div>
+</div>
+<div class="col-sm-12">
+    
+
+</div>
+<div class="clearfix"></div>
+
+
+            <div style="clear: both;">
+            </div>
+            <div class="col-md-12">
+                <div class="panel panel-default">
+    <ul class="nav navbar-nav">
+        <li><a href="/">Tim ban chat</a></li>
+        <li><a href="/Home/termcondition">Nội Quy</a></li>
+        <li><a href="/Home/about">Giới Thiệu</a></li>
+        <li><a href="/Home/faq">Giúp đỡ</a></li>
+        <li><a href="/Home/contact">Liên Hệ Admin</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="/">© 2013 Hẹn hò</a></li>
+    </ul>
+</div>
+<div class="clearfix"></div>
+<p>
+    Site links:
+    <a href="http://giavangvn.org" target="_blank">gia vang</a> - <a href="http://tygiadola.com" target="_blank">ty gia</a> - <a href="http://laisuatvn.com" target="_blank">lai suat ngan hang</a>
+</p>
+
+
+            </div>
+        </div>
+    </div>
+
+    <input type="hidden" id="Authenticated" value="0" />
+    <input type="hidden" id="JoinDay" value="0" />
+    <input type="hidden" id="IsMobile" value="False" />
+    <input id="hdId" type="hidden" value="0" />
+    <input id="hdUserName" value="" type="hidden" />
+    <input id="hdSex" value="0" type="hidden" />
+    <input id="IsSound" value="false" type="hidden" />
+    <input id="Active" value="false" type="hidden" />
+    <input id="lang" value="vi" type="hidden" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"></script>
+
+    <script src="/siteJs?v=8tj9wOcqWt1G_rd0XdXWH_Xw2vmkuJyor78qZI0giFg1"></script>
+
+
+    <script src="/signalr/js"></script>
+
+    
+        <script id="msgTmpl" type="text/x-jquery-tmpl">
+            <li>
+                <small>${GetDate(SentDate)}</small>
+                <span><a href="/Home/Details/${PersonId}" style="color: ${Home.SexColor(Sex)}"><b>${Name}</b></a>: </span>
+                <span>{{html Text}} </span>
+            </li>
+        </script>
+        <script type="text/javascript">
+            Home.initChatBox();
+        </script>
+            <script type="text/javascript">
+            $(function () {
+                $('#tabOthers a:first').tab('show')
+                $('#tabOthers1 a:first').tab('show')
+            });
+        </script>
+
+    <script type="text/javascript">
+        var msg = {
+            Msg_Image: "Hãy chọn một hình ảnh đuôi .gif, .jpg, .jpeg, .png",
+            Msg_ImageSize: "Hãy chọn một hình ảnh < 8 MB",
+            Msg_Password: "Mật khẩu phải dài hơn 6 ký tự",
+            Msg_SoundOff: "Tắt âm thanh",
+            Msg_SoundOn: "Bật âm thanh",
+            Msg_AccountLock: "Tài khoản của bạn đã bị khóa hoặc chưa kích hoạt!",
+            Msg_MaxBoxChat: "Bạn vui lòng đóng bớt các cửa sổ chat. Tối đa chỉ được 12 cửa sổ chat.",
+            Msg_RatingOK: "Cảm ơn bạn đã đánh giá hồ sơ này.",
+            Msg_RatingError: "Đã có lỗi khi đánh giá hồ sơ này.",
+            Msg_RatingLogin: "Bạn vui lòng đăng nhập để đánh giá hồ sơ này."
+        };
+    </script>
+    <script type="text/javascript" src="//st-n.ads2-adnow.com/js/adv_out.js"></script>
+</body>
+</html>

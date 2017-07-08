@@ -8,7 +8,7 @@ using System.Linq;
 using System.Windows.Forms;
 using ThuVienWinform.UI;
 
-namespace AutoSendMessageOnWeb.Lib
+namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb
 {
     public partial class frmTimKiemBrowser : Form
     {

@@ -17,5 +17,6 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb
         IEnumerable<ThongTinTaiKhoan> TimKiem(ThongTinTimKiem param);
         IEnumerable<ThongTinTaiKhoan> TimKiemBangWebbrowser(IEnumerable<ThongTinTaiKhoan> binding);
         void GuiTin(ThongTinTaiKhoan nguoigui, ThongTinTaiKhoan nguoinhan, string tieude, string noidung);
+        DanhSachDuLieuTimKiem TaoDuLieuTimKiem();
     }
 }

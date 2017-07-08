@@ -46,7 +46,7 @@ namespace AutoSendMessageOnWeb
         {
             InitializeComponent();
 
-            CheckForIllegalCrossThreadCalls = false;
+            //CheckForIllegalCrossThreadCalls = false;
 
             ControlPlus.MovieFormWhenMouseDownControl(controlBoxFlat1, this.Handle);
             ControlPlus.MovieFormWhenMouseDownControl(controlBoxFlat1.lblFormText, this.Handle);
@@ -56,6 +56,7 @@ namespace AutoSendMessageOnWeb
 
             thongTinTaiKhoan_GuiBindingSource.DataSource = _db.DanhSachNguoiGui;
             thongTinTaiKhoan_NhanBindingSource.DataSource = _db.DanhSachNguoiNhan;
+            lblSoLuongKetQua.Text = string.Format("Số lượng kết quả: {0}", thongTinTaiKhoan_NhanBindingSource.Count);
 
             switch (trang)
             {
@@ -68,17 +69,57 @@ namespace AutoSendMessageOnWeb
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            thongTinTaiKhoan_NhanBindingSource.DataSource = _thaoTacWeb.TimKiemBangWebbrowser(_db.DanhSachNguoiNhan);
-            //_db.DanhSachNguoiNhan.Add(new ThongTinTaiKhoan());
-            thongTinTaiKhoan_NhanBindingSource.EndEdit();
-            grvNhan.Update();
-            grvNhan.Refresh();
+            if (btnTimKiem.Text == "Tìm kiếm")
+            {
+                frmTimKiem tkiem = new frmTimKiem(_thaoTacWeb);
+                if (tkiem.ShowDialog() == DialogResult.OK)
+                {
+                    thongTinTaiKhoan_NhanBindingSource.Clear();
+                    btnTimKiem.Text = "Dừng";
+                    btnTimKiem.BackColor = Color.Red;
+                    lblSoLuongKetQua.Text = "Số lượng kết quả: 0";
+
+                    backgroundWorkerTimKiem.RunWorkerAsync(tkiem.ParamTimKiem);
+                }
+            }
+            else
+            {
+                backgroundWorkerTimKiem.CancelAsync();
+                backgroundWorkerTimKiem_RunWorkerCompleted(backgroundWorkerTimKiem, null);
+            }
         }
 
-        private void dataGridViewFlat1_KeyUp(object sender, KeyEventArgs e)
+        BindingList<ThongTinTaiKhoan> _danhSach = new BindingList<ThongTinTaiKhoan>();
+        private void backgroundWorkerTimKiem_DoWork(object sender, DoWorkEventArgs e)
+        {
+            int dem = 0;
+            _danhSach = new BindingList<ThongTinTaiKhoan>();
+            XuLyDaLuong.ChangeText(lblTrangThaiTimKiem, "Đang nhận dữ liệu...", Color.Red);
+            foreach (var kq in _thaoTacWeb.TimKiem(e.Argument as ThongTinTimKiem))
+            {
+                if (backgroundWorkerTimKiem.CancellationPending)
+                    break;
+
+                _danhSach.Add(kq);
+                XuLyDaLuong.ChangeText(lblSoLuongKetQua,
+                            string.Format("Số lượng kết quả: {0}", ++dem), Color.Black);
+            }
+            e.Result = _danhSach;
+            XuLyDaLuong.ChangeText(lblTrangThaiTimKiem, "Hoàn tất tìm kiếm", Color.Green);
+        }
+
+        private void backgroundWorkerTimKiem_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            thongTinTaiKhoan_NhanBindingSource.DataSource = _danhSach;
+            btnTimKiem.Text = "Tìm kiếm";
+            btnTimKiem.BackColor = Color.FromArgb(255, 255, 128);
+        }
+
+        private void grvGui_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Delete)
-                thongTinTaiKhoan_NhanBindingSource.RemoveCurrent();
+                if (thongTinTaiKhoan_GuiBindingSource.Count != 0)
+                    thongTinTaiKhoan_GuiBindingSource.RemoveCurrent();
         }
 
         private async void btnGuiTin_Click(object sender, EventArgs e)
@@ -103,8 +144,8 @@ namespace AutoSendMessageOnWeb
                 #endregion
 
                 #region Gửi
-                var lstGui = (thongTinTaiKhoan_GuiBindingSource.List as IList<ThongTinTaiKhoan>).Where(p => p.ChoPhepGuiNhan && p.Cookie != null);
-                var lstNhan = (thongTinTaiKhoan_NhanBindingSource.List as IList<ThongTinTaiKhoan>).Where(p => p.ChoPhepGuiNhan);
+                var lstGui = (thongTinTaiKhoan_GuiBindingSource.List as IList<ThongTinTaiKhoan>).Where(p => p.Cookie != null);
+                var lstNhan = (thongTinTaiKhoan_NhanBindingSource.List as IList<ThongTinTaiKhoan>);//.Where(p => p.ChoPhepGuiNhan);
 
                 int soNguoiGui = lstGui.Count();
                 int soNguoiNhan = lstNhan.Count();
@@ -131,14 +172,15 @@ namespace AutoSendMessageOnWeb
                 while (index_NguoiGuiHienTai < soNguoiGui && index_NguoiNhanHienTai < soNguoiNhan)
                 {
                     ThongTinTaiKhoan nguoiGui = lstGui.ElementAt(index_NguoiGuiHienTai++);
-                    for (int i = 0; i < GioiHanGuiThu.LayGioiHan(TrangWeb.HenHo2); i++)
+                    for (int i = 0; i < nguoiGui.SoThuSeGui; i++)
                     {
                         ThongTinTaiKhoan nguoiNhan = lstNhan.ElementAt(index_NguoiNhanHienTai++);
+
                         thongTinTaiKhoan_NhanBindingSource.Position =  thongTinTaiKhoan_NhanBindingSource.IndexOf(nguoiNhan);
                         XuLyDaLuong.ChangeText(lblTrangThai, string.Format("Đang gửi {0}...", nguoiNhan.TenHienThi), Color.Black);
 
                         _thaoTacWeb.GuiTin(nguoiGui, nguoiNhan, txtTieuDe.Text, txtNoiDung.Text);
-                        nguoiNhan.TrangThai = "Đã gửi";
+                        nguoiNhan.TrangThai = nguoiGui.TaiKhoan;
 
                         thongTinTaiKhoan_NhanBindingSource.EndEdit();
                         grvNhan.Refresh();
@@ -156,8 +198,16 @@ namespace AutoSendMessageOnWeb
 
         private void btnLuuDanhSach_Click(object sender, EventArgs e)
         {
+            _db.DanhSachNguoiGui = thongTinTaiKhoan_GuiBindingSource.List as BindingList<ThongTinTaiKhoan>;
+            _db.DanhSachNguoiNhan = thongTinTaiKhoan_NhanBindingSource.List as BindingList<ThongTinTaiKhoan>;
             if (_db.SaveChange())
                 MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void thongTinTaiKhoan_NhanBindingSource_ListChanged(object sender, ListChangedEventArgs e)
+        {
+            XuLyDaLuong.ChangeText(lblSoLuongKetQua,
+                            string.Format("Số lượng kết quả: {0}", thongTinTaiKhoan_NhanBindingSource.Count), Color.Black);
         }
     }
 }

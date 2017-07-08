@@ -1,4 +1,4 @@
-﻿namespace AutoSendMessageOnWeb.Lib
+﻿namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb
 {
     partial class frmTimKiemBrowser
     {
