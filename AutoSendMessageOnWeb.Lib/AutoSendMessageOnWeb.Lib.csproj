@@ -57,6 +57,8 @@
   <ItemGroup>
     <Compile Include="ExtentionMethod\DataTypeEx.cs" />
     <Compile Include="ExtentionMethod\HenHo2Ex.cs" />
+    <Compile Include="Security\Crypto.cs" />
+    <Compile Include="Security\DataUseForSecurity.cs" />
     <Compile Include="ThaoTacWeb\frmTimKiem.cs">
       <SubType>Form</SubType>
     </Compile>

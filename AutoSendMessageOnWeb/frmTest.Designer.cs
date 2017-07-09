@@ -40,7 +40,18 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtNoiDung = new System.Windows.Forms.TextBox();
             this.btnGuiThu = new System.Windows.Forms.Button();
+            this.btnMaHoa = new System.Windows.Forms.Button();
+            this.txtBanRo = new System.Windows.Forms.TextBox();
+            this.txtBanMa = new System.Windows.Forms.TextBox();
+            this.btnGiaiMa = new System.Windows.Forms.Button();
+            this.btnTaoKhoa = new System.Windows.Forms.Button();
+            this.btnCauTrucKey = new System.Windows.Forms.Button();
+            this.btnGuiAdmin = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnBam = new System.Windows.Forms.Button();
+            this.btnXacThuc = new System.Windows.Forms.Button();
             this.grbHenHo2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // grbHenHo2
@@ -53,7 +64,7 @@
             this.grbHenHo2.Dock = System.Windows.Forms.DockStyle.Left;
             this.grbHenHo2.Location = new System.Drawing.Point(0, 0);
             this.grbHenHo2.Name = "grbHenHo2";
-            this.grbHenHo2.Size = new System.Drawing.Size(200, 273);
+            this.grbHenHo2.Size = new System.Drawing.Size(200, 427);
             this.grbHenHo2.TabIndex = 0;
             this.grbHenHo2.TabStop = false;
             this.grbHenHo2.Text = "henho2";
@@ -157,11 +168,114 @@
             this.btnGuiThu.UseVisualStyleBackColor = true;
             this.btnGuiThu.Click += new System.EventHandler(this.btnGuiThu_Click);
             // 
+            // btnMaHoa
+            // 
+            this.btnMaHoa.Location = new System.Drawing.Point(87, 69);
+            this.btnMaHoa.Name = "btnMaHoa";
+            this.btnMaHoa.Size = new System.Drawing.Size(75, 23);
+            this.btnMaHoa.TabIndex = 7;
+            this.btnMaHoa.Text = "Mã hóa";
+            this.btnMaHoa.UseVisualStyleBackColor = true;
+            this.btnMaHoa.Click += new System.EventHandler(this.btnMaHoa_Click);
+            // 
+            // txtBanRo
+            // 
+            this.txtBanRo.Location = new System.Drawing.Point(6, 14);
+            this.txtBanRo.Name = "txtBanRo";
+            this.txtBanRo.Size = new System.Drawing.Size(586, 20);
+            this.txtBanRo.TabIndex = 8;
+            // 
+            // txtBanMa
+            // 
+            this.txtBanMa.Location = new System.Drawing.Point(6, 98);
+            this.txtBanMa.Multiline = true;
+            this.txtBanMa.Name = "txtBanMa";
+            this.txtBanMa.Size = new System.Drawing.Size(586, 158);
+            this.txtBanMa.TabIndex = 9;
+            // 
+            // btnGiaiMa
+            // 
+            this.btnGiaiMa.Location = new System.Drawing.Point(87, 40);
+            this.btnGiaiMa.Name = "btnGiaiMa";
+            this.btnGiaiMa.Size = new System.Drawing.Size(75, 23);
+            this.btnGiaiMa.TabIndex = 10;
+            this.btnGiaiMa.Text = "2. Giải mã";
+            this.btnGiaiMa.UseVisualStyleBackColor = true;
+            this.btnGiaiMa.Click += new System.EventHandler(this.btnGiaiMa_Click);
+            // 
+            // btnTaoKhoa
+            // 
+            this.btnTaoKhoa.Location = new System.Drawing.Point(6, 69);
+            this.btnTaoKhoa.Name = "btnTaoKhoa";
+            this.btnTaoKhoa.Size = new System.Drawing.Size(75, 23);
+            this.btnTaoKhoa.TabIndex = 11;
+            this.btnTaoKhoa.Text = "Tạo khóa";
+            this.btnTaoKhoa.UseVisualStyleBackColor = true;
+            this.btnTaoKhoa.Click += new System.EventHandler(this.btnTaoKhoa_Click);
+            // 
+            // btnCauTrucKey
+            // 
+            this.btnCauTrucKey.Location = new System.Drawing.Point(168, 40);
+            this.btnCauTrucKey.Name = "btnCauTrucKey";
+            this.btnCauTrucKey.Size = new System.Drawing.Size(89, 23);
+            this.btnCauTrucKey.TabIndex = 12;
+            this.btnCauTrucKey.Text = "3. Key -> client";
+            this.btnCauTrucKey.UseVisualStyleBackColor = true;
+            this.btnCauTrucKey.Click += new System.EventHandler(this.btnCauTrucKey_Click);
+            // 
+            // btnGuiAdmin
+            // 
+            this.btnGuiAdmin.Location = new System.Drawing.Point(6, 40);
+            this.btnGuiAdmin.Name = "btnGuiAdmin";
+            this.btnGuiAdmin.Size = new System.Drawing.Size(75, 23);
+            this.btnGuiAdmin.TabIndex = 13;
+            this.btnGuiAdmin.Text = "1. Gửi admin";
+            this.btnGuiAdmin.UseVisualStyleBackColor = true;
+            this.btnGuiAdmin.Click += new System.EventHandler(this.btnGuiAdmin_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnXacThuc);
+            this.groupBox1.Controls.Add(this.btnBam);
+            this.groupBox1.Controls.Add(this.btnGuiAdmin);
+            this.groupBox1.Controls.Add(this.txtBanRo);
+            this.groupBox1.Controls.Add(this.btnCauTrucKey);
+            this.groupBox1.Controls.Add(this.btnMaHoa);
+            this.groupBox1.Controls.Add(this.btnTaoKhoa);
+            this.groupBox1.Controls.Add(this.txtBanMa);
+            this.groupBox1.Controls.Add(this.btnGiaiMa);
+            this.groupBox1.Location = new System.Drawing.Point(206, 157);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(598, 270);
+            this.groupBox1.TabIndex = 14;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Mã hóa";
+            // 
+            // btnBam
+            // 
+            this.btnBam.Location = new System.Drawing.Point(168, 69);
+            this.btnBam.Name = "btnBam";
+            this.btnBam.Size = new System.Drawing.Size(75, 23);
+            this.btnBam.TabIndex = 14;
+            this.btnBam.Text = "Băm chuỗi";
+            this.btnBam.UseVisualStyleBackColor = true;
+            this.btnBam.Click += new System.EventHandler(this.btnBam_Click);
+            // 
+            // btnXacThuc
+            // 
+            this.btnXacThuc.Location = new System.Drawing.Point(263, 40);
+            this.btnXacThuc.Name = "btnXacThuc";
+            this.btnXacThuc.Size = new System.Drawing.Size(75, 23);
+            this.btnXacThuc.TabIndex = 16;
+            this.btnXacThuc.Text = "4. Xác thực";
+            this.btnXacThuc.UseVisualStyleBackColor = true;
+            this.btnXacThuc.Click += new System.EventHandler(this.btnXacThuc_Click);
+            // 
             // frmTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(614, 273);
+            this.ClientSize = new System.Drawing.Size(816, 427);
             this.Controls.Add(this.btnGuiThu);
             this.Controls.Add(this.txtNoiDung);
             this.Controls.Add(this.label4);
@@ -169,10 +283,13 @@
             this.Controls.Add(this.txtToken);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.grbHenHo2);
+            this.Controls.Add(this.groupBox1);
             this.Name = "frmTest";
             this.Text = "Form1";
             this.grbHenHo2.ResumeLayout(false);
             this.grbHenHo2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -192,6 +309,16 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtNoiDung;
         private System.Windows.Forms.Button btnGuiThu;
+        private System.Windows.Forms.Button btnMaHoa;
+        private System.Windows.Forms.TextBox txtBanRo;
+        private System.Windows.Forms.TextBox txtBanMa;
+        private System.Windows.Forms.Button btnGiaiMa;
+        private System.Windows.Forms.Button btnTaoKhoa;
+        private System.Windows.Forms.Button btnCauTrucKey;
+        private System.Windows.Forms.Button btnGuiAdmin;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnBam;
+        private System.Windows.Forms.Button btnXacThuc;
     }
 }
 

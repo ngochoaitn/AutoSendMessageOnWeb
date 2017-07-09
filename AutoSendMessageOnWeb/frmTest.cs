@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoSendMessageOnWeb.Lib.Security;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -115,6 +116,46 @@ namespace AutoSendMessageOnWeb
 
             
             
+        }
+
+        private void btnMaHoa_Click(object sender, EventArgs e)
+        {
+            txtBanMa.Text = Crypto.Encrypt(txtBanRo.Text);
+        }
+
+        private void btnGiaiMa_Click(object sender, EventArgs e)
+        {
+            txtBanRo.Text += Crypto.Decrypt(txtBanMa.Text);
+        }
+
+        private void btnTaoKhoa_Click(object sender, EventArgs e)
+        {
+            Crypto.CreateKey(Convert.ToInt32(txtBanRo.Text));
+        }
+
+        private void btnCauTrucKey_Click(object sender, EventArgs e)
+        {
+            txtBanMa.Text = DataUseForSecurity.GenKeySendToClient(txtBanRo.Text, new DateTime(2017, 8, 9));
+        }
+
+        private void btnGuiAdmin_Click(object sender, EventArgs e)
+        {
+            txtBanMa.Text = DataUseForSecurity.GenKeySendToAdmin();
+        }
+
+        private void btnBam_Click(object sender, EventArgs e)
+        {
+            txtBanMa.Text = Crypto.HashString(txtBanRo.Text);
+        }
+
+        private void btnXacThuc_Click(object sender, EventArgs e)
+        {
+            string[] spl = txtBanMa.Text.Split('[', ']');
+            DateTime? exp = Crypto.VerifySignature(spl[3], spl[1]);
+            if (exp != null)
+                MessageBox.Show(string.Format("Đã xác thực {0:dd/MM/yyyy}", exp.Value.ToShortDateString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information));
+           else
+                MessageBox.Show("Sai mã", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }
