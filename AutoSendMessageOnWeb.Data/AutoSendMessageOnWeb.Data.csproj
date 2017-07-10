@@ -43,6 +43,7 @@
     <Compile Include="DanhSachDuLieuTimKiem.cs" />
     <Compile Include="DatabaseManager.cs" />
     <Compile Include="GioiHanGuiThu.cs" />
+    <Compile Include="ThongTinNguoiDung.cs" />
     <Compile Include="ThongTinTaiKhoan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ThongTinTimKiem.cs" />

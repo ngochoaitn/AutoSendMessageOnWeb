@@ -14,9 +14,8 @@ namespace AutoSendMessageOnWeb.Data
         public string Id { set; get; }
         public string TaiKhoan { set; get; }
         public string MatKhau { set; get; }
+        public string GioiTinh { set; get; }
         public string TenHienThi { set; get; }
-        public CookieContainer Cookie { set; get; }
-        public string Url { set; get; }
         public string TrangThai { set; get; }
         [DefaultValue(true)]
         public bool ChoPhepGuiNhan { set; get; }
@@ -39,5 +38,11 @@ namespace AutoSendMessageOnWeb.Data
         public string TinhTrangHonNhan { set; get; }
         public int? Tuoi { set; get; }
         public string NoiO { set; get; }
+
+
+
+        public string Url { set; get; }
+
+        public CookieContainer Cookie { set; get; }
     }
 }

@@ -35,10 +35,10 @@ namespace AutoSendMessageOnWeb.Lib.Security
             return diaChiMAC;
         }
 
-        public static string GenKeySendToClient(string MAC, DateTime expdate)
+        public static string GenKeySendToClient(string userid, DateTime expdate)
         {
             //Sinh dữ liệu dựa trên MAC và hạn sử dụng
-            string plainData = string.Format("[{0}][{1:dd/MM/yyyy}][{2:dd/MM/yyyy}]", Crypto.HashString(MAC), GetReadDate(), expdate);
+            string plainData = string.Format("[{0}][{1:dd/MM/yyyy}][{2:dd/MM/yyyy}]", Crypto.HashString(userid), GetReadDate(), expdate);
 
             //Mã hóa dữ liệu vừa sinh
             string cypherData = Crypto.Encrypt(plainData, "thuVIENwiForm!@#!");

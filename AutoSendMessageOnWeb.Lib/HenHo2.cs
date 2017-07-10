@@ -125,7 +125,7 @@ namespace AutoSendMessageOnWeb.Lib
                     #region Tạo reqeuest
                     var uri = new UriBuilder("http://henho2.com/Home/Index");
                     var query = HttpUtility.ParseQueryString(uri.Query);
-                    query["gtinh"] = "-1";
+                    query["gtinh"] = param.GioiTinh.ToString();
                     query["countryid"] = "237";
                     query["province"] = param.NoiO.ToString();
                     query["maritial"] = tinhtrang.Id.ToString();
@@ -167,12 +167,14 @@ namespace AutoSendMessageOnWeb.Lib
                                         string[] ten_gioitinh_tuoi = bangKetQua[i].InnerText.Split('\n');
                                         string ten = ten_gioitinh_tuoi[4];
                                         string tuoi = ten_gioitinh_tuoi[8].Replace("Tuổi : ", "").Trim();
+                                        string gioiTinh = ten_gioitinh_tuoi[6].Trim();
 
                                         taiKhoan.Url = string.Format("http://henho2.com{0}", duongDan);
                                         taiKhoan.Id = duongDan.Split('/')[3];
                                         taiKhoan.TenHienThi = ten.Trim();
                                         taiKhoan.ChoPhepGuiNhan = true;
                                         taiKhoan.Tuoi = tuoi.ConvertToInt32();
+                                        taiKhoan.GioiTinh = gioiTinh;
                                     }
                                     catch { taiKhoan = null; }
                                     if (taiKhoan != null && i < bangKetQua.Count)//TÌm thông tin hôn nhân
@@ -249,6 +251,11 @@ namespace AutoSendMessageOnWeb.Lib
 
             for (int i = -1; i <= 4; i++)
                 res.TinhTrangHonNhan.Add(new ThongTinTimKiem.TinhTrangHonNhan() { Id = i, TenTinhTrang = tinhTrang[i + 1] });
+
+            List<string> gioiTinh = new List<string>()
+            { "Tất cả", "Nam", "Nữ", "Gay", "Les"};
+            for (int i = -1; i < 4; i++)
+                res.GioiTinh.Add(i, gioiTinh[i + 1]);
 
             return res;
         }

@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1A73BBCF-70A9-46B3-B834-C918981A6200}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{805CD190-9C12-45D9-9237-1872C509BA07}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AutoSendMessageOnWeb.Lib</RootNamespace>
-    <AssemblyName>AutoSendMessageOnWeb.Lib</AssemblyName>
+    <RootNamespace>AutoSendMessageOnWeb.CreateKey</RootNamespace>
+    <AssemblyName>AutoSendMessageOnWeb.CreateKey</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -29,93 +31,94 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Example_16x16.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Fizzler, Version=0.1.15619.0, Culture=neutral, PublicKeyToken=4ebff4844e382110, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fizzler.1.0.0\lib\net35\Fizzler.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Fizzler.Systems.HtmlAgilityPack, Version=0.1.15619.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fizzler.Systems.HtmlAgilityPack.1.0.0\lib\net35\Fizzler.Systems.HtmlAgilityPack.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="HtmlAgilityPack, Version=1.4.9.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
-      <HintPath>..\packages\HtmlAgilityPack.1.4.9\lib\Net45\HtmlAgilityPack.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExtentionMethod\DataTypeEx.cs" />
-    <Compile Include="ExtentionMethod\HenHo2Ex.cs" />
-    <Compile Include="Security\ConstFilePath.cs" />
-    <Compile Include="Security\Crypto.cs" />
-    <Compile Include="Security\DataUseForSecurity.cs" />
-    <Compile Include="StartUpOperation.cs" />
-    <Compile Include="ThaoTacWeb\frmTimKiem.cs">
+    <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ThaoTacWeb\frmTimKiem.Designer.cs">
-      <DependentUpon>frmTimKiem.cs</DependentUpon>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="ThaoTacWeb\frmTimKiemBrowser.cs">
+    <Compile Include="frmThemNguoiDung.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ThaoTacWeb\frmTimKiemBrowser.Designer.cs">
-      <DependentUpon>frmTimKiemBrowser.cs</DependentUpon>
+    <Compile Include="frmThemNguoiDung.Designer.cs">
+      <DependentUpon>frmThemNguoiDung.cs</DependentUpon>
     </Compile>
-    <Compile Include="HenHo2.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ThaoTacControl\XuLyDaLuong.cs" />
-    <Compile Include="ThaoTacWeb\IThaoTacWeb.cs" />
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThemNguoiDung.resx">
+      <DependentUpon>frmThemNguoiDung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\DataSources\AutoSendMessageOnWeb.Data.ThongTinNguoiDung.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\#Library\ThuVienWinform\ThuVienWinform.UI.FLat.CommonControls\ThuVienWinform.UI.FLat.CommonControls.csproj">
-      <Project>{12ad93d2-cc00-444a-b750-8f26be50b5b4}</Project>
+      <Project>{12AD93D2-CC00-444A-B750-8F26BE50B5B4}</Project>
       <Name>ThuVienWinform.UI.FLat.CommonControls</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\#Library\ThuVienWinform\ThuVienWinform.UI.Flat.Containers\ThuVienWinform.UI.Flat.Containers.csproj">
-      <Project>{172cf22c-6278-444b-9408-572223ac2ee1}</Project>
+      <Project>{172CF22C-6278-444B-9408-572223AC2EE1}</Project>
       <Name>ThuVienWinform.UI.Flat.Containers</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\#Library\ThuVienWinform\ThuVienWinform.UI.Flat.Data\ThuVienWinform.UI.Flat.Data.csproj">
-      <Project>{5ef00a08-ff21-41c8-ba9a-af4a7c0e8f23}</Project>
+      <Project>{5EF00A08-FF21-41C8-BA9A-AF4A7C0E8F23}</Project>
       <Name>ThuVienWinform.UI.Flat.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\#Library\ThuVienWinform\ThuVienWinform.UI\ThuVienWinform.UI.csproj">
-      <Project>{da0fbcf4-1ccd-4f73-af07-508a5f17b7c1}</Project>
+      <Project>{DA0FBCF4-1CCD-4F73-AF07-508A5F17B7C1}</Project>
       <Name>ThuVienWinform.UI</Name>
     </ProjectReference>
     <ProjectReference Include="..\AutoSendMessageOnWeb.Data\AutoSendMessageOnWeb.Data.csproj">
       <Project>{c66ae77a-3145-459a-bf8c-6b0ce6759fc1}</Project>
       <Name>AutoSendMessageOnWeb.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AutoSendMessageOnWeb.Lib\AutoSendMessageOnWeb.Lib.csproj">
+      <Project>{1a73bbcf-70a9-46b3-b834-c918981a6200}</Project>
+      <Name>AutoSendMessageOnWeb.Lib</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ThaoTacWeb\frmTimKiem.resx">
-      <DependentUpon>frmTimKiem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ThaoTacWeb\frmTimKiemBrowser.resx">
-      <DependentUpon>frmTimKiemBrowser.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="DataHtmlTest.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Example_16x16.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

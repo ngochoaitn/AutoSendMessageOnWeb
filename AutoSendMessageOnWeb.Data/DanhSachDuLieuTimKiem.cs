@@ -13,10 +13,11 @@ namespace AutoSendMessageOnWeb.Data
         {
             this.NoiO = new Dictionary<int, string>();
             this.TinhTrangHonNhan = new List<ThongTinTimKiem.TinhTrangHonNhan>();
+            this.GioiTinh = new Dictionary<int, string>();
         }
         //Ông ấy chỉ yêu cầu về Tuổi, Nơi ở và tình trạng hôn nhân
         public Dictionary<int, string> NoiO { set; get; }
         public List<ThongTinTimKiem.TinhTrangHonNhan> TinhTrangHonNhan { set; get; }
-        
+        public Dictionary<int, string> GioiTinh { set; get; }
     }
 }

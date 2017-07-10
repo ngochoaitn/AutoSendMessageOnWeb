@@ -46,7 +46,7 @@ namespace AutoSendMessageOnWeb
         {
             InitializeComponent();
 
-            //CheckForIllegalCrossThreadCalls = false;
+            CheckForIllegalCrossThreadCalls = false;
 
             ControlPlus.MovieFormWhenMouseDownControl(controlBoxFlat1, this.Handle);
             ControlPlus.MovieFormWhenMouseDownControl(controlBoxFlat1.lblFormText, this.Handle);
@@ -112,6 +112,7 @@ namespace AutoSendMessageOnWeb
         {
             thongTinTaiKhoan_NhanBindingSource.DataSource = _danhSach;
             btnTimKiem.Text = "Tìm kiếm";
+            lblSoLuongKetQua.Text = "Số lượng kết quả: " + thongTinTaiKhoan_NhanBindingSource.Count.ToString();
             btnTimKiem.BackColor = Color.FromArgb(255, 255, 128);
         }
 
@@ -145,7 +146,7 @@ namespace AutoSendMessageOnWeb
 
                 #region Gửi
                 var lstGui = (thongTinTaiKhoan_GuiBindingSource.List as IList<ThongTinTaiKhoan>).Where(p => p.Cookie != null);
-                var lstNhan = (thongTinTaiKhoan_NhanBindingSource.List as IList<ThongTinTaiKhoan>);//.Where(p => p.ChoPhepGuiNhan);
+                var lstNhan = (thongTinTaiKhoan_NhanBindingSource.List as IList<ThongTinTaiKhoan>);//.Where(p => string.IsNullOrEmpty(p.TrangThai));
 
                 int soNguoiGui = lstGui.Count();
                 int soNguoiNhan = lstNhan.Count();
@@ -175,16 +176,22 @@ namespace AutoSendMessageOnWeb
                     for (int i = 0; i < nguoiGui.SoThuSeGui; i++)
                     {
                         ThongTinTaiKhoan nguoiNhan = lstNhan.ElementAt(index_NguoiNhanHienTai++);
+                        if (string.IsNullOrEmpty(nguoiNhan.TrangThai))
+                        {
+                            thongTinTaiKhoan_NhanBindingSource.Position = thongTinTaiKhoan_NhanBindingSource.IndexOf(nguoiNhan);
+                            XuLyDaLuong.ChangeText(lblTrangThai, string.Format("Đang gửi {0}...", nguoiNhan.TenHienThi), Color.Black);
 
-                        thongTinTaiKhoan_NhanBindingSource.Position =  thongTinTaiKhoan_NhanBindingSource.IndexOf(nguoiNhan);
-                        XuLyDaLuong.ChangeText(lblTrangThai, string.Format("Đang gửi {0}...", nguoiNhan.TenHienThi), Color.Black);
+                            _thaoTacWeb.GuiTin(nguoiGui, nguoiNhan, txtTieuDe.Text, txtNoiDung.Text);
+                            nguoiNhan.TrangThai = nguoiGui.TaiKhoan;
 
-                        _thaoTacWeb.GuiTin(nguoiGui, nguoiNhan, txtTieuDe.Text, txtNoiDung.Text);
-                        nguoiNhan.TrangThai = nguoiGui.TaiKhoan;
+                            thongTinTaiKhoan_NhanBindingSource.EndEdit();
+                            grvNhan.Refresh();
 
-                        thongTinTaiKhoan_NhanBindingSource.EndEdit();
-                        grvNhan.Refresh();
-
+                        }
+                        else
+                        {
+                            i--;
+                        }
                         if (index_NguoiNhanHienTai >= soNguoiNhan)
                             break;
                     }

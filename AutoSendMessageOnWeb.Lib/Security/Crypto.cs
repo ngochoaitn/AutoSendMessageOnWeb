@@ -26,6 +26,8 @@ namespace AutoSendMessageOnWeb.Lib.Security
 
         public static string Encrypt(string s)
         {
+            if (!File.Exists(_filePublicKey))
+                throw new Exception("Không tìm thấy tệp chứa mã công khai.\nVui lòng liên hệ quản trị viên");
             RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
             rsa.ImportParameters(ConvertStringToKey(File.ReadAllText(_filePublicKey)));
 
@@ -37,13 +39,22 @@ namespace AutoSendMessageOnWeb.Lib.Security
 
         public static string Decrypt(string s)
         {
-            RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
-            rsa.ImportParameters(ConvertStringToKey(File.ReadAllText(_filePrivateKey)));
+            if (!File.Exists(_filePrivateKey))
+                throw new Exception("Không tìm thấy tệp chứa mã bí mật");
+            try
+            {
+                RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
+                rsa.ImportParameters(ConvertStringToKey(File.ReadAllText(_filePrivateKey)));
 
-            byte[] dataCypher = Convert.FromBase64String(s);
-            byte[] bytePlain = rsa.Decrypt(dataCypher, false);
+                byte[] dataCypher = Convert.FromBase64String(s);
+                byte[] bytePlain = rsa.Decrypt(dataCypher, false);
 
-            return Encoding.ASCII.GetString(bytePlain);
+                return Encoding.ASCII.GetString(bytePlain);
+            }
+            catch
+            {
+                throw new Exception("Mã lỗi!");
+            }
         }
 
         private static string ConvertKeyToString(RSAParameters key)
@@ -79,39 +90,52 @@ namespace AutoSendMessageOnWeb.Lib.Security
 
             return Convert.ToBase64String(signature);
         }
-
-        public static DateTime? VerifySignature(string plaintext, string s_signature)
+        public static DateTime? VerifySignature(string key)
         {
             try
             {
-                RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
-                rsa.ImportParameters(ConvertStringToKey(File.ReadAllText(_filePublicKey)));
-
-                byte[] dataToVerify = Encoding.ASCII.GetBytes(plaintext);
-                byte[] signature = Convert.FromBase64String(s_signature);
-                if( rsa.VerifyData(dataToVerify, new SHA1Managed(), signature))
-                {
-                    string plainData = Crypto.Decrypt(plaintext, "thuVIENwiForm!@#!");
-                    string[] dataOfKey = plainData.Split('[', ']');
-                    string hashMAC = dataOfKey[1];
-
-                    if (Crypto.HashString(DataUseForSecurity.GetFirstMAC()) == hashMAC)
-                    {
-                        DateTime? dateFrom = DataTypeEx.ddMMyyyy(dataOfKey[3]);
-                        if (dateFrom != null && dateFrom.Value <= DataUseForSecurity.GetReadDate())
-                        {
-                            DateTime? dateTo = DataTypeEx.ddMMyyyy(dataOfKey[5]);
-                            return dateTo;
-                        }
-                    }
-
-                    return null;
-                }
-                return null;
+                string[] spl = key.Split('[', ']');
+                return Crypto.VerifySignature(spl[3], spl[1]);
             }
             catch
             {
-                return null;
+                throw new Exception("Sai mã");
+            }
+        }
+        public static DateTime? VerifySignature(string plaintext, string s_signature)
+        {
+            RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
+            rsa.ImportParameters(ConvertStringToKey(File.ReadAllText(_filePublicKey)));
+
+            byte[] dataToVerify = Encoding.ASCII.GetBytes(plaintext);
+            byte[] signature = Convert.FromBase64String(s_signature);
+            if (rsa.VerifyData(dataToVerify, new SHA1Managed(), signature))
+            {
+                string plainData = Crypto.Decrypt(plaintext, "thuVIENwiForm!@#!");
+                string[] dataOfKey = plainData.Split('[', ']');
+                string hashMACandComputerName = dataOfKey[1];
+
+                if (Crypto.HashString(string.Format("[{0}][{1}]", System.Net.Dns.GetHostName(), DataUseForSecurity.GetFirstMAC())) == hashMACandComputerName)
+                {
+                    DateTime? dateFrom = DataTypeEx.ddMMyyyy(dataOfKey[3]);
+                    if (dateFrom != null && dateFrom.Value <= DataUseForSecurity.GetReadDate())
+                    {
+                        DateTime? dateTo = DataTypeEx.ddMMyyyy(dataOfKey[5]);
+                        return dateTo;
+                    }
+                    else
+                    {
+                        throw new Exception("Vui lòng đặt lại ngày hệ thống!");
+                    }
+                }
+                else
+                {
+                    throw new Exception("Mã không dành cho máy này!");
+                }
+            }
+            else
+            {
+                throw new Exception("Mã không dành cho máy này!");
             }
         }
 

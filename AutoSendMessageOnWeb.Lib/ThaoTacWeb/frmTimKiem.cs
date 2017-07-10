@@ -53,6 +53,9 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb
             foreach (var tinhtrang in _duLieuTimKiem.TinhTrangHonNhan)
                 cbbTinhTrangHonNhan.Items.Add(tinhtrang);
 
+            foreach (var gtinh in _duLieuTimKiem.GioiTinh)
+                cbbGioiTinh.Items.Add(gtinh.Value);
+
             cbbTinhTrangHonNhan.DisplayMember = "TenTinhTrang";
 
             cbbNoiO.SelectedIndex = 0;
@@ -63,6 +66,7 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb
         {
             //Lấy thông tin
             var noiO = _duLieuTimKiem.NoiO.Where(p => p.Value == cbbNoiO.Text).FirstOrDefault();
+            var gioiTinh = _duLieuTimKiem.GioiTinh.Where(p => p.Value == cbbGioiTinh.Text).FirstOrDefault();
 
             //Tạo thông tin tìm kiếm
             this.ParamTimKiem = new ThongTinTimKiem();
@@ -71,6 +75,8 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb
             this.ParamTimKiem.DenTuoi = (int)numDenTuoi.Value;
 
             this.ParamTimKiem.NoiO = noiO.Key;
+            this.ParamTimKiem.GioiTinh = gioiTinh.Key;
+
             foreach (var sl in cbbTinhTrangHonNhan.CheckedItems)
             {
                 var tinhTrang = _duLieuTimKiem.TinhTrangHonNhan.Where(p => p.TenTinhTrang == sl.ToString()).FirstOrDefault();

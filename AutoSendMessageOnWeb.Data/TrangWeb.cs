@@ -8,6 +8,7 @@ namespace AutoSendMessageOnWeb.Data
 {
     public enum TrangWeb
     {
+        ThongTinNguoiDung,
         HenHo2
     }
     public class UriTrangWeb

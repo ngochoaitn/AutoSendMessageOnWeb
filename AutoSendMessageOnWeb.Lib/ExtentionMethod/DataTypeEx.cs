@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AutoSendMessageOnWeb.Data;
+using AutoSendMessageOnWeb.Lib.Security;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,6 +35,20 @@ namespace AutoSendMessageOnWeb.Lib.ExtentionMethod
             {
                 return null;
             }
+        }
+        public static void LayThongTin(this ThongTinNguoiDung nguoidung, string manguoidung)
+        {
+            if (nguoidung == null)
+                nguoidung = new ThongTinNguoiDung();
+            string thongTin = Crypto.Decrypt(manguoidung);
+            string[] data = thongTin.Split('[', ']');
+
+            nguoidung.TenMay = data[1];
+            nguoidung.MAC = data[3];
+        }
+        public static string TaoMaSuDung(this ThongTinNguoiDung nguoidung, DateTime hansudung)
+        {
+            return DataUseForSecurity.GenKeySendToClient(string.Format("[{0}][{1}]", nguoidung.TenMay, nguoidung.MAC), hansudung);
         }
     }
 }

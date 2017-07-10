@@ -151,11 +151,18 @@ namespace AutoSendMessageOnWeb
         private void btnXacThuc_Click(object sender, EventArgs e)
         {
             string[] spl = txtBanMa.Text.Split('[', ']');
-            DateTime? exp = Crypto.VerifySignature(spl[3], spl[1]);
-            if (exp != null)
-                MessageBox.Show(string.Format("Đã xác thực {0:dd/MM/yyyy}", exp.Value.ToShortDateString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information));
-           else
-                MessageBox.Show("Sai mã", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            try
+            {
+                DateTime? exp = Crypto.VerifySignature(spl[3], spl[1]);
+                if (exp != null)
+                    MessageBox.Show(string.Format("Đã xác thực {0:dd/MM/yyyy}", exp.Value.ToShortDateString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information));
+                else
+                    MessageBox.Show("Sai mã", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi xác thực", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

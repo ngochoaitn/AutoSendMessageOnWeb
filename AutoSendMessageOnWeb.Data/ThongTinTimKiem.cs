@@ -8,12 +8,11 @@ namespace AutoSendMessageOnWeb.Data
 {
     public class ThongTinTimKiem
     {
-        
         public int TuTuoi { set; get; }
         public int DenTuoi { set; get; }
         public object NoiO { set; get; }
         public List<TinhTrangHonNhan> HonNhan { set; get; }
-
+        public object GioiTinh { set; get; }
         public ThongTinTimKiem()
         {
             this.HonNhan = new List<TinhTrangHonNhan>();

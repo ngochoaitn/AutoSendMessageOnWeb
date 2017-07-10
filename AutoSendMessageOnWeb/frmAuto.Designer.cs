@@ -72,6 +72,7 @@
             this.colChoPhepNhan = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTuoi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNoiO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTinhTrangHonNhan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colUrl = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -313,6 +314,7 @@
             this.colChoPhepNhan,
             this.dataGridViewTextBoxColumn2,
             this.colTuoi,
+            this.colGioiTinh,
             this.colNoiO,
             this.colTinhTrangHonNhan,
             this.colUrl,
@@ -541,6 +543,16 @@
             this.colTuoi.Name = "colTuoi";
             this.colTuoi.Width = 45;
             // 
+            // colGioiTinh
+            // 
+            this.colGioiTinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colGioiTinh.DataPropertyName = "GioiTinh";
+            this.colGioiTinh.FillWeight = 45F;
+            this.colGioiTinh.HeaderText = "G.Tính";
+            this.colGioiTinh.Name = "colGioiTinh";
+            this.colGioiTinh.ReadOnly = true;
+            this.colGioiTinh.Width = 45;
+            // 
             // colNoiO
             // 
             this.colNoiO.DataPropertyName = "NoiO";
@@ -645,6 +657,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn colChoPhepNhan;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTuoi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colGioiTinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNoiO;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTinhTrangHonNhan;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUrl;

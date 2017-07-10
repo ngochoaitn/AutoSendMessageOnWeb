@@ -50,5 +50,10 @@ namespace AutoSendMessageOnWeb
         {
             System.Diagnostics.Process.Start(lblLink.Text);
         }
+
+        private void btnCaiDat_Click(object sender, EventArgs e)
+        {
+            new AboutBox().ShowDialog();
+        }
     }
 }

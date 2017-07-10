@@ -32,6 +32,7 @@
             this.panBot = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panMid = new System.Windows.Forms.Panel();
+            this.cbbTinhTrangHonNhan = new ThuVienWinform.UI.Flat.CommonControls.CheckedComboBox();
             this.btnTimKiem = new ThuVienWinform.UI.Flat.CommonControls.ButtonFlat();
             this.cbbNoiO = new System.Windows.Forms.ComboBox();
             this.numTuTuoi = new System.Windows.Forms.NumericUpDown();
@@ -40,7 +41,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.cbbTinhTrangHonNhan = new ThuVienWinform.UI.Flat.CommonControls.CheckedComboBox();
+            this.cbbGioiTinh = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.panBot.SuspendLayout();
             this.panMid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numTuTuoi)).BeginInit();
@@ -68,7 +70,7 @@
             this.controlBoxFlat1.MiniSizeText = "–";
             this.controlBoxFlat1.MiniSizeTextColor = System.Drawing.Color.Black;
             this.controlBoxFlat1.Name = "controlBoxFlat1";
-            this.controlBoxFlat1.Size = new System.Drawing.Size(314, 28);
+            this.controlBoxFlat1.Size = new System.Drawing.Size(302, 28);
             this.controlBoxFlat1.TabIndex = 0;
             this.controlBoxFlat1.TipClose = "Đóng";
             this.controlBoxFlat1.TipMaxsize = "Phóng to";
@@ -79,9 +81,9 @@
             // 
             this.panBot.Controls.Add(this.label3);
             this.panBot.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panBot.Location = new System.Drawing.Point(0, 166);
+            this.panBot.Location = new System.Drawing.Point(0, 182);
             this.panBot.Name = "panBot";
-            this.panBot.Size = new System.Drawing.Size(314, 29);
+            this.panBot.Size = new System.Drawing.Size(302, 29);
             this.panBot.TabIndex = 1;
             // 
             // label3
@@ -89,7 +91,7 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(225, 9);
+            this.label3.Location = new System.Drawing.Point(213, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 13);
             this.label3.TabIndex = 2;
@@ -98,6 +100,8 @@
             // panMid
             // 
             this.panMid.BackColor = System.Drawing.Color.White;
+            this.panMid.Controls.Add(this.label6);
+            this.panMid.Controls.Add(this.cbbGioiTinh);
             this.panMid.Controls.Add(this.cbbTinhTrangHonNhan);
             this.panMid.Controls.Add(this.btnTimKiem);
             this.panMid.Controls.Add(this.cbbNoiO);
@@ -110,17 +114,31 @@
             this.panMid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panMid.Location = new System.Drawing.Point(0, 28);
             this.panMid.Name = "panMid";
-            this.panMid.Size = new System.Drawing.Size(314, 138);
+            this.panMid.Size = new System.Drawing.Size(302, 154);
             this.panMid.TabIndex = 2;
+            // 
+            // cbbTinhTrangHonNhan
+            // 
+            this.cbbTinhTrangHonNhan.CheckOnClick = true;
+            this.cbbTinhTrangHonNhan.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cbbTinhTrangHonNhan.DropDownHeight = 1;
+            this.cbbTinhTrangHonNhan.FormattingEnabled = true;
+            this.cbbTinhTrangHonNhan.IntegralHeight = false;
+            this.cbbTinhTrangHonNhan.Location = new System.Drawing.Point(123, 93);
+            this.cbbTinhTrangHonNhan.Name = "cbbTinhTrangHonNhan";
+            this.cbbTinhTrangHonNhan.Size = new System.Drawing.Size(167, 21);
+            this.cbbTinhTrangHonNhan.TabIndex = 10;
+            this.cbbTinhTrangHonNhan.ValueMember = "TenTinhTrang";
+            this.cbbTinhTrangHonNhan.ValueSeparator = ", ";
             // 
             // btnTimKiem
             // 
             this.btnTimKiem.BackColor = System.Drawing.Color.Transparent;
             this.btnTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTimKiem.Location = new System.Drawing.Point(124, 107);
+            this.btnTimKiem.Location = new System.Drawing.Point(124, 120);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(75, 23);
-            this.btnTimKiem.TabIndex = 10;
+            this.btnTimKiem.TabIndex = 11;
             this.btnTimKiem.Text = "Tìm";
             this.btnTimKiem.UseVisualStyleBackColor = false;
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
@@ -129,14 +147,14 @@
             // 
             this.cbbNoiO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbNoiO.FormattingEnabled = true;
-            this.cbbNoiO.Location = new System.Drawing.Point(124, 49);
+            this.cbbNoiO.Location = new System.Drawing.Point(124, 62);
             this.cbbNoiO.Name = "cbbNoiO";
             this.cbbNoiO.Size = new System.Drawing.Size(166, 21);
-            this.cbbNoiO.TabIndex = 8;
+            this.cbbNoiO.TabIndex = 9;
             // 
             // numTuTuoi
             // 
-            this.numTuTuoi.Location = new System.Drawing.Point(124, 19);
+            this.numTuTuoi.Location = new System.Drawing.Point(124, 4);
             this.numTuTuoi.Name = "numTuTuoi";
             this.numTuTuoi.Size = new System.Drawing.Size(40, 20);
             this.numTuTuoi.TabIndex = 6;
@@ -148,7 +166,7 @@
             // 
             // numDenTuoi
             // 
-            this.numDenTuoi.Location = new System.Drawing.Point(250, 22);
+            this.numDenTuoi.Location = new System.Drawing.Point(250, 4);
             this.numDenTuoi.Name = "numDenTuoi";
             this.numDenTuoi.Size = new System.Drawing.Size(40, 20);
             this.numDenTuoi.TabIndex = 7;
@@ -161,7 +179,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(194, 24);
+            this.label5.Location = new System.Drawing.Point(194, 7);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(50, 13);
             this.label5.TabIndex = 4;
@@ -170,7 +188,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 80);
+            this.label4.Location = new System.Drawing.Point(12, 93);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(106, 13);
             this.label4.TabIndex = 2;
@@ -179,7 +197,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(83, 52);
+            this.label2.Location = new System.Drawing.Point(83, 65);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 1;
@@ -188,32 +206,36 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(75, 22);
+            this.label1.Location = new System.Drawing.Point(75, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Từ tuổi:";
             // 
-            // cbbTinhTrangHonNhan
+            // cbbGioiTinh
             // 
-            this.cbbTinhTrangHonNhan.CheckOnClick = true;
-            this.cbbTinhTrangHonNhan.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cbbTinhTrangHonNhan.DropDownHeight = 1;
-            this.cbbTinhTrangHonNhan.FormattingEnabled = true;
-            this.cbbTinhTrangHonNhan.IntegralHeight = false;
-            this.cbbTinhTrangHonNhan.Location = new System.Drawing.Point(123, 80);
-            this.cbbTinhTrangHonNhan.Name = "cbbTinhTrangHonNhan";
-            this.cbbTinhTrangHonNhan.Size = new System.Drawing.Size(167, 21);
-            this.cbbTinhTrangHonNhan.TabIndex = 11;
-            this.cbbTinhTrangHonNhan.ValueMember = "TenTinhTrang";
-            this.cbbTinhTrangHonNhan.ValueSeparator = ", ";
+            this.cbbGioiTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbGioiTinh.FormattingEnabled = true;
+            this.cbbGioiTinh.Location = new System.Drawing.Point(124, 32);
+            this.cbbGioiTinh.Name = "cbbGioiTinh";
+            this.cbbGioiTinh.Size = new System.Drawing.Size(166, 21);
+            this.cbbGioiTinh.TabIndex = 8;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(68, 35);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(50, 13);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Giới tính:";
             // 
             // frmTimKiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(314, 195);
+            this.ClientSize = new System.Drawing.Size(302, 211);
             this.Controls.Add(this.panMid);
             this.Controls.Add(this.panBot);
             this.Controls.Add(this.controlBoxFlat1);
@@ -246,5 +268,7 @@
         private System.Windows.Forms.ComboBox cbbNoiO;
         private ThuVienWinform.UI.Flat.CommonControls.ButtonFlat btnTimKiem;
         private ThuVienWinform.UI.Flat.CommonControls.CheckedComboBox cbbTinhTrangHonNhan;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cbbGioiTinh;
     }
 }
