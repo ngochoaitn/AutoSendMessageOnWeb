@@ -64,6 +64,15 @@ namespace AutoSendMessageOnWeb
                     _thaoTacWeb = new HenHo2();
                     this.Text = string.Format("Cấu hình gửi tin {0}", "http://henho2.com/");
                     break;
+                case TrangWeb.DuyenSo:
+                    _thaoTacWeb = new DuyenSo();
+                    this.Text = string.Format("Cấu hình gửi tin {0}", "http://duyenso.com/");
+                    lblTieuDe.Visible = txtTieuDe.Visible = false;
+
+                    lblNoiDung.Location = lblTieuDe.Location;
+                    txtNoiDung.Location = txtTieuDe.Location;
+                    txtNoiDung.Height += 50;
+                    break;
             }
         }
 
@@ -118,9 +127,9 @@ namespace AutoSendMessageOnWeb
 
         private void grvGui_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Delete)
-                if (thongTinTaiKhoan_GuiBindingSource.Count != 0)
-                    thongTinTaiKhoan_GuiBindingSource.RemoveCurrent();
+            //if (e.KeyCode == Keys.Delete)
+            //    if (thongTinTaiKhoan_GuiBindingSource.Count != 0)
+            //        thongTinTaiKhoan_GuiBindingSource.RemoveCurrent();
         }
 
         private async void btnGuiTin_Click(object sender, EventArgs e)
@@ -134,11 +143,11 @@ namespace AutoSendMessageOnWeb
                 #region Đăng nhập
                 foreach (ThongTinTaiKhoan tk in thongTinTaiKhoan_GuiBindingSource)
                 {
-                    if (tk.Cookie == null)
-                    {
+                    //if (tk.Cookie == null)
+                    //{
                         XuLyDaLuong.ChangeText(lblTrangThai, string.Format("Đang đăng nhập {0}...", tk.TaiKhoan), Color.Black);
                         tk.DangNhap(_thaoTacWeb);
-                    }
+                    //}
                 }
                 thongTinTaiKhoan_GuiBindingSource.EndEdit();
                 grvGui.Refresh();
@@ -182,7 +191,6 @@ namespace AutoSendMessageOnWeb
                             XuLyDaLuong.ChangeText(lblTrangThai, string.Format("Đang gửi {0}...", nguoiNhan.TenHienThi), Color.Black);
 
                             _thaoTacWeb.GuiTin(nguoiGui, nguoiNhan, txtTieuDe.Text, txtNoiDung.Text);
-                            nguoiNhan.TrangThai = nguoiGui.TaiKhoan;
 
                             thongTinTaiKhoan_NhanBindingSource.EndEdit();
                             grvNhan.Refresh();
@@ -215,6 +223,24 @@ namespace AutoSendMessageOnWeb
         {
             XuLyDaLuong.ChangeText(lblSoLuongKetQua,
                             string.Format("Số lượng kết quả: {0}", thongTinTaiKhoan_NhanBindingSource.Count), Color.Black);
+        }
+
+        private void thongTinTaiKhoan_GuiBindingSource_ListChanged(object sender, ListChangedEventArgs e)
+        {
+            //if (thongTinTaiKhoan_GuiBindingSource.Count == 0)
+            //    thongTinTaiKhoan_GuiBindingSource.Position = thongTinTaiKhoan_GuiBindingSource.Add(new ThongTinTaiKhoan());
+        }
+
+        private void grvGui_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            ThongTinTaiKhoan tk = thongTinTaiKhoan_GuiBindingSource.Current as ThongTinTaiKhoan;
+            if (tk != null)
+            {
+                tk.Cookie = null;
+                tk.TrangThai = "";
+                thongTinTaiKhoan_GuiBindingSource.EndEdit();
+                grvGui.Refresh();
+            }
         }
     }
 }

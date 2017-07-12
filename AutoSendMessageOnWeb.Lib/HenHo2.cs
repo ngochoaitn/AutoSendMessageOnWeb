@@ -16,6 +16,34 @@ namespace AutoSendMessageOnWeb.Lib
 {
     public class HenHo2 : IThaoTacWeb
     {
+        public void DangNhap(ref ThongTinTaiKhoan tk)
+        {
+            string data = string.Format("Email={0}&Password={1}&RememberMe=true&returnUrl=%2F", tk.TaiKhoan, tk.MatKhau);
+
+            var response = RequestToWeb.POST(new Uri("http://henho2.com/Account/Login"), null, data, true);
+            var httpRes = response as HttpWebResponse;
+
+            if (httpRes.StatusCode == HttpStatusCode.Found)
+            {
+                string setCookie = httpRes.Headers[HttpResponseHeader.SetCookie];
+                tk.Cookie = new CookieContainer();
+                tk.Cookie.SetCookies(UriTrangWeb.HenHo2, setCookie);
+                tk.TrangThai = "Đang nhập thành công";
+            }
+            else
+            {
+                tk.TrangThai = "Sai tài khoản hoặc mật khẩu";
+                tk.Cookie = null;
+            }
+
+            httpRes.Close();
+            httpRes.Dispose();
+
+            response.Close();
+            response.Dispose();
+        }
+
+        #region bỏ rồi
         public ThongTinTaiKhoan DangNhap(string taikhoan, string matkhau)
         {
             ThongTinTaiKhoan res = new ThongTinTaiKhoan();
@@ -50,69 +78,71 @@ namespace AutoSendMessageOnWeb.Lib
 
             return res;
         }
-
-        public void DangNhap(ref ThongTinTaiKhoan tk)
-        {
-            HttpWebRequest request = WebRequest.CreateHttp("http://henho2.com/Account/Login");
-            request.ContentType = "application/x-www-form-urlencoded";
-            request.AllowAutoRedirect = false;
-            request.Method = "POST";
-            
-            StreamWriter sw = new StreamWriter(request.GetRequestStream());
-            sw.Write(string.Format("Email={0}&Password={1}&RememberMe=true&returnUrl=%2F", tk.TaiKhoan, tk.MatKhau));
-            sw.Close();
-
-            var response = request.GetResponse();
-            var httpRes = response as HttpWebResponse;
-
-            if (httpRes.StatusCode == HttpStatusCode.Found)
-            {
-                string setCookie = httpRes.Headers[HttpResponseHeader.SetCookie];
-                tk.Cookie = new CookieContainer();
-                tk.Cookie.SetCookies(UriTrangWeb.HenHo2, setCookie);
-                tk.TrangThai = "Đang nhập thành công";
-            }
-            else
-            {
-                tk.TrangThai = "Sai tài khoản hoặc mật khẩu";
-                tk.Cookie = null;
-            }
-
-
-            sw.Dispose();
-            request.Abort();
-
-            httpRes.Close();
-            httpRes.Dispose();
-
-            response.Close();
-            response.Dispose();
-        }
+        #endregion
 
         public void GuiTin(ThongTinTaiKhoan nguoigui, ThongTinTaiKhoan nguoinhan, string tieude, string noidung)
         {
             if (nguoigui.Cookie == null)
                 throw new Exception("Thiếu cookie");
 
-            HttpWebRequest request = WebRequest.CreateHttp("http://henho2.com/Message/Create");
-            request.AllowAutoRedirect = false;
-            request.Method = "POST";
-            request.CookieContainer = nguoigui.Cookie;
-            request.ContentType = "application/x-www-form-urlencoded";
-
             string data = string.Format("IdTo={0}&NameTo={1}&Title={2}&MessageContent={3}", nguoinhan.Id, nguoinhan.TenHienThi, tieude, noidung);
-            StreamWriter sw = new StreamWriter(request.GetRequestStream());
-            sw.Write(data);
-            sw.Close();
 
-            var response = request.GetResponse();
+            var response = RequestToWeb.POST(new Uri("http://henho2.com/Message/Create"), nguoigui.Cookie, data, false);
 
-            StreamReader sr = new StreamReader(response.GetResponseStream());
-            string ss = sr.ReadToEnd();
+            nguoinhan.TrangThai = nguoigui.TaiKhoan;
+            using (var sr = new StreamReader(response.GetResponseStream()))
+            {
+                string stringResponse = sr.ReadToEnd();
+                if (stringResponse.Contains("Login"))
+                {
+                    nguoinhan.TrangThai = "Gửi lỗi (nhập lại tài khoản)";
+                }
+            }
+        }
 
-            var httpRes = response as HttpWebResponse;
-            StreamReader sr2 = new StreamReader(httpRes.GetResponseStream());
-            string ss2 = sr2.ReadToEnd();
+        public DanhSachDuLieuTimKiem TaoDuLieuTimKiem()
+        {
+            DanhSachDuLieuTimKiem res = new DanhSachDuLieuTimKiem();
+
+            res.NoiO.Add(-1, "Tất cả");
+
+            res.NoiO.Add(58, "TP Hồ Chí Minh");
+            res.NoiO.Add(24, "Hà Nội");
+            res.NoiO.Add(15, "Đà Nẵng");
+
+            List<string> tinhThanh = new List<string>()
+            {"", "An Giang", "Bà Rịa - Vũng Tàu", "Bắc Giang", "Bắc Kạn", "Bạc Liêu", "Bắc Ninh", "Bến Tre", "Bình Định","Bình Dương","Bình Phước",
+            "Bình Thuận", "Cà Mau", "Cần Thơ", "Cao Bằng", "", "Đăk Lăk", "Đăk Nông", "Điện Biên", "Đồng Nai", "Đồng Tháp",
+            "Gia Lai", "Hà Giang", "Hà Nam", "", "Hà Tĩnh", "Hải Dương", "Hải Phòng", "Hậu Giang", "Hoà Bình", "Hưng Yên",
+            "Khánh Hòa", "Kiên Giang", "Kon Tum", "Lai Châu", "Lâm Đồng", "Lạng Sơn", "Lào Cai", "Long An", "Nam Định", "Nghệ An",
+            "Ninh Bình", "Ninh Thuận", "Phú Thọ", "Phú Yên", "Quảng Bình", "Quảng Nam", "Quảng Ngãi", "Quảng Ninh", "Quảng Trị", "Sóc Trăng",
+            "Sơn La", "Tây Ninh", "Thái Bình", "Thái Nguyên", "Thanh Hóa", "Thừa Thiên-Huế", "Tiền Giang", "", "Trà Vinh", "Tuyên Quang",
+            "Vĩnh Long", "Vĩnh Phúc", "Yên Bái"};
+
+            for (int i = 1; i <= 14; i++)
+                res.NoiO.Add(i, tinhThanh[i]);
+
+            for (int i = 16; i <= 23; i++)
+                res.NoiO.Add(i, tinhThanh[i]);
+
+            for (int i = 25; i <= 57; i++)
+                res.NoiO.Add(i, tinhThanh[i]);
+
+            for (int i = 59; i <= 63; i++)
+                res.NoiO.Add(i, tinhThanh[i]);
+
+            List<string> tinhTrang = new List<string>()
+            {"Tất cả", "Độc thân", "Đang có người yêu", "Đã có gia đình", "Ly dị", "Ở góa"};
+
+            for (int i = -1; i <= 4; i++)
+                res.TinhTrangHonNhan.Add(new ThongTinTimKiem.TinhTrangHonNhan() { Id = i, TenTinhTrang = tinhTrang[i + 1] });
+
+            List<string> gioiTinh = new List<string>()
+            { "Tất cả", "Nam", "Nữ", "Gay", "Les"};
+            for (int i = -1; i < 4; i++)
+                res.GioiTinh.Add(i, gioiTinh[i + 1]);
+
+            return res;
         }
 
         public IEnumerable<ThongTinTaiKhoan> TimKiem(ThongTinTimKiem param)
@@ -136,9 +166,7 @@ namespace AutoSendMessageOnWeb.Lib
                     query["pageindex"] = pageindex.ToString();
                     uri.Query = query.ToString();
 
-                    HttpWebRequest request = WebRequest.CreateHttp(uri.Uri);
-                    request.Method = "GET";
-                    var response = request.GetResponse();
+                    var response = RequestToWeb.GET(uri.Uri, false);
                     #endregion
 
                     #region Lấy dữ liệu
@@ -215,49 +243,5 @@ namespace AutoSendMessageOnWeb.Lib
                 return binding;
         }
 
-        public DanhSachDuLieuTimKiem TaoDuLieuTimKiem()
-        {
-            DanhSachDuLieuTimKiem res = new DanhSachDuLieuTimKiem();
-
-            res.NoiO.Add(-1, "Tất cả");
-
-            res.NoiO.Add(58, "TP Hồ Chí Minh");
-            res.NoiO.Add(24, "Hà Nội");
-            res.NoiO.Add(15, "Đà Nẵng");
-
-            List<string> tinhThanh = new List<string>()
-            {"", "An Giang", "Bà Rịa - Vũng Tàu", "Bắc Giang", "Bắc Kạn", "Bạc Liêu", "Bắc Ninh", "Bến Tre", "Bình Định","Bình Dương","Bình Phước",
-            "Bình Thuận", "Cà Mau", "Cần Thơ", "Cao Bằng", "", "Đăk Lăk", "Đăk Nông", "Điện Biên", "Đồng Nai", "Đồng Tháp",
-            "Gia Lai", "Hà Giang", "Hà Nam", "", "Hà Tĩnh", "Hải Dương", "Hải Phòng", "Hậu Giang", "Hoà Bình", "Hưng Yên",
-            "Khánh Hòa", "Kiên Giang", "Kon Tum", "Lai Châu", "Lâm Đồng", "Lạng Sơn", "Lào Cai", "Long An", "Nam Định", "Nghệ An",
-            "Ninh Bình", "Ninh Thuận", "Phú Thọ", "Phú Yên", "Quảng Bình", "Quảng Nam", "Quảng Ngãi", "Quảng Ninh", "Quảng Trị", "Sóc Trăng",
-            "Sơn La", "Tây Ninh", "Thái Bình", "Thái Nguyên", "Thanh Hóa", "Thừa Thiên-Huế", "Tiền Giang", "", "Trà Vinh", "Tuyên Quang",
-            "Vĩnh Long", "Vĩnh Phúc", "Yên Bái"};
-
-            for (int i = 1; i <= 14; i++)
-                res.NoiO.Add(i, tinhThanh[i]);
-
-            for (int i = 16; i <= 23; i++)
-                res.NoiO.Add(i, tinhThanh[i]);
-
-            for (int i = 25; i <= 57; i++)
-                res.NoiO.Add(i, tinhThanh[i]);
-
-            for (int i = 59; i <= 63; i++)
-                res.NoiO.Add(i, tinhThanh[i]);
-
-            List<string> tinhTrang = new List<string>()
-            {"Tất cả", "Độc thân", "Đang có người yêu", "Đã có gia đình", "Ly dị", "Ở góa"};
-
-            for (int i = -1; i <= 4; i++)
-                res.TinhTrangHonNhan.Add(new ThongTinTimKiem.TinhTrangHonNhan() { Id = i, TenTinhTrang = tinhTrang[i + 1] });
-
-            List<string> gioiTinh = new List<string>()
-            { "Tất cả", "Nam", "Nữ", "Gay", "Les"};
-            for (int i = -1; i < 4; i++)
-                res.GioiTinh.Add(i, gioiTinh[i + 1]);
-
-            return res;
-        }
     }
 }

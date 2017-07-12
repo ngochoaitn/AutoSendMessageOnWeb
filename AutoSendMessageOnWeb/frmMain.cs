@@ -41,11 +41,6 @@ namespace AutoSendMessageOnWeb
             ControlPlus.MovieFormWhenMouseDownControl(controlBoxFlat1.lblFormText, this.Handle);
         }
 
-        private void btnHenHo2_Click(object sender, EventArgs e)
-        {
-            new frmAuto(TrangWeb.HenHo2).ShowDialog();
-        }
-
         private void lblLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start(lblLink.Text);
@@ -54,6 +49,16 @@ namespace AutoSendMessageOnWeb
         private void btnCaiDat_Click(object sender, EventArgs e)
         {
             new AboutBox().ShowDialog();
+        }
+
+        private void btnHenHo2_Click(object sender, EventArgs e)
+        {
+            new frmAuto(TrangWeb.HenHo2).Show();
+        }
+
+        private void btnDuyenSo_Click(object sender, EventArgs e)
+        {
+            new frmAuto(TrangWeb.DuyenSo).Show();
         }
     }
 }

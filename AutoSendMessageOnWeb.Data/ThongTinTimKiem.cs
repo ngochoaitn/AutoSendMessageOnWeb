@@ -13,9 +13,12 @@ namespace AutoSendMessageOnWeb.Data
         public object NoiO { set; get; }
         public List<TinhTrangHonNhan> HonNhan { set; get; }
         public object GioiTinh { set; get; }
+        public List<object> OtherParam { set; get; }
+
         public ThongTinTimKiem()
         {
             this.HonNhan = new List<TinhTrangHonNhan>();
+            this.OtherParam = new List<object>();
         }
 
         public class TinhTrangHonNhan

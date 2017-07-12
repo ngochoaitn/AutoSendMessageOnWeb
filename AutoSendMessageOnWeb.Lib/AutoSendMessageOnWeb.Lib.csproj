@@ -55,7 +55,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DuyenSo.cs" />
     <Compile Include="ExtentionMethod\DataTypeEx.cs" />
+    <Compile Include="ExtentionMethod\DuyenSoEx.cs" />
     <Compile Include="ExtentionMethod\HenHo2Ex.cs" />
     <Compile Include="Security\ConstFilePath.cs" />
     <Compile Include="Security\Crypto.cs" />
@@ -77,6 +79,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ThaoTacControl\XuLyDaLuong.cs" />
     <Compile Include="ThaoTacWeb\IThaoTacWeb.cs" />
+    <Compile Include="ThaoTacWeb\RequestToWeb.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\#Library\ThuVienWinform\ThuVienWinform.UI.FLat.CommonControls\ThuVienWinform.UI.FLat.CommonControls.csproj">

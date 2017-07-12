@@ -38,9 +38,7 @@ namespace AutoSendMessageOnWeb.Data
         public string TinhTrangHonNhan { set; get; }
         public int? Tuoi { set; get; }
         public string NoiO { set; get; }
-
-
-
+        
         public string Url { set; get; }
 
         public CookieContainer Cookie { set; get; }

@@ -9,7 +9,8 @@ namespace AutoSendMessageOnWeb.Data
     public enum TrangWeb
     {
         ThongTinNguoiDung,
-        HenHo2
+        HenHo2,
+        DuyenSo
     }
     public class UriTrangWeb
     {
@@ -18,6 +19,13 @@ namespace AutoSendMessageOnWeb.Data
             get
             {
                 return new Uri("http://henho2.com");
+            }
+        }
+        public static Uri DuyenSo
+        {
+            get
+            {
+                return new Uri("http://duyenso.com");
             }
         }
     }

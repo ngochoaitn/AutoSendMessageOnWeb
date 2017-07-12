@@ -100,6 +100,8 @@ namespace AutoSendMessageOnWeb.Data
             {
                 case TrangWeb.HenHo2:
                     return "Data\\henho2.tvwp";
+                case TrangWeb.DuyenSo:
+                    return "Data\\duyenso.tvwp";
                 case TrangWeb.ThongTinNguoiDung:
                     return "Data\\DanhSachNguoiDung.tvwp";
                 default:

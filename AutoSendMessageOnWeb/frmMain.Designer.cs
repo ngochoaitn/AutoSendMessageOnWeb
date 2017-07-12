@@ -34,16 +34,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnCaiDat = new ThuVienWinform.UI.Flat.CommonControls.ButtonFlat();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblLink = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.lblPhienBan = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.controlBoxFlat1 = new ThuVienWinform.UI.Flat.CommonControls.ControlBoxFlat();
-            this.btnCaiDat = new ThuVienWinform.UI.Flat.CommonControls.ButtonFlat();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnDuyenSo = new ThuVienWinform.UI.Flat.CommonControls.ButtonFlat();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.btnHenHo2 = new ThuVienWinform.UI.Flat.CommonControls.ButtonFlat();
+            this.controlBoxFlat1 = new ThuVienWinform.UI.Flat.CommonControls.ControlBoxFlat();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -81,6 +82,7 @@
             this.panel2.Controls.Add(this.lblPhienBan);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Controls.Add(this.btnDuyenSo);
             this.panel2.Controls.Add(this.btnHenHo2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 28);
@@ -96,6 +98,22 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1, 320);
             this.panel4.TabIndex = 18;
+            // 
+            // btnCaiDat
+            // 
+            this.btnCaiDat.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCaiDat.BackColor = System.Drawing.Color.Transparent;
+            this.btnCaiDat.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCaiDat.BackgroundImage")));
+            this.btnCaiDat.FlatAppearance.BorderSize = 0;
+            this.btnCaiDat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCaiDat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCaiDat.Location = new System.Drawing.Point(295, 308);
+            this.btnCaiDat.Name = "btnCaiDat";
+            this.btnCaiDat.Size = new System.Drawing.Size(32, 32);
+            this.btnCaiDat.TabIndex = 17;
+            this.btnCaiDat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCaiDat.UseVisualStyleBackColor = false;
+            this.btnCaiDat.Click += new System.EventHandler(this.btnCaiDat_Click);
             // 
             // panel3
             // 
@@ -136,9 +154,9 @@
             this.lblPhienBan.AutoSize = true;
             this.lblPhienBan.Location = new System.Drawing.Point(267, 283);
             this.lblPhienBan.Name = "lblPhienBan";
-            this.lblPhienBan.Size = new System.Drawing.Size(79, 13);
+            this.lblPhienBan.Size = new System.Drawing.Size(73, 13);
             this.lblPhienBan.TabIndex = 13;
-            this.lblPhienBan.Text = "Phiên bản beta";
+            this.lblPhienBan.Text = "Phiên bản 1.0";
             // 
             // label2
             // 
@@ -151,11 +169,56 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "Tự động gửi tin nhắn";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox1.Image = global::AutoSendMessageOnWeb.Properties.Resources.Auto_Message;
+            this.pictureBox1.Location = new System.Drawing.Point(31, 5);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(299, 268);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnDuyenSo
+            // 
+            this.btnDuyenSo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnDuyenSo.BackColor = System.Drawing.Color.Transparent;
+            this.btnDuyenSo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDuyenSo.Font = new System.Drawing.Font("Yu Gothic Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDuyenSo.ImageIndex = 1;
+            this.btnDuyenSo.ImageList = this.imageList1;
+            this.btnDuyenSo.Location = new System.Drawing.Point(353, 64);
+            this.btnDuyenSo.Name = "btnDuyenSo";
+            this.btnDuyenSo.Size = new System.Drawing.Size(218, 52);
+            this.btnDuyenSo.TabIndex = 0;
+            this.btnDuyenSo.Text = "duyenso.com";
+            this.btnDuyenSo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDuyenSo.UseVisualStyleBackColor = false;
+            this.btnDuyenSo.Click += new System.EventHandler(this.btnDuyenSo_Click);
+            // 
             // imageList1
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "henho2.ico");
+            this.imageList1.Images.SetKeyName(1, "duyenso.ico");
+            // 
+            // btnHenHo2
+            // 
+            this.btnHenHo2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnHenHo2.BackColor = System.Drawing.Color.Transparent;
+            this.btnHenHo2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHenHo2.Font = new System.Drawing.Font("Yu Gothic Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHenHo2.ImageIndex = 0;
+            this.btnHenHo2.ImageList = this.imageList1;
+            this.btnHenHo2.Location = new System.Drawing.Point(353, 6);
+            this.btnHenHo2.Name = "btnHenHo2";
+            this.btnHenHo2.Size = new System.Drawing.Size(218, 52);
+            this.btnHenHo2.TabIndex = 0;
+            this.btnHenHo2.Text = "henho2.com";
+            this.btnHenHo2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnHenHo2.UseVisualStyleBackColor = false;
+            this.btnHenHo2.Click += new System.EventHandler(this.btnHenHo2_Click);
             // 
             // controlBoxFlat1
             // 
@@ -184,49 +247,6 @@
             this.controlBoxFlat1.TipMaxsize = "Phóng to";
             this.controlBoxFlat1.TipMaxsize2 = "Khôi phục kích thước";
             this.controlBoxFlat1.TipMinisize = "Thu nhỏ";
-            // 
-            // btnCaiDat
-            // 
-            this.btnCaiDat.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCaiDat.BackColor = System.Drawing.Color.Transparent;
-            this.btnCaiDat.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCaiDat.BackgroundImage")));
-            this.btnCaiDat.FlatAppearance.BorderSize = 0;
-            this.btnCaiDat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCaiDat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCaiDat.Location = new System.Drawing.Point(295, 308);
-            this.btnCaiDat.Name = "btnCaiDat";
-            this.btnCaiDat.Size = new System.Drawing.Size(32, 32);
-            this.btnCaiDat.TabIndex = 17;
-            this.btnCaiDat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCaiDat.UseVisualStyleBackColor = false;
-            this.btnCaiDat.Click += new System.EventHandler(this.btnCaiDat_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.Image = global::AutoSendMessageOnWeb.Properties.Resources.Auto_Message;
-            this.pictureBox1.Location = new System.Drawing.Point(31, 5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(299, 268);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btnHenHo2
-            // 
-            this.btnHenHo2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnHenHo2.BackColor = System.Drawing.Color.Transparent;
-            this.btnHenHo2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHenHo2.Font = new System.Drawing.Font("Yu Gothic Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHenHo2.ImageIndex = 0;
-            this.btnHenHo2.ImageList = this.imageList1;
-            this.btnHenHo2.Location = new System.Drawing.Point(353, 6);
-            this.btnHenHo2.Name = "btnHenHo2";
-            this.btnHenHo2.Size = new System.Drawing.Size(218, 52);
-            this.btnHenHo2.TabIndex = 0;
-            this.btnHenHo2.Text = "henho2.com";
-            this.btnHenHo2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnHenHo2.UseVisualStyleBackColor = false;
-            this.btnHenHo2.Click += new System.EventHandler(this.btnHenHo2_Click);
             // 
             // frmMain
             // 
@@ -268,5 +288,6 @@
         private System.Windows.Forms.Label lblPhienBan;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ImageList imageList1;
+        private ThuVienWinform.UI.Flat.CommonControls.ButtonFlat btnDuyenSo;
     }
 }

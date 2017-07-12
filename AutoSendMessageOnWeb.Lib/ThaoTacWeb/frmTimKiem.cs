@@ -58,6 +58,7 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb
 
             cbbTinhTrangHonNhan.DisplayMember = "TenTinhTrang";
 
+            cbbGioiTinh.SelectedIndex = 0;
             cbbNoiO.SelectedIndex = 0;
             cbbTinhTrangHonNhan.SetItemChecked(0, true);
         }
@@ -76,6 +77,7 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb
 
             this.ParamTimKiem.NoiO = noiO.Key;
             this.ParamTimKiem.GioiTinh = gioiTinh.Key;
+            this.ParamTimKiem.OtherParam.Add(gioiTinh.Value);
 
             foreach (var sl in cbbTinhTrangHonNhan.CheckedItems)
             {
