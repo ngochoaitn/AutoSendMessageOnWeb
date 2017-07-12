@@ -16,41 +16,22 @@ using ThuVienWinform.UI;
 
 namespace AutoSendMessageOnWeb
 {
-    public partial class frmAuto : Form
+    public partial class cAuto : UserControl
     {
         private IThaoTacWeb _thaoTacWeb;
         private TrangWeb _trang;
         DatabaseManager _db;
 
-        protected override void WndProc(ref Message m)
-        {
-            const int wmNcHitTest = 0x84;
-            const int htBottomLeft = 16;
-            const int htBottomRight = 17;
-            if (m.Msg == wmNcHitTest)
-            {
-                int x = (int)(m.LParam.ToInt64() & 0xFFFF);
-                int y = (int)((m.LParam.ToInt64() & 0xFFFF0000) >> 16);
-                Point pt = PointToClient(new Point(x, y));
-                Size clientSize = ClientSize;
-                if (pt.X >= clientSize.Width - 16 && pt.Y >= clientSize.Height - 16 && clientSize.Height >= 16)
-                {
-                    m.Result = (IntPtr)(IsMirrored ? htBottomLeft : htBottomRight);
-                    return;
-                }
-            }
-            base.WndProc(ref m);
-        }
 
-        public frmAuto(TrangWeb trang)
+        public cAuto()
         {
             InitializeComponent();
 
             CheckForIllegalCrossThreadCalls = false;
+        }
 
-            ControlPlus.MovieFormWhenMouseDownControl(controlBoxFlat1, this.Handle);
-            ControlPlus.MovieFormWhenMouseDownControl(controlBoxFlat1.lblFormText, this.Handle);
-
+        public void CaiDatTrang(TrangWeb trang)
+        {
             _trang = trang;
             _db = new DatabaseManager(trang);
 
@@ -62,11 +43,9 @@ namespace AutoSendMessageOnWeb
             {
                 case TrangWeb.HenHo2:
                     _thaoTacWeb = new HenHo2();
-                    this.Text = string.Format("Cấu hình gửi tin {0}", "http://henho2.com/");
                     break;
                 case TrangWeb.DuyenSo:
                     _thaoTacWeb = new DuyenSo();
-                    this.Text = string.Format("Cấu hình gửi tin {0}", "http://duyenso.com/");
                     lblTieuDe.Visible = txtTieuDe.Visible = false;
 
                     lblNoiDung.Location = lblTieuDe.Location;
@@ -99,6 +78,7 @@ namespace AutoSendMessageOnWeb
         }
 
         BindingList<ThongTinTaiKhoan> _danhSach = new BindingList<ThongTinTaiKhoan>();
+
         private void backgroundWorkerTimKiem_DoWork(object sender, DoWorkEventArgs e)
         {
             int dem = 0;

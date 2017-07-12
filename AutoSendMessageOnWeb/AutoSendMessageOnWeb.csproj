@@ -68,17 +68,17 @@
     <Compile Include="AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAuto.cs">
+    <Compile Include="cAuto.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="cAuto.Designer.cs">
+      <DependentUpon>cAuto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMainTab.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAuto.Designer.cs">
-      <DependentUpon>frmAuto.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmMain.Designer.cs">
-      <DependentUpon>frmMain.cs</DependentUpon>
+    <Compile Include="frmMainTab.Designer.cs">
+      <DependentUpon>frmMainTab.cs</DependentUpon>
     </Compile>
     <Compile Include="frmTest.cs">
       <SubType>Form</SubType>
@@ -99,11 +99,11 @@
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAuto.resx">
-      <DependentUpon>frmAuto.cs</DependentUpon>
+    <EmbeddedResource Include="cAuto.resx">
+      <DependentUpon>cAuto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMain.resx">
-      <DependentUpon>frmMain.cs</DependentUpon>
+    <EmbeddedResource Include="frmMainTab.resx">
+      <DependentUpon>frmMainTab.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTest.resx">
       <DependentUpon>frmTest.cs</DependentUpon>

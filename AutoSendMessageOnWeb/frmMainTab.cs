@@ -1,5 +1,4 @@
-﻿using AutoSendMessageOnWeb.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +11,7 @@ using ThuVienWinform.UI;
 
 namespace AutoSendMessageOnWeb
 {
-    public partial class frmMain : Form
+    public partial class frmMainTab : Form
     {
         protected override void WndProc(ref Message m)
         {
@@ -34,31 +33,20 @@ namespace AutoSendMessageOnWeb
             base.WndProc(ref m);
         }
 
-        public frmMain()
+        public frmMainTab()
         {
             InitializeComponent();
+
+            CheckForIllegalCrossThreadCalls = false;
+
             ControlPlus.MovieFormWhenMouseDownControl(controlBoxFlat1, this.Handle);
             ControlPlus.MovieFormWhenMouseDownControl(controlBoxFlat1.lblFormText, this.Handle);
         }
 
-        private void lblLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void frmMainTab_Load(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(lblLink.Text);
-        }
-
-        private void btnCaiDat_Click(object sender, EventArgs e)
-        {
-            new AboutBox().ShowDialog();
-        }
-
-        private void btnHenHo2_Click(object sender, EventArgs e)
-        {
-            new frmAuto(TrangWeb.HenHo2).Show();
-        }
-
-        private void btnDuyenSo_Click(object sender, EventArgs e)
-        {
-            new frmAuto(TrangWeb.DuyenSo).Show();
+            cAutoHenHo2.CaiDatTrang(Data.TrangWeb.HenHo2);
+            cAutoDuyenSo.CaiDatTrang(Data.TrangWeb.DuyenSo);
         }
     }
 }

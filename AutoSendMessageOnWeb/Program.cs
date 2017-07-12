@@ -21,23 +21,24 @@ namespace AutoSendMessageOnWeb
             StartUpOperation.CheckFile();
             //Application.Run(new frmTest());
             //new frmTest().ShowDialog();
+            frmMainTab main = new frmMainTab();
             try
             {
                 DateTime? hanSuDung = Crypto.VerifySignature(File.ReadAllText(ConstFilePath.FILE_KEY));
                 if (hanSuDung != null && hanSuDung >= DataUseForSecurity.GetReadDate())
                 {
-                    Application.Run(new frmMain());
+                    Application.Run(main);
                 }
                 else
                 {
                     if(new frmVerify().ShowDialog() == DialogResult.OK)
-                        Application.Run(new frmMain());
+                        Application.Run(main);
                 }
             }
             catch
             {
                 if (new frmVerify().ShowDialog() == DialogResult.OK)
-                    Application.Run(new frmMain());
+                    Application.Run(main);
             }
             
         }
