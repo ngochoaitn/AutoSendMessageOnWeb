@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVerify));
             this.controlBoxFlat1 = new ThuVienWinform.UI.Flat.CommonControls.ControlBoxFlat();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblWebChinhThuc = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.textBoxFlat1 = new ThuVienWinform.UI.Flat.CommonControls.TextBoxFlat();
             this.label2 = new System.Windows.Forms.Label();
@@ -72,23 +72,24 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.lblWebChinhThuc);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 263);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(589, 33);
             this.panel1.TabIndex = 1;
             // 
-            // label3
+            // lblWebChinhThuc
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(498, 10);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "ThuVienWinform";
+            this.lblWebChinhThuc.AutoSize = true;
+            this.lblWebChinhThuc.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblWebChinhThuc.ForeColor = System.Drawing.Color.Black;
+            this.lblWebChinhThuc.Location = new System.Drawing.Point(503, 0);
+            this.lblWebChinhThuc.Name = "lblWebChinhThuc";
+            this.lblWebChinhThuc.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.lblWebChinhThuc.Size = new System.Drawing.Size(86, 18);
+            this.lblWebChinhThuc.TabIndex = 2;
+            this.lblWebChinhThuc.Text = "ThuVienWinform";
             // 
             // panel2
             // 
@@ -196,6 +197,6 @@
         private ThuVienWinform.UI.Flat.CommonControls.ButtonFlat btnXacNhan;
         private ThuVienWinform.UI.Flat.CommonControls.TextBoxFlat textBoxFlat1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblWebChinhThuc;
     }
 }

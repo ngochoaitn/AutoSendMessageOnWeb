@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,5 +18,7 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb
         IEnumerable<ThongTinTaiKhoan> TimKiemBangWebbrowser(IEnumerable<ThongTinTaiKhoan> binding);
         void GuiTin(ThongTinTaiKhoan nguoigui, ThongTinTaiKhoan nguoinhan, string tieude, string noidung);
         DanhSachDuLieuTimKiem TaoDuLieuTimKiem();
+        bool YeuCauCookie { get; }
+        CookieContainer Cookie { set; get; }
     }
 }

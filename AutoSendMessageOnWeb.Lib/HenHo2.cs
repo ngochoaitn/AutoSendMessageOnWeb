@@ -16,6 +16,14 @@ namespace AutoSendMessageOnWeb.Lib
 {
     public class HenHo2 : IThaoTacWeb
     {
+        public CookieContainer Cookie { set; get; }
+        public bool YeuCauCookie
+        {
+            get
+            {
+                return false;
+            }
+        }
         public void DangNhap(ref ThongTinTaiKhoan tk)
         {
             string data = string.Format("Email={0}&Password={1}&RememberMe=true&returnUrl=%2F", tk.TaiKhoan, tk.MatKhau);
@@ -29,6 +37,15 @@ namespace AutoSendMessageOnWeb.Lib
                 tk.Cookie = new CookieContainer();
                 tk.Cookie.SetCookies(UriTrangWeb.HenHo2, setCookie);
                 tk.TrangThai = "Đang nhập thành công";
+
+                foreach (Cookie co in tk.Cookie.GetCookies(UriTrangWeb.HenHo2))
+                {
+                    if (co.Name == ".ASPXAUTH")
+                    {
+                        tk.HanCookie = co.Expires;
+                        break;
+                    }
+                }
             }
             else
             {
@@ -87,15 +104,20 @@ namespace AutoSendMessageOnWeb.Lib
 
             string data = string.Format("IdTo={0}&NameTo={1}&Title={2}&MessageContent={3}", nguoinhan.Id, nguoinhan.TenHienThi, tieude, noidung);
 
-            var response = RequestToWeb.POST(new Uri("http://henho2.com/Message/Create"), nguoigui.Cookie, data, false);
+            var response = RequestToWeb.POST2(new Uri("http://henho2.com/Message/Create"), nguoigui.Cookie, data, false);
 
             nguoinhan.TrangThai = nguoigui.TaiKhoan;
             using (var sr = new StreamReader(response.GetResponseStream()))
             {
                 string stringResponse = sr.ReadToEnd();
-                if (stringResponse.Contains("Login"))
+                if (!stringResponse.Contains("Gửi tin nhắn th&#224;nh c&#244;ng"))
                 {
-                    nguoinhan.TrangThai = "Gửi lỗi (nhập lại tài khoản)";
+                    if (stringResponse.Contains("gửi qu&#225; số thư cho ph&#233;p"))
+                        nguoinhan.TrangThai = "Gửi lỗi (quá số thư cho phép)";
+                    else if (stringResponse.Contains("Vui l&#242;ng nhập từ"))
+                        nguoinhan.TrangThai = "Gửi lỗi (quá ngắn)";
+                    else
+                        nguoinhan.TrangThai = "Gửi lỗi (nhập lại tài khoản)";
                 }
             }
         }

@@ -16,6 +16,14 @@ namespace AutoSendMessageOnWeb.Lib
 {
     public class DuyenSo : IThaoTacWeb
     {
+        public CookieContainer Cookie { set; get; }
+        public bool YeuCauCookie
+        {
+            get
+            {
+                return false;
+            }
+        }
         public void DangNhap(ref ThongTinTaiKhoan tk)
         {
             HttpWebRequest request = WebRequest.CreateHttp("http://duyenso.com/ajax.php");
@@ -40,6 +48,14 @@ namespace AutoSendMessageOnWeb.Lib
                     tk.Cookie = new CookieContainer();
                     tk.Cookie.SetCookies(UriTrangWeb.DuyenSo, setCookie);
                     tk.TrangThai = "Đang nhập thành công";
+                    foreach(Cookie co in tk.Cookie.GetCookies(UriTrangWeb.DuyenSo))
+                    {
+                        if(co.Name == ".duyenso.com_c_user")
+                        {
+                            tk.HanCookie = co.Expires;
+                            break;
+                        }
+                    }
                 }
                 else
                 {
@@ -153,7 +169,7 @@ namespace AutoSendMessageOnWeb.Lib
                 query["p_status[]"] = param.HonNhan.FirstOrDefault().Id.ToString();
                 for(int i = 2; i < param.HonNhan.Count; i++)
                     query["p_status[]"] += string.Format("&p_status[]={0}", param.HonNhan[i].Id.ToString());
-                query["with_photo"] = "0";
+                query["with_photo"] = "1";
                 uri.Query = query.ToString();
 
                 HttpWebRequest request = WebRequest.CreateHttp(uri.Uri);

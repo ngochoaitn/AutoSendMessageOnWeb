@@ -41,6 +41,29 @@ namespace AutoSendMessageOnWeb.Data
         
         public string Url { set; get; }
 
-        public CookieContainer Cookie { set; get; }
+        private DateTime? _hanCookie = null;
+        public DateTime? HanCookie
+        {
+            set { _hanCookie = value; }
+            get { return _hanCookie; }
+        }
+        private CookieContainer _cookie = null;
+        public CookieContainer Cookie
+        {
+            set
+            {
+                _cookie = value;
+                if (_cookie == null) this.HanCookie = null;
+            }
+            get { return _cookie; }
+        }
+        public bool YeuCauDangNhapMoi
+        {
+            get
+            {
+                return true;
+                //return this.HanCookie == null || this.Cookie == null || (this.HanCookie.HasValue && this.HanCookie.Value <= DateTime.Now);
+            }
+        }
     }
 }

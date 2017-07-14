@@ -32,6 +32,8 @@
             this.panBot = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panMid = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cbbGioiTinh = new System.Windows.Forms.ComboBox();
             this.cbbTinhTrangHonNhan = new ThuVienWinform.UI.Flat.CommonControls.CheckedComboBox();
             this.btnTimKiem = new ThuVienWinform.UI.Flat.CommonControls.ButtonFlat();
             this.cbbNoiO = new System.Windows.Forms.ComboBox();
@@ -41,8 +43,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.cbbGioiTinh = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.panBot.SuspendLayout();
             this.panMid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numTuTuoi)).BeginInit();
@@ -91,11 +91,11 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(213, 9);
+            this.label3.Location = new System.Drawing.Point(165, 7);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 13);
+            this.label3.Size = new System.Drawing.Size(134, 13);
             this.label3.TabIndex = 2;
-            this.label3.Text = "ThuVienWinform";
+            this.label3.Text = "http://hopdongtinhyeu.vn/";
             // 
             // panMid
             // 
@@ -117,6 +117,24 @@
             this.panMid.Size = new System.Drawing.Size(302, 154);
             this.panMid.TabIndex = 2;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(68, 35);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(50, 13);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Giới tính:";
+            // 
+            // cbbGioiTinh
+            // 
+            this.cbbGioiTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbGioiTinh.FormattingEnabled = true;
+            this.cbbGioiTinh.Location = new System.Drawing.Point(124, 32);
+            this.cbbGioiTinh.Name = "cbbGioiTinh";
+            this.cbbGioiTinh.Size = new System.Drawing.Size(166, 21);
+            this.cbbGioiTinh.TabIndex = 8;
+            // 
             // cbbTinhTrangHonNhan
             // 
             this.cbbTinhTrangHonNhan.CheckOnClick = true;
@@ -135,11 +153,13 @@
             // 
             this.btnTimKiem.BackColor = System.Drawing.Color.Transparent;
             this.btnTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTimKiem.Image = global::AutoSendMessageOnWeb.Lib.Properties.Resources._16x16_search_black;
             this.btnTimKiem.Location = new System.Drawing.Point(124, 120);
             this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(75, 23);
+            this.btnTimKiem.Size = new System.Drawing.Size(75, 28);
             this.btnTimKiem.TabIndex = 11;
             this.btnTimKiem.Text = "Tìm";
+            this.btnTimKiem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnTimKiem.UseVisualStyleBackColor = false;
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
@@ -211,24 +231,6 @@
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Từ tuổi:";
-            // 
-            // cbbGioiTinh
-            // 
-            this.cbbGioiTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbGioiTinh.FormattingEnabled = true;
-            this.cbbGioiTinh.Location = new System.Drawing.Point(124, 32);
-            this.cbbGioiTinh.Name = "cbbGioiTinh";
-            this.cbbGioiTinh.Size = new System.Drawing.Size(166, 21);
-            this.cbbGioiTinh.TabIndex = 8;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(68, 35);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(50, 13);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Giới tính:";
             // 
             // frmTimKiem
             // 

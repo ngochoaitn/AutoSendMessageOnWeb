@@ -13,6 +13,7 @@ namespace AutoSendMessageOnWeb.Data
     public class DatabaseManager
     {
         private string _fileDataPath;
+        public string PhienTimKiem { set; get; }
         public BindingList<ThongTinTaiKhoan> DanhSachNguoiGui { set; get; }
         public BindingList<ThongTinTaiKhoan> DanhSachNguoiNhan { set; get; }
         public BindingList<ThongTinNguoiDung> DanhSachNguoiDung { set; get; }
@@ -60,6 +61,7 @@ namespace AutoSendMessageOnWeb.Data
                 this.DanhSachNguoiGui = tmp.DanhSachNguoiGui;
                 this.DanhSachNguoiNhan = tmp.DanhSachNguoiNhan;
                 this.DanhSachNguoiDung = tmp.DanhSachNguoiDung;
+                this.PhienTimKiem = tmp.PhienTimKiem;
             }
             catch
             {
@@ -102,8 +104,12 @@ namespace AutoSendMessageOnWeb.Data
                     return "Data\\henho2.tvwp";
                 case TrangWeb.DuyenSo:
                     return "Data\\duyenso.tvwp";
+                case TrangWeb.VietNamCupid:
+                    return "Data\\VietNamCupid.tvwp";
+
                 case TrangWeb.ThongTinNguoiDung:
                     return "Data\\DanhSachNguoiDung.tvwp";
+
                 default:
                     return "Data\\thuvienwinform.tvwp";
             }

@@ -55,10 +55,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DocThan.cs" />
     <Compile Include="DuyenSo.cs" />
     <Compile Include="ExtentionMethod\DataTypeEx.cs" />
     <Compile Include="ExtentionMethod\DuyenSoEx.cs" />
     <Compile Include="ExtentionMethod\HenHo2Ex.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Security\ConstFilePath.cs" />
     <Compile Include="Security\Crypto.cs" />
     <Compile Include="Security\DataUseForSecurity.cs" />
@@ -80,6 +86,7 @@
     <Compile Include="ThaoTacControl\XuLyDaLuong.cs" />
     <Compile Include="ThaoTacWeb\IThaoTacWeb.cs" />
     <Compile Include="ThaoTacWeb\RequestToWeb.cs" />
+    <Compile Include="VietNamCupid.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\#Library\ThuVienWinform\ThuVienWinform.UI.FLat.CommonControls\ThuVienWinform.UI.FLat.CommonControls.csproj">
@@ -104,6 +111,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ThaoTacWeb\frmTimKiem.resx">
       <DependentUpon>frmTimKiem.cs</DependentUpon>
     </EmbeddedResource>
@@ -119,6 +130,7 @@
     <Content Include="DataHtmlTest.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\16x16 search black.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

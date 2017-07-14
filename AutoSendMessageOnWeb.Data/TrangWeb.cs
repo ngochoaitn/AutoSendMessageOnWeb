@@ -10,7 +10,8 @@ namespace AutoSendMessageOnWeb.Data
     {
         ThongTinNguoiDung,
         HenHo2,
-        DuyenSo
+        DuyenSo,
+        VietNamCupid
     }
     public class UriTrangWeb
     {
@@ -26,6 +27,13 @@ namespace AutoSendMessageOnWeb.Data
             get
             {
                 return new Uri("http://duyenso.com");
+            }
+        }
+        public static Uri VietNamCupid
+        {
+            get
+            {
+                return new Uri("https://www.vietnamcupid.com");
             }
         }
     }

@@ -25,13 +25,13 @@ namespace AutoSendMessageOnWeb.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Beta 4")]
-        public string PhienBan {
+        [global::System.Configuration.DefaultSettingValueAttribute("http://hopdongtinhyeu.vn/")]
+        public string WebChinhThuc {
             get {
-                return ((string)(this["PhienBan"]));
+                return ((string)(this["WebChinhThuc"]));
             }
             set {
-                this["PhienBan"] = value;
+                this["WebChinhThuc"] = value;
             }
         }
     }

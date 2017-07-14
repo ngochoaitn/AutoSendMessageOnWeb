@@ -117,17 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Auto Message" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Auto Message.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="add" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Action_Remove_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Action_Remove_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="12x12subforum" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\12x12subforum.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAABILAAASCwAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAA0AAAAVAAAADgAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAD///8AAAAAAA8ufAAOLXwAAAAAAgAAABMIGkloJ1um/wgaSWwAAAAVAAAAAw0qeQANKnkADCl4AAwp
+        eAAAAAAA////AAAAAAARMoAAAAAAAgAAABEKHU1mPX2+/2rM//89fr//CRxKbAAAABQAAAADoOP/AKDj
+        /wAOLHsAAAAAAP///wAAAAAAAAAAAgAAAA8LIE9dQn69/2bK//9Tw///Y8j//0KCwP8OHkpvLh0XVzch
+        G5w3IhqlNyEbOTciGgD///8AAAAAAgAAAA0OJVVZSYS//3DP//9cxv//W8b//1rF//9rzf//SYbC/xUi
+        SHYLBgUWOSIdNTokHsE6JR05////AAAAAAcSK1xOToe//3zV//9ly///Y8r//2LL//9iy///Ysn//3TR
+        //9PisT/DiRWZgAAABE+Jx9DPygfvf///wAAAAAKNnCz/7Dp//9sz///bM///2vO//9rzf//as///2rM
+        //9ozv//fNX//1SMxP8XN26JHhMPG0MrIvP///8AAAAABitXilKCstr/pOX//3TU//901P//ctP//3HR
+        //9y0v//cNL//3DR//+C1fz/PnCo/xkuW2dJLyfz////AAAAAAEAAAAILVqLUoW02/+q5///edb//3nW
+        //941f//d9f//5Tg//+u6f//g8ru/3Kr0/88X47/TDQqvv///wAAAAAAAAAAAQAAAAcxYJJPiLbc/7Dp
+        //+A2f//f9r//37a//9uptP/MWmr/09/r/+JsMH/WE5T/0cxKEX///8AAAAAAEJ/vQAAAAABAAAABzRk
+        l02LuN3/tOv//4bd//+G3P//Mmmp/wAAACRdRT3/dmxo/15+pf8AAAAN////AAAAAABFg78A3Pf/AAAA
+        AAEAAAAGN2ibTI673v+67f//jeH//1mczf8pXZ//frPY/9X1//9hk8f/AAAACv///wAAAAAASIfCAN74
+        /wDe+P8AAAAAAQAAAAU7cKNJkL3f/974///d+P//3ff//933//92msb/DjJvTgAAAAX///8AAAAAAEqL
+        xABKisQASYrDAEmIwgBIiMMAAAAABD52qUdHh8H/R4XB/0aGwf9GhMH/EDd2SwAAAAYAAAAB////AAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAABAAAAAUAAAAFAAAABQAAAAMAAAABAAAAAP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A8H8AAOA/AADAHwAAgAMAAAABAAAAAQAAAAEAAAABAAAAAQAAgAEAAMABAADgAQAA8AEAAPwB
+        AAD+AwAA//8AAA==
+</value>
   </data>
 </root>

@@ -32,15 +32,18 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabHenHo2 = new System.Windows.Forms.TabPage();
             this.tabDuyenSo = new System.Windows.Forms.TabPage();
+            this.tabVietNamCupid = new System.Windows.Forms.TabPage();
             this.controlBoxFlat1 = new ThuVienWinform.UI.Flat.CommonControls.ControlBoxFlat();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblWebChinhThuc = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.cAutoHenHo2 = new AutoSendMessageOnWeb.cAuto();
             this.cAutoDuyenSo = new AutoSendMessageOnWeb.cAuto();
+            this.cAutoVietNamCupid = new AutoSendMessageOnWeb.cAuto();
             this.tabControl1.SuspendLayout();
             this.tabHenHo2.SuspendLayout();
             this.tabDuyenSo.SuspendLayout();
+            this.tabVietNamCupid.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -49,6 +52,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabHenHo2);
             this.tabControl1.Controls.Add(this.tabDuyenSo);
+            this.tabControl1.Controls.Add(this.tabVietNamCupid);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -77,6 +81,17 @@
             this.tabDuyenSo.TabIndex = 1;
             this.tabDuyenSo.Text = "duyenso.com";
             this.tabDuyenSo.UseVisualStyleBackColor = true;
+            // 
+            // tabVietNamCupid
+            // 
+            this.tabVietNamCupid.Controls.Add(this.cAutoVietNamCupid);
+            this.tabVietNamCupid.Location = new System.Drawing.Point(4, 22);
+            this.tabVietNamCupid.Name = "tabVietNamCupid";
+            this.tabVietNamCupid.Padding = new System.Windows.Forms.Padding(3);
+            this.tabVietNamCupid.Size = new System.Drawing.Size(929, 401);
+            this.tabVietNamCupid.TabIndex = 2;
+            this.tabVietNamCupid.Text = "vietnamcupid.com";
+            this.tabVietNamCupid.UseVisualStyleBackColor = true;
             // 
             // controlBoxFlat1
             // 
@@ -108,12 +123,24 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.lblWebChinhThuc);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 457);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(939, 27);
             this.panel1.TabIndex = 2;
+            // 
+            // lblWebChinhThuc
+            // 
+            this.lblWebChinhThuc.AutoSize = true;
+            this.lblWebChinhThuc.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblWebChinhThuc.ForeColor = System.Drawing.Color.White;
+            this.lblWebChinhThuc.Location = new System.Drawing.Point(833, 0);
+            this.lblWebChinhThuc.Name = "lblWebChinhThuc";
+            this.lblWebChinhThuc.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.lblWebChinhThuc.Size = new System.Drawing.Size(106, 18);
+            this.lblWebChinhThuc.TabIndex = 0;
+            this.lblWebChinhThuc.Text = "hopdongtinhyeu.com";
             // 
             // panel2
             // 
@@ -125,17 +152,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(939, 429);
             this.panel2.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(829, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(106, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "hopdongtinhyeu.com";
             // 
             // cAutoHenHo2
             // 
@@ -155,6 +171,15 @@
             this.cAutoDuyenSo.Size = new System.Drawing.Size(923, 395);
             this.cAutoDuyenSo.TabIndex = 0;
             // 
+            // cAutoVietNamCupid
+            // 
+            this.cAutoVietNamCupid.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.cAutoVietNamCupid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cAutoVietNamCupid.Location = new System.Drawing.Point(3, 3);
+            this.cAutoVietNamCupid.Name = "cAutoVietNamCupid";
+            this.cAutoVietNamCupid.Size = new System.Drawing.Size(923, 395);
+            this.cAutoVietNamCupid.TabIndex = 0;
+            // 
             // frmMainTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -166,13 +191,17 @@
             this.Controls.Add(this.controlBoxFlat1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "frmMainTab";
             this.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gửi tin nhắn tự động";
             this.Load += new System.EventHandler(this.frmMainTab_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.frmMainTab_KeyUp);
             this.tabControl1.ResumeLayout(false);
             this.tabHenHo2.ResumeLayout(false);
             this.tabDuyenSo.ResumeLayout(false);
+            this.tabVietNamCupid.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -190,6 +219,8 @@
         private System.Windows.Forms.Panel panel2;
         private cAuto cAutoHenHo2;
         private cAuto cAutoDuyenSo;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblWebChinhThuc;
+        private System.Windows.Forms.TabPage tabVietNamCupid;
+        private cAuto cAutoVietNamCupid;
     }
 }

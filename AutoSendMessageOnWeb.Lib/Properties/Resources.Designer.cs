@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AutoSendMessageOnWeb.Properties {
+namespace AutoSendMessageOnWeb.Lib.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace AutoSendMessageOnWeb.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AutoSendMessageOnWeb.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AutoSendMessageOnWeb.Lib.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -63,39 +63,9 @@ namespace AutoSendMessageOnWeb.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _12x12subforum {
+        internal static System.Drawing.Bitmap _16x16_search_black {
             get {
-                object obj = ResourceManager.GetObject("12x12subforum", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Action_Remove_16x16 {
-            get {
-                object obj = ResourceManager.GetObject("Action_Remove_16x16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap add {
-            get {
-                object obj = ResourceManager.GetObject("add", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Auto_Message {
-            get {
-                object obj = ResourceManager.GetObject("Auto Message", resourceCulture);
+                object obj = ResourceManager.GetObject("16x16 search black", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

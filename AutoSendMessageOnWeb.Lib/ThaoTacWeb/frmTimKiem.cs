@@ -37,6 +37,7 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb
 
         DanhSachDuLieuTimKiem _duLieuTimKiem;
         public ThongTinTimKiem ParamTimKiem { private set; get; }
+        public string ChuoiTimKiem { private set; get; }
 
         public frmTimKiem(IThaoTacWeb thaotacweb)
         {
@@ -78,6 +79,7 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb
             this.ParamTimKiem.NoiO = noiO.Key;
             this.ParamTimKiem.GioiTinh = gioiTinh.Key;
             this.ParamTimKiem.OtherParam.Add(gioiTinh.Value);
+            this.ParamTimKiem.OtherParam.Add(cbbTinhTrangHonNhan.Text);
 
             foreach (var sl in cbbTinhTrangHonNhan.CheckedItems)
             {
@@ -86,6 +88,8 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb
             }
 
             this.DialogResult = DialogResult.OK;
+            this.ChuoiTimKiem = string.Format("Tuối: {0} - {1} | Giới tính: {2} | Nơi ở: {3} | Hôn nhân: {4}", this.ParamTimKiem.TuTuoi,
+                                              this.ParamTimKiem.DenTuoi, cbbGioiTinh.Text, cbbNoiO.Text, cbbTinhTrangHonNhan.Text);
             this.Close();
         }
     }

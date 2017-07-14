@@ -47,6 +47,7 @@ namespace AutoSendMessageOnWeb
         private void frmVerify_Load(object sender, EventArgs e)
         {
             textBoxFlat1.Text = DataUseForSecurity.GenKeySendToAdmin();
+            lblWebChinhThuc.Text = Properties.Settings.Default.WebChinhThuc;
         }
     }
 }

@@ -1,8 +1,11 @@
 ﻿using AutoSendMessageOnWeb.Data;
 using AutoSendMessageOnWeb.Lib.Security;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,6 +23,10 @@ namespace AutoSendMessageOnWeb.Lib.ExtentionMethod
             {
                 return null;
             }
+        }
+        public static string TrimAll(this string s)
+        {
+            return s.Replace("\n", "").Replace("\t", "").Replace("\r", "");
         }
         public static DateTime? ddMMyyyy(string s)
         {
@@ -49,6 +56,45 @@ namespace AutoSendMessageOnWeb.Lib.ExtentionMethod
         public static string TaoMaSuDung(this ThongTinNguoiDung nguoidung, DateTime hansudung)
         {
             return DataUseForSecurity.GenKeySendToClient(string.Format("[{0}][{1}]", nguoidung.TenMay, nguoidung.MAC), hansudung);
+        }
+
+        public static CookieCollection GetAllCookies(this CookieContainer cookieJar)
+        {
+            CookieCollection cookieCollection = new CookieCollection();
+
+            Hashtable table = (Hashtable)cookieJar.GetType().InvokeMember("m_domainTable",
+                                                                            BindingFlags.NonPublic |
+                                                                            BindingFlags.GetField |
+                                                                            BindingFlags.Instance,
+                                                                            null,
+                                                                            cookieJar,
+                                                                            new object[] { });
+
+            foreach (var tableKey in table.Keys)
+            {
+                String str_tableKey = (string)tableKey;
+
+                if (str_tableKey[0] == '.')
+                {
+                    str_tableKey = str_tableKey.Substring(1);
+                }
+
+                SortedList list = (SortedList)table[tableKey].GetType().InvokeMember("m_list",
+                                                                            BindingFlags.NonPublic |
+                                                                            BindingFlags.GetField |
+                                                                            BindingFlags.Instance,
+                                                                            null,
+                                                                            table[tableKey],
+                                                                            new object[] { });
+
+                foreach (var listKey in list.Keys)
+                {
+                    String url = "https://" + str_tableKey + (string)listKey;
+                    cookieCollection.Add(cookieJar.GetCookies(new Uri(url)));
+                }
+            }
+
+            return cookieCollection;
         }
     }
 }

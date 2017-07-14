@@ -8,12 +8,15 @@ namespace AutoSendMessageOnWeb
 {
     static class Program
     {
+        public static event Action XayRaLoi;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
+            //VietNamCupid.Test();
+
             Application.ThreadException += Application_ThreadException;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -52,6 +55,8 @@ namespace AutoSendMessageOnWeb
                 ex = ex.InnerException;
                 loi += ("\n" + ex.Message);
             }
+            if (XayRaLoi != null)
+                XayRaLoi();
             MessageBox.Show(loi, "Đã xẩy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }

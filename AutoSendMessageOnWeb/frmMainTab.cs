@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoSendMessageOnWeb.Lib;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -47,6 +48,32 @@ namespace AutoSendMessageOnWeb
         {
             cAutoHenHo2.CaiDatTrang(Data.TrangWeb.HenHo2);
             cAutoDuyenSo.CaiDatTrang(Data.TrangWeb.DuyenSo);
+            cAutoVietNamCupid.CaiDatTrang(Data.TrangWeb.VietNamCupid);
+            StartUpOperation.CheckVersion(CoPhienBanMoi);
+            lblWebChinhThuc.Text = Properties.Settings.Default.WebChinhThuc;
+        }
+
+        private void CoPhienBanMoi()
+        {
+            new frmNoiDungCapNhat().ShowDialog();
+        }
+
+        private void frmMainTab_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.Control)
+            {
+                switch(e.KeyCode)
+                {
+                    case Keys.N:
+                        (tabControl1.SelectedTab.Controls[0] as cAuto).TaoTaiKhoanMoi();
+                        break;
+                    case Keys.S:
+                        (tabControl1.SelectedTab.Controls[0] as cAuto).LuuDulieu();
+                        break;
+                }
+            }
+            else if (e.KeyCode == Keys.F3)
+                (tabControl1.SelectedTab.Controls[0] as cAuto).TimKiem();
         }
     }
 }

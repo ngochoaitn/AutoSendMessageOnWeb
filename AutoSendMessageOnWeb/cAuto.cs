@@ -7,12 +7,11 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ThuVienWinform.UI;
 
 namespace AutoSendMessageOnWeb
 {
@@ -21,7 +20,6 @@ namespace AutoSendMessageOnWeb
         private IThaoTacWeb _thaoTacWeb;
         private TrangWeb _trang;
         DatabaseManager _db;
-
 
         public cAuto()
         {
@@ -35,9 +33,13 @@ namespace AutoSendMessageOnWeb
             _trang = trang;
             _db = new DatabaseManager(trang);
 
+            Program.XayRaLoi += Program_XayRaLoi;
+
             thongTinTaiKhoan_GuiBindingSource.DataSource = _db.DanhSachNguoiGui;
-            thongTinTaiKhoan_NhanBindingSource.DataSource = _db.DanhSachNguoiNhan;
-            lblSoLuongKetQua.Text = string.Format("Số lượng kết quả: {0}", thongTinTaiKhoan_NhanBindingSource.Count);
+            thongTinTaiKhoan_TimKiemBindingSource.DataSource = _db.DanhSachNguoiNhan;
+            grbTimKiem.Text = _db.PhienTimKiem;
+
+            lblSoLuongKetQua.Text = string.Format("Số lượng kết quả: {0}", thongTinTaiKhoan_TimKiemBindingSource.Count);
 
             switch (trang)
             {
@@ -52,20 +54,81 @@ namespace AutoSendMessageOnWeb
                     txtNoiDung.Location = txtTieuDe.Location;
                     txtNoiDung.Height += 50;
                     break;
+                case TrangWeb.VietNamCupid:
+                    _thaoTacWeb = new VietNamCupid();
+
+                    List<string> tieuDe = new List<string>() { "default_1  (Xin chào!)",
+                                                               "default_2  (Tôi thích hồ sơ bạn)",
+                                                               "default_3  (Hình thật đẹp!)",
+                                                               "default_4  (Tôi quan tâm đến bạn)",
+                                                               "default_5  (Tôi ấn tượng về bạn)",
+                                                               "default_6  (Bạn thật dễ thương)",
+                                                               "default_7  (Yêu từ cái nhìn đầu tiên)",
+                                                               "default_8  (Chúng ta là bộ đôi hoàn hảo)",
+                                                               "default_9  (Hãy nhận liên lạc của tôi)",
+                                                               "default_10 (Tìm kiếm hôn nhân)" };
+
+                    AutoCompleteStringCollection allowedTypes = new AutoCompleteStringCollection();
+                    allowedTypes.AddRange(tieuDe.ToArray());
+                    txtTieuDe.AutoCompleteCustomSource = allowedTypes;
+                    txtTieuDe.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                    txtTieuDe.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+                    txtTieuDe.Text = "default_9  (Hãy nhận liên lạc của tôi)";
+
+                    break;
             }
+        }
+
+        private void Program_XayRaLoi()
+        {
+            _db.SaveChange();
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            if (btnTimKiem.Text == "Tìm kiếm")
+            if (btnTimKiem.Text == "Tìm kiếm (F3)")
             {
+                #region Lấy cookie nếu trang yêu cầu
+                if (_thaoTacWeb.YeuCauCookie)
+                {
+                    if(thongTinTaiKhoan_GuiBindingSource.Count > 0)
+                    {
+                        ThongTinTaiKhoan tkTimKiem = thongTinTaiKhoan_GuiBindingSource[0] as ThongTinTaiKhoan;
+                        if (tkTimKiem.YeuCauDangNhapMoi)
+                        {
+                            XuLyDaLuong.ChangeText(lblTrangThaiTimKiem, string.Format("Đang nhập {0}...", tkTimKiem.TaiKhoan), Color.Red);
+                            tkTimKiem.DangNhap(_thaoTacWeb);
+                            if(tkTimKiem.Cookie != null)
+                                XuLyDaLuong.ChangeText(lblTrangThaiTimKiem, "Đăng nhập thành công", Color.Blue);
+                            else
+                                XuLyDaLuong.ChangeText(lblTrangThaiTimKiem, "Đăng nhập thất bại", Color.Red);
+                        }
+                        _thaoTacWeb.Cookie = tkTimKiem.Cookie;
+                        thongTinTaiKhoan_GuiBindingSource.EndEdit();
+                        grvGui.Refresh();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Trang web yêu cầu đăng nhập để tìm kiếm!\nVui lòng thêm tài khoản trước");
+                        return;
+                    }
+                    if(_thaoTacWeb.Cookie == null)
+                    {
+                        MessageBox.Show("Kiểm tra lại thông tin đăng nhập!");
+                        return;
+                    }
+                }
+                #endregion
+
                 frmTimKiem tkiem = new frmTimKiem(_thaoTacWeb);
                 if (tkiem.ShowDialog() == DialogResult.OK)
                 {
-                    thongTinTaiKhoan_NhanBindingSource.Clear();
+                    thongTinTaiKhoan_TimKiemBindingSource.Clear();
                     btnTimKiem.Text = "Dừng";
                     btnTimKiem.BackColor = Color.Red;
                     lblSoLuongKetQua.Text = "Số lượng kết quả: 0";
+                    grbTimKiem.Text = tkiem.ChuoiTimKiem;
 
                     backgroundWorkerTimKiem.RunWorkerAsync(tkiem.ParamTimKiem);
                 }
@@ -99,17 +162,10 @@ namespace AutoSendMessageOnWeb
 
         private void backgroundWorkerTimKiem_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            thongTinTaiKhoan_NhanBindingSource.DataSource = _danhSach;
-            btnTimKiem.Text = "Tìm kiếm";
-            lblSoLuongKetQua.Text = "Số lượng kết quả: " + thongTinTaiKhoan_NhanBindingSource.Count.ToString();
+            thongTinTaiKhoan_TimKiemBindingSource.DataSource = _danhSach;
+            btnTimKiem.Text = "Tìm kiếm (F3)";
+            lblSoLuongKetQua.Text = "Số lượng kết quả: " + thongTinTaiKhoan_TimKiemBindingSource.Count.ToString();
             btnTimKiem.BackColor = Color.FromArgb(255, 255, 128);
-        }
-
-        private void grvGui_KeyUp(object sender, KeyEventArgs e)
-        {
-            //if (e.KeyCode == Keys.Delete)
-            //    if (thongTinTaiKhoan_GuiBindingSource.Count != 0)
-            //        thongTinTaiKhoan_GuiBindingSource.RemoveCurrent();
         }
 
         private async void btnGuiTin_Click(object sender, EventArgs e)
@@ -118,16 +174,16 @@ namespace AutoSendMessageOnWeb
             {
                 btnGuiTin.Enabled = false;
                 thongTinTaiKhoan_GuiBindingSource.EndEdit();
-                thongTinTaiKhoan_NhanBindingSource.EndEdit();
+                thongTinTaiKhoan_TimKiemBindingSource.EndEdit();
 
                 #region Đăng nhập
                 foreach (ThongTinTaiKhoan tk in thongTinTaiKhoan_GuiBindingSource)
                 {
-                    //if (tk.Cookie == null)
-                    //{
+                    if (!string.IsNullOrEmpty(tk.TaiKhoan) && tk.YeuCauDangNhapMoi)
+                    {
                         XuLyDaLuong.ChangeText(lblTrangThai, string.Format("Đang đăng nhập {0}...", tk.TaiKhoan), Color.Black);
                         tk.DangNhap(_thaoTacWeb);
-                    //}
+                    }
                 }
                 thongTinTaiKhoan_GuiBindingSource.EndEdit();
                 grvGui.Refresh();
@@ -135,7 +191,7 @@ namespace AutoSendMessageOnWeb
 
                 #region Gửi
                 var lstGui = (thongTinTaiKhoan_GuiBindingSource.List as IList<ThongTinTaiKhoan>).Where(p => p.Cookie != null);
-                var lstNhan = (thongTinTaiKhoan_NhanBindingSource.List as IList<ThongTinTaiKhoan>);//.Where(p => string.IsNullOrEmpty(p.TrangThai));
+                var lstNhan = (thongTinTaiKhoan_TimKiemBindingSource.List as IList<ThongTinTaiKhoan>);//.Where(p => string.IsNullOrEmpty(p.TrangThai));
 
                 int soNguoiGui = lstGui.Count();
                 int soNguoiNhan = lstNhan.Count();
@@ -158,7 +214,8 @@ namespace AutoSendMessageOnWeb
 
                 int index_NguoiGuiHienTai = 0;
                 int index_NguoiNhanHienTai = 0;
-
+                int soThuSeGui = Math.Min(lstGui.Sum(p => p.SoThuSeGui), soNguoiNhan);
+                int demGui = 1;
                 while (index_NguoiGuiHienTai < soNguoiGui && index_NguoiNhanHienTai < soNguoiNhan)
                 {
                     ThongTinTaiKhoan nguoiGui = lstGui.ElementAt(index_NguoiGuiHienTai++);
@@ -167,26 +224,27 @@ namespace AutoSendMessageOnWeb
                         ThongTinTaiKhoan nguoiNhan = lstNhan.ElementAt(index_NguoiNhanHienTai++);
                         if (string.IsNullOrEmpty(nguoiNhan.TrangThai))
                         {
-                            thongTinTaiKhoan_NhanBindingSource.Position = thongTinTaiKhoan_NhanBindingSource.IndexOf(nguoiNhan);
-                            XuLyDaLuong.ChangeText(lblTrangThai, string.Format("Đang gửi {0}...", nguoiNhan.TenHienThi), Color.Black);
+                            thongTinTaiKhoan_TimKiemBindingSource.Position = thongTinTaiKhoan_TimKiemBindingSource.IndexOf(nguoiNhan);
+                            XuLyDaLuong.ChangeText(lblTrangThai, string.Format("Đang gửi {0}/{1} {2}...", demGui++, soThuSeGui, nguoiNhan.TenHienThi), Color.Black);
 
                             _thaoTacWeb.GuiTin(nguoiGui, nguoiNhan, txtTieuDe.Text, txtNoiDung.Text);
 
-                            thongTinTaiKhoan_NhanBindingSource.EndEdit();
-                            grvNhan.Refresh();
+                            thongTinTaiKhoan_TimKiemBindingSource.EndEdit();
+                            grvTimKiem.Refresh();
 
                         }
                         else
                         {
                             i--;
                         }
+                        //Nếu hết người nhận thì thoát vòng lặp
                         if (index_NguoiNhanHienTai >= soNguoiNhan)
                             break;
                     }
                 }
                 #endregion
 
-                XuLyDaLuong.ChangeText(lblTrangThai, "Hoàn tất gửi tin", Color.Black);
+                XuLyDaLuong.ChangeText(lblTrangThai, string.Format("Hoàn tất gửi tin ({0}/{1})", soThuSeGui, soThuSeGui), Color.Black);
                 btnGuiTin.Enabled = true;
             });
         }
@@ -194,7 +252,8 @@ namespace AutoSendMessageOnWeb
         private void btnLuuDanhSach_Click(object sender, EventArgs e)
         {
             _db.DanhSachNguoiGui = thongTinTaiKhoan_GuiBindingSource.List as BindingList<ThongTinTaiKhoan>;
-            _db.DanhSachNguoiNhan = thongTinTaiKhoan_NhanBindingSource.List as BindingList<ThongTinTaiKhoan>;
+            _db.DanhSachNguoiNhan = thongTinTaiKhoan_TimKiemBindingSource.List as BindingList<ThongTinTaiKhoan>;
+            _db.PhienTimKiem = grbTimKiem.Text;
             if (_db.SaveChange())
                 MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -202,13 +261,7 @@ namespace AutoSendMessageOnWeb
         private void thongTinTaiKhoan_NhanBindingSource_ListChanged(object sender, ListChangedEventArgs e)
         {
             XuLyDaLuong.ChangeText(lblSoLuongKetQua,
-                            string.Format("Số lượng kết quả: {0}", thongTinTaiKhoan_NhanBindingSource.Count), Color.Black);
-        }
-
-        private void thongTinTaiKhoan_GuiBindingSource_ListChanged(object sender, ListChangedEventArgs e)
-        {
-            //if (thongTinTaiKhoan_GuiBindingSource.Count == 0)
-            //    thongTinTaiKhoan_GuiBindingSource.Position = thongTinTaiKhoan_GuiBindingSource.Add(new ThongTinTaiKhoan());
+                            string.Format("Số lượng kết quả: {0}", thongTinTaiKhoan_TimKiemBindingSource.Count), Color.Black);
         }
 
         private void grvGui_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -222,5 +275,63 @@ namespace AutoSendMessageOnWeb
                 grvGui.Refresh();
             }
         }
+
+        private void grvNhan_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            ThongTinTaiKhoan tk = thongTinTaiKhoan_TimKiemBindingSource.Current as ThongTinTaiKhoan;
+            Process.Start(tk.Url);
+        }
+
+        private void btnThemTaiKhoan_Click(object sender, EventArgs e)
+        {
+            thongTinTaiKhoan_GuiBindingSource.Position = thongTinTaiKhoan_GuiBindingSource.Add(new ThongTinTaiKhoan());
+            grvGui.Focus();
+        }
+
+        private void xóaToànBộLỗiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach(ThongTinTaiKhoan tk in thongTinTaiKhoan_TimKiemBindingSource)
+            {
+                if (!string.IsNullOrEmpty(tk.TrangThai) && tk.TrangThai.Contains("lỗi"))
+                    tk.TrangThai = "";
+            }
+            thongTinTaiKhoan_TimKiemBindingSource.EndEdit();
+            grvTimKiem.Refresh();
+        }
+
+        private void xóaLỗiHàngĐangChọnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ThongTinTaiKhoan tk = thongTinTaiKhoan_TimKiemBindingSource.Current as ThongTinTaiKhoan;
+            if (tk != null && !string.IsNullOrEmpty(tk.TrangThai) && tk.TrangThai.Contains("lỗi"))
+                tk.TrangThai = "";
+            thongTinTaiKhoan_TimKiemBindingSource.EndEdit();
+            grbTimKiem.Refresh();
+        }
+
+        private void thongTinTaiKhoan_TimKiemBindingSource_PositionChanged(object sender, EventArgs e)
+        {
+            ThongTinTaiKhoan tk = thongTinTaiKhoan_TimKiemBindingSource.Current as ThongTinTaiKhoan;
+            if (tk != null && !string.IsNullOrEmpty(tk.TrangThai) && tk.TrangThai.Contains("lỗi"))
+                xóaLỗiHàngĐangChọnToolStripMenuItem.Enabled = true;
+            else
+                xóaLỗiHàngĐangChọnToolStripMenuItem.Enabled = false;
+        }
+
+        private void grvTimKiem_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F2)
+            {
+                xóaLỗiHàngĐangChọnToolStripMenuItem_Click(sender, e);
+                thongTinTaiKhoan_TimKiemBindingSource.MoveNext();
+            }
+        }
+
+
+        public void TaoTaiKhoanMoi()
+        { btnThemTaiKhoan.PerformClick(); }
+        public void LuuDulieu()
+        { btnLuuDanhSach.PerformClick(); }
+        public void TimKiem()
+        { btnTimKiem.PerformClick(); }
     }
 }
