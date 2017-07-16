@@ -114,24 +114,28 @@ namespace AutoSendMessageOnWeb.Lib.Security
                 string plainData = Crypto.Decrypt(plaintext, "thuVIENwiForm!@#!");
                 string[] dataOfKey = plainData.Split('[', ']');
                 string hashMACandComputerName = dataOfKey[1];
-
-                if (Crypto.HashString(string.Format("[{0}][{1}]", System.Net.Dns.GetHostName(), DataUseForSecurity.GetFirstMAC())) == hashMACandComputerName)
+                string loi = "";
+                foreach (string mac in DataUseForSecurity.GetListMACs())
                 {
-                    DateTime? dateFrom = DataTypeEx.ddMMyyyy(dataOfKey[3]);
-                    if (dateFrom != null && dateFrom.Value <= DataUseForSecurity.GetReadDate())
+                    if (Crypto.HashString(string.Format("[{0}][{1}]", System.Net.Dns.GetHostName(), mac)) == hashMACandComputerName)
                     {
-                        DateTime? dateTo = DataTypeEx.ddMMyyyy(dataOfKey[5]);
-                        return dateTo;
+                        DateTime? dateFrom = DataTypeEx.ddMMyyyy(dataOfKey[3]);
+                        if (dateFrom != null && dateFrom.Value <= DataUseForSecurity.GetReadDate())
+                        {
+                            DateTime? dateTo = DataTypeEx.ddMMyyyy(dataOfKey[5]);
+                            return dateTo;
+                        }
+                        else
+                        {
+                            loi = "Vui lòng đặt lại ngày hệ thống!";
+                        }
                     }
                     else
                     {
-                        throw new Exception("Vui lòng đặt lại ngày hệ thống!");
+                        loi = "Mã không dành cho máy này!";
                     }
                 }
-                else
-                {
-                    throw new Exception("Mã không dành cho máy này!");
-                }
+                throw new Exception(loi);
             }
             else
             {

@@ -1,6 +1,8 @@
-﻿using AutoSendMessageOnWeb.Lib;
+﻿using AutoSendMessageOnWeb.Data;
+using AutoSendMessageOnWeb.Lib;
 using AutoSendMessageOnWeb.Lib.Security;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 
@@ -15,8 +17,6 @@ namespace AutoSendMessageOnWeb
         [STAThread]
         static void Main()
         {
-            //VietNamCupid.Test();
-
             Application.ThreadException += Application_ThreadException;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -27,7 +27,16 @@ namespace AutoSendMessageOnWeb
             frmMainTab main = new frmMainTab();
             try
             {
-                DateTime? hanSuDung = Crypto.VerifySignature(File.ReadAllText(ConstFilePath.FILE_KEY));
+                var keys = File.ReadAllLines(ConstFilePath.FILE_KEY);
+                DateTime? hanSuDung = null;
+
+                foreach (string k in keys)
+                {
+                    hanSuDung = Crypto.VerifySignature(k);
+                    if (hanSuDung != null)
+                        break;
+                }
+
                 if (hanSuDung != null && hanSuDung >= DataUseForSecurity.GetReadDate())
                 {
                     Application.Run(main);

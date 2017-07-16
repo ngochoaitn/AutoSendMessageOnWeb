@@ -55,11 +55,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Badoo.cs" />
     <Compile Include="DocThan.cs" />
     <Compile Include="DuyenSo.cs" />
     <Compile Include="ExtentionMethod\DataTypeEx.cs" />
     <Compile Include="ExtentionMethod\DuyenSoEx.cs" />
     <Compile Include="ExtentionMethod\HenHo2Ex.cs" />
+    <Compile Include="LikeYou.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -127,6 +129,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BadooTest.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="DataHtmlTest.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace AutoSendMessageOnWeb
 {
@@ -15,7 +7,8 @@ namespace AutoSendMessageOnWeb
         public frmNoiDungCapNhat()
         {
             InitializeComponent();
-            textBoxFlat1.Text = System.IO.File.ReadAllText(Lib.StartUpOperation.ChangeLog);
+            this.Text += this.Text += System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            textBoxFlat1.AppendText(System.IO.File.ReadAllText(Lib.StartUpOperation.ChangeLog));
         }
     }
 }

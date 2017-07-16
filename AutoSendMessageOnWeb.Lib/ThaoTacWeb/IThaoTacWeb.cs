@@ -18,7 +18,7 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb
         IEnumerable<ThongTinTaiKhoan> TimKiemBangWebbrowser(IEnumerable<ThongTinTaiKhoan> binding);
         void GuiTin(ThongTinTaiKhoan nguoigui, ThongTinTaiKhoan nguoinhan, string tieude, string noidung);
         DanhSachDuLieuTimKiem TaoDuLieuTimKiem();
-        bool YeuCauCookie { get; }
+        bool TimKiemYeuCauCookie { get; }
         CookieContainer Cookie { set; get; }
     }
 }

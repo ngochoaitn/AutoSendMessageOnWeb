@@ -18,7 +18,7 @@ namespace AutoSendMessageOnWeb.Lib
     {
         public CookieContainer Cookie { set; get; }
 
-        public bool YeuCauCookie
+        public bool TimKiemYeuCauCookie
         {
             get
             {

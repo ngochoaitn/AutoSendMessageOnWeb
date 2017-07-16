@@ -35,6 +35,30 @@ namespace AutoSendMessageOnWeb.Lib.Security
             return diaChiMAC;
         }
 
+        public static List<string> GetListMACs()
+        {
+            string diaChiMAC = "";
+            List<string> macs = new List<string>();
+            NetworkInterface[] danhSachCardMang = NetworkInterface.GetAllNetworkInterfaces();
+            for (int i = 0; i < danhSachCardMang.Length; i++)
+            {
+                PhysicalAddress diaChiMACs = danhSachCardMang[i].GetPhysicalAddress();
+                //diaChiMAC += danhSachCardMang[i].Name + " : ";
+                byte[] ByteDiaChi = diaChiMACs.GetAddressBytes();
+                for (int j = 0; j < ByteDiaChi.Length; j++)
+                {
+                    diaChiMAC += ByteDiaChi[j].ToString("X2");
+                    if (j != ByteDiaChi.Length - 1)
+                    {
+                        diaChiMAC += "-";
+                    }
+                }
+                macs.Add(diaChiMAC);
+                diaChiMAC = "";
+            }
+            return macs;
+        }
+
         public static string GenKeySendToClient(string userid, DateTime expdate)
         {
             //Sinh dữ liệu dựa trên MAC và hạn sử dụng

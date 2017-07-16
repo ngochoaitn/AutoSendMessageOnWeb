@@ -26,7 +26,7 @@ namespace AutoSendMessageOnWeb
                     if (hanSuDung >= DataUseForSecurity.GetReadDate())
                     {
                         MessageBox.Show(string.Format("Đã xác thực hạn sử dụng đến ngày {0:dd/MM/yyyy}", hanSuDung.Value.ToShortDateString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information));
-                        File.WriteAllText(ConstFilePath.FILE_KEY, txtMaSuDung.Text);
+                        File.AppendAllText(ConstFilePath.FILE_KEY, txtMaSuDung.Text + "\n");
                         this.DialogResult = DialogResult.OK;
                         this.Close();
                     }

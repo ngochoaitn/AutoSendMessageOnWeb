@@ -26,7 +26,7 @@ namespace AutoSendMessageOnWeb.Lib
         {
             var info = File.ReadAllLines(InfoPath);
             string localVer = info[0];
-            string currentVer = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            string currentVer = System.Windows.Forms.Application.ProductVersion;// System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
             if(localVer != currentVer)
             {
                 callbac_knewversion();

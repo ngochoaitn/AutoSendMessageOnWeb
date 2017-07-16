@@ -1,24 +1,20 @@
-﻿using AutoSendMessageOnWeb.Lib.ThaoTacWeb;
+﻿using AutoSendMessageOnWeb.Data;
+using AutoSendMessageOnWeb.Lib.ExtentionMethod;
+using AutoSendMessageOnWeb.Lib.ThaoTacWeb;
+using Fizzler.Systems.HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoSendMessageOnWeb.Data;
-using System.Net;
 using System.IO;
-using AutoSendMessageOnWeb.Lib.ExtentionMethod;
+using System.Linq;
+using System.Net;
 using System.Web;
-using Fizzler.Systems.HtmlAgilityPack;
-using System.Reflection;
-using System.Collections;
 
 namespace AutoSendMessageOnWeb.Lib
 {
     public class VietNamCupid : IThaoTacWeb
     {
         public CookieContainer Cookie { set; get; }
-        public bool YeuCauCookie
+        public bool TimKiemYeuCauCookie
         {
             get
             {
@@ -58,7 +54,7 @@ namespace AutoSendMessageOnWeb.Lib
             tk.TrangThai = "Đang nhập thành công";
             if (sLoginLoc2.Contains("error"))
             {
-                tk.TrangThai = "Đang nhập thất bại";
+                tk.TrangThai = "Sai tài khoản hoặc mật khẩu";
                 tk.Cookie = null;
             }
             //Https chưa lưu được cookie
@@ -97,14 +93,13 @@ namespace AutoSendMessageOnWeb.Lib
                 throw new Exception("Vui lòng chọn tiêu đề như gợi ý: default_<số từ 1 đến 10>\nVí dụ: default_1");
 
             string data = string.Format("memberid={0}&subject={1}&body={2}&cssSuffix=sm&subjectChanged=false&replyID=0&mailsInThread=0&imbraconsent=0", nguoinhan.Id, tieude, Uri.EscapeDataString(noidung));
-
             var response = RequestToWeb.POST2(new Uri("https://www.vietnamcupid.com/vi/mail/sendEmail?ajaxMode=false"), nguoigui.Cookie, data, false, false, "application/x-www-form-urlencoded; charset=UTF-8");
             nguoinhan.TrangThai = nguoigui.TaiKhoan;
             using (var sr = new StreamReader(response.GetResponseStream()))
             {
                 string stringResponse = sr.ReadToEnd();
-                if (stringResponse == "")
-                    nguoinhan.TrangThai = "Gửi lỗi";
+                if (!stringResponse.Contains(noidung))
+                    nguoinhan.TrangThai = "Gửi lỗi\n(không nhận tin nhắn cùng giới)";
             }
         }
 

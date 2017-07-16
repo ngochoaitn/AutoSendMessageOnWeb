@@ -8,3 +8,10 @@
 - Tự động lưu dữ liệu khi xẩy ra lỗi
 - Nháy kép vào 1 hàng để truy cập thông tin cá nhân
 - Hỗ trợ phím tắt
+___________________________________________________________________________
+Phiên bản 1.2:
+- Thêm likeyou.vn
+- Chỉ đăng nhập những tài khoản có số thư gửi > 0
+- [vietnamcupid] Cập nhật lỗi gửi mới (chưa tìm được nguyên nhân)
+- [henho2] Cập nhật lỗi tài khoản bị khóa chức năng gửi thư
+- Cập nhật cách xác thực, đổi từ mạng dây qua mạng wifi sẽ không cần xác thực lại

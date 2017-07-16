@@ -41,19 +41,12 @@ namespace AutoSendMessageOnWeb.Data
         
         public string Url { set; get; }
 
-        private DateTime? _hanCookie = null;
-        public DateTime? HanCookie
-        {
-            set { _hanCookie = value; }
-            get { return _hanCookie; }
-        }
         private CookieContainer _cookie = null;
         public CookieContainer Cookie
         {
             set
             {
                 _cookie = value;
-                if (_cookie == null) this.HanCookie = null;
             }
             get { return _cookie; }
         }

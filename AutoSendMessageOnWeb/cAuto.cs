@@ -28,6 +28,15 @@ namespace AutoSendMessageOnWeb
             CheckForIllegalCrossThreadCalls = false;
         }
 
+        private void AnTieuDe()
+        {
+            lblTieuDe.Visible = txtTieuDe.Visible = false;
+
+            lblNoiDung.Location = lblTieuDe.Location;
+            txtNoiDung.Location = txtTieuDe.Location;
+            txtNoiDung.Height += 50;
+        }
+
         public void CaiDatTrang(TrangWeb trang)
         {
             _trang = trang;
@@ -48,11 +57,7 @@ namespace AutoSendMessageOnWeb
                     break;
                 case TrangWeb.DuyenSo:
                     _thaoTacWeb = new DuyenSo();
-                    lblTieuDe.Visible = txtTieuDe.Visible = false;
-
-                    lblNoiDung.Location = lblTieuDe.Location;
-                    txtNoiDung.Location = txtTieuDe.Location;
-                    txtNoiDung.Height += 50;
+                    this.AnTieuDe();
                     break;
                 case TrangWeb.VietNamCupid:
                     _thaoTacWeb = new VietNamCupid();
@@ -77,6 +82,10 @@ namespace AutoSendMessageOnWeb
                     txtTieuDe.Text = "default_9  (Hãy nhận liên lạc của tôi)";
 
                     break;
+                case TrangWeb.LikeYou:
+                    _thaoTacWeb = new LikeYou();
+                    this.AnTieuDe();
+                    break;
             }
         }
 
@@ -90,7 +99,7 @@ namespace AutoSendMessageOnWeb
             if (btnTimKiem.Text == "Tìm kiếm (F3)")
             {
                 #region Lấy cookie nếu trang yêu cầu
-                if (_thaoTacWeb.YeuCauCookie)
+                if (_thaoTacWeb.TimKiemYeuCauCookie)
                 {
                     if(thongTinTaiKhoan_GuiBindingSource.Count > 0)
                     {
@@ -179,7 +188,7 @@ namespace AutoSendMessageOnWeb
                 #region Đăng nhập
                 foreach (ThongTinTaiKhoan tk in thongTinTaiKhoan_GuiBindingSource)
                 {
-                    if (!string.IsNullOrEmpty(tk.TaiKhoan) && tk.YeuCauDangNhapMoi)
+                    if (!string.IsNullOrEmpty(tk.TaiKhoan) && tk.SoThuSeGui > 0)
                     {
                         XuLyDaLuong.ChangeText(lblTrangThai, string.Format("Đang đăng nhập {0}...", tk.TaiKhoan), Color.Black);
                         tk.DangNhap(_thaoTacWeb);
@@ -231,7 +240,6 @@ namespace AutoSendMessageOnWeb
 
                             thongTinTaiKhoan_TimKiemBindingSource.EndEdit();
                             grvTimKiem.Refresh();
-
                         }
                         else
                         {

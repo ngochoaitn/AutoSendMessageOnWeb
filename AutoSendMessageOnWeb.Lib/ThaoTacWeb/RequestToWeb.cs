@@ -22,13 +22,7 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb
                 var response = request.GetResponse();
 
                 if (autoread)
-                {
-                    //Làm thế này sẽ hết lỗi timeout
-                    using (StreamReader sr = new StreamReader(response.GetResponseStream()))
-                    {
-                        string ss = sr.ReadToEnd();
-                    }
-                }
+                    ReadStream(response.GetResponseStream());
 
                 return response;
             }
@@ -63,13 +57,7 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb
                         header += string.Format("{0} = {1}\n", h.ToString(), response.Headers[h.ToString()]);
                     #region Xử lý Time out
                     if (autoread)
-                    {
-                        //Làm thế này sẽ hết lỗi timeout
-                        using (StreamReader sr = new StreamReader(response.GetResponseStream()))
-                        {
-                            string ss = sr.ReadToEnd();
-                        }
-                    }
+                        ReadStream(response.GetResponseStream());
                     #endregion
 
                     return response;
@@ -107,18 +95,44 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb
 
                     #region Xử lý Time out
                     if (autoread)
-                    {
-                        //Làm thế này sẽ hết lỗi timeout
-                        using (StreamReader sr = new StreamReader(response.GetResponseStream()))
-                        {
-                            string ss = sr.ReadToEnd();
-                        }
-                    }
+                        ReadStream(response.GetResponseStream());
                     #endregion
                     return response;
                 }
             }
             catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        public static Dictionary<string, string> ReadHeader(WebHeaderCollection headers)
+        {
+            Dictionary<string, string> res = new Dictionary<string, string>();
+            foreach (var h in headers)
+                res.Add(h.ToString(), headers[h.ToString()]);
+            return res;
+        }
+
+        public static string ReadStream(Stream s)
+        {
+            using (StreamReader sr = new StreamReader(s))
+            {
+                string res = sr.ReadToEnd();
+                return res;
+            }
+        }
+        public static string ReadStream(WebResponse response)
+        {
+            try
+            {
+                using (StreamReader sr = new StreamReader(response.GetResponseStream()))
+                {
+                    string res = sr.ReadToEnd();
+                    return res;
+                }
+            }
+            catch
             {
                 return null;
             }

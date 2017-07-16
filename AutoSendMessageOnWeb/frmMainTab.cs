@@ -1,12 +1,6 @@
 ﻿using AutoSendMessageOnWeb.Lib;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ThuVienWinform.UI;
 
@@ -49,7 +43,13 @@ namespace AutoSendMessageOnWeb
             cAutoHenHo2.CaiDatTrang(Data.TrangWeb.HenHo2);
             cAutoDuyenSo.CaiDatTrang(Data.TrangWeb.DuyenSo);
             cAutoVietNamCupid.CaiDatTrang(Data.TrangWeb.VietNamCupid);
+            cAutoLikeYou.CaiDatTrang(Data.TrangWeb.LikeYou);
+
+            this.Text += System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            controlBoxFlat1.lblFormText.Text = this.Text;
+
             StartUpOperation.CheckVersion(CoPhienBanMoi);
+
             lblWebChinhThuc.Text = Properties.Settings.Default.WebChinhThuc;
         }
 

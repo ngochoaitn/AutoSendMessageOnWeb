@@ -17,7 +17,7 @@ namespace AutoSendMessageOnWeb.Lib
     public class DuyenSo : IThaoTacWeb
     {
         public CookieContainer Cookie { set; get; }
-        public bool YeuCauCookie
+        public bool TimKiemYeuCauCookie
         {
             get
             {
@@ -48,14 +48,14 @@ namespace AutoSendMessageOnWeb.Lib
                     tk.Cookie = new CookieContainer();
                     tk.Cookie.SetCookies(UriTrangWeb.DuyenSo, setCookie);
                     tk.TrangThai = "Đang nhập thành công";
-                    foreach(Cookie co in tk.Cookie.GetCookies(UriTrangWeb.DuyenSo))
-                    {
-                        if(co.Name == ".duyenso.com_c_user")
-                        {
-                            tk.HanCookie = co.Expires;
-                            break;
-                        }
-                    }
+                    //foreach(Cookie co in tk.Cookie.GetCookies(UriTrangWeb.DuyenSo))
+                    //{
+                    //    if(co.Name == ".duyenso.com_c_user")
+                    //    {
+                    //        tk.HanCookie = co.Expires;
+                    //        break;
+                    //    }
+                    //}
                 }
                 else
                 {

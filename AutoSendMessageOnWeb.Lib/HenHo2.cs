@@ -17,7 +17,7 @@ namespace AutoSendMessageOnWeb.Lib
     public class HenHo2 : IThaoTacWeb
     {
         public CookieContainer Cookie { set; get; }
-        public bool YeuCauCookie
+        public bool TimKiemYeuCauCookie
         {
             get
             {
@@ -38,14 +38,14 @@ namespace AutoSendMessageOnWeb.Lib
                 tk.Cookie.SetCookies(UriTrangWeb.HenHo2, setCookie);
                 tk.TrangThai = "Đang nhập thành công";
 
-                foreach (Cookie co in tk.Cookie.GetCookies(UriTrangWeb.HenHo2))
-                {
-                    if (co.Name == ".ASPXAUTH")
-                    {
-                        tk.HanCookie = co.Expires;
-                        break;
-                    }
-                }
+                //foreach (Cookie co in tk.Cookie.GetCookies(UriTrangWeb.HenHo2))
+                //{
+                //    if (co.Name == ".ASPXAUTH")
+                //    {
+                //        tk.HanCookie = co.Expires;
+                //        break;
+                //    }
+                //}
             }
             else
             {
@@ -113,11 +113,13 @@ namespace AutoSendMessageOnWeb.Lib
                 if (!stringResponse.Contains("Gửi tin nhắn th&#224;nh c&#244;ng"))
                 {
                     if (stringResponse.Contains("gửi qu&#225; số thư cho ph&#233;p"))
-                        nguoinhan.TrangThai = "Gửi lỗi (quá số thư cho phép)";
+                        nguoinhan.TrangThai = "Gửi lỗi\n(quá số thư cho phép)";
                     else if (stringResponse.Contains("Vui l&#242;ng nhập từ"))
-                        nguoinhan.TrangThai = "Gửi lỗi (quá ngắn)";
+                        nguoinhan.TrangThai = "Gửi lỗi\n(quá ngắn)";
+                    else if (stringResponse.Contains("Bạn đ&#227; bị ban"))
+                        nguoinhan.TrangThai = "Gửi lỗi\n(tài khoản bị khóa)";
                     else
-                        nguoinhan.TrangThai = "Gửi lỗi (nhập lại tài khoản)";
+                        nguoinhan.TrangThai = "Gửi lỗi\n(nhập lại tài khoản)";
                 }
             }
         }

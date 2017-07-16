@@ -38,12 +38,14 @@
             // 
             this.textBoxFlat1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.textBoxFlat1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.textBoxFlat1.BackColor = System.Drawing.Color.White;
             this.textBoxFlat1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxFlat1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxFlat1.Font = new System.Drawing.Font("Consolas", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxFlat1.Location = new System.Drawing.Point(0, 28);
             this.textBoxFlat1.Multiline = true;
             this.textBoxFlat1.Name = "textBoxFlat1";
+            this.textBoxFlat1.ReadOnly = true;
             this.textBoxFlat1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBoxFlat1.Size = new System.Drawing.Size(689, 320);
             this.textBoxFlat1.TabIndex = 1;
