@@ -106,12 +106,16 @@ namespace AutoSendMessageOnWeb.Data
                     return "Data\\duyenso.tvwp";
                 case TrangWeb.VietNamCupid:
                     return "Data\\VietNamCupid.tvwp";
+                case TrangWeb.LikeYou:
+                    return "Data\\LikeYou.tvwp";
+                case TrangWeb.HenHoKetBan:
+                    return "Data\\HenHoKetBan.tvwp";
 
                 case TrangWeb.ThongTinNguoiDung:
                     return "Data\\DanhSachNguoiDung.tvwp";
 
                 default:
-                    return "Data\\thuvienwinform.tvwp";
+                    throw new Exception("Chưa cài đặt CSDL cho trang này");
             }
         }
     }

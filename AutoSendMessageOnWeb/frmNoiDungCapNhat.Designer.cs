@@ -36,8 +36,6 @@
             // 
             // textBoxFlat1
             // 
-            this.textBoxFlat1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.textBoxFlat1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.textBoxFlat1.BackColor = System.Drawing.Color.White;
             this.textBoxFlat1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxFlat1.Dock = System.Windows.Forms.DockStyle.Fill;

@@ -76,7 +76,6 @@ namespace AutoSendMessageOnWeb.Lib
             }
         }
 
-
         public DanhSachDuLieuTimKiem TaoDuLieuTimKiem()
         {
             DanhSachDuLieuTimKiem res = new DanhSachDuLieuTimKiem();

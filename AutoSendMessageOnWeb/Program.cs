@@ -17,6 +17,8 @@ namespace AutoSendMessageOnWeb
         [STAThread]
         static void Main()
         {
+            //HenHoKetBan.Test();
+
             Application.ThreadException += Application_ThreadException;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

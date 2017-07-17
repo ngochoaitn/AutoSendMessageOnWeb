@@ -1,4 +1,4 @@
-﻿Phiên bản 1.1:
+﻿Phiên bản 1.1.0.0:
 - Hiển thị kiểu tab
 - Thêm vietnamcupid.com
 - Thêm nút [Thêm tài khoản]
@@ -9,9 +9,12 @@
 - Nháy kép vào 1 hàng để truy cập thông tin cá nhân
 - Hỗ trợ phím tắt
 ___________________________________________________________________________
-Phiên bản 1.2:
+Phiên bản 1.2.0.0:
 - Thêm likeyou.vn
 - Chỉ đăng nhập những tài khoản có số thư gửi > 0
 - [vietnamcupid] Cập nhật lỗi gửi mới (chưa tìm được nguyên nhân)
 - [henho2] Cập nhật lỗi tài khoản bị khóa chức năng gửi thư
 - Cập nhật cách xác thực, đổi từ mạng dây qua mạng wifi sẽ không cần xác thực lại
+___________________________________________________________________________
+Phiên bản 1.2.1.0:
+- Thêm henhoketban.vn

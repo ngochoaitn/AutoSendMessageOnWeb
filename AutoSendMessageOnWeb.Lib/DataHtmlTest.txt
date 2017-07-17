@@ -1,63 +1,65 @@
-﻿value='2'>Hanoi
-value='3'>Ho Chi Minh
-value='4'>Da Nang
-value='6'>Hai Phong
-value='7'>Nam Dinh
-value='148'>Lai Chau
-value='149'>Ha Giang
-value='150'>Lang Son
-value='151'>Bac Kan
-value='152'>Quang Ninh
-value='153'>Son La
-value='154'>Thai Nguyen
-value='155'>Bac Ninh
-value='156'>Phu Tho
-value='157'>Hai Duong
-value='158'>Hoa Binh
-value='159'>Ninh Binh
-value='160'>Nghe An
-value='161'>Quang Binh
-value='162'>Binh Đinh
-value='163'>Quang Nam
-value='164'>Gia Lai
-value='165'>Dac Lac
-value='166'>Lam Đong
-value='167'>Khanh Hoa
-value='168'>Ben Tre
-value='169'>Hau Giang
-value='170'>Binh Thuan
-value='171'>Tien Giang
-value='172'>Vinh Long
-value='173'>An Giang
-value='174'>Can Tho
-value='175'>Dak Nong
-value='176'>Kien Giang
-value='177'>Ca Mau
-value='178'>Dien Bien
-value='179'>Lao Cai
-value='180'>Bac Giang
-value='181'>Cao Bang
-value='182'>Tuyen Quang
-value='183'>Hung Yen
-value='184'>Yen Bai
-value='185'>Vinh Phuc
-value='186'>Thai Binh
-value='187'>Ha Nam
-value='190'>Thanh Hoa
-value='191'>Ha Tinh
-value='192'>Quang Tri
-value='193'>Thua Thien - Hue
-value='194'>Quang Ngai
-value='195'>Kon Tum
-value='196'>Phu Yen
-value='197'>Bac Lieu
-value='198'>Long An
-value='199'>Binh Phuoc
-value='200'>Ninh Thuan
-value='201'>Tay Ninh
-value='202'>Tra Vinh
-value='203'>Binh Duong
-value='204'>Ba Ria - Vung Tau
-value='205'>Soc Trang
-value='206'>Dong Thap
-value='207'>Dong Nai
+﻿"Tất cả">Tỉnh thành
+"TP.HCM">TP.HCM
+"Hà Nội">Hà Nội
+"Đà Nẵng">Đà Nẵng
+"An Giang">An Giang
+"BR Vũng Tàu">BR Vũng Tàu
+"Bắc Giang">Bắc Giang
+"Bắc Kạn">Bắc Kạn
+"Bạc Liêu">Bạc Liêu
+"Bắc Ninh">Bắc Ninh
+"Bến Tre">Bến Tre
+"Bình Định">Bình Định
+"Bình Dương">Bình Dương
+"Bình Phước">Bình Phước
+"Bình Thuận">Bình Thuận
+"Cà Mau">Cà Mau
+"Cần Thơ">Cần Thơ
+"Cao Bằng">Cao Bằng
+"Đà Nẵng">Đà Nẵng
+"Đăk Lăk">Đăk Lăk
+"Đăk Nông">Đăk Nông
+"Điện Biên">Điện Biên
+"Đồng Nai">Đồng Nai
+"Đồng Tháp">Đồng Tháp
+"Gia Lai">Gia Lai
+"Hà Giang">Hà Giang
+"Hà Nam">Hà Nam
+"Hà Tĩnh">Hà Tĩnh
+"Hải Dương">Hải Dương
+"Hải Phòng">Hải Phòng
+"Hậu Giang">Hậu Giang
+"Hoà Bình">Hoà Bình
+"Hưng Yên">Hưng Yên
+"Khánh Hoà">Khánh Hoà
+"Kiên Giang">Kiên Giang
+"Kon Tum">Kon Tum
+"Lai Châu">Lai Châu
+"Lâm Đồng">Lâm Đồng
+"Lạng Sơn">Lạng Sơn
+"Lào Cai">Lào Cai
+"Long An">Long An
+"Nam Định">Nam Định
+"Nghệ An">Nghệ An
+"Ninh Bình">Ninh Bình
+"Ninh Thuận">Ninh Thuận
+"Phú Thọ">Phú Thọ
+"Phú Yên">Phú Yên
+"Quảng Bình">Quảng Bình
+"Quảng Nam">Quảng Nam
+"Quảng Ngãi">Quảng Ngãi
+"Quảng Ninh">Quảng Ninh
+"Quảng Trị">Quảng Trị
+"Sóc Trăng">Sóc Trăng
+"Sơn La">Sơn La
+"Tây Ninh">Tây Ninh
+"Thái Bình">Thái Bình
+"Thái Nguyên">Thái Nguyên
+"Thanh Hoá">Thanh Hoá
+"Thừa Thiên Huế">T.T. Huế
+"Tiền Giang">Tiền Giang
+"Trà Vinh">Trà Vinh
+"Tuyên Quang">Tuyên Quang
+"Vĩnh Long">Vĩnh Long
+"Vĩnh Phúc">Vĩnh Phúc
+"Yên Bái">Yên Bái

@@ -86,6 +86,9 @@ namespace AutoSendMessageOnWeb
                     _thaoTacWeb = new LikeYou();
                     this.AnTieuDe();
                     break;
+                case TrangWeb.HenHoKetBan:
+                    _thaoTacWeb = new HenHoKetBan();
+                    break;
             }
         }
 

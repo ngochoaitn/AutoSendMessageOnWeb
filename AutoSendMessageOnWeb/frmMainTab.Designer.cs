@@ -29,40 +29,44 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainTab));
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.mainTabControl = new System.Windows.Forms.TabControl();
             this.tabHenHo2 = new System.Windows.Forms.TabPage();
             this.cAutoHenHo2 = new AutoSendMessageOnWeb.cAuto();
             this.tabDuyenSo = new System.Windows.Forms.TabPage();
             this.cAutoDuyenSo = new AutoSendMessageOnWeb.cAuto();
             this.tabVietNamCupid = new System.Windows.Forms.TabPage();
             this.cAutoVietNamCupid = new AutoSendMessageOnWeb.cAuto();
+            this.tabLikeYou = new System.Windows.Forms.TabPage();
+            this.cAutoLikeYou = new AutoSendMessageOnWeb.cAuto();
             this.controlBoxFlat1 = new ThuVienWinform.UI.Flat.CommonControls.ControlBoxFlat();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblWebChinhThuc = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.tabLikeYou = new System.Windows.Forms.TabPage();
-            this.cAutoLikeYou = new AutoSendMessageOnWeb.cAuto();
-            this.tabControl1.SuspendLayout();
+            this.henHoKetBanTabPage = new System.Windows.Forms.TabPage();
+            this.cAutoHenHoKetBan = new AutoSendMessageOnWeb.cAuto();
+            this.mainTabControl.SuspendLayout();
             this.tabHenHo2.SuspendLayout();
             this.tabDuyenSo.SuspendLayout();
             this.tabVietNamCupid.SuspendLayout();
+            this.tabLikeYou.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.tabLikeYou.SuspendLayout();
+            this.henHoKetBanTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // mainTabControl
             // 
-            this.tabControl1.Controls.Add(this.tabHenHo2);
-            this.tabControl1.Controls.Add(this.tabDuyenSo);
-            this.tabControl1.Controls.Add(this.tabVietNamCupid);
-            this.tabControl1.Controls.Add(this.tabLikeYou);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(937, 427);
-            this.tabControl1.TabIndex = 0;
+            this.mainTabControl.Controls.Add(this.tabHenHo2);
+            this.mainTabControl.Controls.Add(this.tabDuyenSo);
+            this.mainTabControl.Controls.Add(this.tabVietNamCupid);
+            this.mainTabControl.Controls.Add(this.tabLikeYou);
+            this.mainTabControl.Controls.Add(this.henHoKetBanTabPage);
+            this.mainTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainTabControl.Location = new System.Drawing.Point(0, 0);
+            this.mainTabControl.Name = "mainTabControl";
+            this.mainTabControl.SelectedIndex = 0;
+            this.mainTabControl.Size = new System.Drawing.Size(937, 427);
+            this.mainTabControl.TabIndex = 0;
             // 
             // tabHenHo2
             // 
@@ -124,6 +128,26 @@
             this.cAutoVietNamCupid.Size = new System.Drawing.Size(923, 395);
             this.cAutoVietNamCupid.TabIndex = 0;
             // 
+            // tabLikeYou
+            // 
+            this.tabLikeYou.Controls.Add(this.cAutoLikeYou);
+            this.tabLikeYou.Location = new System.Drawing.Point(4, 22);
+            this.tabLikeYou.Name = "tabLikeYou";
+            this.tabLikeYou.Padding = new System.Windows.Forms.Padding(3);
+            this.tabLikeYou.Size = new System.Drawing.Size(929, 401);
+            this.tabLikeYou.TabIndex = 3;
+            this.tabLikeYou.Text = "likeyou.vn";
+            this.tabLikeYou.UseVisualStyleBackColor = true;
+            // 
+            // cAutoLikeYou
+            // 
+            this.cAutoLikeYou.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.cAutoLikeYou.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cAutoLikeYou.Location = new System.Drawing.Point(3, 3);
+            this.cAutoLikeYou.Name = "cAutoLikeYou";
+            this.cAutoLikeYou.Size = new System.Drawing.Size(923, 395);
+            this.cAutoLikeYou.TabIndex = 0;
+            // 
             // controlBoxFlat1
             // 
             this.controlBoxFlat1.BackColor = System.Drawing.Color.Transparent;
@@ -177,32 +201,32 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.tabControl1);
+            this.panel2.Controls.Add(this.mainTabControl);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 28);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(939, 429);
             this.panel2.TabIndex = 3;
             // 
-            // tabLikeYou
+            // henHoKetBanTabPage
             // 
-            this.tabLikeYou.Controls.Add(this.cAutoLikeYou);
-            this.tabLikeYou.Location = new System.Drawing.Point(4, 22);
-            this.tabLikeYou.Name = "tabLikeYou";
-            this.tabLikeYou.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLikeYou.Size = new System.Drawing.Size(929, 401);
-            this.tabLikeYou.TabIndex = 3;
-            this.tabLikeYou.Text = "likeyou.vn";
-            this.tabLikeYou.UseVisualStyleBackColor = true;
+            this.henHoKetBanTabPage.Controls.Add(this.cAutoHenHoKetBan);
+            this.henHoKetBanTabPage.Location = new System.Drawing.Point(4, 22);
+            this.henHoKetBanTabPage.Name = "henHoKetBanTabPage";
+            this.henHoKetBanTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.henHoKetBanTabPage.Size = new System.Drawing.Size(929, 401);
+            this.henHoKetBanTabPage.TabIndex = 4;
+            this.henHoKetBanTabPage.Text = "henhoketban.vn";
+            this.henHoKetBanTabPage.UseVisualStyleBackColor = true;
             // 
-            // cAutoLikeYou
+            // cAutoHenHoKetBan
             // 
-            this.cAutoLikeYou.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.cAutoLikeYou.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cAutoLikeYou.Location = new System.Drawing.Point(3, 3);
-            this.cAutoLikeYou.Name = "cAutoLikeYou";
-            this.cAutoLikeYou.Size = new System.Drawing.Size(923, 395);
-            this.cAutoLikeYou.TabIndex = 0;
+            this.cAutoHenHoKetBan.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.cAutoHenHoKetBan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cAutoHenHoKetBan.Location = new System.Drawing.Point(3, 3);
+            this.cAutoHenHoKetBan.Name = "cAutoHenHoKetBan";
+            this.cAutoHenHoKetBan.Size = new System.Drawing.Size(923, 395);
+            this.cAutoHenHoKetBan.TabIndex = 0;
             // 
             // frmMainTab
             // 
@@ -222,21 +246,22 @@
             this.Text = "Gửi tin nhắn tự động";
             this.Load += new System.EventHandler(this.frmMainTab_Load);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.frmMainTab_KeyUp);
-            this.tabControl1.ResumeLayout(false);
+            this.mainTabControl.ResumeLayout(false);
             this.tabHenHo2.ResumeLayout(false);
             this.tabDuyenSo.ResumeLayout(false);
             this.tabVietNamCupid.ResumeLayout(false);
+            this.tabLikeYou.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.tabLikeYou.ResumeLayout(false);
+            this.henHoKetBanTabPage.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl mainTabControl;
         private System.Windows.Forms.TabPage tabHenHo2;
         private System.Windows.Forms.TabPage tabDuyenSo;
         private ThuVienWinform.UI.Flat.CommonControls.ControlBoxFlat controlBoxFlat1;
@@ -249,5 +274,7 @@
         private cAuto cAutoVietNamCupid;
         private System.Windows.Forms.TabPage tabLikeYou;
         private cAuto cAutoLikeYou;
+        private System.Windows.Forms.TabPage henHoKetBanTabPage;
+        private cAuto cAutoHenHoKetBan;
     }
 }

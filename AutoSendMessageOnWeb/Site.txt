@@ -1,10 +1,10 @@
 ﻿1.  https://vietnamcupid.com/      x
-2.  http://www.docthan.com/        
+2.  http://www.docthan.com/        (không đăng ký được)
 3.  http://henho2.com/             x
-4.  http://likeyou.vn/
+4.  http://likeyou.vn/             x
 5.  http://duyenso.com/            x
-6.  http://ketbansms.com/
-7.  http://www.timbangai.com/
-8.  https://henhoketban.vn/
-9.  https://badoo.com/
-10. https://www.twoo.com/vi/
+6.  http://ketbansms.com/          (Đăng nhập bằng authentication của google) - Còn lại có vẻ EZ
+7.  http://www.timbangai.com/      (Id vs usname tách biệt)
+8.  https://henhoketban.vn/        (Chưa xem)
+9.  https://badoo.com/             (JSON)
+10. https://www.twoo.com/vi/       (Chưa xem)

@@ -61,6 +61,7 @@
     <Compile Include="ExtentionMethod\DataTypeEx.cs" />
     <Compile Include="ExtentionMethod\DuyenSoEx.cs" />
     <Compile Include="ExtentionMethod\HenHo2Ex.cs" />
+    <Compile Include="HenHoKetBan.cs" />
     <Compile Include="LikeYou.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

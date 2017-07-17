@@ -44,6 +44,7 @@ namespace AutoSendMessageOnWeb
             cAutoDuyenSo.CaiDatTrang(Data.TrangWeb.DuyenSo);
             cAutoVietNamCupid.CaiDatTrang(Data.TrangWeb.VietNamCupid);
             cAutoLikeYou.CaiDatTrang(Data.TrangWeb.LikeYou);
+            cAutoHenHoKetBan.CaiDatTrang(Data.TrangWeb.HenHoKetBan);
 
             this.Text += System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
             controlBoxFlat1.lblFormText.Text = this.Text;
@@ -65,15 +66,15 @@ namespace AutoSendMessageOnWeb
                 switch(e.KeyCode)
                 {
                     case Keys.N:
-                        (tabControl1.SelectedTab.Controls[0] as cAuto).TaoTaiKhoanMoi();
+                        (mainTabControl.SelectedTab.Controls[0] as cAuto).TaoTaiKhoanMoi();
                         break;
                     case Keys.S:
-                        (tabControl1.SelectedTab.Controls[0] as cAuto).LuuDulieu();
+                        (mainTabControl.SelectedTab.Controls[0] as cAuto).LuuDulieu();
                         break;
                 }
             }
             else if (e.KeyCode == Keys.F3)
-                (tabControl1.SelectedTab.Controls[0] as cAuto).TimKiem();
+                (mainTabControl.SelectedTab.Controls[0] as cAuto).TimKiem();
         }
     }
 }
