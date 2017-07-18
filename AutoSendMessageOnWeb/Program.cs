@@ -3,7 +3,9 @@ using AutoSendMessageOnWeb.Lib;
 using AutoSendMessageOnWeb.Lib.Security;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AutoSendMessageOnWeb
@@ -17,8 +19,6 @@ namespace AutoSendMessageOnWeb
         [STAThread]
         static void Main()
         {
-            //HenHoKetBan.Test();
-
             Application.ThreadException += Application_ThreadException;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

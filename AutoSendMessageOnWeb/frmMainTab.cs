@@ -45,6 +45,7 @@ namespace AutoSendMessageOnWeb
             cAutoVietNamCupid.CaiDatTrang(Data.TrangWeb.VietNamCupid);
             cAutoLikeYou.CaiDatTrang(Data.TrangWeb.LikeYou);
             cAutoHenHoKetBan.CaiDatTrang(Data.TrangWeb.HenHoKetBan);
+            cAutoTimBanGai.CaiDatTrang(Data.TrangWeb.TimBanGai);
 
             this.Text += System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
             controlBoxFlat1.lblFormText.Text = this.Text;

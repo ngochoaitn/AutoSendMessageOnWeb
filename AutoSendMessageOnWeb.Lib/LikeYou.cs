@@ -146,7 +146,6 @@ namespace AutoSendMessageOnWeb.Lib
                 var response = RequestToWeb.GET(uri.Uri, false);
                 #endregion
 
-
                 #region Lấy dữ liệu
                 string sKQTimKiem = RequestToWeb.ReadStream(response);
                 sKQTimKiem = HttpUtility.HtmlDecode(sKQTimKiem);

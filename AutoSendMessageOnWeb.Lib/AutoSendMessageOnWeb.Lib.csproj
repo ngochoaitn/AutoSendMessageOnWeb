@@ -89,6 +89,7 @@
     <Compile Include="ThaoTacControl\XuLyDaLuong.cs" />
     <Compile Include="ThaoTacWeb\IThaoTacWeb.cs" />
     <Compile Include="ThaoTacWeb\RequestToWeb.cs" />
+    <Compile Include="TimBanGai.cs" />
     <Compile Include="VietNamCupid.cs" />
   </ItemGroup>
   <ItemGroup>

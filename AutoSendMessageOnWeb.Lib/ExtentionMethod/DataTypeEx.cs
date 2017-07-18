@@ -96,5 +96,15 @@ namespace AutoSendMessageOnWeb.Lib.ExtentionMethod
 
             return cookieCollection;
         }
+
+        public static string ConvertToUrlEncode(this System.Collections.Specialized.NameValueCollection co)
+        {
+            string res = "";
+
+            foreach(var c in co.AllKeys)
+                res += string.Format("&{0}={1}", c, co[c]);
+
+            return res.Substring(1);
+        }
     }
 }

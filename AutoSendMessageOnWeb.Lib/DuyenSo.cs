@@ -1,16 +1,14 @@
-﻿using AutoSendMessageOnWeb.Lib.ThaoTacWeb;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoSendMessageOnWeb.Data;
-using System.Net;
-using System.IO;
-using System.Web;
+﻿using AutoSendMessageOnWeb.Data;
 using AutoSendMessageOnWeb.Lib.ExtentionMethod;
+using AutoSendMessageOnWeb.Lib.ThaoTacWeb;
 using Fizzler.Systems.HtmlAgilityPack;
 using HtmlAgilityPack;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Web;
 
 namespace AutoSendMessageOnWeb.Lib
 {
@@ -48,18 +46,13 @@ namespace AutoSendMessageOnWeb.Lib
                     tk.Cookie = new CookieContainer();
                     tk.Cookie.SetCookies(UriTrangWeb.DuyenSo, setCookie);
                     tk.TrangThai = "Đang nhập thành công";
-                    //foreach(Cookie co in tk.Cookie.GetCookies(UriTrangWeb.DuyenSo))
-                    //{
-                    //    if(co.Name == ".duyenso.com_c_user")
-                    //    {
-                    //        tk.HanCookie = co.Expires;
-                    //        break;
-                    //    }
-                    //}
                 }
                 else
                 {
-                    tk.TrangThai = "Sai tài khoản hoặc mật khẩu";
+                    if (stringResponse.Contains("Không thể đăng nhập lúc này. Xin thử lại sau "))
+                        tk.TrangThai = "Bị khóa (Thử lại sau)";
+                    else
+                        tk.TrangThai = "Sai tài khoản hoặc mật khẩu";
                     tk.Cookie = null;
                 }
             }

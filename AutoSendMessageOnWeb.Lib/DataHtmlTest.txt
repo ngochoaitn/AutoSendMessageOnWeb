@@ -1,65 +1,341 @@
-﻿"Tất cả">Tỉnh thành
-"TP.HCM">TP.HCM
-"Hà Nội">Hà Nội
-"Đà Nẵng">Đà Nẵng
-"An Giang">An Giang
-"BR Vũng Tàu">BR Vũng Tàu
-"Bắc Giang">Bắc Giang
-"Bắc Kạn">Bắc Kạn
-"Bạc Liêu">Bạc Liêu
-"Bắc Ninh">Bắc Ninh
-"Bến Tre">Bến Tre
-"Bình Định">Bình Định
-"Bình Dương">Bình Dương
-"Bình Phước">Bình Phước
-"Bình Thuận">Bình Thuận
-"Cà Mau">Cà Mau
-"Cần Thơ">Cần Thơ
-"Cao Bằng">Cao Bằng
-"Đà Nẵng">Đà Nẵng
-"Đăk Lăk">Đăk Lăk
-"Đăk Nông">Đăk Nông
-"Điện Biên">Điện Biên
-"Đồng Nai">Đồng Nai
-"Đồng Tháp">Đồng Tháp
-"Gia Lai">Gia Lai
-"Hà Giang">Hà Giang
-"Hà Nam">Hà Nam
-"Hà Tĩnh">Hà Tĩnh
-"Hải Dương">Hải Dương
-"Hải Phòng">Hải Phòng
-"Hậu Giang">Hậu Giang
-"Hoà Bình">Hoà Bình
-"Hưng Yên">Hưng Yên
-"Khánh Hoà">Khánh Hoà
-"Kiên Giang">Kiên Giang
-"Kon Tum">Kon Tum
-"Lai Châu">Lai Châu
-"Lâm Đồng">Lâm Đồng
-"Lạng Sơn">Lạng Sơn
-"Lào Cai">Lào Cai
-"Long An">Long An
-"Nam Định">Nam Định
-"Nghệ An">Nghệ An
-"Ninh Bình">Ninh Bình
-"Ninh Thuận">Ninh Thuận
-"Phú Thọ">Phú Thọ
-"Phú Yên">Phú Yên
-"Quảng Bình">Quảng Bình
-"Quảng Nam">Quảng Nam
-"Quảng Ngãi">Quảng Ngãi
-"Quảng Ninh">Quảng Ninh
-"Quảng Trị">Quảng Trị
-"Sóc Trăng">Sóc Trăng
-"Sơn La">Sơn La
-"Tây Ninh">Tây Ninh
-"Thái Bình">Thái Bình
-"Thái Nguyên">Thái Nguyên
-"Thanh Hoá">Thanh Hoá
-"Thừa Thiên Huế">T.T. Huế
-"Tiền Giang">Tiền Giang
-"Trà Vinh">Trà Vinh
-"Tuyên Quang">Tuyên Quang
-"Vĩnh Long">Vĩnh Long
-"Vĩnh Phúc">Vĩnh Phúc
-"Yên Bái">Yên Bái
+﻿
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Kết quả tìm | TimBanGai.com</title>
+	<meta name="description" content="Tìm Bạn Gái 4 Phương" />
+	<meta name="keywords" content="dating, soulmate, friends, singles, love, timbangai, tim ban gai" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="http://www.timbangai.com/timbangai/includes/js/jquery.js"></script>
+<script type="text/javascript" src="http://www.timbangai.com/timbangai/includes/js/misc.js"></script>
+<link rel="stylesheet" type="text/css" href="http://www.timbangai.com/timbangai/templates/dateamour/media/content.css" />
+</head>
+<body >
+<div id="page_wrap">
+	<div id="page">
+		<div id="header_wrap">
+			<div id="header">
+				<h1><span>TimBanGai.com</span></h1>
+				<div class="banner"><div style="display:block" onclick="document.getElementById('vldbannerid_2').src='http://www.timbangai.com/timbangai/index.php?hp=1&amp;m=banners&amp;id=2'"><a href="http://www.newworldcommcanada.com" target="_blank"><img title="VietBet.eu" src="http://www.timbangai.com/images/ad_newworldcommcanada.gif" border="0" alt="New World Communications Canada"></a><img src="http://www.timbangai.com/timbangai/media/blank.gif" border="0" style="width:0px;height:0px;" alt="" id="vldbannerid_2" /></div></div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div id="headernav_wrap">
+			<div id="headernav">
+				<ul>
+					<li class="first"><a href="http://www.timbangai.com/timbangai/" title="Trang Nhà"><span>Trang Nhà</span></a></li>
+											<li><a href="http://www.timbangai.com/timbangai/news/" title="Tin Tức"><span>Tin Tức</span></a></li>
+																<li><a href="http://www.timbangai.com/timbangai/account/register/" title="Đăng Ký"><span>Đăng Ký</span></a></li>
+										<li><a href="http://www.timbangai.com/timbangai/search/" title="Tìm"><span>Tìm</span></a></li>
+											<li><a href="http://www.timbangai.com/timbangai/blogs/" title="Nhật Ký"><span>Nhật Ký</span></a></li>
+																<li><a href="http://www.timbangai.com/timbangai/pictures/" title="Hình Ảnh"><span>Hình Ảnh</span></a></li>
+																<li><a href="http://www.timbangai.com/timbangai/videos/" title="Videos"><span>Videos</span></a></li>
+																<li><a href="http://www.timbangai.com/timbangai/events/calendar/" title="Sự Kiện"><span>Sự Kiện</span></a></li>
+																<li><a href="http://www.timbangai.com/timbangai/hotornot/" title="Tuyệt hay Không"><span>Tuyệt hay Không</span></a></li>
+																			</ul>
+			</div>
+		</div>
+        <div style="width:920px; margin:0 auto;">
+        	<div style="background:#FDF6D6; padding:5px 15px">
+            <strong>Languages:</strong> 
+             	<a href="http://www.timbangai.com/timbangai/?language=vietnamese"><img src="http://www.timbangai.com/timbangai/templates/dateamour/media/flags/tiengviet.gif" width="60" height="16" border="0" alt="Vietnamese - Tieng Viet"></a>
+                <a href="http://www.timbangai.com/timbangai/?language=english"><img src="http://www.timbangai.com/timbangai/templates/dateamour/media/flags/default.gif" width="20" height="16" border="0" alt="English - Tieng Anh"></a>
+                <a href="http://www.timbangai.com/timbangai/?language=french"><img src="http://www.timbangai.com/timbangai/templates/dateamour/media/flags/fr.gif" width="20" height="16" border="0" alt="French - Tieng Phap"></a>
+                <a href="http://www.timbangai.com/timbangai/?language=spanish"><img src="http://www.timbangai.com/timbangai/templates/dateamour/media/flags/es.gif" width="20" height="16" border="0" alt="Spanish - Tieng Tay Ban Nha - Mexico"></a>
+            	<a href="http://www.timbangai.com/timbangai/?language=russian"><img src="http://www.timbangai.com/timbangai/templates/dateamour/media/flags/ru.gif" width="20" height="16" border="0" alt="Russian - Tieng Nga"></a>
+            </div>
+		</div>
+        <div class="clear"></div>
+				<div id="container_wrap">
+			<div id="container">
+				<div id="sidebar_wrap">
+					<div id="sidebar">
+							<div class="sidebox_wrap">
+		<h5><span>Thành viên login</span></h5>
+		<div class="sidebox">
+			<div class="login">
+				<form method="post" name="login" action="http://www.timbangai.com/timbangai/account/login/">
+					<div class="fieldset">
+						<dl class="fieldset">
+							<dt><label for="loginbox_username">Username hoặc email</label></dt>
+							<dd><input id="loginbox_username" maxlength="64" size="10" type="text" name="username" value="" class="text username" /></dd>
+							<dt><label for="loginbox_password">Password</label></dt>
+							<dd><input id="loginbox_password" maxlength="32" size="10" type="password" name="password" value="" class="text password" /></dd>
+							<dt><label for="loginbox_nonxpcookie"><input type="checkbox" name="nonxpcookie" value="1" class="checkbox" id="loginbox_nonxpcookie" /> Cho phép lưu lại?</label></dt>
+							<dd class="submit"><input type="submit" name="login" value="Login" class="submit" /></dd>
+						</dl>
+					</div>
+					<input type="hidden" name="islogin" value="1" />
+					<div class="lostpass"><a href="http://www.timbangai.com/timbangai/account/lostpass/" title="Quên password?">Quên password?</a></div>
+				</form>
+			</div>
+		</div>
+	</div>
+		<div class="sidebox_wrap">
+		<h5><span>Khách mới thăm</span></h5>
+		<div class="sidebox">
+			<div class="memberslist">
+									<div class="image">
+													<a href="http://www.timbangai.com/timbangai/Katy10"><img src="http://www.timbangai.com/timbangai/media/uploads/1/6/0/2/2416/t_photo_06gvttot2cv955g2eykbfua7ztam.jpg" alt="" border="0" /><br/></a>
+											</div>
+									<div class="image">
+													<a href="http://www.timbangai.com/timbangai/bangnb88"><img src="http://www.timbangai.com/timbangai/media/uploads/4/0/1/2/2415/t_photo_0ud1utppkpachhdjyb7qsprzvvf4.jpg" alt="" border="0" /><br/></a>
+											</div>
+									<div class="image">
+													<a href="http://www.timbangai.com/timbangai/amandababy"><img src="http://www.timbangai.com/timbangai/media/uploads/1/6/6/8/2411/t_photo_0xgtjsqxrscd4o16du749t9nebzh.jpg" alt="" border="0" /><br/></a>
+											</div>
+									<div class="image">
+													<a href="http://www.timbangai.com/timbangai/KHONGBIETMO2"><img src="http://www.timbangai.com/timbangai/media/uploads/2/3/8/6/2410/t_photo_0mj2hse5z6ga92jzds21r8xq8am9.jpg" alt="" border="0" /><br/></a>
+											</div>
+									<div class="image">
+													<a href="http://www.timbangai.com/timbangai/jones_franky"><img src="http://www.timbangai.com/timbangai/media/uploads/5/9/4/3/2400/t_photo_24008td9k28ysfoymp738qv8qz4n.jpg" alt="" border="0" /><br/></a>
+											</div>
+									<div class="image">
+													<a href="http://www.timbangai.com/timbangai/thoingocnguyen"><img src="http://www.timbangai.com/timbangai/media/uploads/9/1/7/8/2406/t_photo_0bhbu7jbdu6yez23nkmy7x4g91c6.jpg" alt="" border="0" /><br/></a>
+											</div>
+									<div class="image">
+													<a href="http://www.timbangai.com/timbangai/kienl"><img src="http://www.timbangai.com/timbangai/media/uploads/1/7/4/2/2163/t_photo_0rkz138prm356ps6gg9tetn4xyon.jpg" alt="" border="0" /><br/></a>
+											</div>
+									<div class="image">
+													<a href="http://www.timbangai.com/timbangai/phanvanT"><img src="http://www.timbangai.com/timbangai/media/uploads/0/5/4/9/2405/t_photo_2405hbdoxu2b3up51xg7r1fegq2g.jpg" alt="" border="0" /><br/></a>
+											</div>
+									<div class="image">
+													<a href="http://www.timbangai.com/timbangai/jessicabrown"><img src="http://www.timbangai.com/timbangai/media/uploads/1/9/5/6/2404/t_photo_0h96pjgc86e9ky8ctxy6vuub4nhb.jpg" alt="" border="0" /><br/></a>
+											</div>
+									<div class="image">
+													<a href="http://www.timbangai.com/timbangai/kumuc2"><img src="http://www.timbangai.com/timbangai/media/uploads/6/7/4/3/2403/t_photo_05vjhzgxczms487k51eg1yg1qab2.jpg" alt="" border="0" /><br/></a>
+											</div>
+									<div class="image">
+													<a href="http://www.timbangai.com/timbangai/Jasonball"><img src="http://www.timbangai.com/timbangai/media/uploads/1/2/7/0/2401/t_photo_24012zu155p4c2htyqm6nu84k7qh.jpg" alt="" border="0" /><br/></a>
+											</div>
+									<div class="image">
+													<a href="http://www.timbangai.com/timbangai/fpham1"><img src="http://www.timbangai.com/timbangai/media/uploads/5/8/9/9/2398/t_photo_23984ptrznrn2nv1f8af1b8b3uts.jpg" alt="" border="0" /><br/></a>
+											</div>
+								<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+<div class="banner"><div style="display:block" onclick="document.getElementById('vldbannerid_8').src='http://www.timbangai.com/timbangai/index.php?hp=1&amp;m=banners&amp;id=8'"><center><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- TimBanGaiAd -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5246487508668515"
+     data-ad-slot="7990347587"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br>
+<a href="http://www.coithienthaitv.com" target="_blank"><img title="CoiThienThaiTV.com" src="http://www.timbangai.com/images/ad_coithienthaitv_129x120.gif" border="0" alt="CoiThienThaiTV.com - TV Thong Minh - Xem dai Viet Nam" width="129" height="120"></a>
+<br>
+<a href="http://www.5StarsWebDesign.com" target="_blank"><img title="5StarsWebDesign.com" src="http://www.timbangai.com/images/ad_5starswebdesign_129x120.gif" border="0" alt="5StarsWebDesign.com"></a>
+<br>
+<a href="http://www.NewWorldCommCanada.com" target="_blank"><img title="NewWorldCommCanada.com" src="http://www.timbangai.com/images/ad_newworldcommcanada_129x60.gif" border="0" alt="NewWorldCommCanada.com"></a>
+<br>
+<a href="http://www.ThanhHaFlower.com" target="_blank"><img title="ThanhHaFlower.com" src="http://www.timbangai.com/images/ad_thanhhaflower_129x120.gif" border="0" alt="ThanhHaFlower.com - Gui hoa, gui qua ve Viet Nam"></a>
+<br>
+<a href="http://mail.TimBanGai.com" target="_blank"><img title="Free Email" src="http://www.timbangai.com/images/free-email.jpg" border="0" alt="Free Email @TimBanGai.com"></a>
+<br>
+<a href="http://chat.parachat.com/chat/login.html?room=CoiThienThai.com&width=740&height=500&lang=en" target="_blank"><img title="Chat" src="http://www.timbangai.com/images/chatting.gif" border="0" alt="Chat Chat Chat Online"></a></center><img src="http://www.timbangai.com/timbangai/media/blank.gif" border="0" style="width:0px;height:0px;" alt="" id="vldbannerid_8" /></div></div>
+					</div>
+				</div>
+				<div id="content_wrap">
+					<div id="content">
+
+<div class="header_wrap">
+	<div class="location_wrap">
+		<div class="location">
+			<ul>
+				<li><a href="http://www.timbangai.com/timbangai/search/" title="Truy tìm">Truy tìm</a></li>
+									<li><span>&#187;</span></li>
+					<li><a href="http://www.timbangai.com/timbangai/search/nxo1y8xp7s3r1prjjqshg3893h2rynca/">Kết qủa</a></li>
+							</ul>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div class="options_wrap">
+		<div class="title">
+			<h1>Kết quả tìm</h1>
+		</div>
+		<div class="options">
+			<ul>
+				<li><a href="http://www.timbangai.com/timbangai/search/" title="Truy tìm">Truy tìm</a></li>
+									<li><a href="http://www.timbangai.com/timbangai/search/advanced/" title="Sâu xa">Sâu xa</a></li>
+																<li class="break"></li>
+									<li><a href="http://www.timbangai.com/timbangai/search/nxo1y8xp7s3r1prjjqshg3893h2rynca/" class="active">Kết qủa</a></li>
+					<li><a href="javascript:void(0)" onclick="showhide_field('div_reorder')" title="Đổi thứ tự">Đổi thứ tự</a></li>
+												</ul>
+			<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="clear"></div>
+</div>
+
+
+
+	<div class="outter page_search_results">
+		<div class="typemembers">
+						<div class="dataitem single" id="div_reorder" style="display: none">
+				<div class="form">
+					<form name="form_reorder" action="http://www.timbangai.com/timbangai/search/nxo1y8xp7s3r1prjjqshg3893h2rynca/" method="post">
+						<div class="fieldset">
+							<dl class="fieldset fieldgrid">
+								<dt><label for="field_orderby">Theo thứ tự</label></dt>
+								<dd><select class="select" name="orderby" id="field_orderby"><option value="lastvisit" selected="selected">Lần cuối thăm</option><option value="joindate">Ngày tham gia</option><option value="averagerating">Điểm hồ sơ</option></select></dd>
+								<dt><label for="field_direction">Theo hướng</label></dt>
+								<dd><select class="select" name="direction" id="field_direction"><option value="desc" selected="selected">Giảm dần</option><option value="asc">Tăng dần</option></select></dd>
+								<dt><label for="field_display_type">Kiểu hiển thị</label></dt>
+								<dd><select class="select" name="display_type" id="field_display_type"><option value="0">Có chi tiết</option><option value="1" selected="selected">Kiểu triển lãm</option></select></dd>
+								<dd class="submit"><input class="submit" name="submit" value="Gởi" type="submit" /></dd>
+							</dl>
+							<div class="clear"></div>
+						</div>
+					</form>
+				</div>
+			</div>
+							<div class="dataitem single gallerybox">
+											<div class="image">
+								<a href="http://www.timbangai.com/timbangai/ngochoaitn"><img src="http://www.timbangai.com/timbangai/templates/dateamour/media/user_picture_none.gif" alt="" border="0" /><br/></a>
+							<h2 class="inner"><a href="http://www.timbangai.com/timbangai/ngochoaitn">ngochoai&hellip;, 23</a></h2>
+						</div>
+											<div class="image">
+								<a href="http://www.timbangai.com/timbangai/kienturle"><img src="http://www.timbangai.com/timbangai/templates/dateamour/media/user_picture_none.gif" alt="" border="0" /><br/></a>
+							<h2 class="inner"><a href="http://www.timbangai.com/timbangai/kienturle">kienturl&hellip;, 29</a></h2>
+						</div>
+											<div class="image">
+								<a href="http://www.timbangai.com/timbangai/haba0508"><img src="http://www.timbangai.com/timbangai/templates/dateamour/media/user_picture_none.gif" alt="" border="0" /><br/></a>
+							<h2 class="inner"><a href="http://www.timbangai.com/timbangai/haba0508">haba0508, 25</a></h2>
+						</div>
+											<div class="image">
+													<a href="http://www.timbangai.com/timbangai/bangnb88"><img src="http://www.timbangai.com/timbangai/media/uploads/4/0/1/2/2415/t_photo_0ud1utppkpachhdjyb7qsprzvvf4.jpg" alt="" border="0" /><br/></a>
+										<h2 class="inner"><a href="http://www.timbangai.com/timbangai/bangnb88">bangnb88, 29</a></h2>
+						</div>
+											<div class="image">
+								<a href="http://www.timbangai.com/timbangai/hung90"><img src="http://www.timbangai.com/timbangai/templates/dateamour/media/user_picture_none.gif" alt="" border="0" /><br/></a>
+							<h2 class="inner"><a href="http://www.timbangai.com/timbangai/hung90">hung90, 27</a></h2>
+						</div>
+											<div class="image">
+													<a href="http://www.timbangai.com/timbangai/KHONGBIETMO2"><img src="http://www.timbangai.com/timbangai/media/uploads/2/3/8/6/2410/t_photo_0mj2hse5z6ga92jzds21r8xq8am9.jpg" alt="" border="0" /><br/></a>
+										<h2 class="inner"><a href="http://www.timbangai.com/timbangai/KHONGBIETMO2">KHONGBIE&hellip;, 27</a></h2>
+						</div>
+											<div class="image">
+													<a href="http://www.timbangai.com/timbangai/jones_franky"><img src="http://www.timbangai.com/timbangai/media/uploads/5/9/4/3/2400/t_photo_24008td9k28ysfoymp738qv8qz4n.jpg" alt="" border="0" /><br/></a>
+										<h2 class="inner"><a href="http://www.timbangai.com/timbangai/jones_franky">jones_fr&hellip;, 30</a></h2>
+						</div>
+											<div class="image">
+								<a href="http://www.timbangai.com/timbangai/deathviet"><img src="http://www.timbangai.com/timbangai/templates/dateamour/media/user_picture_none.gif" alt="" border="0" /><br/></a>
+							<h2 class="inner"><a href="http://www.timbangai.com/timbangai/deathviet">deathvie&hellip;, 24</a></h2>
+						</div>
+											<div class="image">
+													<a href="http://www.timbangai.com/timbangai/thoingocnguyen"><img src="http://www.timbangai.com/timbangai/media/uploads/9/1/7/8/2406/t_photo_0bhbu7jbdu6yez23nkmy7x4g91c6.jpg" alt="" border="0" /><br/></a>
+										<h2 class="inner"><a href="http://www.timbangai.com/timbangai/thoingocnguyen">thoingoc&hellip;, 28</a></h2>
+						</div>
+											<div class="image">
+													<a href="http://www.timbangai.com/timbangai/phanvanT"><img src="http://www.timbangai.com/timbangai/media/uploads/0/5/4/9/2405/t_photo_2405hbdoxu2b3up51xg7r1fegq2g.jpg" alt="" border="0" /><br/></a>
+										<h2 class="inner"><a href="http://www.timbangai.com/timbangai/phanvanT">phanvanT, 22</a></h2>
+						</div>
+											<div class="image">
+													<a href="http://www.timbangai.com/timbangai/kumuc2"><img src="http://www.timbangai.com/timbangai/media/uploads/6/7/4/3/2403/t_photo_05vjhzgxczms487k51eg1yg1qab2.jpg" alt="" border="0" /><br/></a>
+										<h2 class="inner"><a href="http://www.timbangai.com/timbangai/kumuc2">kumuc2, 23</a></h2>
+						</div>
+											<div class="image">
+								<a href="http://www.timbangai.com/timbangai/doitrai31_1986"><img src="http://www.timbangai.com/timbangai/templates/dateamour/media/user_picture_none.gif" alt="" border="0" /><br/></a>
+							<h2 class="inner"><a href="http://www.timbangai.com/timbangai/doitrai31_1986">doitrai3&hellip;, 24</a></h2>
+						</div>
+											<div class="image">
+								<a href="http://www.timbangai.com/timbangai/tuantulathe0"><img src="http://www.timbangai.com/timbangai/templates/dateamour/media/user_picture_none.gif" alt="" border="0" /><br/></a>
+							<h2 class="inner"><a href="http://www.timbangai.com/timbangai/tuantulathe0">tuantula&hellip;, 20</a></h2>
+						</div>
+											<div class="image">
+													<a href="http://www.timbangai.com/timbangai/lilmaxssay"><img src="http://www.timbangai.com/timbangai/media/uploads/0/9/9/8/2395/t_photo_05f8uptrhb1cfe3y8yz81qvz8hk1.jpg" alt="" border="0" /><br/></a>
+										<h2 class="inner"><a href="http://www.timbangai.com/timbangai/lilmaxssay">lilmaxss&hellip;, 23</a></h2>
+						</div>
+											<div class="image">
+													<a href="http://www.timbangai.com/timbangai/hoanganh0601"><img src="http://www.timbangai.com/timbangai/media/uploads/6/2/1/5/2394/t_photo_0zas6extgsg8ng4okcd5t5auqk4s.jpg" alt="" border="0" /><br/></a>
+										<h2 class="inner"><a href="http://www.timbangai.com/timbangai/hoanganh0601">hoanganh&hellip;, 28</a></h2>
+						</div>
+											<div class="image">
+													<a href="http://www.timbangai.com/timbangai/nguyenthanh"><img src="http://www.timbangai.com/timbangai/media/uploads/1/6/8/7/2378/t_photo_0pbdsgrtqy5ph7k34n63re78xoag.jpg" alt="" border="0" /><br/></a>
+										<h2 class="inner"><a href="http://www.timbangai.com/timbangai/nguyenthanh">nguyenth&hellip;, 20</a></h2>
+						</div>
+											<div class="image">
+								<a href="http://www.timbangai.com/timbangai/vuongtantai19102003"><img src="http://www.timbangai.com/timbangai/templates/dateamour/media/user_picture_none.gif" alt="" border="0" /><br/></a>
+							<h2 class="inner"><a href="http://www.timbangai.com/timbangai/vuongtantai19102003">vuongtan&hellip;, 22</a></h2>
+						</div>
+											<div class="image">
+													<a href="http://www.timbangai.com/timbangai/Goldfish009"><img src="http://www.timbangai.com/timbangai/media/uploads/0/7/8/8/2358/t_photo_2358rz86ojdkkpgebpzztxtbjz2a.jpg" alt="" border="0" /><br/></a>
+										<h2 class="inner"><a href="http://www.timbangai.com/timbangai/Goldfish009">Goldfish&hellip;, 23</a></h2>
+						</div>
+											<div class="image">
+													<a href="http://www.timbangai.com/timbangai/Tranphuocthinh"><img src="http://www.timbangai.com/timbangai/media/uploads/0/6/0/0/2391/t_photo_2391r2s18cf59fqrs1mbj6gxdem1.jpg" alt="" border="0" /><br/></a>
+										<h2 class="inner"><a href="http://www.timbangai.com/timbangai/Tranphuocthinh">Tranphuo&hellip;, 21</a></h2>
+						</div>
+											<div class="image">
+								<a href="http://www.timbangai.com/timbangai/Griffin2005"><img src="http://www.timbangai.com/timbangai/templates/dateamour/media/user_picture_none.gif" alt="" border="0" /><br/></a>
+							<h2 class="inner"><a href="http://www.timbangai.com/timbangai/Griffin2005">Griffin2&hellip;, 30</a></h2>
+						</div>
+											<div class="image">
+													<a href="http://www.timbangai.com/timbangai/tintrungngo251190"><img src="http://www.timbangai.com/timbangai/media/uploads/9/0/7/9/2389/t_photo_2389qjzjd1yg81ceyukjsff3y54h.jpg" alt="" border="0" /><br/></a>
+										<h2 class="inner"><a href="http://www.timbangai.com/timbangai/tintrungngo251190">tintrung&hellip;, 26</a></h2>
+						</div>
+											<div class="image">
+								<a href="http://www.timbangai.com/timbangai/tuandeokan"><img src="http://www.timbangai.com/timbangai/templates/dateamour/media/user_picture_none.gif" alt="" border="0" /><br/></a>
+							<h2 class="inner"><a href="http://www.timbangai.com/timbangai/tuandeokan">tuandeok&hellip;, 20</a></h2>
+						</div>
+											<div class="image">
+													<a href="http://www.timbangai.com/timbangai/dongho94"><img src="http://www.timbangai.com/timbangai/media/uploads/1/0/7/1/2387/t_photo_2387djkh88z7e89xxrd6go7patya.jpg" alt="" border="0" /><br/></a>
+										<h2 class="inner"><a href="http://www.timbangai.com/timbangai/dongho94">dongho94, 23</a></h2>
+						</div>
+											<div class="image">
+								<a href="http://www.timbangai.com/timbangai/hoanganh"><img src="http://www.timbangai.com/timbangai/templates/dateamour/media/user_picture_none.gif" alt="" border="0" /><br/></a>
+							<h2 class="inner"><a href="http://www.timbangai.com/timbangai/hoanganh">hoanganh, 18</a></h2>
+						</div>
+										<div class="clear"></div>
+				</div>
+				<div class="clear"></div>
+					</div>
+		<div class="clear"></div>
+
+	</div>
+
+			<div class="footer_wrap">
+			<div class="footer">
+				<p>Số trang</p>
+				<a class="active" href="http://www.timbangai.com/timbangai/search/nxo1y8xp7s3r1prjjqshg3893h2rynca/1/">1</a> <a href="http://www.timbangai.com/timbangai/search/nxo1y8xp7s3r1prjjqshg3893h2rynca/2/">2</a> <a href="http://www.timbangai.com/timbangai/search/nxo1y8xp7s3r1prjjqshg3893h2rynca/3/">3</a> <a href="http://www.timbangai.com/timbangai/search/nxo1y8xp7s3r1prjjqshg3893h2rynca/4/">4</a> <a href="http://www.timbangai.com/timbangai/search/nxo1y8xp7s3r1prjjqshg3893h2rynca/5/">5</a> <a href="http://www.timbangai.com/timbangai/search/nxo1y8xp7s3r1prjjqshg3893h2rynca/6/">6</a> <a href="http://www.timbangai.com/timbangai/search/nxo1y8xp7s3r1prjjqshg3893h2rynca/7/">7</a> <a href="http://www.timbangai.com/timbangai/search/nxo1y8xp7s3r1prjjqshg3893h2rynca/8/">8</a> <a href="http://www.timbangai.com/timbangai/search/nxo1y8xp7s3r1prjjqshg3893h2rynca/9/">9</a> <a href="javascript:void(0)">&hellip;</a> <a href="http://www.timbangai.com/timbangai/search/nxo1y8xp7s3r1prjjqshg3893h2rynca/48/">48</a>				<div class="clear"></div>
+			</div>
+		</div>
+		<div class="clear"></div>
+	
+
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div id="footer_wrap">
+			<div id="footer">
+									<a href="http://www.timbangai.com/timbangai/invitefriends/" title="Mời Bạn Bè">Mời Bạn Bè</a> |
+													<a href="http://www.timbangai.com/timbangai/contactus/" title="Liên Lạc Chủ Website">Liên Lạc Chủ Website</a> |
+								<a href="http://www.timbangai.com/timbangai/page/general/tos/" >Terms of service</a>				<!-- CREDIT LINE: UNAUTHORIZED REMOVAL WILL VOID LICENSE -->
+							</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<div class="clear"></div>
+<script type="text/javascript" language="javascript">
+ //<![CDATA[
+var virpath = "http://www.timbangai.com/timbangai/";
+$(document).ready(function(){
+    $("#usernav ul li").hover(
+        function() { $(this).addClass("shover"); },
+        function() { $(this).removeClass("shover"); }
+    );
+});
+//]]>
+</script>
+</body>
+</html>

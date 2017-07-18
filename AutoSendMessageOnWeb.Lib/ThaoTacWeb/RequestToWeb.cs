@@ -137,5 +137,10 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb
                 return null;
             }
         }
+
+        internal static object ReadHeader(WebResponse response)
+        {
+            return ReadHeader(response.Headers);
+        }
     }
 }

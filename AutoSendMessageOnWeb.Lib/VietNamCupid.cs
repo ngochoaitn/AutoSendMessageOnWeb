@@ -94,12 +94,14 @@ namespace AutoSendMessageOnWeb.Lib
 
             string data = string.Format("memberid={0}&subject={1}&body={2}&cssSuffix=sm&subjectChanged=false&replyID=0&mailsInThread=0&imbraconsent=0", nguoinhan.Id, tieude, Uri.EscapeDataString(noidung));
             var response = RequestToWeb.POST2(new Uri("https://www.vietnamcupid.com/vi/mail/sendEmail?ajaxMode=false"), nguoigui.Cookie, data, false, false, "application/x-www-form-urlencoded; charset=UTF-8");
+            var headers = RequestToWeb.ReadHeader(response);
             nguoinhan.TrangThai = nguoigui.TaiKhoan;
             using (var sr = new StreamReader(response.GetResponseStream()))
             {
                 string stringResponse = sr.ReadToEnd();
-                if (!stringResponse.Contains(noidung))
-                    nguoinhan.TrangThai = "Gửi lỗi\n(không nhận tin nhắn cùng giới)";
+                string noidung1 = noidung.Split(new string[]{"\r\n"}, StringSplitOptions.RemoveEmptyEntries)[0];
+                if (!stringResponse.Contains(noidung1))
+                    nguoinhan.TrangThai = "Gửi lỗi\n(không nhận tin nhắn cùng giới hoặc đã quá giới hạn gửi)";
             }
         }
 

@@ -10,6 +10,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -20,6 +21,8 @@ namespace AutoSendMessageOnWeb
         private IThaoTacWeb _thaoTacWeb;
         private TrangWeb _trang;
         DatabaseManager _db;
+        CancellationTokenSource _guiTinNhanTokenResource;
+
 
         public cAuto()
         {
@@ -88,6 +91,9 @@ namespace AutoSendMessageOnWeb
                     break;
                 case TrangWeb.HenHoKetBan:
                     _thaoTacWeb = new HenHoKetBan();
+                    break;
+                case TrangWeb.TimBanGai:
+                    _thaoTacWeb = new TimBanGai();
                     break;
             }
         }
@@ -180,13 +186,17 @@ namespace AutoSendMessageOnWeb
             btnTimKiem.BackColor = Color.FromArgb(255, 255, 128);
         }
 
-        private async void btnGuiTin_Click(object sender, EventArgs e)
+        private async Task TienHanGuiTin()
         {
+            _guiTinNhanTokenResource = new CancellationTokenSource();
+            btnGuiTin.Text = "Dừng";
+            btnGuiTin.BackColor = Color.Red;
+
             await Task.Run(() =>
             {
-                btnGuiTin.Enabled = false;
+                //btnGuiTin.Enabled = false;
                 thongTinTaiKhoan_GuiBindingSource.EndEdit();
-                thongTinTaiKhoan_TimKiemBindingSource.EndEdit();
+                 thongTinTaiKhoan_TimKiemBindingSource.EndEdit();
 
                 #region Đăng nhập
                 foreach (ThongTinTaiKhoan tk in thongTinTaiKhoan_GuiBindingSource)
@@ -228,7 +238,7 @@ namespace AutoSendMessageOnWeb
                 int index_NguoiNhanHienTai = 0;
                 int soThuSeGui = Math.Min(lstGui.Sum(p => p.SoThuSeGui), soNguoiNhan);
                 int demGui = 1;
-                while (index_NguoiGuiHienTai < soNguoiGui && index_NguoiNhanHienTai < soNguoiNhan)
+                while (index_NguoiGuiHienTai < soNguoiGui && index_NguoiNhanHienTai < soNguoiNhan && !_guiTinNhanTokenResource.IsCancellationRequested)
                 {
                     ThongTinTaiKhoan nguoiGui = lstGui.ElementAt(index_NguoiGuiHienTai++);
                     for (int i = 0; i < nguoiGui.SoThuSeGui; i++)
@@ -246,18 +256,35 @@ namespace AutoSendMessageOnWeb
                         }
                         else
                         {
+                            //Nếu đã gửi rồi thì không tính
                             i--;
                         }
                         //Nếu hết người nhận thì thoát vòng lặp
                         if (index_NguoiNhanHienTai >= soNguoiNhan)
                             break;
+                        if(_guiTinNhanTokenResource.IsCancellationRequested)
+                            break;
                     }
                 }
                 #endregion
 
-                XuLyDaLuong.ChangeText(lblTrangThai, string.Format("Hoàn tất gửi tin ({0}/{1})", soThuSeGui, soThuSeGui), Color.Black);
-                btnGuiTin.Enabled = true;
-            });
+                XuLyDaLuong.ChangeText(lblTrangThai, string.Format("Hoàn tất gửi tin ({0}/{1})", demGui-1, soThuSeGui), Color.Black);
+                btnGuiTin.Text = "Gửi tin nhắn";
+                btnGuiTin.BackColor = Color.LightSkyBlue;
+
+            }, _guiTinNhanTokenResource.Token);
+        }
+
+        private async void btnGuiTin_Click(object sender, EventArgs e)
+        {
+            if(btnGuiTin.Text == "Gửi tin nhắn")
+            {
+                await TienHanGuiTin();
+            }
+            else
+            {
+                _guiTinNhanTokenResource.Cancel();
+            }
         }
 
         private void btnLuuDanhSach_Click(object sender, EventArgs e)
@@ -337,12 +364,36 @@ namespace AutoSendMessageOnWeb
             }
         }
 
-
         public void TaoTaiKhoanMoi()
         { btnThemTaiKhoan.PerformClick(); }
         public void LuuDulieu()
         { btnLuuDanhSach.PerformClick(); }
         public void TimKiem()
         { btnTimKiem.PerformClick(); }
+
+        private void buttonFlat1_Click(object sender, EventArgs e)
+        {
+            _guiTinNhanTokenResource = new CancellationTokenSource();
+            Task.Run(() =>
+            {
+                int i = 0;
+                while(true)
+                {
+                    Debug.WriteLine((i++).ToString());
+                    Task.Delay(1000);
+                    if (_guiTinNhanTokenResource.IsCancellationRequested)
+                    {
+                        Debug.WriteLine("Break");
+                        break;
+                    }
+                }
+            }, _guiTinNhanTokenResource.Token);
+            //_guiTinNhanTokenResource.Cancel();
+        }
+
+        private void buttonFlat2_Click(object sender, EventArgs e)
+        {
+            _guiTinNhanTokenResource.Cancel();
+        }
     }
 }
