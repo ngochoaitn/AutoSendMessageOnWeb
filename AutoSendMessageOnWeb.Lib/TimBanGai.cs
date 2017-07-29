@@ -41,7 +41,7 @@ namespace AutoSendMessageOnWeb.Lib
                 tk.TrangThai = "Sai tài khoản hoặc mật khẩu";
         }
 
-        public void GuiTin(ThongTinTaiKhoan nguoigui, ThongTinTaiKhoan nguoinhan, string tieude, string noidung)
+        public void GuiTin(ThongTinTaiKhoan nguoigui, ThongTinTaiKhoan nguoinhan, string tieude, string noidung, Action<string> callback=null)
         {
             //Lấy thông tin tài khoản nhận thư
             if (string.IsNullOrEmpty(nguoinhan.Id))

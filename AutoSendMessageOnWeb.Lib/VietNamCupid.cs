@@ -75,7 +75,7 @@ namespace AutoSendMessageOnWeb.Lib
 
         }
 
-        public void GuiTin(ThongTinTaiKhoan nguoigui, ThongTinTaiKhoan nguoinhan, string tieude, string noidung)
+        public void GuiTin(ThongTinTaiKhoan nguoigui, ThongTinTaiKhoan nguoinhan, string tieude, string noidung, Action<string> callback=null)
         {
             if (nguoigui.Cookie == null)
                 throw new Exception("Thiếu cookie");
@@ -152,7 +152,7 @@ namespace AutoSendMessageOnWeb.Lib
                     data += string.Format("&countryLive=230&stateLive={0}", param.NoiO);
                     foreach (var hn in param.HonNhan)
                         data += string.Format("&maritalStatus={0}", hn.Id);
-                    data += "&cityLive=-1&searchingFor=-1&resetCurrency=VND&distanceUnit=kms&gender=253";
+                    data += "&cityLive=-1&searchingFor=-1&resetCurrency=VND&distanceUnit=kms&gender=254";
                     response = RequestToWeb.POST(uri.Uri, this.Cookie, data, false, true);
                 }
                 else

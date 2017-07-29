@@ -49,7 +49,7 @@ namespace AutoSendMessageOnWeb.Lib
             #endregion
         }
 
-        public void GuiTin(ThongTinTaiKhoan nguoigui, ThongTinTaiKhoan nguoinhan, string tieude, string noidung)
+        public void GuiTin(ThongTinTaiKhoan nguoigui, ThongTinTaiKhoan nguoinhan, string tieude, string noidung, Action<string> callback=null)
         {
             if (nguoigui.Cookie == null)
                 throw new Exception("Thiếu cookie");

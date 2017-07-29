@@ -30,7 +30,7 @@ namespace AutoSendMessageOnWeb.Lib
             throw new NotImplementedException();
         }
 
-        public void GuiTin(ThongTinTaiKhoan nguoigui, ThongTinTaiKhoan nguoinhan, string tieude, string noidung)
+        public void GuiTin(ThongTinTaiKhoan nguoigui, ThongTinTaiKhoan nguoinhan, string tieude, string noidung, Action<string> callback=null)
         {
             throw new NotImplementedException();
         }

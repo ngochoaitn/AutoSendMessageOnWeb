@@ -241,6 +241,7 @@ namespace AutoSendMessageOnWeb
                 while (index_NguoiGuiHienTai < soNguoiGui && index_NguoiNhanHienTai < soNguoiNhan && !_guiTinNhanTokenResource.IsCancellationRequested)
                 {
                     ThongTinTaiKhoan nguoiGui = lstGui.ElementAt(index_NguoiGuiHienTai++);
+                    bool breakNow = false;
                     for (int i = 0; i < nguoiGui.SoThuSeGui; i++)
                     {
                         ThongTinTaiKhoan nguoiNhan = lstNhan.ElementAt(index_NguoiNhanHienTai++);
@@ -249,8 +250,19 @@ namespace AutoSendMessageOnWeb
                             thongTinTaiKhoan_TimKiemBindingSource.Position = thongTinTaiKhoan_TimKiemBindingSource.IndexOf(nguoiNhan);
                             XuLyDaLuong.ChangeText(lblTrangThai, string.Format("Đang gửi {0}/{1} {2}...", demGui++, soThuSeGui, nguoiNhan.TenHienThi), Color.Black);
 
-                            _thaoTacWeb.GuiTin(nguoiGui, nguoiNhan, txtTieuDe.Text, txtNoiDung.Text);
-
+                            _thaoTacWeb.GuiTin(nguoiGui, nguoiNhan, txtTieuDe.Text, txtNoiDung.Text, 
+                                (code => {
+                                    if (code == CONST_HENHO2.TAI_KHOAN_BI_KHOA)
+                                        breakNow = true;
+                                }));
+                            if (breakNow)
+                            {
+                                nguoiGui.TrangThai = "Bị khóa";
+                                thongTinTaiKhoan_TimKiemBindingSource.EndEdit();
+                                grvGui.Refresh();
+                                grvTimKiem.Focus();
+                                break;
+                            }
                             thongTinTaiKhoan_TimKiemBindingSource.EndEdit();
                             grvTimKiem.Refresh();
                         }

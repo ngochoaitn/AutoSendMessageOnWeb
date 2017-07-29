@@ -4,7 +4,7 @@
 4.  http://likeyou.vn/             x
 5.  http://duyenso.com/            x
 6.  http://ketbansms.com/          (Đăng nhập bằng authentication của google - KHÔNG ĐƯỢC) - Còn lại có vẻ EZ
-7.  http://www.timbangai.com/      (Id vs usname tách biệt)
+7.  http://www.timbangai.com/      x
 8.  https://henhoketban.vn/        x
 9.  https://badoo.com/             (JSON)
 10. https://www.twoo.com/vi/       (Chưa xem)

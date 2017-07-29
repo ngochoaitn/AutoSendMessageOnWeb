@@ -12,18 +12,7 @@ namespace AutoSendMessageOnWeb.Lib
 {
     public class Badoo : IThaoTacWeb
     {
-        public CookieContainer Cookie
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public CookieContainer Cookie { set; get; }
 
         public bool TimKiemYeuCauCookie
         {
@@ -38,7 +27,7 @@ namespace AutoSendMessageOnWeb.Lib
             throw new NotImplementedException();
         }
 
-        public void GuiTin(ThongTinTaiKhoan nguoigui, ThongTinTaiKhoan nguoinhan, string tieude, string noidung)
+        public void GuiTin(ThongTinTaiKhoan nguoigui, ThongTinTaiKhoan nguoinhan, string tieude, string noidung, Action<string> call_back=null)
         {
             throw new NotImplementedException();
         }
@@ -177,29 +166,7 @@ namespace AutoSendMessageOnWeb.Lib
             #endregion
 
             #region Search
-            CookieContainer searhCookie = loginCookie;
-
-            HttpWebRequest searchRequest = WebRequest.CreateHttp("https://www.vietnamcupid.com/vi/results/search?searchtype=1");
-
-            searchRequest.CookieContainer = searhCookie;
-            searchRequest.Method = "POST";
-            searchRequest.AllowAutoRedirect = false;
-            searchRequest.ContentType = "application/x-www-form-urlencoded";
-
-            using (StreamWriter sw = new StreamWriter(searchRequest.GetRequestStream()))
-            {
-                string data = "resulttype=advanced&gender_w=254&age_min=19&age_max=29&countryLive=230&maritalStatus=556&maritalStatus=558&cityLive=-1&searchingFor=-1&resetCurrency=VND&distanceUnit=kms&stateLive=-1&gender=253";
-                sw.Write(data);
-                sw.Close();
-            }
-            HttpWebResponse searchResponse = (HttpWebResponse)searchRequest.GetResponse();
-            string searchLoc = searchResponse.Headers[HttpResponseHeader.Location];
-            string searchS = "";
-            using (StreamReader sr = new StreamReader(searchResponse.GetResponseStream()))
-            {
-                searchS = sr.ReadToEnd();
-                sr.Close();
-            }
+            
             #endregion
         }
     }

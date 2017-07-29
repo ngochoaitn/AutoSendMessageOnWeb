@@ -97,7 +97,7 @@ namespace AutoSendMessageOnWeb.Lib
         }
         #endregion
 
-        public void GuiTin(ThongTinTaiKhoan nguoigui, ThongTinTaiKhoan nguoinhan, string tieude, string noidung)
+        public void GuiTin(ThongTinTaiKhoan nguoigui, ThongTinTaiKhoan nguoinhan, string tieude, string noidung, Action<string> callback=null)
         {
             if (nguoigui.Cookie == null)
                 throw new Exception("Thiếu cookie");
@@ -117,7 +117,11 @@ namespace AutoSendMessageOnWeb.Lib
                     else if (stringResponse.Contains("Vui l&#242;ng nhập từ"))
                         nguoinhan.TrangThai = "Gửi lỗi\n(quá ngắn)";
                     else if (stringResponse.Contains("Bạn đ&#227; bị ban"))
+                    {
                         nguoinhan.TrangThai = "Gửi lỗi\n(tài khoản bị khóa)";
+                        if (callback != null)
+                            callback(CONST_HENHO2.TAI_KHOAN_BI_KHOA);
+                    }
                     else
                         nguoinhan.TrangThai = "Gửi lỗi\n(nhập lại tài khoản)";
                 }
@@ -267,5 +271,10 @@ namespace AutoSendMessageOnWeb.Lib
                 return binding;
         }
 
+    }
+
+    public class CONST_HENHO2
+    {
+        public const string TAI_KHOAN_BI_KHOA = "Henho2.com Tài khoản bị khóa";
     }
 }
