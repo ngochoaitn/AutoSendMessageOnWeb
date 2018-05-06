@@ -10,6 +10,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,6 +24,14 @@ namespace AutoSendMessageOnWeb
         DatabaseManager _db;
         CancellationTokenSource _guiTinNhanTokenResource;
 
+        private List<cThongTinGui> DanhSachNoiDung()
+        {
+            var res = new List<cThongTinGui>();
+            foreach (Control c in panTopThongTinGui.Controls)
+                if (c is cThongTinGui)
+                    res.Add(c as cThongTinGui);
+            return res.OrderBy(p => p.STT).ToList();
+        }
 
         public cAuto()
         {
@@ -33,17 +42,18 @@ namespace AutoSendMessageOnWeb
 
         private void AnTieuDe()
         {
-            lblTieuDe.Visible = txtTieuDe.Visible = false;
-
-            lblNoiDung.Location = lblTieuDe.Location;
-            txtNoiDung.Location = txtTieuDe.Location;
-            txtNoiDung.Height += 50;
+            foreach (var c in DanhSachNoiDung())
+                c.AnTieuDe();
         }
 
         public void CaiDatTrang(TrangWeb trang)
         {
             _trang = trang;
             _db = new DatabaseManager(trang);
+            for(int i = 0; i < _db.DanhSachNoiDung.Count; i++)
+                this.ThemNoiDung(_db.DanhSachTieuDe[i], _db.DanhSachNoiDung[i]);
+            if(_db.DanhSachNoiDung.Count == 0)
+                this.ThemNoiDung();
 
             Program.XayRaLoi += Program_XayRaLoi;
 
@@ -60,30 +70,11 @@ namespace AutoSendMessageOnWeb
                     break;
                 case TrangWeb.DuyenSo:
                     _thaoTacWeb = new DuyenSo();
+                    radCheDo2.Checked = true;
                     this.AnTieuDe();
                     break;
                 case TrangWeb.VietNamCupid:
                     _thaoTacWeb = new VietNamCupid();
-
-                    List<string> tieuDe = new List<string>() { "default_1  (Xin chào!)",
-                                                               "default_2  (Tôi thích hồ sơ bạn)",
-                                                               "default_3  (Hình thật đẹp!)",
-                                                               "default_4  (Tôi quan tâm đến bạn)",
-                                                               "default_5  (Tôi ấn tượng về bạn)",
-                                                               "default_6  (Bạn thật dễ thương)",
-                                                               "default_7  (Yêu từ cái nhìn đầu tiên)",
-                                                               "default_8  (Chúng ta là bộ đôi hoàn hảo)",
-                                                               "default_9  (Hãy nhận liên lạc của tôi)",
-                                                               "default_10 (Tìm kiếm hôn nhân)" };
-
-                    AutoCompleteStringCollection allowedTypes = new AutoCompleteStringCollection();
-                    allowedTypes.AddRange(tieuDe.ToArray());
-                    txtTieuDe.AutoCompleteCustomSource = allowedTypes;
-                    txtTieuDe.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-                    txtTieuDe.AutoCompleteSource = AutoCompleteSource.CustomSource;
-
-                    txtTieuDe.Text = "default_9  (Hãy nhận liên lạc của tôi)";
-
                     break;
                 case TrangWeb.LikeYou:
                     _thaoTacWeb = new LikeYou();
@@ -186,13 +177,33 @@ namespace AutoSendMessageOnWeb
             btnTimKiem.BackColor = Color.FromArgb(255, 255, 128);
         }
 
-        private async Task TienHanGuiTin()
+        private static string spintax(Random rnd, string str)
+        {
+            string pattern = "{[^{}]*}";
+            Match i = Regex.Match(str, pattern);
+            while (i.Success)
+            {
+                string seg = str.Substring(i.Index + 1, i.Length - 2);
+                string[] choices = seg.Split('|');
+                str = str.Substring(0, i.Index) + choices[rnd.Next(choices.Length)] + str.Substring(i.Index + i.Length);
+                i = Regex.Match(str, pattern);
+            }
+            return str;
+        }
+
+        private string LayTextTuSpinText(string spintext)
+        {
+            Random rnd = new Random();
+            return spintax(rnd, spintext);
+        }
+
+        private async Task TienHanhGuiTin()
         {
             _guiTinNhanTokenResource = new CancellationTokenSource();
             btnGuiTin.Text = "Dừng";
             btnGuiTin.BackColor = Color.Red;
 
-            await Task.Run(() =>
+            await Task.Run(async () =>
             {
                 //btnGuiTin.Enabled = false;
                 thongTinTaiKhoan_GuiBindingSource.EndEdit();
@@ -212,89 +223,200 @@ namespace AutoSendMessageOnWeb
                 #endregion
 
                 #region Gửi
-                var lstGui = (thongTinTaiKhoan_GuiBindingSource.List as IList<ThongTinTaiKhoan>).Where(p => p.Cookie != null);
-                var lstNhan = (thongTinTaiKhoan_TimKiemBindingSource.List as IList<ThongTinTaiKhoan>);//.Where(p => string.IsNullOrEmpty(p.TrangThai));
+                if (radCheDo1.Checked)
+                    await CheDo1();
+                else if(radCheDo2.Checked)
+                    await CheDo2();
+                #endregion
 
-                int soNguoiGui = lstGui.Count();
-                int soNguoiNhan = lstNhan.Count();
+            }, _guiTinNhanTokenResource.Token);
+        }
 
-                if (soNguoiGui == 0)
+        private async Task CheDo1()
+        {
+            var lstGui = (thongTinTaiKhoan_GuiBindingSource.List as IList<ThongTinTaiKhoan>).Where(p => p.Cookie != null);
+            var lstNhan = (thongTinTaiKhoan_TimKiemBindingSource.List as IList<ThongTinTaiKhoan>);//.Where(p => string.IsNullOrEmpty(p.TrangThai));
+
+            int soNguoiGui = lstGui.Count();
+            int soNguoiNhan = lstNhan.Count();
+
+            if (soNguoiGui == 0)
+            {
+                MessageBox.Show("Vui lòng thêm người gửi hoặc kiểm tra lại trạng thái đăng nhập", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                btnGuiTin.Enabled = true;
+                XuLyDaLuong.ChangeText(lblTrangThai, "Vui lòng kiểm tra lại thông tin người gửi", Color.Red);
+                return;
+            }
+
+            if (soNguoiNhan == 0)
+            {
+                MessageBox.Show("Vui lòng thêm người nhận", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                XuLyDaLuong.ChangeText(lblTrangThai, "Vui lòng chọn người nhận", Color.Red);
+                btnGuiTin.Enabled = true;
+                return;
+            }
+            int thoiGianCho;
+            if (!int.TryParse(txtThoiGianCho.Text, out thoiGianCho))
+            {
+                MessageBox.Show("Chưa điền thời gian chờ", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            int index_NguoiGuiHienTai = 0;
+            int index_NguoiNhanHienTai = 0;
+            int index_NoiDungHienTai = 0;
+
+            int soThuSeGui = Math.Min(lstGui.Sum(p => p.SoThuSeGui), soNguoiNhan);
+            int demGui = 1;
+            var danhSachNoiDung = this.DanhSachNoiDung();
+            while (index_NguoiGuiHienTai < soNguoiGui && index_NguoiNhanHienTai < soNguoiNhan && !_guiTinNhanTokenResource.IsCancellationRequested)
+            {
+                ThongTinTaiKhoan nguoiGui = lstGui.ElementAt(index_NguoiGuiHienTai++);
+                bool breakNow = false;
+                for (int i = 0; i < nguoiGui.SoThuSeGui; i++)
                 {
-                    MessageBox.Show("Vui lòng thêm người gửi hoặc kiểm tra lại trạng thái đăng nhập", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    btnGuiTin.Enabled = true;
-                    XuLyDaLuong.ChangeText(lblTrangThai, "Vui lòng kiểm tra lại thông tin người gửi", Color.Red);
-                    return;
-                }
-
-                if (soNguoiNhan == 0)
-                {
-                    MessageBox.Show("Vui lòng thêm người nhận", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    XuLyDaLuong.ChangeText(lblTrangThai, "Vui lòng chọn người nhận", Color.Red);
-                    btnGuiTin.Enabled = true;
-                    return;
-                }
-
-                int index_NguoiGuiHienTai = 0;
-                int index_NguoiNhanHienTai = 0;
-                int soThuSeGui = Math.Min(lstGui.Sum(p => p.SoThuSeGui), soNguoiNhan);
-                int demGui = 1;
-                while (index_NguoiGuiHienTai < soNguoiGui && index_NguoiNhanHienTai < soNguoiNhan && !_guiTinNhanTokenResource.IsCancellationRequested)
-                {
-                    ThongTinTaiKhoan nguoiGui = lstGui.ElementAt(index_NguoiGuiHienTai++);
-                    bool breakNow = false;
-                    for (int i = 0; i < nguoiGui.SoThuSeGui; i++)
+                    ThongTinTaiKhoan nguoiNhan = lstNhan.ElementAt(index_NguoiNhanHienTai++);
+                    if (string.IsNullOrEmpty(nguoiNhan.TrangThai))
                     {
-                        ThongTinTaiKhoan nguoiNhan = lstNhan.ElementAt(index_NguoiNhanHienTai++);
-                        if (string.IsNullOrEmpty(nguoiNhan.TrangThai))
+                        thongTinTaiKhoan_TimKiemBindingSource.Position = thongTinTaiKhoan_TimKiemBindingSource.IndexOf(nguoiNhan);
+                        XuLyDaLuong.ChangeText(lblTrangThai, string.Format("Đang gửi {0}/{1} {2}...", demGui++, soThuSeGui, nguoiNhan.TenHienThi), Color.Green);
+                        var noiDung = danhSachNoiDung[index_NoiDungHienTai];
+                        Debug.WriteLine($"Gửi:/r/nTiêu đề:/r/n{this.LayTextTuSpinText(noiDung.TieuDe)}/r/nNội dung:/r/n{this.LayTextTuSpinText(noiDung.NoiDung)}");
+                        _thaoTacWeb.GuiTin(nguoiGui, nguoiNhan, this.LayTextTuSpinText(noiDung.TieuDe), this.LayTextTuSpinText(noiDung.NoiDung),
+                            (code => {
+                                if (code == CONST_HENHO2.TAI_KHOAN_BI_KHOA)
+                                    breakNow = true;
+                            }));
+                        if (breakNow)
                         {
-                            thongTinTaiKhoan_TimKiemBindingSource.Position = thongTinTaiKhoan_TimKiemBindingSource.IndexOf(nguoiNhan);
-                            XuLyDaLuong.ChangeText(lblTrangThai, string.Format("Đang gửi {0}/{1} {2}...", demGui++, soThuSeGui, nguoiNhan.TenHienThi), Color.Black);
+                            nguoiGui.TrangThai = "Bị khóa";
+                            thongTinTaiKhoan_TimKiemBindingSource.EndEdit();
+                            grvGui.Refresh();
+                            grvTimKiem.Focus();
+                            break;
+                        }
+                        await Task.Delay(thoiGianCho * 1000);
+                        thongTinTaiKhoan_TimKiemBindingSource.EndEdit();
+                        grvTimKiem.Refresh();
 
-                            _thaoTacWeb.GuiTin(nguoiGui, nguoiNhan, txtTieuDe.Text, txtNoiDung.Text, 
-                                (code => {
+                        //Chuyển nội dung
+                        index_NoiDungHienTai = index_NoiDungHienTai == danhSachNoiDung.Count - 1 ? 0 : index_NoiDungHienTai + 1;
+                    }
+                    else
+                    {
+                        //Nếu đã gửi rồi thì không tính
+                        i--;
+                    }
+                    //Nếu hết người nhận thì thoát vòng lặp
+                    if (index_NguoiNhanHienTai >= soNguoiNhan)
+                        break;
+                    if (_guiTinNhanTokenResource.IsCancellationRequested)
+                        break;
+                }
+            }
+            XuLyDaLuong.ChangeText(lblTrangThai, string.Format("Hoàn tất gửi tin ({0}/{1})", demGui - 1, soThuSeGui), Color.Black);
+            btnGuiTin.Text = "Gửi tin nhắn";
+            btnGuiTin.BackColor = Color.LightSkyBlue;
+        }
+
+        private async Task CheDo2()
+        {
+            var lstGui = (thongTinTaiKhoan_GuiBindingSource.List as IList<ThongTinTaiKhoan>).Where(p => p.Cookie != null);
+            var lstNhan = (thongTinTaiKhoan_TimKiemBindingSource.List as IList<ThongTinTaiKhoan>);//.Where(p => string.IsNullOrEmpty(p.TrangThai));
+
+            int soNguoiGui = lstGui.Count();
+            int soNguoiNhan = lstNhan.Count();
+
+            if (soNguoiGui == 0)
+            {
+                MessageBox.Show("Vui lòng thêm người gửi hoặc kiểm tra lại trạng thái đăng nhập", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                btnGuiTin.Enabled = true;
+                XuLyDaLuong.ChangeText(lblTrangThai, "Vui lòng kiểm tra lại thông tin người gửi", Color.Red);
+                return;
+            }
+
+            if (soNguoiNhan == 0)
+            {
+                MessageBox.Show("Vui lòng thêm người nhận", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                XuLyDaLuong.ChangeText(lblTrangThai, "Vui lòng chọn người nhận", Color.Red);
+                btnGuiTin.Enabled = true;
+                return;
+            }
+            int thoiGianCho;
+            if (!int.TryParse(txtThoiGianCho.Text, out thoiGianCho))
+            {
+                MessageBox.Show("Chưa điền thời gian chờ", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            int index_NguoiGuiHienTai = 0;
+            int index_NguoiNhanHienTai = 0;
+            var danhSachNoiDung = this.DanhSachNoiDung();
+            int soThuSeGui = Math.Min(lstGui.Sum(p => p.SoThuSeGui), soNguoiNhan)*danhSachNoiDung.Count;
+            int demGui = 1;
+            while (index_NguoiGuiHienTai < soNguoiGui && index_NguoiNhanHienTai < soNguoiNhan && !_guiTinNhanTokenResource.IsCancellationRequested)
+            {
+                ThongTinTaiKhoan nguoiGui = lstGui.ElementAt(index_NguoiGuiHienTai++);
+                bool breakNow = false;
+                
+                for (int i = 0; i < nguoiGui.SoThuSeGui; i++)
+                {
+                    ThongTinTaiKhoan nguoiNhan = lstNhan.ElementAt(index_NguoiNhanHienTai++);
+                    if (string.IsNullOrEmpty(nguoiNhan.TrangThai))
+                    {
+                        thongTinTaiKhoan_TimKiemBindingSource.Position = thongTinTaiKhoan_TimKiemBindingSource.IndexOf(nguoiNhan);
+                        foreach (var nd in danhSachNoiDung)
+                        {
+                            XuLyDaLuong.ChangeText(lblTrangThai, string.Format("Đang gửi {0}/{1} {2}...", demGui++, soThuSeGui, nguoiNhan.TenHienThi), Color.Green);
+                            Debug.WriteLine($"Gửi:/r/nTiêu đề:/r/n{this.LayTextTuSpinText(nd.TieuDe)}/r/nNội dung:/r/n{this.LayTextTuSpinText(nd.NoiDung)}");
+                            _thaoTacWeb.GuiTin(nguoiGui, nguoiNhan, this.LayTextTuSpinText(nd.TieuDe), this.LayTextTuSpinText(nd.NoiDung),
+                                (code =>
+                                {
                                     if (code == CONST_HENHO2.TAI_KHOAN_BI_KHOA)
                                         breakNow = true;
                                 }));
                             if (breakNow)
-                            {
-                                nguoiGui.TrangThai = "Bị khóa";
-                                thongTinTaiKhoan_TimKiemBindingSource.EndEdit();
-                                grvGui.Refresh();
-                                grvTimKiem.Focus();
                                 break;
-                            }
+                            await Task.Delay(thoiGianCho * 1000);
                             thongTinTaiKhoan_TimKiemBindingSource.EndEdit();
                             grvTimKiem.Refresh();
+                            if (_guiTinNhanTokenResource.IsCancellationRequested)
+                                break;
                         }
-                        else
+                        if (breakNow)
                         {
-                            //Nếu đã gửi rồi thì không tính
-                            i--;
+                            nguoiGui.TrangThai = "Bị khóa";
+                            thongTinTaiKhoan_TimKiemBindingSource.EndEdit();
+                            grvGui.Refresh();
+                            grvTimKiem.Focus();
+                            break;
                         }
-                        //Nếu hết người nhận thì thoát vòng lặp
-                        if (index_NguoiNhanHienTai >= soNguoiNhan)
-                            break;
-                        if(_guiTinNhanTokenResource.IsCancellationRequested)
-                            break;
                     }
+                    else
+                    {
+                        //Nếu đã gửi rồi thì không tính
+                        i--;
+                    }
+                    //Nếu hết người nhận thì thoát vòng lặp
+                    if (index_NguoiNhanHienTai >= soNguoiNhan)
+                        break;
+                    if (_guiTinNhanTokenResource.IsCancellationRequested)
+                        break;
                 }
-                #endregion
-
-                XuLyDaLuong.ChangeText(lblTrangThai, string.Format("Hoàn tất gửi tin ({0}/{1})", demGui-1, soThuSeGui), Color.Black);
-                btnGuiTin.Text = "Gửi tin nhắn";
-                btnGuiTin.BackColor = Color.LightSkyBlue;
-
-            }, _guiTinNhanTokenResource.Token);
+            }
+            XuLyDaLuong.ChangeText(lblTrangThai, string.Format("Hoàn tất gửi tin ({0}/{1})", demGui - 1, soThuSeGui), Color.Black);
+            btnGuiTin.Text = "Gửi tin nhắn";
+            btnGuiTin.BackColor = Color.LightSkyBlue;
         }
 
         private async void btnGuiTin_Click(object sender, EventArgs e)
         {
             if(btnGuiTin.Text == "Gửi tin nhắn")
             {
-                await TienHanGuiTin();
+                await TienHanhGuiTin();
             }
             else
             {
+                btnGuiTin.Text = "Gửi tin nhắn";
+                btnGuiTin.BackColor = Color.LightSkyBlue;
                 _guiTinNhanTokenResource.Cancel();
             }
         }
@@ -304,6 +426,13 @@ namespace AutoSendMessageOnWeb
             _db.DanhSachNguoiGui = thongTinTaiKhoan_GuiBindingSource.List as BindingList<ThongTinTaiKhoan>;
             _db.DanhSachNguoiNhan = thongTinTaiKhoan_TimKiemBindingSource.List as BindingList<ThongTinTaiKhoan>;
             _db.PhienTimKiem = grbTimKiem.Text;
+            _db.DanhSachNoiDung.Clear();
+            _db.DanhSachTieuDe.Clear();
+            foreach (var c in DanhSachNoiDung().OrderBy(p => p.STT))
+            {
+                _db.DanhSachNoiDung.Add(c.NoiDung);
+                _db.DanhSachTieuDe.Add(c.TieuDe);
+            }
             if (_db.SaveChange())
                 MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -406,6 +535,32 @@ namespace AutoSendMessageOnWeb
         private void buttonFlat2_Click(object sender, EventArgs e)
         {
             _guiTinNhanTokenResource.Cancel();
+        }
+
+        private void btnThemNoiDung_Click(object sender, EventArgs e)
+        {
+            this.ThemNoiDung();
+        }
+
+        private void ThemNoiDung(string tieu_de = "Tiêu đề", string noi_dung = "Nội dung")
+        {
+            cThongTinGui noiDungMoi = new cThongTinGui(DanhSachNoiDung().Count + 1);
+
+            if (_trang == TrangWeb.VietNamCupid)
+                noiDungMoi.VietNamCupid();
+
+            noiDungMoi.Dock = DockStyle.Top;
+            noiDungMoi.Height = 165;
+            noiDungMoi.TieuDe = tieu_de;
+            noiDungMoi.NoiDung = noi_dung;
+            noiDungMoi.Dong += () =>
+            {
+                panTopThongTinGui.Controls.Remove(noiDungMoi);
+                btnGuiTin.Enabled = panTopThongTinGui.Controls.Count != 0;
+            };
+            panTopThongTinGui.Controls.Add(noiDungMoi);
+            btnGuiTin.Enabled = true;
+            noiDungMoi.BringToFront();
         }
     }
 }

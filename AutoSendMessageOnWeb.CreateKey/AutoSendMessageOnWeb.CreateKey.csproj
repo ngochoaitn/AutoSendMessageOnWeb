@@ -92,20 +92,20 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\#Library\ThuVienWinform\ThuVienWinform.UI.FLat.CommonControls\ThuVienWinform.UI.FLat.CommonControls.csproj">
-      <Project>{12AD93D2-CC00-444A-B750-8F26BE50B5B4}</Project>
+    <ProjectReference Include="..\..\..\..\..\#Library\ThuVienWinform\ThuVienWinform.UI.FLat.CommonControls\ThuVienWinform.UI.FLat.CommonControls.csproj">
+      <Project>{12ad93d2-cc00-444a-b750-8f26be50b5b4}</Project>
       <Name>ThuVienWinform.UI.FLat.CommonControls</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\#Library\ThuVienWinform\ThuVienWinform.UI.Flat.Containers\ThuVienWinform.UI.Flat.Containers.csproj">
-      <Project>{172CF22C-6278-444B-9408-572223AC2EE1}</Project>
+    <ProjectReference Include="..\..\..\..\..\#Library\ThuVienWinform\ThuVienWinform.UI.Flat.Containers\ThuVienWinform.UI.Flat.Containers.csproj">
+      <Project>{172cf22c-6278-444b-9408-572223ac2ee1}</Project>
       <Name>ThuVienWinform.UI.Flat.Containers</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\#Library\ThuVienWinform\ThuVienWinform.UI.Flat.Data\ThuVienWinform.UI.Flat.Data.csproj">
-      <Project>{5EF00A08-FF21-41C8-BA9A-AF4A7C0E8F23}</Project>
+    <ProjectReference Include="..\..\..\..\..\#Library\ThuVienWinform\ThuVienWinform.UI.Flat.Data\ThuVienWinform.UI.Flat.Data.csproj">
+      <Project>{5ef00a08-ff21-41c8-ba9a-af4a7c0e8f23}</Project>
       <Name>ThuVienWinform.UI.Flat.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\#Library\ThuVienWinform\ThuVienWinform.UI\ThuVienWinform.UI.csproj">
-      <Project>{DA0FBCF4-1CCD-4F73-AF07-508A5F17B7C1}</Project>
+    <ProjectReference Include="..\..\..\..\..\#Library\ThuVienWinform\ThuVienWinform.UI\ThuVienWinform.UI.csproj">
+      <Project>{da0fbcf4-1ccd-4f73-af07-508a5f17b7c1}</Project>
       <Name>ThuVienWinform.UI</Name>
     </ProjectReference>
     <ProjectReference Include="..\AutoSendMessageOnWeb.Data\AutoSendMessageOnWeb.Data.csproj">

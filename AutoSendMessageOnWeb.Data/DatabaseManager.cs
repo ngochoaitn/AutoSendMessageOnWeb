@@ -17,7 +17,8 @@ namespace AutoSendMessageOnWeb.Data
         public BindingList<ThongTinTaiKhoan> DanhSachNguoiGui { set; get; }
         public BindingList<ThongTinTaiKhoan> DanhSachNguoiNhan { set; get; }
         public BindingList<ThongTinNguoiDung> DanhSachNguoiDung { set; get; }
-
+        public List<string> DanhSachTieuDe { set; get; }
+        public List<string> DanhSachNoiDung { set; get; }
         public DatabaseManager(string file)
         {
             _fileDataPath = file;
@@ -41,6 +42,8 @@ namespace AutoSendMessageOnWeb.Data
             this.DanhSachNguoiGui = new BindingList<ThongTinTaiKhoan>();
             this.DanhSachNguoiNhan = new BindingList<ThongTinTaiKhoan>();
             this.DanhSachNguoiDung = new BindingList<ThongTinNguoiDung>();
+            this.DanhSachNoiDung = new List<string>();
+            this.DanhSachTieuDe = new List<string>();
             this.SaveChange();
         }
 
@@ -62,11 +65,13 @@ namespace AutoSendMessageOnWeb.Data
                 this.DanhSachNguoiNhan = tmp.DanhSachNguoiNhan;
                 this.DanhSachNguoiDung = tmp.DanhSachNguoiDung;
                 this.PhienTimKiem = tmp.PhienTimKiem;
+                this.DanhSachTieuDe = tmp.DanhSachTieuDe ?? new List<string>();
+                this.DanhSachNoiDung = tmp.DanhSachNoiDung ?? new List<string>();
             }
             catch
             {
-                this.CreateDatabbase();
                 fs.Close();
+                this.CreateDatabbase();
             }
         }
 

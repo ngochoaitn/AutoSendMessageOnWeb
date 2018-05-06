@@ -74,6 +74,12 @@
     <Compile Include="cAuto.Designer.cs">
       <DependentUpon>cAuto.cs</DependentUpon>
     </Compile>
+    <Compile Include="cThongTinGui.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="cThongTinGui.Designer.cs">
+      <DependentUpon>cThongTinGui.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMainTab.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="cAuto.resx">
       <DependentUpon>cAuto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cThongTinGui.resx">
+      <DependentUpon>cThongTinGui.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMainTab.resx">
       <DependentUpon>frmMainTab.cs</DependentUpon>
@@ -151,19 +160,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\#Library\ThuVienWinform\ThuVienWinform.UI.FLat.CommonControls\ThuVienWinform.UI.FLat.CommonControls.csproj">
+    <ProjectReference Include="..\..\..\..\..\#Library\ThuVienWinform\ThuVienWinform.UI.FLat.CommonControls\ThuVienWinform.UI.FLat.CommonControls.csproj">
       <Project>{12ad93d2-cc00-444a-b750-8f26be50b5b4}</Project>
       <Name>ThuVienWinform.UI.FLat.CommonControls</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\#Library\ThuVienWinform\ThuVienWinform.UI.Flat.Containers\ThuVienWinform.UI.Flat.Containers.csproj">
+    <ProjectReference Include="..\..\..\..\..\#Library\ThuVienWinform\ThuVienWinform.UI.Flat.Containers\ThuVienWinform.UI.Flat.Containers.csproj">
       <Project>{172cf22c-6278-444b-9408-572223ac2ee1}</Project>
       <Name>ThuVienWinform.UI.Flat.Containers</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\#Library\ThuVienWinform\ThuVienWinform.UI.Flat.Data\ThuVienWinform.UI.Flat.Data.csproj">
+    <ProjectReference Include="..\..\..\..\..\#Library\ThuVienWinform\ThuVienWinform.UI.Flat.Data\ThuVienWinform.UI.Flat.Data.csproj">
       <Project>{5ef00a08-ff21-41c8-ba9a-af4a7c0e8f23}</Project>
       <Name>ThuVienWinform.UI.Flat.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\#Library\ThuVienWinform\ThuVienWinform.UI\ThuVienWinform.UI.csproj">
+    <ProjectReference Include="..\..\..\..\..\#Library\ThuVienWinform\ThuVienWinform.UI\ThuVienWinform.UI.csproj">
       <Project>{da0fbcf4-1ccd-4f73-af07-508a5f17b7c1}</Project>
       <Name>ThuVienWinform.UI</Name>
     </ProjectReference>

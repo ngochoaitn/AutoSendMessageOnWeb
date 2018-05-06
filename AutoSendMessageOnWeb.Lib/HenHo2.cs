@@ -28,7 +28,7 @@ namespace AutoSendMessageOnWeb.Lib
         {
             string data = string.Format("Email={0}&Password={1}&RememberMe=true&returnUrl=%2F", tk.TaiKhoan, tk.MatKhau);
 
-            var response = RequestToWeb.POST(new Uri("http://henho2.com/Account/Login"), null, data, true);
+            var response = RequestToWeb.POST(new Uri("https://henho2.com/Account/Login"), null, data, true);
             var httpRes = response as HttpWebResponse;
 
             if (httpRes.StatusCode == HttpStatusCode.Found)
@@ -65,7 +65,7 @@ namespace AutoSendMessageOnWeb.Lib
         {
             ThongTinTaiKhoan res = new ThongTinTaiKhoan();
 
-            HttpWebRequest request = WebRequest.CreateHttp("http://henho2.com/Account/Login");
+            HttpWebRequest request = WebRequest.CreateHttp("https://henho2.com/Account/Login");
             request.ContentType = "application/x-www-form-urlencoded";
             request.AllowAutoRedirect = false;
             request.Method = "POST";
@@ -104,7 +104,7 @@ namespace AutoSendMessageOnWeb.Lib
 
             string data = string.Format("IdTo={0}&NameTo={1}&Title={2}&MessageContent={3}", nguoinhan.Id, nguoinhan.TenHienThi, tieude, noidung);
 
-            var response = RequestToWeb.POST2(new Uri("http://henho2.com/Message/Create"), nguoigui.Cookie, data, false);
+            var response = RequestToWeb.POST2(new Uri("https://henho2.com/Message/Create"), nguoigui.Cookie, data, false);
 
             nguoinhan.TrangThai = nguoigui.TaiKhoan;
             using (var sr = new StreamReader(response.GetResponseStream()))
@@ -181,7 +181,7 @@ namespace AutoSendMessageOnWeb.Lib
                 while (true)
                 {
                     #region Tạo reqeuest
-                    var uri = new UriBuilder("http://henho2.com/Home/Index");
+                    var uri = new UriBuilder("https://henho2.com/Home/Index");
                     var query = HttpUtility.ParseQueryString(uri.Query);
                     query["gtinh"] = param.GioiTinh.ToString();
                     query["countryid"] = "237";
@@ -225,7 +225,7 @@ namespace AutoSendMessageOnWeb.Lib
                                         string tuoi = ten_gioitinh_tuoi[8].Replace("Tuổi : ", "").Trim();
                                         string gioiTinh = ten_gioitinh_tuoi[6].Trim();
 
-                                        taiKhoan.Url = string.Format("http://henho2.com{0}", duongDan);
+                                        taiKhoan.Url = string.Format("https://henho2.com{0}", duongDan);
                                         taiKhoan.Id = duongDan.Split('/')[3];
                                         taiKhoan.TenHienThi = ten.Trim();
                                         taiKhoan.ChoPhepGuiNhan = true;

@@ -151,29 +151,30 @@ namespace AutoSendMessageOnWeb.Lib
                     HtmlAgilityPack.HtmlDocument document = new HtmlAgilityPack.HtmlDocument();
                     document.LoadHtml(sKQTimKiem);
 
-                    var results_search2 = document.DocumentNode.QuerySelectorAll("div#noidung > div > table");
+                    var results_search2 = document.DocumentNode.QuerySelectorAll("div#maincontent > table");
                     if (results_search2.Count() <= 7)
                         break;
                     foreach (var v in results_search2)
                     {
                         ThongTinTaiKhoan tk = new ThongTinTaiKhoan();
 
-                        var hangThongTin = v.QuerySelectorAll("tr > td > h3 > font");
-                        var tuoi = v.QuerySelector("tr > td > h3");
-                        if (hangThongTin.Count() >= 5)
+                        var hangThongTin = v.QuerySelectorAll("tr > td");
+                        if (hangThongTin.Count() >= 3)
                         {
-                            var duongDan = hangThongTin.ElementAt(0).QuerySelector("a");
+                            var ten_gioiTinh_tuoi_honNhan = hangThongTin.ElementAt(1).QuerySelectorAll("h3").ElementAt(0);
+                            tk.TenHienThi = ten_gioiTinh_tuoi_honNhan.QuerySelectorAll("font").ElementAt(0).InnerText;
+                            tk.GioiTinh = ten_gioiTinh_tuoi_honNhan.QuerySelectorAll("font").ElementAt(1).InnerText;
+                            tk.TinhTrangHonNhan = ten_gioiTinh_tuoi_honNhan.QuerySelectorAll("font").ElementAt(2).InnerText;
+                            string tuoi = string.Join("", ten_gioiTinh_tuoi_honNhan.InnerText.Where(p => p >= '0' && p <= '9'));
+                            int iTuoi = 0;
+                            int.TryParse(tuoi, out iTuoi);
+                            tk.Tuoi = iTuoi;
 
-                            tk.TenHienThi = duongDan.InnerText;
+                            var duongDan = hangThongTin.ElementAt(0).QuerySelector("a");
                             tk.Url = "https://henhoketban.vn/" + duongDan.GetAttributeValue("href", "");
+
                             tk.Id = tk.Url.Split('=')[1];
-                            tk.GioiTinh = hangThongTin.ElementAt(1).InnerText;
-                            tk.TinhTrangHonNhan = hangThongTin.ElementAt(2).InnerText;
-                            tk.NoiO = hangThongTin.ElementAt(4).InnerText;
-                            var tuoiSpl = tuoi.InnerText.Split(' ').ToList();
-                            int index=tuoiSpl.FindIndex(p => p == "tuổi");
-                            if (index != -1)
-                                tk.Tuoi = tuoiSpl[index - 1].ConvertToInt32();
+                            tk.NoiO = hangThongTin.ElementAt(0).QuerySelectorAll("center > font").ElementAt(0).InnerText;
                             yield return tk;
                         }
                         else

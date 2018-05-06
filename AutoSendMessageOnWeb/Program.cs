@@ -35,7 +35,7 @@ namespace AutoSendMessageOnWeb
                 foreach (string k in keys)
                 {
                     hanSuDung = Crypto.VerifySignature(k);
-                    if (hanSuDung != null)
+                    if (hanSuDung != null && hanSuDung >= DataUseForSecurity.GetReadDate())
                         break;
                 }
 
