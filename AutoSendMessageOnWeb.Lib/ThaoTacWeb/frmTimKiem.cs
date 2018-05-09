@@ -39,7 +39,7 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb
         public ThongTinTimKiem ParamTimKiem { private set; get; }
         public string ChuoiTimKiem { private set; get; }
 
-        public frmTimKiem(IThaoTacWeb thaotacweb)
+        public frmTimKiem(IGuiTinNhan thaotacweb)
         {
             InitializeComponent();
 

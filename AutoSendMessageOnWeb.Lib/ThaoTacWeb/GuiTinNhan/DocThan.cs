@@ -14,7 +14,7 @@ using Fizzler.Systems.HtmlAgilityPack;
 
 namespace AutoSendMessageOnWeb.Lib
 {
-    public class DocThan : IThaoTacWeb
+    public class DocThan : IGuiTinNhan
     {
         public CookieContainer Cookie { set; get; }
 

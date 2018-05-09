@@ -14,7 +14,7 @@ using AutoSendMessageOnWeb.Lib.ExtentionMethod;
 
 namespace AutoSendMessageOnWeb.Lib
 {
-    public class HenHo2 : IThaoTacWeb
+    public class HenHo2 : IGuiTinNhan
     {
         public CookieContainer Cookie { set; get; }
         public bool TimKiemYeuCauCookie

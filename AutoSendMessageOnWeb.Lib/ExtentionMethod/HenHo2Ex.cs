@@ -10,7 +10,7 @@ namespace AutoSendMessageOnWeb.Lib.ExtentionMethod
 {
     public static class HenHo2Ex
     {
-        public static void DangNhap(this ThongTinTaiKhoan tk, IThaoTacWeb thaotacweb)
+        public static void DangNhap(this ThongTinTaiKhoan tk, IGuiTinNhan thaotacweb)
         {
             thaotacweb.DangNhap(ref tk);
         }

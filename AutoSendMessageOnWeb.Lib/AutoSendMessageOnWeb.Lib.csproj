@@ -55,14 +55,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Badoo.cs" />
-    <Compile Include="DocThan.cs" />
-    <Compile Include="DuyenSo.cs" />
+    <Compile Include="ThaoTacWeb\DangKy\ITuDongDangKy.cs" />
+    <Compile Include="ThaoTacWeb\DangKy\TuDongDangKyHenHo2.cs" />
+    <Compile Include="ThaoTacWeb\GuiTinNhan\Badoo.cs" />
+    <Compile Include="ThaoTacWeb\GuiTinNhan\DocThan.cs" />
+    <Compile Include="ThaoTacWeb\GuiTinNhan\DuyenSo.cs" />
+    <Compile Include="ThaoTacWeb\GuiTinNhan\ehenho.cs" />
     <Compile Include="ExtentionMethod\DataTypeEx.cs" />
     <Compile Include="ExtentionMethod\DuyenSoEx.cs" />
     <Compile Include="ExtentionMethod\HenHo2Ex.cs" />
-    <Compile Include="HenHoKetBan.cs" />
-    <Compile Include="LikeYou.cs" />
+    <Compile Include="ThaoTacWeb\GuiTinNhan\HenHoKetBan.cs" />
+    <Compile Include="ThaoTacWeb\GuiTinNhan\LikeYou.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -84,13 +87,13 @@
     <Compile Include="ThaoTacWeb\frmTimKiemBrowser.Designer.cs">
       <DependentUpon>frmTimKiemBrowser.cs</DependentUpon>
     </Compile>
-    <Compile Include="HenHo2.cs" />
+    <Compile Include="ThaoTacWeb\GuiTinNhan\HenHo2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ThaoTacControl\XuLyDaLuong.cs" />
-    <Compile Include="ThaoTacWeb\IThaoTacWeb.cs" />
+    <Compile Include="ThaoTacWeb\GuiTinNhan\IGuiTinNhan.cs" />
     <Compile Include="ThaoTacWeb\RequestToWeb.cs" />
-    <Compile Include="TimBanGai.cs" />
-    <Compile Include="VietNamCupid.cs" />
+    <Compile Include="ThaoTacWeb\GuiTinNhan\TimBanGai.cs" />
+    <Compile Include="ThaoTacWeb\GuiTinNhan\VietNamCupid.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\..\#Library\ThuVienWinform\ThuVienWinform.UI.FLat.CommonControls\ThuVienWinform.UI.FLat.CommonControls.csproj">
@@ -131,12 +134,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BadooTest.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="DataHtmlTest.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="BadooTest.txt" />
+    <Content Include="DataHtmlTest.txt" />
     <None Include="Resources\16x16 search black.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

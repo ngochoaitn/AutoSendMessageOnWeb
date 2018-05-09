@@ -11,7 +11,7 @@ using System.Web;
 
 namespace AutoSendMessageOnWeb.Lib
 {
-    public class VietNamCupid : IThaoTacWeb
+    public class VietNamCupid : IGuiTinNhan
     {
         public CookieContainer Cookie { set; get; }
         public bool TimKiemYeuCauCookie

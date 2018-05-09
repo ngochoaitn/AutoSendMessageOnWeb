@@ -11,7 +11,7 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb
     /// <summary>
     /// Mỗi web thực hiệc các thao tác một kiểu khác nhau => kế thừa rồi tự thực hiện
     /// </summary>
-    public interface IThaoTacWeb
+    public interface IGuiTinNhan
     {
         void DangNhap(ref ThongTinTaiKhoan tk);
         IEnumerable<ThongTinTaiKhoan> TimKiem(ThongTinTimKiem param);

@@ -19,6 +19,10 @@ namespace AutoSendMessageOnWeb
         [STAThread]
         static void Main()
         {
+            //Lib.ThaoTacWeb.IGuiTinNhan x = new ehenho();
+            //ThongTinTaiKhoan tk = new ThongTinTaiKhoan() {TaiKhoan = "asbirine@gmail.com", MatKhau = "noongngocj" };
+            //x.DangNhap(ref tk);
+
             Application.ThreadException += Application_ThreadException;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

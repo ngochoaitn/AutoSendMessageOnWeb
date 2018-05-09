@@ -19,7 +19,7 @@ namespace AutoSendMessageOnWeb
 {
     public partial class cAuto : UserControl
     {
-        private IThaoTacWeb _thaoTacWeb;
+        private IGuiTinNhan _thaoTacWeb;
         private TrangWeb _trang;
         DatabaseManager _db;
         CancellationTokenSource _guiTinNhanTokenResource;
@@ -561,6 +561,12 @@ namespace AutoSendMessageOnWeb
             panTopThongTinGui.Controls.Add(noiDungMoi);
             btnGuiTin.Enabled = true;
             noiDungMoi.BringToFront();
+        }
+
+        private void btnDangKyTaiKhoan_Click(object sender, EventArgs e)
+        {
+            frmTuDongDangKyTaiKhoan frmDangKy = new frmTuDongDangKyTaiKhoan();
+            frmDangKy.ShowDialog();
         }
     }
 }

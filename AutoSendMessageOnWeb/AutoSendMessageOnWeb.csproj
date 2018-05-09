@@ -98,6 +98,12 @@
     <Compile Include="frmTest.Designer.cs">
       <DependentUpon>frmTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTuDongDangKyTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTuDongDangKyTaiKhoan.Designer.cs">
+      <DependentUpon>frmTuDongDangKyTaiKhoan.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmVerify.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmTest.resx">
       <DependentUpon>frmTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTuDongDangKyTaiKhoan.resx">
+      <DependentUpon>frmTuDongDangKyTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVerify.resx">
       <DependentUpon>frmVerify.cs</DependentUpon>

@@ -10,7 +10,7 @@ using System.IO;
 
 namespace AutoSendMessageOnWeb.Lib
 {
-    public class Badoo : IThaoTacWeb
+    public class Badoo : IGuiTinNhan
     {
         public CookieContainer Cookie { set; get; }
 

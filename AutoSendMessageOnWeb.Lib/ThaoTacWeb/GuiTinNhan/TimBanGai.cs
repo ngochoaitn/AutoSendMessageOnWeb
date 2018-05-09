@@ -14,7 +14,7 @@ using System.Web;
 
 namespace AutoSendMessageOnWeb.Lib
 {
-    public class TimBanGai : IThaoTacWeb
+    public class TimBanGai : IGuiTinNhan
     {
         public CookieContainer Cookie { set; get; }
 

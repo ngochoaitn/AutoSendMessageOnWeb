@@ -12,7 +12,7 @@ using AutoSendMessageOnWeb.Lib.ExtentionMethod;
 
 namespace AutoSendMessageOnWeb.Lib
 {
-    public class HenHoKetBan : IThaoTacWeb
+    public class HenHoKetBan : IGuiTinNhan
     {
         public CookieContainer Cookie
         {

@@ -39,5 +39,12 @@ namespace AutoSendMessageOnWeb.Data
                 return new Uri("https://www.vietnamcupid.com");
             }
         }
+        public static Uri Ehenho
+        {
+            get
+            {
+                return new Uri("https://www.ehenho.com");
+            }
+        }
     }
 }

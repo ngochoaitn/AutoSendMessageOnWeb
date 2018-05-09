@@ -12,7 +12,7 @@ using System.Web;
 
 namespace AutoSendMessageOnWeb.Lib
 {
-    public class DuyenSo : IThaoTacWeb
+    public class DuyenSo : IGuiTinNhan
     {
         public CookieContainer Cookie { set; get; }
         public bool TimKiemYeuCauCookie

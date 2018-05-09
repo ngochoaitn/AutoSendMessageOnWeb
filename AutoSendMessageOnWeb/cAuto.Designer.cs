@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(cAuto));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -54,13 +54,15 @@
             this.iconButtonImageList = new System.Windows.Forms.ImageList(this.components);
             this.splitter2 = new System.Windows.Forms.Splitter();
             this.groupRight = new System.Windows.Forms.GroupBox();
+            this.lblTrangThai = new System.Windows.Forms.Label();
             this.panTopThongTinGui = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.radCheDo2 = new System.Windows.Forms.RadioButton();
+            this.radCheDo1 = new System.Windows.Forms.RadioButton();
             this.txtThoiGianCho = new ThuVienWinform.UI.Flat.CommonControls.TextBoxFlat();
             this.label1 = new System.Windows.Forms.Label();
             this.btnThemNoiDung = new ThuVienWinform.UI.Flat.CommonControls.ButtonFlat();
             this.btnGuiTin = new ThuVienWinform.UI.Flat.CommonControls.ButtonFlat();
-            this.lblTrangThai = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnLuuDanhSach = new ThuVienWinform.UI.Flat.CommonControls.ButtonFlat();
             this.splitter1 = new System.Windows.Forms.Splitter();
@@ -77,9 +79,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnThemTaiKhoan = new ThuVienWinform.UI.Flat.CommonControls.ButtonFlat();
             this.backgroundWorkerTimKiem = new System.ComponentModel.BackgroundWorker();
-            this.radCheDo1 = new System.Windows.Forms.RadioButton();
-            this.radCheDo2 = new System.Windows.Forms.RadioButton();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnDangKyTaiKhoan = new ThuVienWinform.UI.Flat.CommonControls.ButtonFlat();
             this.panel2.SuspendLayout();
             this.grbTimKiem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvTimKiem)).BeginInit();
@@ -131,14 +132,14 @@
             this.grvTimKiem.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.grvTimKiem.BackgroundColor = System.Drawing.Color.White;
             this.grvTimKiem.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grvTimKiem.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grvTimKiem.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.grvTimKiem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grvTimKiem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn2,
@@ -213,8 +214,8 @@
             // 
             this.colTrangThai_Nhan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colTrangThai_Nhan.DataPropertyName = "TrangThai";
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.colTrangThai_Nhan.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.colTrangThai_Nhan.DefaultCellStyle = dataGridViewCellStyle6;
             this.colTrangThai_Nhan.FillWeight = 150F;
             this.colTrangThai_Nhan.HeaderText = "Gửi bởi";
             this.colTrangThai_Nhan.Name = "colTrangThai_Nhan";
@@ -330,6 +331,15 @@
             this.groupRight.TabStop = false;
             this.groupRight.Text = "Thông tin gửi ";
             // 
+            // lblTrangThai
+            // 
+            this.lblTrangThai.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblTrangThai.AutoSize = true;
+            this.lblTrangThai.Location = new System.Drawing.Point(11, 350);
+            this.lblTrangThai.Name = "lblTrangThai";
+            this.lblTrangThai.Size = new System.Drawing.Size(0, 13);
+            this.lblTrangThai.TabIndex = 1;
+            // 
             // panTopThongTinGui
             // 
             this.panTopThongTinGui.AutoScroll = true;
@@ -353,6 +363,32 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(256, 93);
             this.panel6.TabIndex = 8;
+            // 
+            // radCheDo2
+            // 
+            this.radCheDo2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.radCheDo2.AutoSize = true;
+            this.radCheDo2.Location = new System.Drawing.Point(118, 6);
+            this.radCheDo2.Name = "radCheDo2";
+            this.radCheDo2.Size = new System.Drawing.Size(86, 17);
+            this.radCheDo2.TabIndex = 7;
+            this.radCheDo2.Text = "Chế độ gửi 2";
+            this.toolTip1.SetToolTip(this.radCheDo2, "Gửi tất cả các nội dung cho 1 người");
+            this.radCheDo2.UseVisualStyleBackColor = true;
+            // 
+            // radCheDo1
+            // 
+            this.radCheDo1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.radCheDo1.AutoSize = true;
+            this.radCheDo1.Checked = true;
+            this.radCheDo1.Location = new System.Drawing.Point(6, 6);
+            this.radCheDo1.Name = "radCheDo1";
+            this.radCheDo1.Size = new System.Drawing.Size(86, 17);
+            this.radCheDo1.TabIndex = 6;
+            this.radCheDo1.TabStop = true;
+            this.radCheDo1.Text = "Chế độ gửi 1";
+            this.toolTip1.SetToolTip(this.radCheDo1, "Gửi lần lượt từng nội dung cho từng người");
+            this.radCheDo1.UseVisualStyleBackColor = true;
             // 
             // txtThoiGianCho
             // 
@@ -406,15 +442,6 @@
             this.btnGuiTin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGuiTin.UseVisualStyleBackColor = false;
             this.btnGuiTin.Click += new System.EventHandler(this.btnGuiTin_Click);
-            // 
-            // lblTrangThai
-            // 
-            this.lblTrangThai.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblTrangThai.AutoSize = true;
-            this.lblTrangThai.Location = new System.Drawing.Point(11, 350);
-            this.lblTrangThai.Name = "lblTrangThai";
-            this.lblTrangThai.Size = new System.Drawing.Size(0, 13);
-            this.lblTrangThai.TabIndex = 1;
             // 
             // panel4
             // 
@@ -553,6 +580,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnDangKyTaiKhoan);
             this.panel1.Controls.Add(this.btnThemTaiKhoan);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(3, 383);
@@ -581,31 +609,17 @@
             this.backgroundWorkerTimKiem.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerTimKiem_DoWork);
             this.backgroundWorkerTimKiem.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorkerTimKiem_RunWorkerCompleted);
             // 
-            // radCheDo1
+            // btnDangKyTaiKhoan
             // 
-            this.radCheDo1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.radCheDo1.AutoSize = true;
-            this.radCheDo1.Checked = true;
-            this.radCheDo1.Location = new System.Drawing.Point(6, 6);
-            this.radCheDo1.Name = "radCheDo1";
-            this.radCheDo1.Size = new System.Drawing.Size(86, 17);
-            this.radCheDo1.TabIndex = 6;
-            this.radCheDo1.TabStop = true;
-            this.radCheDo1.Text = "Chế độ gửi 1";
-            this.toolTip1.SetToolTip(this.radCheDo1, "Gửi lần lượt từng nội dung cho từng người");
-            this.radCheDo1.UseVisualStyleBackColor = true;
-            // 
-            // radCheDo2
-            // 
-            this.radCheDo2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.radCheDo2.AutoSize = true;
-            this.radCheDo2.Location = new System.Drawing.Point(118, 6);
-            this.radCheDo2.Name = "radCheDo2";
-            this.radCheDo2.Size = new System.Drawing.Size(86, 17);
-            this.radCheDo2.TabIndex = 7;
-            this.radCheDo2.Text = "Chế độ gửi 2";
-            this.toolTip1.SetToolTip(this.radCheDo2, "Gửi tất cả các nội dung cho 1 người");
-            this.radCheDo2.UseVisualStyleBackColor = true;
+            this.btnDangKyTaiKhoan.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnDangKyTaiKhoan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDangKyTaiKhoan.Location = new System.Drawing.Point(168, 0);
+            this.btnDangKyTaiKhoan.Name = "btnDangKyTaiKhoan";
+            this.btnDangKyTaiKhoan.Size = new System.Drawing.Size(118, 23);
+            this.btnDangKyTaiKhoan.TabIndex = 4;
+            this.btnDangKyTaiKhoan.Text = "Đăng ký tài khoản";
+            this.btnDangKyTaiKhoan.UseVisualStyleBackColor = false;
+            this.btnDangKyTaiKhoan.Click += new System.EventHandler(this.btnDangKyTaiKhoan_Click);
             // 
             // cAuto
             // 
@@ -683,5 +697,6 @@
         private System.Windows.Forms.RadioButton radCheDo2;
         private System.Windows.Forms.RadioButton radCheDo1;
         private System.Windows.Forms.ToolTip toolTip1;
+        private ThuVienWinform.UI.Flat.CommonControls.ButtonFlat btnDangKyTaiKhoan;
     }
 }
