@@ -1,4 +1,5 @@
 ﻿using AutoSendMessageOnWeb.Data;
+using AutoSendMessageOnWeb.Lib.ThaoTacControl;
 using AutoSendMessageOnWeb.Lib.ThaoTacWeb.DangKy;
 using System;
 using System.Collections.Generic;
@@ -84,6 +85,7 @@ namespace AutoSendMessageOnWeb
         {
             _hangHienTai = 0;
             picCaptcha.Image = _tuDongDanhKy.Captcha();
+            XuLyDaLuong.ChangeText(lblTrangThai, $"Chờ captcha {txtEmail.Lines.ElementAt(_hangHienTai)}", Color.Blue);
         }
 
         int _hangHienTai=0;
@@ -96,12 +98,16 @@ namespace AutoSendMessageOnWeb
                 if(tkMoi.TaiKhoan != null)
                 {
                     DanhSachTaiKhoanDaDangKy.Add(tkMoi);
-                    lblTrangThai.Text = $"Đăng ký thành công {email}";
+                    XuLyDaLuong.ChangeText(lblTrangThai2, $"Đăng ký thành công {email}", Color.Green);
                     _hangHienTai++;
+                    if (_hangHienTai < txtEmail.Lines.Count())
+                        XuLyDaLuong.ChangeText(lblTrangThai, $"Chờ captcha {txtEmail.Lines.ElementAt(_hangHienTai)}", Color.Blue);
+                    else
+                        XuLyDaLuong.ChangeText(lblTrangThai, $"Hết email", Color.Blue);
                 }
                 else
                 {
-                    lblTrangThai.Text = tkMoi.TrangThai;
+                    XuLyDaLuong.ChangeText(lblTrangThai2, tkMoi.TrangThai, Color.Red);
                 }
                 picCaptcha.Image = _tuDongDanhKy.Captcha();
             }
@@ -109,6 +115,7 @@ namespace AutoSendMessageOnWeb
             {
                 MessageBox.Show("Hết Email, vui lòng bắt đầu lại");
                 lblTrangThai.Text = "Hết Email, vui lòng bắt đầu lại";
+                XuLyDaLuong.ChangeText(lblTrangThai2, "Hết Email, vui lòng bắt đầu lại", Color.Red);
             }
         }
 

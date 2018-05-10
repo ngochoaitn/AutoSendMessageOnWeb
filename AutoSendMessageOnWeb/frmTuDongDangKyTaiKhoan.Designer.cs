@@ -46,6 +46,7 @@
             this.topPanel = new System.Windows.Forms.Panel();
             this.formNameLabel = new System.Windows.Forms.Label();
             this.controlBox = new ThuVienWinform.UI.Flat.CommonControls.ControlBoxFlat();
+            this.lblTrangThai2 = new System.Windows.Forms.Label();
             this.mainPanel.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -80,6 +81,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.lblTrangThai2);
             this.tabPage1.Controls.Add(this.lblTrangThai);
             this.tabPage1.Controls.Add(this.txtKetQuaCaptcha);
             this.tabPage1.Controls.Add(this.label3);
@@ -271,6 +273,14 @@
             this.controlBox.TipMaxsize2 = "Khôi phục kích thước";
             this.controlBox.TipMinisize = "Thu nhỏ";
             // 
+            // lblTrangThai2
+            // 
+            this.lblTrangThai2.AutoSize = true;
+            this.lblTrangThai2.Location = new System.Drawing.Point(185, 153);
+            this.lblTrangThai2.Name = "lblTrangThai2";
+            this.lblTrangThai2.Size = new System.Drawing.Size(0, 13);
+            this.lblTrangThai2.TabIndex = 9;
+            // 
             // frmTuDongDangKyTaiKhoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -281,6 +291,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmTuDongDangKyTaiKhoan";
             this.Padding = new System.Windows.Forms.Padding(0, 0, 2, 5);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Tự động đăng ký tài khoản";
             this.mainPanel.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
@@ -316,6 +327,7 @@
         private ThuVienWinform.UI.Flat.CommonControls.TextBoxFlat txtKetQuaCaptcha;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblTrangThai;
+        private System.Windows.Forms.Label lblTrangThai2;
     }
 }
 

@@ -65,7 +65,7 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb.DangKy
                 _cookieContainer.SetCookies(UriTrangWeb.HenHo2, _setCookie);
             }
             var timeout = RequestToWeb.ReadStream(response.GetResponseStream());
-            string data = $"Email={tai_khoan}&Name=fuhe@stelliteop.info&Password={mat_khau}&Sex=0&MariedStatus=0&Objective=0&Degree=1&Age=18&Height=170&Weight=50&Country=237&Province=58&Profile=Muốn hẹn hò kết bạn&LookingFor=Muốn hẹn hò kết bạn&Captcha={captcha()}";
+            string data = $"Email={tai_khoan}&Name=Hẹn hò&Password={mat_khau}&Sex=0&MariedStatus=0&Objective=0&Degree=1&Age=18&Height=170&Weight=50&Country=237&Province=58&Profile=Muốn hẹn hò kết bạn&LookingFor=Muốn hẹn hò kết bạn&Captcha={captcha()}";
             _request = HttpWebRequest.CreateHttp("https://henho2.com/Account/DangKy");
             _request.Headers[HttpRequestHeader.Cookie] = _setCookie;
             _request.CookieContainer = _cookieContainer;

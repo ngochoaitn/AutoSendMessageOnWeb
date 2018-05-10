@@ -38,6 +38,8 @@ namespace AutoSendMessageOnWeb
             InitializeComponent();
 
             CheckForIllegalCrossThreadCalls = false;
+
+            btnDangKyTaiKhoan.Visible = false;
         }
 
         private void AnTieuDe()
@@ -87,6 +89,11 @@ namespace AutoSendMessageOnWeb
                     _thaoTacWeb = new TimBanGai();
                     break;
             }
+        }
+
+        public void ChoPhepDangKy(bool cho_phep)
+        {
+            btnDangKyTaiKhoan.Visible = cho_phep;
         }
 
         private void Program_XayRaLoi()
@@ -567,6 +574,8 @@ namespace AutoSendMessageOnWeb
         {
             frmTuDongDangKyTaiKhoan frmDangKy = new frmTuDongDangKyTaiKhoan();
             frmDangKy.ShowDialog();
+            foreach (var tk in frmDangKy.DanhSachTaiKhoanDaDangKy)
+                thongTinTaiKhoan_GuiBindingSource.Add(tk);
         }
     }
 }

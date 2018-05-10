@@ -53,6 +53,8 @@ namespace AutoSendMessageOnWeb
             StartUpOperation.CheckVersion(CoPhienBanMoi);
 
             lblWebChinhThuc.Text = Properties.Settings.Default.WebChinhThuc;
+
+            cAutoHenHo2.ChoPhepDangKy(true);
         }
 
         private void CoPhienBanMoi()
