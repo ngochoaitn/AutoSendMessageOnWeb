@@ -11,5 +11,8 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb.DangKy
     {
         Data.ThongTinTaiKhoan DangKyTaiKhoanMoi(string tai_khoan, string mat_khau, Func<string> captcha, object thong_tin_bo_sung = null);
         Image Captcha();
+
+        Task<Data.ThongTinTaiKhoan> DangKyTaiKhoanMoiAsync(string tai_khoan, string mat_khau, Func<string> captcha, object thong_tin_bo_sung = null);
+        Task<Image> CaptchaAsync();
     }
 }

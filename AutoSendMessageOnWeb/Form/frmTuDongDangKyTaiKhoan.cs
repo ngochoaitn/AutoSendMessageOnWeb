@@ -1,4 +1,5 @@
-﻿using AutoSendMessageOnWeb.Data;
+﻿using AutoSendMessageOnWeb.Controls;
+using AutoSendMessageOnWeb.Data;
 using AutoSendMessageOnWeb.Lib.ThaoTacControl;
 using AutoSendMessageOnWeb.Lib.ThaoTacWeb.DangKy;
 using System;
@@ -81,47 +82,54 @@ namespace AutoSendMessageOnWeb
             base.WndProc(ref m);
         }
 
-        private void btnDangKy_Click(object sender, EventArgs e)
+        private void btnTaiCaptcha_Click(object sender, EventArgs e)
         {
-            _hangHienTai = 0;
-            picCaptcha.Image = _tuDongDanhKy.Captcha();
-            XuLyDaLuong.ChangeText(lblTrangThai, $"Chờ captcha {txtEmail.Lines.ElementAt(_hangHienTai)}", Color.Blue);
+            btnTaiCaptcha.Enabled = false;
+            txtEmail.Enabled = false;
+            btnTienHanhDangKy.Enabled = true;
+            int dem = 0;
+            foreach (string email in txtEmail.Lines)
+                if (!string.IsNullOrEmpty(email))
+                    this.TaoControlDangKy(email, dem++);
         }
 
-        int _hangHienTai=0;
-        private void btnXacNhanCaptcha_Click(object sender, EventArgs e)
+        private async void TaoControlDangKy(string email, object tag)
         {
-            if (_hangHienTai < txtEmail.Lines.Count())
-            {
-                string email = txtEmail.Lines.ElementAt(_hangHienTai);
-                var tkMoi = _tuDongDanhKy.DangKyTaiKhoanMoi(email, email, () => txtKetQuaCaptcha.Text);
-                if(tkMoi.TaiKhoan != null)
-                {
-                    DanhSachTaiKhoanDaDangKy.Add(tkMoi);
-                    XuLyDaLuong.ChangeText(lblTrangThai2, $"Đăng ký thành công {email}", Color.Green);
-                    _hangHienTai++;
-                    if (_hangHienTai < txtEmail.Lines.Count())
-                        XuLyDaLuong.ChangeText(lblTrangThai, $"Chờ captcha {txtEmail.Lines.ElementAt(_hangHienTai)}", Color.Blue);
-                    else
-                        XuLyDaLuong.ChangeText(lblTrangThai, $"Hết email", Color.Blue);
-                }
-                else
-                {
-                    XuLyDaLuong.ChangeText(lblTrangThai2, tkMoi.TrangThai, Color.Red);
-                }
-                picCaptcha.Image = _tuDongDanhKy.Captcha();
-            }
-            else
-            {
-                MessageBox.Show("Hết Email, vui lòng bắt đầu lại");
-                lblTrangThai.Text = "Hết Email, vui lòng bắt đầu lại";
-                XuLyDaLuong.ChangeText(lblTrangThai2, "Hết Email, vui lòng bắt đầu lại", Color.Red);
-            }
+            cTuDongDangKy c = new cTuDongDangKy();
+            await c.Init(email, new TuDongDangKyHenHo2());//Tùy trang sẽ khởi tạo khác nhau
+            c.Dock = DockStyle.Top;
+            c.Padding = new Padding(0, 0, 0, 5);
+            panCaptcha.Controls.Add(c);
+            c.BringToFront();
+            c.Tag = tag;//tag phục vụ sắp xếp
         }
 
-        private void picCaptcha_Click(object sender, EventArgs e)
+        private int GetDelay()
         {
-            picCaptcha.Image = _tuDongDanhKy.Captcha();
+            string delay = "5";//Mặc định
+            foreach (Control c in grbDelay.Controls)
+                if (c is RadioButton)
+                    if ((c as RadioButton).Checked)
+                        delay = c.Tag.ToString();
+            return Convert.ToInt32(delay) * 1000 * 60;
+        }
+
+        private async void btnTienHanhDangKy_Click(object sender, EventArgs e)
+        {
+            int delay = GetDelay();
+            foreach (Control c in panCaptcha.Controls.Cast<Control>().OrderBy(p => p.Tag))
+            {
+                var cDangKy = c as cTuDongDangKy;
+                if (cDangKy != null && cDangKy.TaiKhoanDaDangKy.TaiKhoan == null)//Chưa đăng ký
+                {
+                    c.Select();
+                    c.Focus();
+                    await cDangKy.DangKyAsync();
+                    if (cDangKy.TaiKhoanDaDangKy.TaiKhoan != null)
+                        this.DanhSachTaiKhoanDaDangKy.Add(cDangKy.TaiKhoanDaDangKy);
+                    await Task.Delay(delay);
+                }
+            }
         }
     }
 }

@@ -60,54 +60,76 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="ThuVienWinform.UI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\ThuVienWinform.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="ThuVienWinform.UI.FLat.CommonControls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\ThuVienWinform.UI.FLat.CommonControls.dll</HintPath>
+    </Reference>
+    <Reference Include="ThuVienWinform.UI.Flat.Containers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\ThuVienWinform.UI.Flat.Containers.dll</HintPath>
+    </Reference>
+    <Reference Include="ThuVienWinform.UI.Flat.Data, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\ThuVienWinform.UI.Flat.Data.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutBox.cs">
+    <Compile Include="Controls\cTuDongDangKy.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\cTuDongDangKy.Designer.cs">
+      <DependentUpon>cTuDongDangKy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\AboutBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AboutBox.Designer.cs">
+    <Compile Include="Form\AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="cAuto.cs">
+    <Compile Include="Controls\cAuto.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="cAuto.Designer.cs">
+    <Compile Include="Controls\cAuto.Designer.cs">
       <DependentUpon>cAuto.cs</DependentUpon>
     </Compile>
-    <Compile Include="cThongTinGui.cs">
+    <Compile Include="Controls\cThongTinGui.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="cThongTinGui.Designer.cs">
+    <Compile Include="Controls\cThongTinGui.Designer.cs">
       <DependentUpon>cThongTinGui.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMainTab.cs">
+    <Compile Include="Form\frmMainTab.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMainTab.Designer.cs">
+    <Compile Include="Form\frmMainTab.Designer.cs">
       <DependentUpon>frmMainTab.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmNoiDungCapNhat.cs">
+    <Compile Include="Form\frmNoiDungCapNhat.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmNoiDungCapNhat.Designer.cs">
+    <Compile Include="Form\frmNoiDungCapNhat.Designer.cs">
       <DependentUpon>frmNoiDungCapNhat.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmTest.cs">
+    <Compile Include="Form\frmTest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmTest.Designer.cs">
+    <Compile Include="Form\frmTest.Designer.cs">
       <DependentUpon>frmTest.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmTuDongDangKyTaiKhoan.cs">
+    <Compile Include="Form\frmTuDongDangKyTaiKhoan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmTuDongDangKyTaiKhoan.Designer.cs">
+    <Compile Include="Form\frmTuDongDangKyTaiKhoan.Designer.cs">
       <DependentUpon>frmTuDongDangKyTaiKhoan.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmVerify.cs">
+    <Compile Include="Form\frmVerify.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmVerify.Designer.cs">
+    <Compile Include="Form\frmVerify.Designer.cs">
       <DependentUpon>frmVerify.cs</DependentUpon>
     </Compile>
     <Compile Include="Google.cs" />
@@ -116,28 +138,31 @@
     <Content Include="Auto Message.ico" />
     <None Include="Resources\12x12subforum.png" />
     <Content Include="Site.txt" />
-    <EmbeddedResource Include="AboutBox.resx">
+    <EmbeddedResource Include="Controls\cTuDongDangKy.resx">
+      <DependentUpon>cTuDongDangKy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="cAuto.resx">
+    <EmbeddedResource Include="Controls\cAuto.resx">
       <DependentUpon>cAuto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="cThongTinGui.resx">
+    <EmbeddedResource Include="Controls\cThongTinGui.resx">
       <DependentUpon>cThongTinGui.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMainTab.resx">
+    <EmbeddedResource Include="Form\frmMainTab.resx">
       <DependentUpon>frmMainTab.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmNoiDungCapNhat.resx">
+    <EmbeddedResource Include="Form\frmNoiDungCapNhat.resx">
       <DependentUpon>frmNoiDungCapNhat.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmTest.resx">
+    <EmbeddedResource Include="Form\frmTest.resx">
       <DependentUpon>frmTest.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmTuDongDangKyTaiKhoan.resx">
+    <EmbeddedResource Include="Form\frmTuDongDangKyTaiKhoan.resx">
       <DependentUpon>frmTuDongDangKyTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmVerify.resx">
+    <EmbeddedResource Include="Form\frmVerify.resx">
       <DependentUpon>frmVerify.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -169,22 +194,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\#Library\ThuVienWinform\ThuVienWinform.UI.FLat.CommonControls\ThuVienWinform.UI.FLat.CommonControls.csproj">
-      <Project>{12ad93d2-cc00-444a-b750-8f26be50b5b4}</Project>
-      <Name>ThuVienWinform.UI.FLat.CommonControls</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\..\#Library\ThuVienWinform\ThuVienWinform.UI.Flat.Containers\ThuVienWinform.UI.Flat.Containers.csproj">
-      <Project>{172cf22c-6278-444b-9408-572223ac2ee1}</Project>
-      <Name>ThuVienWinform.UI.Flat.Containers</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\..\#Library\ThuVienWinform\ThuVienWinform.UI.Flat.Data\ThuVienWinform.UI.Flat.Data.csproj">
-      <Project>{5ef00a08-ff21-41c8-ba9a-af4a7c0e8f23}</Project>
-      <Name>ThuVienWinform.UI.Flat.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\..\#Library\ThuVienWinform\ThuVienWinform.UI\ThuVienWinform.UI.csproj">
-      <Project>{da0fbcf4-1ccd-4f73-af07-508a5f17b7c1}</Project>
-      <Name>ThuVienWinform.UI</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AutoSendMessageOnWeb.Data\AutoSendMessageOnWeb.Data.csproj">
       <Project>{c66ae77a-3145-459a-bf8c-6b0ce6759fc1}</Project>
       <Name>AutoSendMessageOnWeb.Data</Name>
