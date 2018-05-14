@@ -206,6 +206,7 @@ namespace AutoSendMessageOnWeb.Lib
 
                         HtmlAgilityPack.HtmlDocument document = new HtmlAgilityPack.HtmlDocument();
                         document.LoadHtml(content);
+                        
 
                         var bangKetQua = document.DocumentNode.QuerySelectorAll("table > tbody > tr > td").ToList();
                         for (int i = 0; i < bangKetQua.Count; i++)

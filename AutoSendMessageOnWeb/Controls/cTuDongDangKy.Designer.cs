@@ -48,6 +48,7 @@
             this.txtKetQuaCaptcha.Name = "txtKetQuaCaptcha";
             this.txtKetQuaCaptcha.Size = new System.Drawing.Size(86, 30);
             this.txtKetQuaCaptcha.TabIndex = 12;
+            this.txtKetQuaCaptcha.TextChanged += new System.EventHandler(this.txtKetQuaCaptcha_TextChanged);
             // 
             // label3
             // 

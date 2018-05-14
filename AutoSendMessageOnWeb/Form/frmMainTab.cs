@@ -55,6 +55,7 @@ namespace AutoSendMessageOnWeb
             lblWebChinhThuc.Text = Properties.Settings.Default.WebChinhThuc;
 
             cAutoHenHo2.ChoPhepDangKy(true);
+            cAutoDuyenSo.ChoPhepDangKy(true);
         }
 
         private void CoPhienBanMoi()

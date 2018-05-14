@@ -72,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ThaoTacWeb\DangKy\ITuDongDangKy.cs" />
+    <Compile Include="ThaoTacWeb\DangKy\TuDongDangKyDuyenSo.cs" />
     <Compile Include="ThaoTacWeb\DangKy\TuDongDangKyHenHo2.cs" />
     <Compile Include="ThaoTacWeb\GuiTinNhan\Badoo.cs" />
     <Compile Include="ThaoTacWeb\GuiTinNhan\DocThan.cs" />

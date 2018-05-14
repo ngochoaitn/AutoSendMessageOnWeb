@@ -33,11 +33,18 @@ namespace AutoSendMessageOnWeb
             }
         }
 
-        public frmTuDongDangKyTaiKhoan()
+        public frmTuDongDangKyTaiKhoan(TrangWeb trang)
         {
             InitializeComponent();
-
-            _tuDongDanhKy = new TuDongDangKyHenHo2();
+            switch(trang)
+            {
+                case TrangWeb.HenHo2:
+                    _tuDongDanhKy = new TuDongDangKyHenHo2();
+                    break;
+                case TrangWeb.DuyenSo:
+                    _tuDongDanhKy = new TuDongDangKyDuyenSo();
+                    break;
+            }
             this.DanhSachTaiKhoanDaDangKy = new List<ThongTinTaiKhoan>();
 
             #region Tùy chỉnh các thông số
@@ -96,7 +103,7 @@ namespace AutoSendMessageOnWeb
         private async void TaoControlDangKy(string email, object tag)
         {
             cTuDongDangKy c = new cTuDongDangKy();
-            await c.Init(email, new TuDongDangKyHenHo2());//Tùy trang sẽ khởi tạo khác nhau
+            await c.Init(email, _tuDongDanhKy);//Tùy trang sẽ khởi tạo khác nhau
             c.Dock = DockStyle.Top;
             c.Padding = new Padding(0, 0, 0, 5);
             panCaptcha.Controls.Add(c);
@@ -104,14 +111,17 @@ namespace AutoSendMessageOnWeb
             c.Tag = tag;//tag phục vụ sắp xếp
         }
 
+        int _delayHienTai = 1;
         private int GetDelay()
         {
             string delay = "5";//Mặc định
             foreach (Control c in grbDelay.Controls)
-                if (c is RadioButton)
-                    if ((c as RadioButton).Checked)
-                        delay = c.Tag.ToString();
-            return Convert.ToInt32(delay) * 1000 * 60;
+                if (c.Name == $"txttThoiGian{_delayHienTai}")
+                        delay = c.Text;
+            _delayHienTai++;
+            if (_delayHienTai > 5)
+                _delayHienTai = 1;
+            return Convert.ToInt32(delay) * (1000);// * 60);
         }
 
         private async void btnTienHanhDangKy_Click(object sender, EventArgs e)

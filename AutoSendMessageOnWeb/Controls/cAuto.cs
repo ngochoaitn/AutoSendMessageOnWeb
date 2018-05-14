@@ -572,7 +572,7 @@ namespace AutoSendMessageOnWeb
 
         private void btnDangKyTaiKhoan_Click(object sender, EventArgs e)
         {
-            frmTuDongDangKyTaiKhoan frmDangKy = new frmTuDongDangKyTaiKhoan();
+            frmTuDongDangKyTaiKhoan frmDangKy = new frmTuDongDangKyTaiKhoan(_trang);
             frmDangKy.ShowDialog();
             foreach (var tk in frmDangKy.DanhSachTaiKhoanDaDangKy)
                 thongTinTaiKhoan_GuiBindingSource.Add(tk);

@@ -52,6 +52,8 @@ namespace AutoSendMessageOnWeb.Controls
                 else
                 {
                     XuLyDaLuong.ChangeText(lblTrangThai, this.TaiKhoanDaDangKy.TrangThai, Color.Red);
+                    if (this.TaiKhoanDaDangKy.TrangThai == "Sai captcha")
+                        picCaptcha.Image = await TuDongDangKy.CaptchaAsync();
                 }
             }
             else
@@ -62,6 +64,11 @@ namespace AutoSendMessageOnWeb.Controls
         {
             picCaptcha.Image = null;
             picCaptcha.Image = await this.TuDongDangKy.CaptchaAsync();
+        }
+
+        private void txtKetQuaCaptcha_TextChanged(object sender, EventArgs e)
+        {
+            XuLyDaLuong.ChangeText(lblTrangThai, "Chờ đăng ký", Color.Blue);
         }
     }
 }
