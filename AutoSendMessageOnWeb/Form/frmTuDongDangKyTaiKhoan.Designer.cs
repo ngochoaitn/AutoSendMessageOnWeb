@@ -30,23 +30,23 @@
         {
             this.mainPanel = new System.Windows.Forms.Panel();
             this.grbDelay = new System.Windows.Forms.GroupBox();
+            this.txtThoiGian5 = new System.Windows.Forms.TextBox();
+            this.txtThoiGian4 = new System.Windows.Forms.TextBox();
+            this.txtThoiGian3 = new System.Windows.Forms.TextBox();
+            this.txtThoiGian2 = new System.Windows.Forms.TextBox();
+            this.txttThoiGian1 = new System.Windows.Forms.TextBox();
             this.panCaptcha = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnTienHanhDangKy = new ThuVienWinform.UI.Flat.CommonControls.ButtonFlat();
-            this.btnTaiCaptcha = new ThuVienWinform.UI.Flat.CommonControls.ButtonFlat();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtEmail = new System.Windows.Forms.TextBox();
             this.bottomPanel = new System.Windows.Forms.Panel();
             this.infoLabel = new System.Windows.Forms.Label();
             this.statusLabel = new System.Windows.Forms.Label();
+            this.btnTienHanhDangKy = new ThuVienWinform.UI.Flat.CommonControls.ButtonFlat();
             this.topPanel = new System.Windows.Forms.Panel();
             this.formNameLabel = new System.Windows.Forms.Label();
             this.controlBox = new ThuVienWinform.UI.Flat.CommonControls.ControlBoxFlat();
-            this.txttThoiGian1 = new System.Windows.Forms.TextBox();
-            this.txtThoiGian2 = new System.Windows.Forms.TextBox();
-            this.txtThoiGian3 = new System.Windows.Forms.TextBox();
-            this.txtThoiGian4 = new System.Windows.Forms.TextBox();
-            this.txtThoiGian5 = new System.Windows.Forms.TextBox();
+            this.btnTaiCaptcha = new ThuVienWinform.UI.Flat.CommonControls.ButtonFlat();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.mainPanel.SuspendLayout();
             this.grbDelay.SuspendLayout();
             this.bottomPanel.SuspendLayout();
@@ -89,6 +89,46 @@
             this.grbDelay.TabStop = false;
             this.grbDelay.Text = "Thời gian chờ lần lượt giữa 2 lần đăng ký";
             // 
+            // txtThoiGian5
+            // 
+            this.txtThoiGian5.Location = new System.Drawing.Point(142, 16);
+            this.txtThoiGian5.Name = "txtThoiGian5";
+            this.txtThoiGian5.Size = new System.Drawing.Size(28, 20);
+            this.txtThoiGian5.TabIndex = 0;
+            this.txtThoiGian5.Text = "12";
+            // 
+            // txtThoiGian4
+            // 
+            this.txtThoiGian4.Location = new System.Drawing.Point(108, 16);
+            this.txtThoiGian4.Name = "txtThoiGian4";
+            this.txtThoiGian4.Size = new System.Drawing.Size(28, 20);
+            this.txtThoiGian4.TabIndex = 0;
+            this.txtThoiGian4.Text = "70";
+            // 
+            // txtThoiGian3
+            // 
+            this.txtThoiGian3.Location = new System.Drawing.Point(74, 16);
+            this.txtThoiGian3.Name = "txtThoiGian3";
+            this.txtThoiGian3.Size = new System.Drawing.Size(28, 20);
+            this.txtThoiGian3.TabIndex = 0;
+            this.txtThoiGian3.Text = "60";
+            // 
+            // txtThoiGian2
+            // 
+            this.txtThoiGian2.Location = new System.Drawing.Point(40, 16);
+            this.txtThoiGian2.Name = "txtThoiGian2";
+            this.txtThoiGian2.Size = new System.Drawing.Size(28, 20);
+            this.txtThoiGian2.TabIndex = 0;
+            this.txtThoiGian2.Text = "3";
+            // 
+            // txttThoiGian1
+            // 
+            this.txttThoiGian1.Location = new System.Drawing.Point(6, 16);
+            this.txttThoiGian1.Name = "txttThoiGian1";
+            this.txttThoiGian1.Size = new System.Drawing.Size(28, 20);
+            this.txttThoiGian1.TabIndex = 0;
+            this.txttThoiGian1.Text = "1";
+            // 
             // panCaptcha
             // 
             this.panCaptcha.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -107,52 +147,6 @@
             this.label2.Size = new System.Drawing.Size(50, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Captcha:";
-            // 
-            // btnTienHanhDangKy
-            // 
-            this.btnTienHanhDangKy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnTienHanhDangKy.BackColor = System.Drawing.Color.Aquamarine;
-            this.btnTienHanhDangKy.Enabled = false;
-            this.btnTienHanhDangKy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTienHanhDangKy.Location = new System.Drawing.Point(194, 344);
-            this.btnTienHanhDangKy.Name = "btnTienHanhDangKy";
-            this.btnTienHanhDangKy.Size = new System.Drawing.Size(118, 23);
-            this.btnTienHanhDangKy.TabIndex = 2;
-            this.btnTienHanhDangKy.Text = "Tiến hành đăng ký";
-            this.btnTienHanhDangKy.UseVisualStyleBackColor = false;
-            this.btnTienHanhDangKy.Click += new System.EventHandler(this.btnTienHanhDangKy_Click);
-            // 
-            // btnTaiCaptcha
-            // 
-            this.btnTaiCaptcha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnTaiCaptcha.BackColor = System.Drawing.Color.SpringGreen;
-            this.btnTaiCaptcha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTaiCaptcha.Location = new System.Drawing.Point(9, 344);
-            this.btnTaiCaptcha.Name = "btnTaiCaptcha";
-            this.btnTaiCaptcha.Size = new System.Drawing.Size(75, 23);
-            this.btnTaiCaptcha.TabIndex = 2;
-            this.btnTaiCaptcha.Text = "Tải captcha";
-            this.btnTaiCaptcha.UseVisualStyleBackColor = false;
-            this.btnTaiCaptcha.Click += new System.EventHandler(this.btnTaiCaptcha_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Danh sách email:";
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtEmail.Location = new System.Drawing.Point(9, 53);
-            this.txtEmail.Multiline = true;
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(173, 285);
-            this.txtEmail.TabIndex = 0;
             // 
             // bottomPanel
             // 
@@ -188,6 +182,20 @@
             this.statusLabel.Size = new System.Drawing.Size(47, 23);
             this.statusLabel.TabIndex = 0;
             this.statusLabel.Text = "Status";
+            // 
+            // btnTienHanhDangKy
+            // 
+            this.btnTienHanhDangKy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnTienHanhDangKy.BackColor = System.Drawing.Color.Aquamarine;
+            this.btnTienHanhDangKy.Enabled = false;
+            this.btnTienHanhDangKy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTienHanhDangKy.Location = new System.Drawing.Point(194, 344);
+            this.btnTienHanhDangKy.Name = "btnTienHanhDangKy";
+            this.btnTienHanhDangKy.Size = new System.Drawing.Size(118, 23);
+            this.btnTienHanhDangKy.TabIndex = 2;
+            this.btnTienHanhDangKy.Text = "Tiến hành đăng ký";
+            this.btnTienHanhDangKy.UseVisualStyleBackColor = false;
+            this.btnTienHanhDangKy.Click += new System.EventHandler(this.btnTienHanhDangKy_Click);
             // 
             // topPanel
             // 
@@ -240,45 +248,37 @@
             this.controlBox.TipMaxsize2 = "Khôi phục kích thước";
             this.controlBox.TipMinisize = "Thu nhỏ";
             // 
-            // txttThoiGian1
+            // btnTaiCaptcha
             // 
-            this.txttThoiGian1.Location = new System.Drawing.Point(6, 16);
-            this.txttThoiGian1.Name = "txttThoiGian1";
-            this.txttThoiGian1.Size = new System.Drawing.Size(28, 20);
-            this.txttThoiGian1.TabIndex = 0;
-            this.txttThoiGian1.Text = "1";
+            this.btnTaiCaptcha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnTaiCaptcha.BackColor = System.Drawing.Color.SpringGreen;
+            this.btnTaiCaptcha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTaiCaptcha.Location = new System.Drawing.Point(9, 344);
+            this.btnTaiCaptcha.Name = "btnTaiCaptcha";
+            this.btnTaiCaptcha.Size = new System.Drawing.Size(75, 23);
+            this.btnTaiCaptcha.TabIndex = 2;
+            this.btnTaiCaptcha.Text = "Tải captcha";
+            this.btnTaiCaptcha.UseVisualStyleBackColor = false;
+            this.btnTaiCaptcha.Click += new System.EventHandler(this.btnTaiCaptcha_Click);
             // 
-            // txtThoiGian2
+            // txtEmail
             // 
-            this.txtThoiGian2.Location = new System.Drawing.Point(40, 16);
-            this.txtThoiGian2.Name = "txtThoiGian2";
-            this.txtThoiGian2.Size = new System.Drawing.Size(28, 20);
-            this.txtThoiGian2.TabIndex = 0;
-            this.txtThoiGian2.Text = "3";
+            this.txtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtEmail.Location = new System.Drawing.Point(9, 53);
+            this.txtEmail.Multiline = true;
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(173, 285);
+            this.txtEmail.TabIndex = 0;
             // 
-            // txtThoiGian3
+            // label1
             // 
-            this.txtThoiGian3.Location = new System.Drawing.Point(74, 16);
-            this.txtThoiGian3.Name = "txtThoiGian3";
-            this.txtThoiGian3.Size = new System.Drawing.Size(28, 20);
-            this.txtThoiGian3.TabIndex = 0;
-            this.txtThoiGian3.Text = "60";
-            // 
-            // txtThoiGian4
-            // 
-            this.txtThoiGian4.Location = new System.Drawing.Point(108, 16);
-            this.txtThoiGian4.Name = "txtThoiGian4";
-            this.txtThoiGian4.Size = new System.Drawing.Size(28, 20);
-            this.txtThoiGian4.TabIndex = 0;
-            this.txtThoiGian4.Text = "70";
-            // 
-            // txtThoiGian5
-            // 
-            this.txtThoiGian5.Location = new System.Drawing.Point(142, 16);
-            this.txtThoiGian5.Name = "txtThoiGian5";
-            this.txtThoiGian5.Size = new System.Drawing.Size(28, 20);
-            this.txtThoiGian5.TabIndex = 0;
-            this.txtThoiGian5.Text = "12";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Danh sách email:";
             // 
             // frmTuDongDangKyTaiKhoan
             // 

@@ -29,9 +29,17 @@ namespace AutoSendMessageOnWeb.Controls
             };
         }
 
-        public async Task Init(string email, ITuDongDangKy trang_web)
+        public async Task Init(string email, TrangWeb trang_web)
         {
-            this.TuDongDangKy = trang_web;
+            switch(trang_web)
+            {
+                case TrangWeb.HenHo2:
+                    this.TuDongDangKy = new TuDongDangKyHenHo2();
+                    break;
+                case TrangWeb.DuyenSo:
+                    this.TuDongDangKy = new TuDongDangKyDuyenSo();
+                    break;
+            }
             picCaptcha.Image = await TuDongDangKy.CaptchaAsync();
             lblTaiKhoan.Text = email;
             this.Email = email;

@@ -103,8 +103,8 @@ namespace AutoSendMessageOnWeb.Lib
                 throw new Exception("Thiếu cookie");
 
             string data = string.Format("IdTo={0}&NameTo={1}&Title={2}&MessageContent={3}", nguoinhan.Id, nguoinhan.TenHienThi, tieude, noidung);
-
-            var response = RequestToWeb.POST2(new Uri("https://henho2.com/Message/Create"), nguoigui.Cookie, data, false);
+            
+            var response = RequestToWeb.POST(new Uri("https://henho2.com/Message/Create"), nguoigui.Cookie, data, false, true);
 
             nguoinhan.TrangThai = nguoigui.TaiKhoan;
             using (var sr = new StreamReader(response.GetResponseStream()))
@@ -116,6 +116,8 @@ namespace AutoSendMessageOnWeb.Lib
                         nguoinhan.TrangThai = "Gửi lỗi\n(quá số thư cho phép)";
                     else if (stringResponse.Contains("Vui l&#242;ng nhập từ"))
                         nguoinhan.TrangThai = "Gửi lỗi\n(quá ngắn)";
+                    else if (stringResponse.Contains("Chưa kích hoạt"))
+                        nguoinhan.TrangThai = "Chưa kích hoạt";
                     else if (stringResponse.Contains("Bạn đ&#227; bị ban"))
                     {
                         nguoinhan.TrangThai = "Gửi lỗi\n(tài khoản bị khóa)";

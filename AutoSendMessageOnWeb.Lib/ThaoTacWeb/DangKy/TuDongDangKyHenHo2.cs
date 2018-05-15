@@ -15,14 +15,8 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb.DangKy
     public class TuDongDangKyHenHo2 : ITuDongDangKy
     {
         HttpWebRequest _request;
-        HttpClient _client;
         CookieContainer _cookieContainer;
         string _setCookie;
-
-        public TuDongDangKyHenHo2()
-        {
-            _client = new HttpClient();
-        }
 
         public Image Captcha()
         {

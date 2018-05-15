@@ -17,7 +17,7 @@ namespace AutoSendMessageOnWeb
 {
     public partial class frmTuDongDangKyTaiKhoan : Form
     {
-        ITuDongDangKy _tuDongDanhKy;
+        TrangWeb _trang;
         private bool _allowResize = true;
         public List<ThongTinTaiKhoan> DanhSachTaiKhoanDaDangKy { private set; get; }
 
@@ -36,15 +36,7 @@ namespace AutoSendMessageOnWeb
         public frmTuDongDangKyTaiKhoan(TrangWeb trang)
         {
             InitializeComponent();
-            switch(trang)
-            {
-                case TrangWeb.HenHo2:
-                    _tuDongDanhKy = new TuDongDangKyHenHo2();
-                    break;
-                case TrangWeb.DuyenSo:
-                    _tuDongDanhKy = new TuDongDangKyDuyenSo();
-                    break;
-            }
+            _trang = trang;
             this.DanhSachTaiKhoanDaDangKy = new List<ThongTinTaiKhoan>();
 
             #region Tùy chỉnh các thông số
@@ -103,7 +95,7 @@ namespace AutoSendMessageOnWeb
         private async void TaoControlDangKy(string email, object tag)
         {
             cTuDongDangKy c = new cTuDongDangKy();
-            await c.Init(email, _tuDongDanhKy);//Tùy trang sẽ khởi tạo khác nhau
+            await c.Init(email, _trang);//Tùy trang sẽ khởi tạo khác nhau
             c.Dock = DockStyle.Top;
             c.Padding = new Padding(0, 0, 0, 5);
             panCaptcha.Controls.Add(c);
