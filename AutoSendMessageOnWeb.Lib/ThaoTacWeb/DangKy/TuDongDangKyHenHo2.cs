@@ -24,7 +24,6 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb.DangKy
             if (_cookieContainer != null)
                 _request.CookieContainer = _cookieContainer;
 
-
             _request.Method = "GET";
             using (var response = _request.GetResponse())
             {
@@ -42,7 +41,7 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb.DangKy
             }
         }
 
-        public ThongTinTaiKhoan DangKyTaiKhoanMoi(string tai_khoan, string mat_khau, Func<string> captcha, object thong_tin_bo_sung = null)
+        public ThongTinTaiKhoan DangKyTaiKhoanMoi(string tai_khoan, string mat_khau, Func<string> captcha, ThongTinBoSung thong_tin_bo_sung = null)
         {
             _request = HttpWebRequest.CreateHttp("https://henho2.com/Account/DangKy");
             _request.Method = "GET";
@@ -57,8 +56,9 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb.DangKy
                 _cookieContainer = new CookieContainer();
                 _cookieContainer.SetCookies(UriTrangWeb.HenHo2, _setCookie);
             }
+            string hoTen = ThongTinBoSung.TaoHoTenNgauNhien();
             var timeout = RequestToWeb.ReadStream(response.GetResponseStream());
-            string data = $"Email={tai_khoan}&Name=Hẹn hò&Password={mat_khau}&Sex=0&MariedStatus=0&Objective=0&Degree=1&Age=18&Height=170&Weight=50&Country=237&Province=58&Profile=Muốn hẹn hò kết bạn&LookingFor=Muốn hẹn hò kết bạn&Captcha={captcha()}";
+            string data = $"Email={tai_khoan}&Name={hoTen}&Password={mat_khau}&Sex=0&MariedStatus=0&Objective=0&Degree=1&Age=18&Height=170&Weight=50&Country=237&Province=58&Profile=Muốn hẹn hò kết bạn&LookingFor=Muốn hẹn hò kết bạn&Captcha={captcha()}";
             _request = HttpWebRequest.CreateHttp("https://henho2.com/Account/DangKy");
             _request.Headers[HttpRequestHeader.Cookie] = _setCookie;
             _request.CookieContainer = _cookieContainer;
@@ -94,7 +94,7 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb.DangKy
             }
         }
 
-        public async Task<ThongTinTaiKhoan> DangKyTaiKhoanMoiAsync(string tai_khoan, string mat_khau, Func<string> captcha, object thong_tin_bo_sung = null)
+        public async Task<ThongTinTaiKhoan> DangKyTaiKhoanMoiAsync(string tai_khoan, string mat_khau, string ho_ten, Func<string> captcha, ThongTinBoSung thong_tin_bo_sung = null)
         {
             _request = HttpWebRequest.CreateHttp("https://henho2.com/Account/DangKy");
             _request.Method = "GET";
@@ -109,8 +109,9 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb.DangKy
                 _cookieContainer = new CookieContainer();
                 _cookieContainer.SetCookies(UriTrangWeb.HenHo2, _setCookie);
             }
+            string hoTen = ThongTinBoSung.TaoHoTenNgauNhien();
             var timeout = RequestToWeb.ReadStream(response.GetResponseStream());
-            string data = $"Email={tai_khoan}&Name=Hẹn hò&Password={mat_khau}&Sex=0&MariedStatus=0&Objective=0&Degree=1&Age=18&Height=170&Weight=50&Country=237&Province=58&Profile=Muốn hẹn hò kết bạn&LookingFor=Muốn hẹn hò kết bạn&Captcha={captcha()}";
+            string data = $"Email={tai_khoan}&Name={ho_ten}&Password={mat_khau}&Sex=0&MariedStatus=0&Objective=0&Degree=1&Age=18&Height=170&Weight=50&Country=237&Province=58&Profile=Muốn hẹn hò kết bạn&LookingFor=Muốn hẹn hò kết bạn&Captcha={captcha()}";
             _request = HttpWebRequest.CreateHttp("https://henho2.com/Account/DangKy");
             _request.Headers[HttpRequestHeader.Cookie] = _setCookie;
             _request.CookieContainer = _cookieContainer;

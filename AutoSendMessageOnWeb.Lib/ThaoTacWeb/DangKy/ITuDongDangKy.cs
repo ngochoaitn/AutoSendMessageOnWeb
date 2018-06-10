@@ -9,10 +9,10 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb.DangKy
 {
     public interface ITuDongDangKy
     {
-        Data.ThongTinTaiKhoan DangKyTaiKhoanMoi(string tai_khoan, string mat_khau, Func<string> captcha, object thong_tin_bo_sung = null);
+        Data.ThongTinTaiKhoan DangKyTaiKhoanMoi(string tai_khoan, string mat_khau, Func<string> captcha, ThongTinBoSung thong_tin_bo_sung = null);
         Image Captcha();
 
-        Task<Data.ThongTinTaiKhoan> DangKyTaiKhoanMoiAsync(string tai_khoan, string mat_khau, Func<string> captcha, object thong_tin_bo_sung = null);
+        Task<Data.ThongTinTaiKhoan> DangKyTaiKhoanMoiAsync(string tai_khoan, string mat_khau, string ho_ten, Func<string> captcha, ThongTinBoSung thong_tin_bo_sung = null);
         Task<Image> CaptchaAsync();
     }
 }

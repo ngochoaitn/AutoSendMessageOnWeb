@@ -35,6 +35,8 @@
             this.lblTrangThai = new System.Windows.Forms.Label();
             this.lblTaiKhoan = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbbGioiTinh = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.picCaptcha)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,13 +106,34 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 86);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(251, 1);
+            this.panel1.Size = new System.Drawing.Size(401, 1);
             this.panel1.TabIndex = 14;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(263, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 13);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Giới tính:";
+            // 
+            // cbbGioiTinh
+            // 
+            this.cbbGioiTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbGioiTinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbGioiTinh.FormattingEnabled = true;
+            this.cbbGioiTinh.Location = new System.Drawing.Point(266, 36);
+            this.cbbGioiTinh.Name = "cbbGioiTinh";
+            this.cbbGioiTinh.Size = new System.Drawing.Size(121, 32);
+            this.cbbGioiTinh.TabIndex = 16;
             // 
             // cTuDongDangKy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cbbGioiTinh);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblTaiKhoan);
             this.Controls.Add(this.lblTrangThai);
@@ -119,7 +142,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.picCaptcha);
             this.Name = "cTuDongDangKy";
-            this.Size = new System.Drawing.Size(251, 87);
+            this.Size = new System.Drawing.Size(401, 87);
             ((System.ComponentModel.ISupportInitialize)(this.picCaptcha)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -135,5 +158,7 @@
         private System.Windows.Forms.Label lblTrangThai;
         private System.Windows.Forms.Label lblTaiKhoan;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbbGioiTinh;
     }
 }

@@ -71,6 +71,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ThaoTacWeb\DangKy\ThongTinBoSung.cs" />
     <Compile Include="ThaoTacWeb\DangKy\ITuDongDangKy.cs" />
     <Compile Include="ThaoTacWeb\DangKy\TuDongDangKyDuyenSo.cs" />
     <Compile Include="ThaoTacWeb\DangKy\TuDongDangKyHenHo2.cs" />

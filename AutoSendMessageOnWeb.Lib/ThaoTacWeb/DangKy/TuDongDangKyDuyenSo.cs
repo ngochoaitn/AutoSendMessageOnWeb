@@ -73,17 +73,16 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb.DangKy
             }
         }
 
-        public ThongTinTaiKhoan DangKyTaiKhoanMoi(string tai_khoan, string mat_khau, Func<string> captcha, object thong_tin_bo_sung = null)
+        public ThongTinTaiKhoan DangKyTaiKhoanMoi(string tai_khoan, string mat_khau, Func<string> captcha, ThongTinBoSung thong_tin_bo_sung = null)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<ThongTinTaiKhoan> DangKyTaiKhoanMoiAsync(string tai_khoan, string mat_khau, Func<string> captcha, object thong_tin_bo_sung = null)
+        public async Task<ThongTinTaiKhoan> DangKyTaiKhoanMoiAsync(string tai_khoan, string mat_khau, string ho_ten, Func<string> captcha, ThongTinBoSung thong_tin_bo_sung = null)
         {
             if (_cookieContainer == null)
                 await CaptchaAsync();
-            int gioiTinh = new Random().Next(1, 3);
-            string data = $"cmd=register&ajax=1&email={tai_khoan}&join_password={mat_khau}&join_handle=Hẹn hò nào&day=1&month=5&year=1990&orientation={gioiTinh}&country=236&state=20014&city=200116&captcha={captcha()}";
+            string data = $"cmd=register&ajax=1&email={tai_khoan}&join_password={mat_khau}&join_handle={ho_ten}&day=1&month=5&year=1990&orientation={thong_tin_bo_sung.GioiTinh}&country=236&state=20014&city=200116&captcha={captcha()}";
             _request = HttpWebRequest.CreateHttp("http://duyenso.com/join.php");
             _request.Headers[HttpRequestHeader.Cookie] = _setCookie;
             _request.CookieContainer = _cookieContainer;

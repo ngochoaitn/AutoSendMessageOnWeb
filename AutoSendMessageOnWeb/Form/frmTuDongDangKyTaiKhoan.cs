@@ -19,6 +19,8 @@ namespace AutoSendMessageOnWeb
     {
         TrangWeb _trang;
         private bool _allowResize = true;
+        private List<Tuple<string, string>> _gioiTinh;
+
         public List<ThongTinTaiKhoan> DanhSachTaiKhoanDaDangKy { private set; get; }
 
         public bool AllowResize
@@ -38,7 +40,24 @@ namespace AutoSendMessageOnWeb
             InitializeComponent();
             _trang = trang;
             this.DanhSachTaiKhoanDaDangKy = new List<ThongTinTaiKhoan>();
-
+            switch(trang)
+            {
+                case TrangWeb.HenHo2:
+                    _gioiTinh = new List<Tuple<string, string>>() { new Tuple<string, string>("Nam", "0"),
+                                                                    new Tuple<string, string>("Nữ", "1"),
+                                                                    new Tuple<string, string>("Gay", "2"),
+                                                                    new Tuple<string, string>("Les", "3")};
+                    break;
+                case TrangWeb.DuyenSo:
+                    _gioiTinh = new List<Tuple<string, string>>() { new Tuple<string, string>("Nam", "1"),
+                                                                    new Tuple<string, string>("Nữ", "2"),
+                                                                    new Tuple<string, string>("Gay", "3"),
+                                                                    new Tuple<string, string>("Les", "4")};
+                    break;
+            }
+            foreach (var gt in _gioiTinh)
+                cbbGioiTinh.Items.Add(gt.Item1);
+            cbbGioiTinh.SelectedIndex = 0;
             #region Tùy chỉnh các thông số
             //Di chuyển form khi mà di chuyển các điểu khiển sau
             ControlPlus.MovieFormWhenMouseDownControl(topPanel, this.Handle);
@@ -95,7 +114,7 @@ namespace AutoSendMessageOnWeb
         private async void TaoControlDangKy(string email, object tag)
         {
             cTuDongDangKy c = new cTuDongDangKy();
-            await c.Init(email, _trang);//Tùy trang sẽ khởi tạo khác nhau
+            await c.Init(email, ThongTinBoSung.TaoHoTenNgauNhien(), _trang, _gioiTinh, cbbGioiTinh.SelectedIndex);//Tùy trang sẽ khởi tạo khác nhau
             c.Dock = DockStyle.Top;
             c.Padding = new Padding(0, 0, 0, 5);
             panCaptcha.Controls.Add(c);
@@ -113,7 +132,7 @@ namespace AutoSendMessageOnWeb
             _delayHienTai++;
             if (_delayHienTai > 5)
                 _delayHienTai = 1;
-            return Convert.ToInt32(delay) * (1000);// * 60);
+            return Convert.ToInt32(delay) * (1000 * 60);
         }
 
         private async void btnTienHanhDangKy_Click(object sender, EventArgs e)

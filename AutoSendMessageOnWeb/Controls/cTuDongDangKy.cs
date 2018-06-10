@@ -18,6 +18,8 @@ namespace AutoSendMessageOnWeb.Controls
         public ITuDongDangKy TuDongDangKy { set; get; }
         public ThongTinTaiKhoan TaiKhoanDaDangKy { private set; get; }
         public string Email { private set; get; }
+        public string HoTen { private set; get; }
+        List<Tuple<string, string>> _gioiTinh = new List<Tuple<string, string>>();
 
         public cTuDongDangKy()
         {
@@ -29,7 +31,7 @@ namespace AutoSendMessageOnWeb.Controls
             };
         }
 
-        public async Task Init(string email, TrangWeb trang_web)
+        public async Task Init(string email, string ho_ten, TrangWeb trang_web, List<Tuple<string, string>> gioi_tinh, int selected_gioi_tinh)
         {
             switch(trang_web)
             {
@@ -40,17 +42,26 @@ namespace AutoSendMessageOnWeb.Controls
                     this.TuDongDangKy = new TuDongDangKyDuyenSo();
                     break;
             }
+            _gioiTinh = gioi_tinh;
             picCaptcha.Image = await TuDongDangKy.CaptchaAsync();
-            lblTaiKhoan.Text = email;
             this.Email = email;
+            this.HoTen = ho_ten;
+            lblTaiKhoan.Text = $"{email} - {ho_ten}";
             XuLyDaLuong.ChangeText(lblTrangThai, "Chờ nhập captcha", Color.Blue);
+            if(_gioiTinh != null)
+            {
+                foreach(var gt in _gioiTinh)
+                    cbbGioiTinh.Items.Add(gt.Item1);
+            }
+            cbbGioiTinh.SelectedIndex = selected_gioi_tinh;
         }
 
         public async Task DangKyAsync()
         {
             if (!string.IsNullOrEmpty(txtKetQuaCaptcha.Text))
             {
-                this.TaiKhoanDaDangKy = await this.TuDongDangKy.DangKyTaiKhoanMoiAsync(this.Email, this.Email, () => txtKetQuaCaptcha.Text);
+                string gioiTinh = _gioiTinh?.FirstOrDefault(p => p.Item1 == cbbGioiTinh.Text)?.Item2;
+                this.TaiKhoanDaDangKy = await this.TuDongDangKy.DangKyTaiKhoanMoiAsync(this.Email, this.Email, this.HoTen, () => txtKetQuaCaptcha.Text, new ThongTinBoSung() { GioiTinh = gioiTinh });
 
                 if (this.TaiKhoanDaDangKy.TaiKhoan != null)
                 {
