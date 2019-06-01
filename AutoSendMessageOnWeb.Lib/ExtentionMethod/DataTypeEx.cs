@@ -26,7 +26,7 @@ namespace AutoSendMessageOnWeb.Lib.ExtentionMethod
         }
         public static string TrimAll(this string s)
         {
-            return s.Replace("\n", "").Replace("\t", "").Replace("\r", "");
+            return s.Replace("\n", "").Replace("\t", "").Replace("\r", "").Trim();
         }
         public static DateTime? ddMMyyyy(string s)
         {

@@ -17,8 +17,10 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb
             try
             {
                 request.Method = "GET";
+                request.UserAgent = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) coc_coc_browser/78.0.136 Chrome/72.0.3626.136 Safari/537.36";
                 if (cookie != null)
                     request.CookieContainer = cookie;
+                //request.KeepAlive = false;
                 var response = request.GetResponse();
 
                 if (autoread)

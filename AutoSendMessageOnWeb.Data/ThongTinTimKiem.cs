@@ -14,7 +14,13 @@ namespace AutoSendMessageOnWeb.Data
         public List<TinhTrangHonNhan> HonNhan { set; get; }
         public object GioiTinh { set; get; }
         public List<object> OtherParam { set; get; }
-
+        /// <summary>
+        /// Tìm những tài khoản đã đăng nhập được bao phút
+        /// </summary>
+        public int? ThoiGianDangNhap { get; set; } = null;
+        public bool TimNguoiMoiDangKy { get; set; } = false;
+        public bool TimNguoiOnline { get; set; } = false;
+        public bool DungTimKiem { get; set; } = false;
         public ThongTinTimKiem()
         {
             this.HonNhan = new List<TinhTrangHonNhan>();

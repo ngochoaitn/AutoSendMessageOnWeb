@@ -170,10 +170,14 @@ namespace AutoSendMessageOnWeb.Lib
                             tk.Id = thongTinNguoiNhanThu_Url.Split('/')[7];
                         });
                         #endregion
-
+                        
                         yield return tk;
-                    }
 
+                        if (param.DungTimKiem)
+                            break;
+                    }
+                    if (param.DungTimKiem)
+                        break;
                     page++;
                 }
             }

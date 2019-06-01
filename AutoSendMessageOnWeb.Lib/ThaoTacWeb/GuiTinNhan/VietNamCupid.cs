@@ -25,28 +25,25 @@ namespace AutoSendMessageOnWeb.Lib
         public void DangNhap(ref ThongTinTaiKhoan tk)
         {
             #region Logout
-            //Https nên có xác thực => nếu không đăng xuất sẽ bị lấy phiên đăng nhập cũ
-            HttpWebRequest logoutRequest = WebRequest.CreateHttp("https://www.vietnamcupid.com/vi/auth/logout");
-            logoutRequest.Method = "GET";
-            var logoutResponse = RequestToWeb.GET(new Uri("https://www.vietnamcupid.com/vi/auth/logout"), true);
-
+            ////Https nên có xác thực => nếu không đăng xuất sẽ bị lấy phiên đăng nhập cũ
+            //HttpWebRequest logoutRequest = WebRequest.CreateHttp("https://www.vietnamcupid.com/vi/auth/logout");
+            //logoutRequest.Method = "GET";
+            //var logoutResponse = RequestToWeb.GET(new Uri("https://www.vietnamcupid.com/vi/auth/logout"), true);
             #endregion
 
             #region Login
             tk.Cookie = new CookieContainer();
 
-            #region Login 1: Get first Cookie
-
-            string loginData = string.Format("Email={0}&password={1}&RememberMe=1", tk.TaiKhoan, tk.MatKhau);
-
-            var loginResponse = RequestToWeb.POST(new Uri("https://www.vietnamcupid.com/logon_do.cfm"), tk.Cookie, loginData, true);
-
-            string sLoginCookie = loginResponse.Headers[HttpResponseHeader.SetCookie];
-            string sLoginLoc1 = loginResponse.Headers[HttpResponseHeader.Location];
+            #region Login 1: Get first Cookie, Parameter
+            var loginResponse = RequestToWeb.GET(new Uri("https://www.vietnamcupid.com/en/auth/login"), false, false, tk.Cookie);
+            var loginPageHtml = RequestToWeb.ReadStream(loginResponse);
+            HtmlAgilityPack.HtmlDocument docLogin = new HtmlAgilityPack.HtmlDocument();
+            docLogin.LoadHtml(loginPageHtml);
+            var formLogin = docLogin.DocumentNode.QuerySelector("form > input");
             #endregion Login 1: Get first Cookie
 
             #region Login 2: Get login cookie
-
+            string loginData = string.Format("Email={0}&password={1}&RememberMe=1", tk.TaiKhoan, tk.MatKhau);
             var loginResponse2 = RequestToWeb.POST(new Uri("https://www.vietnamcupid.com/logon_do.cfm"), tk.Cookie, loginData, true);// loginRequest2.GetResponse();
 
             string sLoginCookie2 = loginResponse2.Headers[HttpResponseHeader.SetCookie];
@@ -221,6 +218,9 @@ namespace AutoSendMessageOnWeb.Lib
 
                                 if (taiKhoan != null)
                                     yield return taiKhoan;
+
+                                if (param.DungTimKiem)
+                                    break;
                             }
                         }
 
@@ -230,6 +230,9 @@ namespace AutoSendMessageOnWeb.Lib
                         break;
                 }
                 #endregion
+
+                if (param.DungTimKiem)
+                    break;
 
                 pageindex++;
             }

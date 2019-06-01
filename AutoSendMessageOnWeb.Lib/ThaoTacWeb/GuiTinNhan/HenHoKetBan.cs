@@ -9,6 +9,7 @@ using System.Net;
 using Fizzler.Systems.HtmlAgilityPack;
 using System.Web;
 using AutoSendMessageOnWeb.Lib.ExtentionMethod;
+using System.Diagnostics;
 
 namespace AutoSendMessageOnWeb.Lib
 {
@@ -82,10 +83,10 @@ namespace AutoSendMessageOnWeb.Lib
             string guiData = string.Format("idgui={0}&idnhan={1}&tennguoigui={2}&tennguoinhan=AutoSend_{3}&tieude={4}&noidung={5}&btn_submit=GỬI TIN NHẮN",
                                                 nguoigui.Id, nguoinhan.Id, nguoigui.TenHienThi, nguoinhan.TenHienThi, tieude, noidung);
 
-            var guiTinResponse = RequestToWeb.POST(new Uri("https://henhoketban.vn/guithu.php"), nguoigui.Cookie, guiData, false);
+            var guiTinResponse = RequestToWeb.POST(new Uri("https://henhoketban.vn/guithu.php"), nguoigui.Cookie, guiData, false, true);
             string guiStringResponse = RequestToWeb.ReadStream(guiTinResponse);
 
-            if (guiStringResponse.Contains("GỬI TIN NHẮN THÀNH CÔNG."))
+            if (guiStringResponse.Contains("message.php?guithu=thanhcong"))
             {
                 nguoinhan.TrangThai = nguoigui.TaiKhoan;
             }
@@ -175,19 +176,63 @@ namespace AutoSendMessageOnWeb.Lib
 
                             tk.Id = tk.Url.Split('=')[1];
                             tk.NoiO = hangThongTin.ElementAt(0).QuerySelectorAll("center > font").ElementAt(0).InnerText;
-                            yield return tk;
+
+                            if (param.ThoiGianDangNhap.HasValue)
+                            {
+                                try
+                                {
+                                    var thongTinThoiGianDangNhap = v.QuerySelectorAll("tr > td > p > font").ElementAt(1).InnerHtml;
+                                    var thoiGianDangNhap = LayThoiGian(thongTinThoiGianDangNhap.Substring(0, thongTinThoiGianDangNhap.IndexOf("<")).TrimAll());
+                                    if (!thoiGianDangNhap.HasValue || thoiGianDangNhap.Value > param.ThoiGianDangNhap)
+                                        tk = null;
+                                    Debug.WriteLine($"{thongTinThoiGianDangNhap.Substring(0, thongTinThoiGianDangNhap.IndexOf("<")).TrimAll()} = {thoiGianDangNhap}, {((!thoiGianDangNhap.HasValue || thoiGianDangNhap.Value > param.ThoiGianDangNhap) ? "loại" : "nhận")}");
+                                }
+                                catch
+                                {
+
+                                }
+                            }
+                            if (tk != null)
+                                yield return tk;
                         }
                         else
                         {
 
                         }
-
+                        if (param.DungTimKiem)
+                            break;
                     }
                     #endregion
-
+                    if (param.DungTimKiem)
+                        break;
                     page++;
                 }
             }
+        }
+
+        /// <summary>
+        /// Chuyển x giây, y phút, z giờ, xx ngày thành phút
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public int? LayThoiGian(string s)
+        {
+            if (string.IsNullOrEmpty(s))
+                return null;
+            string temp = s.ToLower();
+            if (temp.Contains("giây"))
+                return 0;
+            if (temp.Contains("phút"))
+                return Convert.ToInt32(temp.Replace("phút", "").TrimAll());
+            if(temp.Contains("giờ"))
+                return Convert.ToInt32(temp.Replace("giờ", "").TrimAll()) * 60;
+            if(temp.Contains("ngày"))
+                return Convert.ToInt32(temp.Replace("ngày", "").TrimAll()) * 1440;
+            if (temp.Contains("tháng"))
+                return Convert.ToInt32(temp.Replace("tháng", "").TrimAll()) * 43200;
+            if (temp.Contains("năm"))
+                return Convert.ToInt32(temp.Replace("năm", "").TrimAll()) * 15768000;
+            return int.MaxValue;
         }
 
         public IEnumerable<ThongTinTaiKhoan> TimKiemBangWebbrowser(IEnumerable<ThongTinTaiKhoan> binding)

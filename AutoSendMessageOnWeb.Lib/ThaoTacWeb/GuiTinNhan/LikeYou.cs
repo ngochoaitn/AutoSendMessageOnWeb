@@ -183,11 +183,15 @@ namespace AutoSendMessageOnWeb.Lib
                     tk.TinhTrangHonNhan = param.OtherParam[1].ToString();
                     tk.Url = link;
                     tk.Id = id;
-
+                    
                     yield return tk;
+
+                    if (param.DungTimKiem)
+                        break;
                 }
                 #endregion
-
+                if (param.DungTimKiem)
+                    break;
                 page++;
             }
                 

@@ -163,6 +163,16 @@ namespace AutoSendMessageOnWeb.Lib
                 for(int i = 2; i < param.HonNhan.Count; i++)
                     query["p_status[]"] += string.Format("&p_status[]={0}", param.HonNhan[i].Id.ToString());
                 query["with_photo"] = "1";
+
+                if (param.TimNguoiOnline)
+                {
+                    query["status"] = "online";
+                }
+                if (param.TimNguoiMoiDangKy)
+                {
+                    query["status"] = "new";
+                }
+
                 uri.Query = query.ToString();
 
                 HttpWebRequest request = WebRequest.CreateHttp(uri.Uri);
@@ -216,13 +226,16 @@ namespace AutoSendMessageOnWeb.Lib
                         {
                             yield return taiKhoan;
                         }
+                        if (param.DungTimKiem)
+                            break;
                     }
                     if (bangKetQua.Count() <= 0)
                         break;
                 }
                 #endregion
-
-                offset+=20;
+                if (param.DungTimKiem)
+                    break;
+                offset +=20;
             }
         }
 

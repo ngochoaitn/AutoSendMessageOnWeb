@@ -22,18 +22,6 @@ namespace AutoSendMessageOnWeb
         [STAThread]
         static void Main()
         {
-            //List<string> check = new List<string>();
-            //for (int i = 0; i < 1000; i++)
-            //{
-            //    string ht = Lib.ThaoTacWeb.DangKy.ThongTinBoSung.TaoHoTenNgauNhien();
-            //    check.Add(ht);
-            //    Debug.WriteLine($"{check.Count(p => p == ht)} {ht}");
-            //    //System.Threading.Thread.Sleep(100);
-            //}
-            //Lib.ThaoTacWeb.IGuiTinNhan x = new ehenho();
-            //ThongTinTaiKhoan tk = new ThongTinTaiKhoan() {TaiKhoan = "asbirine@gmail.com", MatKhau = "noongngocj" };
-            //x.DangNhap(ref tk);
-
             Application.ThreadException += Application_ThreadException;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

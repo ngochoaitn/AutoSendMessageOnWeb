@@ -32,6 +32,12 @@
             this.panBot = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panMid = new System.Windows.Forms.Panel();
+            this.chkTimNguoiMoiDangKy = new System.Windows.Forms.CheckBox();
+            this.chkTimNguoiMoiDangNhap = new System.Windows.Forms.CheckBox();
+            this.panTimKiemThoiGianDangNhap = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtThoiGianDangNhap = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.cbbGioiTinh = new System.Windows.Forms.ComboBox();
             this.cbbTinhTrangHonNhan = new ThuVienWinform.UI.Flat.CommonControls.CheckedComboBox();
@@ -43,8 +49,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.chkDangOnline = new System.Windows.Forms.CheckBox();
             this.panBot.SuspendLayout();
             this.panMid.SuspendLayout();
+            this.panTimKiemThoiGianDangNhap.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numTuTuoi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numDenTuoi)).BeginInit();
             this.SuspendLayout();
@@ -81,7 +89,7 @@
             // 
             this.panBot.Controls.Add(this.label3);
             this.panBot.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panBot.Location = new System.Drawing.Point(0, 182);
+            this.panBot.Location = new System.Drawing.Point(0, 281);
             this.panBot.Name = "panBot";
             this.panBot.Size = new System.Drawing.Size(302, 29);
             this.panBot.TabIndex = 1;
@@ -100,6 +108,10 @@
             // panMid
             // 
             this.panMid.BackColor = System.Drawing.Color.White;
+            this.panMid.Controls.Add(this.chkDangOnline);
+            this.panMid.Controls.Add(this.chkTimNguoiMoiDangKy);
+            this.panMid.Controls.Add(this.chkTimNguoiMoiDangNhap);
+            this.panMid.Controls.Add(this.panTimKiemThoiGianDangNhap);
             this.panMid.Controls.Add(this.label6);
             this.panMid.Controls.Add(this.cbbGioiTinh);
             this.panMid.Controls.Add(this.cbbTinhTrangHonNhan);
@@ -114,8 +126,67 @@
             this.panMid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panMid.Location = new System.Drawing.Point(0, 28);
             this.panMid.Name = "panMid";
-            this.panMid.Size = new System.Drawing.Size(302, 154);
+            this.panMid.Size = new System.Drawing.Size(302, 253);
             this.panMid.TabIndex = 2;
+            // 
+            // chkTimNguoiMoiDangKy
+            // 
+            this.chkTimNguoiMoiDangKy.AutoSize = true;
+            this.chkTimNguoiMoiDangKy.Location = new System.Drawing.Point(124, 176);
+            this.chkTimNguoiMoiDangKy.Name = "chkTimNguoiMoiDangKy";
+            this.chkTimNguoiMoiDangKy.Size = new System.Drawing.Size(133, 17);
+            this.chkTimNguoiMoiDangKy.TabIndex = 17;
+            this.chkTimNguoiMoiDangKy.Text = "Tìm người mới đăng ký";
+            this.chkTimNguoiMoiDangKy.UseVisualStyleBackColor = true;
+            this.chkTimNguoiMoiDangKy.CheckedChanged += new System.EventHandler(this.chkTimNguoiMoiDangKy_CheckedChanged);
+            // 
+            // chkTimNguoiMoiDangNhap
+            // 
+            this.chkTimNguoiMoiDangNhap.AutoSize = true;
+            this.chkTimNguoiMoiDangNhap.Location = new System.Drawing.Point(124, 120);
+            this.chkTimNguoiMoiDangNhap.Name = "chkTimNguoiMoiDangNhap";
+            this.chkTimNguoiMoiDangNhap.Size = new System.Drawing.Size(146, 17);
+            this.chkTimNguoiMoiDangNhap.TabIndex = 16;
+            this.chkTimNguoiMoiDangNhap.Text = "Tìm người mới đăng nhập";
+            this.chkTimNguoiMoiDangNhap.UseVisualStyleBackColor = true;
+            this.chkTimNguoiMoiDangNhap.CheckedChanged += new System.EventHandler(this.chkTimNguoiMoiDangNhap_CheckedChanged);
+            // 
+            // panTimKiemThoiGianDangNhap
+            // 
+            this.panTimKiemThoiGianDangNhap.Controls.Add(this.label8);
+            this.panTimKiemThoiGianDangNhap.Controls.Add(this.txtThoiGianDangNhap);
+            this.panTimKiemThoiGianDangNhap.Controls.Add(this.label7);
+            this.panTimKiemThoiGianDangNhap.Enabled = false;
+            this.panTimKiemThoiGianDangNhap.Location = new System.Drawing.Point(2, 143);
+            this.panTimKiemThoiGianDangNhap.Name = "panTimKiemThoiGianDangNhap";
+            this.panTimKiemThoiGianDangNhap.Size = new System.Drawing.Size(296, 27);
+            this.panTimKiemThoiGianDangNhap.TabIndex = 15;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(259, 10);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(28, 13);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "phút";
+            // 
+            // txtThoiGianDangNhap
+            // 
+            this.txtThoiGianDangNhap.Location = new System.Drawing.Point(121, 6);
+            this.txtThoiGianDangNhap.Name = "txtThoiGianDangNhap";
+            this.txtThoiGianDangNhap.Size = new System.Drawing.Size(132, 20);
+            this.txtThoiGianDangNhap.TabIndex = 14;
+            this.txtThoiGianDangNhap.Text = "60";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(5, 11);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(110, 13);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Mới đăng nhập được:";
             // 
             // label6
             // 
@@ -154,7 +225,7 @@
             this.btnTimKiem.BackColor = System.Drawing.Color.Transparent;
             this.btnTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTimKiem.Image = global::AutoSendMessageOnWeb.Lib.Properties.Resources._16x16_search_black;
-            this.btnTimKiem.Location = new System.Drawing.Point(124, 120);
+            this.btnTimKiem.Location = new System.Drawing.Point(123, 222);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(75, 28);
             this.btnTimKiem.TabIndex = 11;
@@ -232,12 +303,23 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Từ tuổi:";
             // 
+            // chkDangOnline
+            // 
+            this.chkDangOnline.AutoSize = true;
+            this.chkDangOnline.Location = new System.Drawing.Point(123, 199);
+            this.chkDangOnline.Name = "chkDangOnline";
+            this.chkDangOnline.Size = new System.Drawing.Size(83, 17);
+            this.chkDangOnline.TabIndex = 18;
+            this.chkDangOnline.Text = "Đang online";
+            this.chkDangOnline.UseVisualStyleBackColor = true;
+            this.chkDangOnline.CheckedChanged += new System.EventHandler(this.chkDangOnline_CheckedChanged);
+            // 
             // frmTimKiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(302, 211);
+            this.ClientSize = new System.Drawing.Size(302, 310);
             this.Controls.Add(this.panMid);
             this.Controls.Add(this.panBot);
             this.Controls.Add(this.controlBoxFlat1);
@@ -249,6 +331,8 @@
             this.panBot.PerformLayout();
             this.panMid.ResumeLayout(false);
             this.panMid.PerformLayout();
+            this.panTimKiemThoiGianDangNhap.ResumeLayout(false);
+            this.panTimKiemThoiGianDangNhap.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numTuTuoi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numDenTuoi)).EndInit();
             this.ResumeLayout(false);
@@ -272,5 +356,12 @@
         private ThuVienWinform.UI.Flat.CommonControls.CheckedComboBox cbbTinhTrangHonNhan;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cbbGioiTinh;
+        private System.Windows.Forms.TextBox txtThoiGianDangNhap;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel panTimKiemThoiGianDangNhap;
+        private System.Windows.Forms.CheckBox chkTimNguoiMoiDangNhap;
+        private System.Windows.Forms.CheckBox chkTimNguoiMoiDangKy;
+        private System.Windows.Forms.CheckBox chkDangOnline;
     }
 }

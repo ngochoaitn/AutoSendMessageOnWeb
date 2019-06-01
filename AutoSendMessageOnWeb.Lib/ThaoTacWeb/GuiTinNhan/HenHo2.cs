@@ -177,6 +177,7 @@ namespace AutoSendMessageOnWeb.Lib
 
         public IEnumerable<ThongTinTaiKhoan> TimKiem(ThongTinTimKiem param)
         {
+            Log.WriteLog("Bắt đầu tìm kiếm henho2...").Wait();
             foreach (var tinhtrang in param.HonNhan)
             {
                 int pageindex = 1;
@@ -196,15 +197,16 @@ namespace AutoSendMessageOnWeb.Lib
                     query["pageindex"] = pageindex.ToString();
                     uri.Query = query.ToString();
 
+                    Log.WriteLog($"Truy vấn {uri.Uri.ToString()}").Wait();
                     var response = RequestToWeb.GET(uri.Uri, false);
                     //var response = RequestToWeb.GET(new Uri("http://localhost:8081/"), false);
                     #endregion
-
+                    Log.WriteLog($"Truy vấn xong {uri.Uri.ToString()}").Wait();
                     #region Lấy dữ liệu
                     using (StreamReader sr = new StreamReader(response.GetResponseStream()))
                     {
                         string content = sr.ReadToEnd();
-                        content = File.ReadAllText("C:\\Users\\ngochoaitn\\Desktop\\new2.html");
+                        //content = File.ReadAllText("C:\\Users\\ngochoaitn\\Desktop\\new2.html");
                         //content = HttpUtility.HtmlDecode(content);
 
                         HtmlAgilityPack.HtmlDocument document = new HtmlAgilityPack.HtmlDocument();
@@ -212,17 +214,18 @@ namespace AutoSendMessageOnWeb.Lib
 
                         //Bảng có 24 hàng, trong đó 20 hàng dữ liệu, 1 hàng header, 2 hàng quảng cáo, 1 hàng footer
                         var bangKetQua2 = document.DocumentNode.QuerySelectorAll("table > tbody > tr").ToList();
+                        Log.WriteLog("Lấy bảng kết quả").Wait();
                         for (int i = 0; i < bangKetQua2.Count; i++)
                         {
-                            var tableData = bangKetQua2[i].QuerySelectorAll("td");
-                            if (tableData.Count() != 2)
-                                continue;
-                            var td1 = tableData.ElementAt(0);
-                            var td2 = tableData.ElementAt(1);
+                                var tableData = bangKetQua2[i].QuerySelectorAll("td");
+                                if (tableData.Count() != 2)
+                                    continue;
+                                var td1 = tableData.ElementAt(0);
+                                var td2 = tableData.ElementAt(1);
 
-                            ThongTinTaiKhoan taiKhoan = new ThongTinTaiKhoan();
+                                ThongTinTaiKhoan taiKhoan = new ThongTinTaiKhoan();
 
-                            var tenHienThi = td1.QuerySelector("a");
+                                var tenHienThi = td1.QuerySelector("a");
                             if (tenHienThi != null)
                             {
                                 string duongDan = tenHienThi.GetAttributeValue("href", "");
@@ -244,20 +247,47 @@ namespace AutoSendMessageOnWeb.Lib
                                         taiKhoan.GioiTinh = gioiTinh;
                                         taiKhoan.NoiO = ten_gioitinh_tuoi[12].Trim();
                                         taiKhoan.TinhTrangHonNhan = ten_gioitinh_tuoi[6].Trim();
+                                        //Thời gian đăng nhập
+                                        if(param.ThoiGianDangNhap.HasValue)
+                                        {
+                                            HtmlAgilityPack.HtmlDocument docThongTinCaNhan = new HtmlAgilityPack.HtmlDocument();
+                                            var thongTinCaNhan = RequestToWeb.ReadStream(RequestToWeb.GET(new Uri(taiKhoan.Url), false));
+                                            docThongTinCaNhan.LoadHtml(thongTinCaNhan);
+                                            var bangThongTin = docThongTinCaNhan.DocumentNode.QuerySelectorAll("table > tbody > tr").ToList();
+                                            var thoiGianDangNhap = bangThongTin.FirstOrDefault(p => p.InnerText.ToLower().Contains("đăng nhập"));
+                                            if (thoiGianDangNhap != null && !string.IsNullOrEmpty(thoiGianDangNhap.InnerText))
+                                            {
+                                                try
+                                                {
+                                                    DateTime thoiGianDangNhapganNhat = Convert.ToDateTime(thoiGianDangNhap.InnerText.ToLower().Replace("đăng nhập", "").TrimAll());
+                                                    if ((DateTime.Now - thoiGianDangNhapganNhat).TotalMinutes > param.ThoiGianDangNhap)
+                                                        taiKhoan = null;
+                                                }
+                                                catch { }
+                                            }
+                                        }
                                     }
-                                    catch { taiKhoan = null; }
+                                    catch (Exception ex)
+                                    {
+                                        taiKhoan = null;
+                                        Log.WriteLog($"Truy vấn xong {ex.Message}").Wait();
+                                    }
 
                                     if (taiKhoan != null)
                                         yield return taiKhoan;
                                 }
                             }
+                            if (param.DungTimKiem)
+                                break;
                         }
                         if (bangKetQua2.Count <= 1)//hết dữ liệu
                             break;
                     }
                     #endregion
-
+                    if (param.DungTimKiem)
+                        break;
                     pageindex++;
+                    Log.WriteLog($"Next trang {pageindex}").Wait();
                 }
             }
         }

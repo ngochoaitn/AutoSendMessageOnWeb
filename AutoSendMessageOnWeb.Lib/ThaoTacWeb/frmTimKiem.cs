@@ -1,18 +1,16 @@
 ﻿using AutoSendMessageOnWeb.Data;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ThuVienWinform.UI;
 
 namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb
 {
-
+    /// <summary>
+    /// Form cài đặt các giá trị tìm kiếm
+    /// </summary>
     public partial class frmTimKiem : Form
     {
         protected override void WndProc(ref Message m)
@@ -38,15 +36,20 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb
         DanhSachDuLieuTimKiem _duLieuTimKiem;
         public ThongTinTimKiem ParamTimKiem { private set; get; }
         public string ChuoiTimKiem { private set; get; }
+        IGuiTinNhan _guiTinNhan;
 
-        public frmTimKiem(IGuiTinNhan thaotacweb)
+        public frmTimKiem(IGuiTinNhan gui_tin_nhan)
         {
             InitializeComponent();
+
+            _guiTinNhan = gui_tin_nhan;
 
             ControlPlus.MovieFormWhenMouseDownControl(controlBoxFlat1, this.Handle);
             ControlPlus.MovieFormWhenMouseDownControl(controlBoxFlat1.lblFormText, this.Handle);
 
-            _duLieuTimKiem = thaotacweb.TaoDuLieuTimKiem();
+            panTimKiemThoiGianDangNhap.DataBindings.Add("Enabled", chkTimNguoiMoiDangNhap, "Checked");
+
+            _duLieuTimKiem = gui_tin_nhan.TaoDuLieuTimKiem();
 
             foreach (var noio in _duLieuTimKiem.NoiO)
                 cbbNoiO.Items.Add(noio.Value);
@@ -81,6 +84,16 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb
             this.ParamTimKiem.OtherParam.Add(gioiTinh.Value);
             this.ParamTimKiem.OtherParam.Add(cbbTinhTrangHonNhan.Text);
 
+            #region Thời gian đăng nhập
+            if (chkTimNguoiMoiDangKy.Checked)
+                this.ParamTimKiem.ThoiGianDangNhap = Convert.ToInt32(txtThoiGianDangNhap.Text);
+            else
+                this.ParamTimKiem.ThoiGianDangNhap = null;
+
+            this.ParamTimKiem.TimNguoiMoiDangKy = chkTimNguoiMoiDangKy.Checked;
+            this.ParamTimKiem.TimNguoiOnline = chkDangOnline.Checked;
+            #endregion
+
             foreach (var sl in cbbTinhTrangHonNhan.CheckedItems)
             {
                 var tinhTrang = _duLieuTimKiem.TinhTrangHonNhan.Where(p => p.TenTinhTrang == sl.ToString()).FirstOrDefault();
@@ -91,6 +104,44 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb
             this.ChuoiTimKiem = string.Format("Tuối: {0} - {1} | Giới tính: {2} | Nơi ở: {3} | Hôn nhân: {4}", this.ParamTimKiem.TuTuoi,
                                               this.ParamTimKiem.DenTuoi, cbbGioiTinh.Text, cbbNoiO.Text, cbbTinhTrangHonNhan.Text);
             this.Close();
+        }
+
+        private void chkTimNguoiMoiDangNhap_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkTimNguoiMoiDangNhap.Checked)
+            {
+                if (!(_guiTinNhan is HenHo2 || _guiTinNhan is HenHoKetBan || _guiTinNhan is VietNamCupid))
+                {
+                    MessageBox.Show("Chức năng này chỉ hỗ trợ HenHo2, HenHoKetBan, VietNamCupid");
+                    chkTimNguoiMoiDangNhap.Checked = false;
+                }
+            }
+        }
+
+        private void chkTimNguoiMoiDangKy_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkTimNguoiMoiDangKy.Checked)
+            {
+                if (!( _guiTinNhan is DuyenSo))
+                {
+                    MessageBox.Show("Chức năng này chỉ hỗ trợ DuyenSo");
+                    chkTimNguoiMoiDangKy.Checked = false;
+                }
+                chkDangOnline.Checked = false;
+            }
+        }
+
+        private void chkDangOnline_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkDangOnline.Checked)
+            {
+                if (!(_guiTinNhan is DuyenSo))
+                {
+                    MessageBox.Show("Chức năng này chỉ hỗ trợ DuyenSo");
+                    chkDangOnline.Checked = false;
+                }
+                chkTimNguoiMoiDangKy.Checked = false;
+            }
         }
     }
 }
