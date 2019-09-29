@@ -553,31 +553,6 @@ namespace AutoSendMessageOnWeb
         public void TimKiem()
         { btnTimKiem.PerformClick(); }
 
-        private void buttonFlat1_Click(object sender, EventArgs e)
-        {
-            _guiTinNhanTokenResource = new CancellationTokenSource();
-            Task.Run(() =>
-            {
-                int i = 0;
-                while(true)
-                {
-                    Debug.WriteLine((i++).ToString());
-                    Task.Delay(1000);
-                    if (_guiTinNhanTokenResource.IsCancellationRequested)
-                    {
-                        Debug.WriteLine("Break");
-                        break;
-                    }
-                }
-            }, _guiTinNhanTokenResource.Token);
-            //_guiTinNhanTokenResource.Cancel();
-        }
-
-        private void buttonFlat2_Click(object sender, EventArgs e)
-        {
-            _guiTinNhanTokenResource.Cancel();
-        }
-
         private void btnThemNoiDung_Click(object sender, EventArgs e)
         {
             this.ThemNoiDung();

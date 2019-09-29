@@ -85,7 +85,7 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb
             this.ParamTimKiem.OtherParam.Add(cbbTinhTrangHonNhan.Text);
 
             #region Thời gian đăng nhập
-            if (chkTimNguoiMoiDangKy.Checked)
+            if (chkTimNguoiMoiDangNhap.Checked)
                 this.ParamTimKiem.ThoiGianDangNhap = Convert.ToInt32(txtThoiGianDangNhap.Text);
             else
                 this.ParamTimKiem.ThoiGianDangNhap = null;
