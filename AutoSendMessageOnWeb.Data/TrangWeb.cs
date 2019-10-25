@@ -14,7 +14,8 @@ namespace AutoSendMessageOnWeb.Data
         VietNamCupid,
         LikeYou,
         HenHoKetBan,
-        TimBanGai
+        TimBanGai,
+        eHenHo
     }
     public class UriTrangWeb
     {

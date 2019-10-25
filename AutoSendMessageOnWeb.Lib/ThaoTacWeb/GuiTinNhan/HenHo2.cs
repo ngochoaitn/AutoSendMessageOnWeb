@@ -37,15 +37,6 @@ namespace AutoSendMessageOnWeb.Lib
                 tk.Cookie = new CookieContainer();
                 tk.Cookie.SetCookies(UriTrangWeb.HenHo2, setCookie);
                 tk.TrangThai = "Đang nhập thành công";
-
-                //foreach (Cookie co in tk.Cookie.GetCookies(UriTrangWeb.HenHo2))
-                //{
-                //    if (co.Name == ".ASPXAUTH")
-                //    {
-                //        tk.HanCookie = co.Expires;
-                //        break;
-                //    }
-                //}
             }
             else
             {

@@ -90,6 +90,10 @@ namespace AutoSendMessageOnWeb
                 case TrangWeb.TimBanGai:
                     _guiTinNhan = new TimBanGai();
                     break;
+                case TrangWeb.eHenHo:
+                    _guiTinNhan = new ehenho();
+                    (_guiTinNhan as ehenho).TimThayKetQua += (danh_sach) => { _danhSach = new BindingList<ThongTinTaiKhoan>(danh_sach.ToList()); XuLyDaLuong.ChangeText(lblSoLuongKetQua,$"Số lượng kết quả: {_danhSach.Count}", Color.Black);};
+                    break;
             }
         }
 
@@ -155,6 +159,8 @@ namespace AutoSendMessageOnWeb
             }
             else
             {
+                btnTimKiem.Enabled = false;
+                XuLyDaLuong.ChangeText(lblSoLuongKetQua, "Đang dừng....", Color.Black);
                 //backgroundWorkerTimKiem.CancelAsync();
                 if (tkiem != null)
                     tkiem.ParamTimKiem.DungTimKiem = true;
@@ -192,6 +198,8 @@ namespace AutoSendMessageOnWeb
                 XuLyDaLuong.ChangeText(lblTrangThaiTimKiem, "Đang nhận dữ liệu...", Color.Red);
                 foreach (var kq in _guiTinNhan.TimKiem(param))
                 {
+                    if (kq == null)
+                        continue;
                     if (token.IsCancellationRequested)
                         break;
                     if (!_danhSach.Select(p => p.Id).Contains(kq.Id))
@@ -202,6 +210,7 @@ namespace AutoSendMessageOnWeb
                     }
                 }
                 XuLyDaLuong.ChangeText(lblTrangThaiTimKiem, "Hoàn tất tìm kiếm", Color.Green);
+                btnTimKiem.Enabled = true;
 
                 thongTinTaiKhoan_TimKiemBindingSource.DataSource = _danhSach;
                 btnTimKiem.Text = "Tìm kiếm (F3)";

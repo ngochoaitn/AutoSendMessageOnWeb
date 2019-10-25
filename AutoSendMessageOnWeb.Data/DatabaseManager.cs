@@ -117,10 +117,10 @@ namespace AutoSendMessageOnWeb.Data
                     return "Data\\HenHoKetBan.tvwp";
                 case TrangWeb.TimBanGai:
                     return "Data\\TimBanGai.tvwp";
-
                 case TrangWeb.ThongTinNguoiDung:
                     return "Data\\DanhSachNguoiDung.tvwp";
-
+                case TrangWeb.eHenHo:
+                    return "Data\\eHenHo.tvwp";
                 default:
                     throw new Exception("Chưa cài đặt CSDL cho trang này");
             }

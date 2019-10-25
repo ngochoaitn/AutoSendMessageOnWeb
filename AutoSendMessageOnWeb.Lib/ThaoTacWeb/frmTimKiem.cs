@@ -110,9 +110,9 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb
         {
             if (chkTimNguoiMoiDangNhap.Checked)
             {
-                if (!(_guiTinNhan is HenHo2 || _guiTinNhan is HenHoKetBan || _guiTinNhan is VietNamCupid))
+                if (!(_guiTinNhan is HenHo2 || _guiTinNhan is HenHoKetBan || _guiTinNhan is VietNamCupid || _guiTinNhan is ehenho))
                 {
-                    MessageBox.Show("Chức năng này chỉ hỗ trợ HenHo2, HenHoKetBan, VietNamCupid");
+                    MessageBox.Show("Chức năng này chỉ hỗ trợ HenHo2, HenHoKetBan, VietNamCupid, ehenho");
                     chkTimNguoiMoiDangNhap.Checked = false;
                 }
             }

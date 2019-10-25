@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb
 {
@@ -35,7 +33,7 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb
             }
         }
 
-        public static WebResponse POST(Uri link, CookieContainer cookie, string data, bool autoread, bool allowredirect=false, string contenttype= "application/x-www-form-urlencoded")
+        public static WebResponse POST(Uri link, CookieContainer cookie, string data, bool autoread, bool allowredirect=false, string contenttype= "application/x-www-form-urlencoded", Action<HttpWebRequest> config_more=null)
         {
             try
             {
@@ -47,7 +45,10 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb
                 request.AllowAutoRedirect = allowredirect;
                 if (contenttype != null)
                     request.ContentType = contenttype;
-                //request.UserAgent = "user-agent:Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) coc_coc_browser/64.4.142 Chrome/58.4.3029.142 Safari/537.36";
+               
+                request.UserAgent = "user-agent:Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) coc_coc_browser/64.4.142 Chrome/58.4.3029.142 Safari/537.36";
+
+                config_more?.Invoke(request);
 
                 using (StreamWriter sw = new StreamWriter(request.GetRequestStream()))
                 {
