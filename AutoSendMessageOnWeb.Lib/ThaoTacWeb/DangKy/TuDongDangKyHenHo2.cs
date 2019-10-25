@@ -58,7 +58,11 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb.DangKy
             }
             string hoTen = ThongTinBoSung.TaoHoTenNgauNhien();
             var timeout = RequestToWeb.ReadStream(response.GetResponseStream());
-            string data = $"Email={tai_khoan}&Name={hoTen}&Password={mat_khau}&Sex=0&MariedStatus=0&Objective=0&Degree=1&Age=18&Height=170&Weight=50&Country=237&Province=58&Profile=Muốn hẹn hò kết bạn&LookingFor=Muốn hẹn hò kết bạn&Captcha={captcha()}";
+            Random rand = new Random();
+            List<string> profiles = new List<string>() { "Muốn hẹn hò kết bạn", "TÌm người yêu", "Cần một muối quan hệ lâu dài", "Đã có con, nếu không ngại thì inbox làm quen",
+                "Đang bị dục cưới", "Bố mẹ bắt cưới, cần tìm bạn tình gấp", "Chả có gì giới thiệu cả"};
+            
+            string data = $"Email={tai_khoan}&Name={hoTen}&Password={mat_khau}&Sex={rand.Next(0, 4)}&MariedStatus={rand.Next(0, 5)}&Objective={rand.Next(0, 4)}&Degree={rand.Next(0, 7)}&Age={rand.Next(15, 40)}&Height={rand.Next(150, 200)}&Weight={rand.Next(35, 80)}&Country=237&Province={rand.Next(1, 63)}&Profile={profiles[rand.Next(0, profiles.Count)]}&LookingFor={profiles[rand.Next(0, profiles.Count)]}&Captcha={captcha()}";
             _request = HttpWebRequest.CreateHttp("https://henho2.com/Account/DangKy");
             _request.Headers[HttpRequestHeader.Cookie] = _setCookie;
             _request.CookieContainer = _cookieContainer;
@@ -111,7 +115,11 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb.DangKy
             }
             string hoTen = ThongTinBoSung.TaoHoTenNgauNhien();
             var timeout = RequestToWeb.ReadStream(response.GetResponseStream());
-            string data = $"Email={tai_khoan}&Name={ho_ten}&Password={mat_khau}&Sex=0&MariedStatus=0&Objective=0&Degree=1&Age=18&Height=170&Weight=50&Country=237&Province=58&Profile=Muốn hẹn hò kết bạn&LookingFor=Muốn hẹn hò kết bạn&Captcha={captcha()}";
+            Random rand = new Random();
+            List<string> profiles = new List<string>() { "Muốn hẹn hò kết bạn", "TÌm người yêu", "Cần một muối quan hệ lâu dài", "Đã có con, nếu không ngại thì inbox làm quen",
+                "Đang bị dục cưới", "Bố mẹ bắt cưới, cần tìm bạn tình gấp", "Chả có gì giới thiệu cả", "Tìm người giàu có"};
+            //string data = $"Email={tai_khoan}&Name={ho_ten}&Password={mat_khau}&Sex=0&MariedStatus=0&Objective=0&Degree=1&Age=18&Height=170&Weight=50&Country=237&Province=58&Profile=Muốn hẹn hò kết bạn&LookingFor=Muốn hẹn hò kết bạn&Captcha={captcha()}";
+            string data = $"Email={tai_khoan}&Name={hoTen}&Password={mat_khau}&Sex={rand.Next(0, 4)}&MariedStatus={rand.Next(0, 5)}&Objective={rand.Next(0, 4)}&Degree={rand.Next(0, 7)}&Age={rand.Next(15, 40)}&Height={rand.Next(150, 200)}&Weight={rand.Next(35, 80)}&Country=237&Province={rand.Next(1, 63)}&Profile={profiles[rand.Next(0, profiles.Count)]}&LookingFor={profiles[rand.Next(0, profiles.Count)]}&Captcha={captcha()}";
             _request = HttpWebRequest.CreateHttp("https://henho2.com/Account/DangKy");
             _request.Headers[HttpRequestHeader.Cookie] = _setCookie;
             _request.CookieContainer = _cookieContainer;

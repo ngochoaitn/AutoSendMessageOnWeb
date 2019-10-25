@@ -106,5 +106,11 @@ namespace AutoSendMessageOnWeb.Lib.ExtentionMethod
 
             return res.Substring(1);
         }
+
+        public static T GetRandomElement<T>(this IEnumerable<T> lst)
+        {
+            Random rand = new Random();
+            return lst.ElementAt(rand.Next(0, lst.Count()));
+        }
     }
 }

@@ -57,6 +57,7 @@ namespace AutoSendMessageOnWeb
 
             cAutoHenHo2.ChoPhepDangKy(true);
             cAutoDuyenSo.ChoPhepDangKy(true);
+            cAutoEHenHo.ChoPhepDangKy(true);
         }
 
         private void CoPhienBanMoi()

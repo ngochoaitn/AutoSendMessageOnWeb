@@ -79,6 +79,7 @@
     <Compile Include="ThaoTacWeb\DangKy\ThongTinBoSung.cs" />
     <Compile Include="ThaoTacWeb\DangKy\ITuDongDangKy.cs" />
     <Compile Include="ThaoTacWeb\DangKy\TuDongDangKyDuyenSo.cs" />
+    <Compile Include="ThaoTacWeb\DangKy\TuDongDangKyEHenho.cs" />
     <Compile Include="ThaoTacWeb\DangKy\TuDongDangKyHenHo2.cs" />
     <Compile Include="ThaoTacWeb\GuiTinNhan\Badoo.cs" />
     <Compile Include="ThaoTacWeb\GuiTinNhan\DocThan.cs" />

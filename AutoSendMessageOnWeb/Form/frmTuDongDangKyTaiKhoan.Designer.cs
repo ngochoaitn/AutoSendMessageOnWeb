@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cbbGioiTinh = new System.Windows.Forms.ComboBox();
             this.grbDelay = new System.Windows.Forms.GroupBox();
             this.txtThoiGian5 = new System.Windows.Forms.TextBox();
             this.txtThoiGian4 = new System.Windows.Forms.TextBox();
@@ -47,8 +49,6 @@
             this.btnTaiCaptcha = new ThuVienWinform.UI.Flat.CommonControls.ButtonFlat();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cbbGioiTinh = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.mainPanel.SuspendLayout();
             this.grbDelay.SuspendLayout();
             this.bottomPanel.SuspendLayout();
@@ -76,6 +76,24 @@
             this.mainPanel.Padding = new System.Windows.Forms.Padding(3);
             this.mainPanel.Size = new System.Drawing.Size(594, 403);
             this.mainPanel.TabIndex = 0;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 301);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(94, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Giới tính mặc định";
+            // 
+            // cbbGioiTinh
+            // 
+            this.cbbGioiTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbGioiTinh.FormattingEnabled = true;
+            this.cbbGioiTinh.Location = new System.Drawing.Point(11, 317);
+            this.cbbGioiTinh.Name = "cbbGioiTinh";
+            this.cbbGioiTinh.Size = new System.Drawing.Size(171, 21);
+            this.cbbGioiTinh.TabIndex = 7;
             // 
             // grbDelay
             // 
@@ -283,24 +301,6 @@
             this.label1.Size = new System.Drawing.Size(89, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Danh sách email:";
-            // 
-            // cbbGioiTinh
-            // 
-            this.cbbGioiTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbGioiTinh.FormattingEnabled = true;
-            this.cbbGioiTinh.Location = new System.Drawing.Point(11, 317);
-            this.cbbGioiTinh.Name = "cbbGioiTinh";
-            this.cbbGioiTinh.Size = new System.Drawing.Size(171, 21);
-            this.cbbGioiTinh.TabIndex = 7;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 301);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 13);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Giới tính mặc định";
             // 
             // frmTuDongDangKyTaiKhoan
             // 

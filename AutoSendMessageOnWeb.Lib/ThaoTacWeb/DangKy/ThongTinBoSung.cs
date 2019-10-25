@@ -10,10 +10,9 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb.DangKy
     {
         public string GioiTinh { set; get; }
 
-
-        private static List<string> _ho = new List<string>() {"Nguyễn", "Hoàng", "Trịnh", "Mã", "Đỗ", "Hồ", "Vũ", "Lục", "Bế", "Văn", "Trần", "Lý", "Phan", "Nông", "Dương", "Đặng", "Diêm", "Ngô", "Mai"};
-        private static List<string> _tenDem = new List<string>() {"", "Văn", "Thị", "Ngọc", "Thanh", "Hồng", "Xuân", "Mai", "Đăng", "Việt", "Đình", "Diệu", "Thị Thanh", "Thị Hồng", "Ngọc Mai", "Thị Diệu"};
-        private static List<string> _ten = new List<string>() {"Bưởi", "Chi", "Diễm", "Diên", "Dung", "Đức", "Nghĩa", "Hưng", "Thanh", "Mai", "Hùng", "Hoàng", "Tú", "Kiên", "Nga", "Việt", "Huấn", "Huy", "Giỏi", "Anh", "Ánh", "Dũng", "Quyền", "Phú", "Nhận", "Cường", "An",  "Linh", "Ly", "Thủy", "Hải", "Diễm"};
+        private static List<string> _ho = new List<string>() {"Nguyễn", "Hoàng", "Trịnh", "Mã", "Đỗ", "Hồ", "Vũ", "Lục", "Bế", "Văn", "Trần", "Lý", "Phan", "Nông", "Dương", "Đặng", "Diêm", "Ngô", "Mai", "An", "Hà"};
+        private static List<string> _tenDem = new List<string>() {"", "Ngọc", "Thanh", "Hồng", "Xuân", "Mai", "Đăng", "Việt", "Đình", "Diệu", "Thanh", "Hồng", "Ngọc Mai", "Diệu", "Ngọc"};
+        private static List<string> _ten = new List<string>() {"Bưởi", "Chi", "Diễm", "Diên", "Dung", "Đức", "Nghĩa", "Hưng", "Thanh", "Mai", "Hùng", "Hoàng", "Tú", "Kiên", "Nga", "Việt", "Huấn", "Huy", "Giỏi", "Anh", "Ánh", "Dũng", "Quyền", "Phú", "Nhận", "Cường", "An",  "Linh", "Ly", "Thủy", "Hải", "Diễm", "Trang", "Khánh", "Hà"};
         private static Random rand = new Random();
         public static string TaoHoTenNgauNhien()
         {

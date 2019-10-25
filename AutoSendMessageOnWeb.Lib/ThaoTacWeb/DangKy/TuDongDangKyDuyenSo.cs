@@ -82,7 +82,8 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb.DangKy
         {
             if (_cookieContainer == null)
                 await CaptchaAsync();
-            string data = $"cmd=register&ajax=1&email={tai_khoan}&join_password={mat_khau}&join_handle={ho_ten}&day=1&month=5&year=1990&orientation={thong_tin_bo_sung.GioiTinh}&country=236&state=20014&city=200116&captcha={captcha()}";
+            Random rand = new Random();
+            string data = $"cmd=register&ajax=1&email={tai_khoan}&join_password={mat_khau}&join_handle={ho_ten}&day={rand.Next(1, 28)}&month={rand.Next(1, 12)}&year={rand.Next(1986, 2005)}&orientation={thong_tin_bo_sung.GioiTinh}&country=236&state=20014&city=200116&captcha={captcha()}";
             _request = HttpWebRequest.CreateHttp("http://duyenso.com/join.php");
             _request.Headers[HttpRequestHeader.Cookie] = _setCookie;
             _request.CookieContainer = _cookieContainer;

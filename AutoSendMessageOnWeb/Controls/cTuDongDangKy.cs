@@ -41,9 +41,14 @@ namespace AutoSendMessageOnWeb.Controls
                 case TrangWeb.DuyenSo:
                     this.TuDongDangKy = new TuDongDangKyDuyenSo();
                     break;
+                case TrangWeb.eHenHo:
+                    this.TuDongDangKy = new TuDongDangKyEHenho();
+                    txtKetQuaCaptcha.Text = "k cần";
+                    txtKetQuaCaptcha.Enabled = false;
+                    break;
             }
             _gioiTinh = gioi_tinh;
-            picCaptcha.Image = await TuDongDangKy.CaptchaAsync();
+            picCaptcha.Image = await TuDongDangKy?.CaptchaAsync();
             this.Email = email;
             this.HoTen = ho_ten;
             lblTaiKhoan.Text = $"{email} - {ho_ten}";

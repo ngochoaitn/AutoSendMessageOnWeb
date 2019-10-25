@@ -54,6 +54,10 @@ namespace AutoSendMessageOnWeb
                                                                     new Tuple<string, string>("Gay", "3"),
                                                                     new Tuple<string, string>("Les", "4")};
                     break;
+                case TrangWeb.eHenHo:
+                    _gioiTinh = new List<Tuple<string, string>>() { new Tuple<string, string>("Nam", "male"),
+                                                                    new Tuple<string, string>("Nữ", "female")};
+                    break;
             }
             foreach (var gt in _gioiTinh)
                 cbbGioiTinh.Items.Add(gt.Item1);
