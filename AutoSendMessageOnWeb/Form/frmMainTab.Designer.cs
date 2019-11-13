@@ -42,12 +42,12 @@
             this.cAutoHenHoKetBan = new AutoSendMessageOnWeb.cAuto();
             this.timBangaiTabPage = new System.Windows.Forms.TabPage();
             this.cAutoTimBanGai = new AutoSendMessageOnWeb.cAuto();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.cAutoEHenHo = new AutoSendMessageOnWeb.cAuto();
             this.controlBoxFlat1 = new ThuVienWinform.UI.Flat.CommonControls.ControlBoxFlat();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblWebChinhThuc = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.cAutoEHenHo = new AutoSendMessageOnWeb.cAuto();
             this.mainTabControl.SuspendLayout();
             this.tabHenHo2.SuspendLayout();
             this.tabDuyenSo.SuspendLayout();
@@ -55,9 +55,9 @@
             this.tabLikeYou.SuspendLayout();
             this.henHoKetBanTabPage.SuspendLayout();
             this.timBangaiTabPage.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainTabControl
@@ -196,6 +196,26 @@
             this.cAutoTimBanGai.Size = new System.Drawing.Size(923, 395);
             this.cAutoTimBanGai.TabIndex = 0;
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.cAutoEHenHo);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(929, 401);
+            this.tabPage1.TabIndex = 6;
+            this.tabPage1.Text = "ehenho.com";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // cAutoEHenHo
+            // 
+            this.cAutoEHenHo.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.cAutoEHenHo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cAutoEHenHo.Location = new System.Drawing.Point(3, 3);
+            this.cAutoEHenHo.Name = "cAutoEHenHo";
+            this.cAutoEHenHo.Size = new System.Drawing.Size(923, 395);
+            this.cAutoEHenHo.TabIndex = 0;
+            // 
             // controlBoxFlat1
             // 
             this.controlBoxFlat1.BackColor = System.Drawing.Color.Transparent;
@@ -256,26 +276,6 @@
             this.panel2.Size = new System.Drawing.Size(939, 429);
             this.panel2.TabIndex = 3;
             // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.cAutoEHenHo);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(929, 401);
-            this.tabPage1.TabIndex = 6;
-            this.tabPage1.Text = "ehenho.com";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // cAutoEHenHo
-            // 
-            this.cAutoEHenHo.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.cAutoEHenHo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cAutoEHenHo.Location = new System.Drawing.Point(3, 3);
-            this.cAutoEHenHo.Name = "cAutoEHenHo";
-            this.cAutoEHenHo.Size = new System.Drawing.Size(923, 395);
-            this.cAutoEHenHo.TabIndex = 0;
-            // 
             // frmMainTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -301,10 +301,10 @@
             this.tabLikeYou.ResumeLayout(false);
             this.henHoKetBanTabPage.ResumeLayout(false);
             this.timBangaiTabPage.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

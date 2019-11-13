@@ -77,6 +77,7 @@ namespace AutoSendMessageOnWeb.Lib
                 res.Cookie = new CookieContainer();
                 res.Cookie.SetCookies(UriTrangWeb.HenHo2, setCookie);
                 res.TrangThai = "Đang nhập thành công";
+                res.ChoPhepGuiNhan = true;
             }
             else
             {

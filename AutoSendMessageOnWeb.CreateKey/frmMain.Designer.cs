@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.controlBoxFlat1 = new ThuVienWinform.UI.Flat.CommonControls.ControlBoxFlat();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
@@ -38,22 +38,23 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtNhieuMa = new ThuVienWinform.UI.Flat.CommonControls.TextBoxFlat();
             this.btnTaoNhieuMa = new ThuVienWinform.UI.Flat.CommonControls.ButtonFlat();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.dateHanNhieuMa = new System.Windows.Forms.DateTimePicker();
-            this.thongTinNguoiDungBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridViewFlat1 = new ThuVienWinform.UI.Flat.Data.DataGridViewFlat();
             this.tenMayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mACDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.thongTinNguoiDungBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnThemNguoiDungMoi = new ThuVienWinform.UI.Flat.CommonControls.ButtonFlat();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.btnTaoKhoaMoi = new ThuVienWinform.UI.Flat.CommonControls.ButtonFlat();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.thongTinNguoiDungBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFlat1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.thongTinNguoiDungBindingSource)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -162,6 +163,13 @@
             this.btnTaoNhieuMa.UseVisualStyleBackColor = false;
             this.btnTaoNhieuMa.Click += new System.EventHandler(this.btnTaoNhieuMa_Click);
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "16x162h4lu2c.png");
+            this.imageList1.Images.SetKeyName(1, "16x16publisher.png");
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -178,10 +186,6 @@
             this.dateHanNhieuMa.Name = "dateHanNhieuMa";
             this.dateHanNhieuMa.Size = new System.Drawing.Size(95, 20);
             this.dateHanNhieuMa.TabIndex = 9;
-            // 
-            // thongTinNguoiDungBindingSource
-            // 
-            this.thongTinNguoiDungBindingSource.DataSource = typeof(AutoSendMessageOnWeb.Data.ThongTinNguoiDung);
             // 
             // groupBox1
             // 
@@ -202,14 +206,14 @@
             this.dataGridViewFlat1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewFlat1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewFlat1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewFlat1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewFlat1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewFlat1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewFlat1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.tenMayDataGridViewTextBoxColumn,
@@ -239,8 +243,13 @@
             this.mACDataGridViewTextBoxColumn.Name = "mACDataGridViewTextBoxColumn";
             this.mACDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // thongTinNguoiDungBindingSource
+            // 
+            this.thongTinNguoiDungBindingSource.DataSource = typeof(AutoSendMessageOnWeb.Data.ThongTinNguoiDung);
+            // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btnTaoKhoaMoi);
             this.panel3.Controls.Add(this.btnThemNguoiDungMoi);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(3, 236);
@@ -263,12 +272,19 @@
             this.btnThemNguoiDungMoi.UseVisualStyleBackColor = false;
             this.btnThemNguoiDungMoi.Click += new System.EventHandler(this.btnThemNguoiDungMoi_Click);
             // 
-            // imageList1
+            // btnTaoKhoaMoi
             // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "16x162h4lu2c.png");
-            this.imageList1.Images.SetKeyName(1, "16x16publisher.png");
+            this.btnTaoKhoaMoi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnTaoKhoaMoi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTaoKhoaMoi.ImageList = this.imageList1;
+            this.btnTaoKhoaMoi.Location = new System.Drawing.Point(150, 2);
+            this.btnTaoKhoaMoi.Name = "btnTaoKhoaMoi";
+            this.btnTaoKhoaMoi.Size = new System.Drawing.Size(117, 29);
+            this.btnTaoKhoaMoi.TabIndex = 1;
+            this.btnTaoKhoaMoi.Text = "Tạo khóa mới";
+            this.btnTaoKhoaMoi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnTaoKhoaMoi.UseVisualStyleBackColor = false;
+            this.btnTaoKhoaMoi.Click += new System.EventHandler(this.btnTaoKhoaMoi_Click);
             // 
             // frmMain
             // 
@@ -291,9 +307,9 @@
             this.panel2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.thongTinNguoiDungBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFlat1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.thongTinNguoiDungBindingSource)).EndInit();
             this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -318,6 +334,7 @@
         private ThuVienWinform.UI.Flat.CommonControls.TextBoxFlat txtNhieuMa;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ImageList imageList1;
+        private ThuVienWinform.UI.Flat.CommonControls.ButtonFlat btnTaoKhoaMoi;
     }
 }
 

@@ -3,20 +3,18 @@ using AutoSendMessageOnWeb.Lib.ExtentionMethod;
 using AutoSendMessageOnWeb.Lib.Security;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ThuVienWinform.UI;
 
 namespace AutoSendMessageOnWeb.CreateKey
 {
-    public partial class frmMain : Form
+    public partial class frmMainV2 : Form
     {
         DatabaseManager _db;
+        ThongTinNguoiDung NguoiDung = new ThongTinNguoiDung();
 
         protected override void WndProc(ref Message m)
         {
@@ -38,7 +36,7 @@ namespace AutoSendMessageOnWeb.CreateKey
             base.WndProc(ref m);
         }
 
-        public frmMain()
+        public frmMainV2()
         {
             InitializeComponent();
 
@@ -74,21 +72,39 @@ namespace AutoSendMessageOnWeb.CreateKey
 
         private void btnTaoNhieuMa_Click(object sender, EventArgs e)
         {
-            txtNhieuMa.Text = "";
-            foreach (ThongTinNguoiDung nguoidung in thongTinNguoiDungBindingSource)
-            {
-                string s1 = string.Format("Máy: [{0}][{1}\r\n", nguoidung.TenMay, nguoidung.MAC);
-                string s2 = string.Format("Mã : {0}\r\n", nguoidung.TaoMaSuDung(dateHanNhieuMa.Value));
-                string s3 = new string('-', 20);
-
-                txtNhieuMa.AppendText(string.Format("{0}{1}{2}\r\n", s1, s2, s3));
-            }
+                txtMaKichHoat.Text = NguoiDung.TaoMaSuDung(dateHanNhieuMa.Value);
         }
 
         private void btnTaoKhoaMoi_Click(object sender, EventArgs e)
         {
             Crypto.CreateKey(2048);
             MessageBox.Show($"Đã tạo khóa mới\r\nVui lòng cung cấp tệp \"{ConstFilePath.FILE_PUBLICKEY}\" cho khách hàng!");
+        }
+
+        private void txtMaMay_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                NguoiDung = new ThongTinNguoiDung();
+                NguoiDung.LayThongTin(txtMaMay.Text);
+
+                lblThongTinMay.Text = $"MAC: {NguoiDung.MAC} - Tên máy: {NguoiDung.TenMay}";
+                btnTaoNhieuMa.Enabled = true;
+            }
+            catch
+            {
+                lblThongTinMay.Text = "Mã máy không đúng";
+                btnTaoNhieuMa.Enabled = false;
+            }
+        }
+
+        private void frmMainV2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Control && e.Shift && e.KeyCode == Keys.T)
+            {
+                Crypto.CreateKey(2048);
+                MessageBox.Show($"Đã tạo khóa mới\r\nVui lòng cung cấp tệp \"{ConstFilePath.FILE_PUBLICKEY}\" cho khách hàng!");
+            }
         }
     }
 }

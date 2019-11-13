@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AutoSendMessageOnWeb.CreateKey</RootNamespace>
-    <AssemblyName>AutoSendMessageOnWeb.CreateKey</AssemblyName>
+    <AssemblyName>CreateKey</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -64,6 +64,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmMainV2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMainV2.Designer.cs">
+      <DependentUpon>frmMainV2.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmMainV2.resx">
+      <DependentUpon>frmMainV2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>

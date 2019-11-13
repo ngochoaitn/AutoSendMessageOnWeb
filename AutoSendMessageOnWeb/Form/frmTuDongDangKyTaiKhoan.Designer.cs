@@ -79,6 +79,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 301);
             this.label3.Name = "label3";
@@ -88,6 +89,7 @@
             // 
             // cbbGioiTinh
             // 
+            this.cbbGioiTinh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cbbGioiTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbGioiTinh.FormattingEnabled = true;
             this.cbbGioiTinh.Location = new System.Drawing.Point(11, 317);

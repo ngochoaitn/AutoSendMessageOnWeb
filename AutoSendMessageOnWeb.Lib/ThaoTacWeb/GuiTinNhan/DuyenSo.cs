@@ -46,6 +46,7 @@ namespace AutoSendMessageOnWeb.Lib
                     tk.Cookie = new CookieContainer();
                     tk.Cookie.SetCookies(UriTrangWeb.DuyenSo, setCookie);
                     tk.TrangThai = "Đang nhập thành công";
+                    tk.ChoPhepGuiNhan = true;
                 }
                 else
                 {

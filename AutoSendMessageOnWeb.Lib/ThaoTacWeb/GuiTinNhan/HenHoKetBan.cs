@@ -46,6 +46,7 @@ namespace AutoSendMessageOnWeb.Lib
             if (dangNhapStringResponse.Contains("ĐĂNG NHẬP THÀNH CÔNG"))
             {
                 tk.TrangThai = "Đăng nhập thành công";
+                tk.ChoPhepGuiNhan = true;
                 #region Lấy Id, tên hiển thị dùng để gửi thư
                 try
                 {

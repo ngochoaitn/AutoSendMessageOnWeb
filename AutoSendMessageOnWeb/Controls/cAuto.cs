@@ -344,6 +344,8 @@ namespace AutoSendMessageOnWeb
                             grvTimKiem.Focus();
                             break;
                         }
+                        if (!nguoiGui.ChoPhepGuiNhan)
+                            break;
                         await Task.Delay(thoiGianCho * 1000);
                         thongTinTaiKhoan_TimKiemBindingSource.EndEdit();
                         grvTimKiem.Refresh();
@@ -366,6 +368,7 @@ namespace AutoSendMessageOnWeb
             XuLyDaLuong.ChangeText(lblTrangThai, string.Format("Hoàn tất gửi tin ({0}/{1})", demGui - 1, soThuSeGui), Color.Black);
             btnGuiTin.Text = "Gửi tin nhắn";
             btnGuiTin.BackColor = Color.LightSkyBlue;
+            grvTimKiem.Refresh();
         }
 
         private async Task CheDo2()
@@ -586,6 +589,22 @@ namespace AutoSendMessageOnWeb
             panTopThongTinGui.Controls.Add(noiDungMoi);
             btnGuiTin.Enabled = true;
             noiDungMoi.BringToFront();
+        }
+
+        private void càiĐạtSLGửiTheoTàiKhoảnNàyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ThongTinTaiKhoan taiKhoan = thongTinTaiKhoan_GuiBindingSource.Current as ThongTinTaiKhoan;
+            if (taiKhoan != null)
+            {
+                foreach(ThongTinTaiKhoan tk in thongTinTaiKhoan_GuiBindingSource)
+                    tk.SoThuSeGui = taiKhoan.SoThuSeGui;
+                thongTinTaiKhoan_GuiBindingSource.EndEdit();
+                grvGui.Refresh();
+            }
+            else
+            {
+                MessageBox.Show("Chưa chọn tài khoản");
+            }
         }
 
         private void btnDangKyTaiKhoan_Click(object sender, EventArgs e)

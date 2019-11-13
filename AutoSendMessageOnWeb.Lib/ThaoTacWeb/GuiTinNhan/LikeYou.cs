@@ -41,6 +41,7 @@ namespace AutoSendMessageOnWeb.Lib
             {
                 tk.Id = dangNhapResponse.ResponseUri.ToString().Split('=')[1];
                 tk.TrangThai = "Đang nhập thành công";
+                tk.ChoPhepGuiNhan = true;
             }
             else
             {

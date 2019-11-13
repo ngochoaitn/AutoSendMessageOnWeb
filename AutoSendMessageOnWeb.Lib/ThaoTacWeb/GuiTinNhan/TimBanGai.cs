@@ -36,7 +36,10 @@ namespace AutoSendMessageOnWeb.Lib
             var dangNhap_Header = RequestToWeb.ReadHeader(dangNhap_Response.Headers);
 
             if (dangNhap_string == "")
+            {
                 tk.TrangThai = "Đang nhập thành công";
+                tk.ChoPhepGuiNhan = true;
+            }
             else
                 tk.TrangThai = "Sai tài khoản hoặc mật khẩu";
         }

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Web;
 
 namespace AutoSendMessageOnWeb.Lib
@@ -35,7 +36,21 @@ namespace AutoSendMessageOnWeb.Lib
             tk.Cookie = new CookieContainer();
 
             #region Login 1: Get first Cookie, Parameter
-            var loginResponse = RequestToWeb.GET(new Uri("https://www.vietnamcupid.com/en/auth/login"), false, false, tk.Cookie);
+            HttpClient client = new HttpClient();
+            client.DefaultRequestHeaders.Add("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3");
+            client.DefaultRequestHeaders.Add("Accept-Language", "vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5");
+            client.DefaultRequestHeaders.Add("Accept-Encoding", "gzip, deflate, br");
+
+            client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) coc_coc_browser/78.0.136 Chrome/72.0.3626.136 Safari/537.36");
+            var x = client.GetAsync("https://www.vietnamcupid.com/en/auth/login").Result.ReadStringAsync().Result;
+
+            var loginResponse = RequestToWeb.GET(new Uri("https://www.vietnamcupid.com/en/auth/login"), false, true, tk.Cookie,
+                (req) =>
+                {
+                    //req.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3";
+                    req.Headers.Add(HttpRequestHeader.AcceptLanguage, "vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5");
+                    req.Headers.Add(HttpRequestHeader.AcceptEncoding, "gzip, deflate, br");
+                });
             var loginPageHtml = RequestToWeb.ReadStream(loginResponse);
             HtmlAgilityPack.HtmlDocument docLogin = new HtmlAgilityPack.HtmlDocument();
             docLogin.LoadHtml(loginPageHtml);
@@ -43,16 +58,21 @@ namespace AutoSendMessageOnWeb.Lib
             #endregion Login 1: Get first Cookie
 
             #region Login 2: Get login cookie
-            string loginData = string.Format("Email={0}&password={1}&RememberMe=1", tk.TaiKhoan, tk.MatKhau);
+            string ioBB = docLogin.GetElementbyId("ioBB").GetAttributeValue("value", "");
+            string mht = docLogin.DocumentNode.SelectSingleNode("//input[@type='hidden' and @name='mht']").Attributes["value"].Value;
+
+            string loginData = $"mht={mht}&page=&email={tk.TaiKhoan}&password={tk.MatKhau}&RememberMe=on&ioBB={ioBB}";
             var loginResponse2 = RequestToWeb.POST(new Uri("https://www.vietnamcupid.com/logon_do.cfm"), tk.Cookie, loginData, true);// loginRequest2.GetResponse();
 
             string sLoginCookie2 = loginResponse2.Headers[HttpResponseHeader.SetCookie];
             string sLoginLoc2 = loginResponse2.Headers[HttpResponseHeader.Location];
             tk.TrangThai = "Đang nhập thành công";
+            tk.ChoPhepGuiNhan = true;
             if (sLoginLoc2.Contains("error"))
             {
                 tk.TrangThai = "Sai tài khoản hoặc mật khẩu";
                 tk.Cookie = null;
+                tk.ChoPhepGuiNhan = false;
             }
             //Https chưa lưu được cookie
             //else

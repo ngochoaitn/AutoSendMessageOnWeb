@@ -9,7 +9,7 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb
 {
     public class RequestToWeb
     {
-        public static WebResponse GET(Uri link, bool autoread, bool autoredirect=true, CookieContainer cookie=null)
+        public static WebResponse GET(Uri link, bool autoread, bool autoredirect=true, CookieContainer cookie=null, Action<HttpWebRequest> config_more=null)
         {
             HttpWebRequest request = WebRequest.CreateHttp(link);
             request.AllowAutoRedirect = autoredirect;
@@ -19,6 +19,7 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb
                 request.UserAgent = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) coc_coc_browser/78.0.136 Chrome/72.0.3626.136 Safari/537.36";
                 if (cookie != null)
                     request.CookieContainer = cookie;
+                config_more?.Invoke(request);
                 //request.KeepAlive = false;
                 var response = request.GetResponse();
 
@@ -34,7 +35,7 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb
             }
         }
 
-        public static async Task<WebResponse> GETAsync(Uri link, bool autoread, bool autoredirect = true, CookieContainer cookie = null)
+        public static async Task<WebResponse> GETAsync(Uri link, bool autoread, bool autoredirect = true, CookieContainer cookie = null, Action<HttpWebRequest> config_more = null)
         {
             HttpWebRequest request = WebRequest.CreateHttp(link);
             request.AllowAutoRedirect = autoredirect;
@@ -44,6 +45,7 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb
                 request.UserAgent = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) coc_coc_browser/78.0.136 Chrome/72.0.3626.136 Safari/537.36";
                 if (cookie != null)
                     request.CookieContainer = cookie;
+                config_more?.Invoke(request);
                 //request.KeepAlive = false;
                 var response = await request.GetResponseAsync();
 

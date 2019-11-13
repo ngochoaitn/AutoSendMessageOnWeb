@@ -18,7 +18,7 @@ namespace AutoSendMessageOnWeb.Lib
     {
         public CookieContainer Cookie { set; get; }
 
-        public bool TimKiemYeuCauCookie => true;
+        public bool TimKiemYeuCauCookie => false;
 
         public void DangNhap(ref ThongTinTaiKhoan tk)
         {
@@ -40,6 +40,7 @@ namespace AutoSendMessageOnWeb.Lib
             if((response as HttpWebResponse)?.StatusCode == HttpStatusCode.Found)
             {
                 tk.TrangThai = "Đang nhập thành công";
+                tk.ChoPhepGuiNhan = true;
             }
             else
             {
@@ -56,19 +57,28 @@ namespace AutoSendMessageOnWeb.Lib
             document.LoadHtml(htmlText);
             var csrfmiddlewaretoken = document.DocumentNode.SelectSingleNode("//input[@type='hidden' and @name='csrfmiddlewaretoken']").Attributes["value"].Value;
             string data = $"csrfmiddlewaretoken={csrfmiddlewaretoken}&body={noidung}&send=      Gửi!      ";
-            RequestToWeb.POST(new Uri(nguoinhan.Url), nguoigui.Cookie, data, true, true,
+            string responseHtml = RequestToWeb.ReadStream(RequestToWeb.POST(new Uri(nguoinhan.Url), nguoigui.Cookie, data, false, true,
                 config_more:(request) => {
                     request.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3";
                     request.Referer = nguoinhan.Url;
-                });
-            nguoinhan.TrangThai = nguoigui.TaiKhoan;
+                }));
+            if (responseHtml.Contains("Thư gửi không thành công!"))
+            {
+                nguoinhan.TrangThai = nguoigui.TrangThai = "Gửi lỗi\nQuá giới hạn 48 thư";
+                nguoigui.ChoPhepGuiNhan = false;
+            }
+            else
+            {
+                nguoinhan.TrangThai = nguoigui.TaiKhoan;
+            }
         }
 
         public DanhSachDuLieuTimKiem TaoDuLieuTimKiem()
         {
             DanhSachDuLieuTimKiem res = new DanhSachDuLieuTimKiem();
 
-            HttpWebResponse resposne = RequestToWeb.GET(new Uri("https://www.ehenho.com/tim-ban-cac-noi-o-chinh/"), false, true, Cookie) as HttpWebResponse;
+            //HttpWebResponse resposne = RequestToWeb.GET(new Uri("https://www.ehenho.com/tim-ban-cac-noi-o-chinh/"), false, true, Cookie) as HttpWebResponse;
+            HttpWebResponse resposne = RequestToWeb.GET(new Uri("https://www.ehenho.com/tim-ban-bon-phuong-theo-noi-o/"), false, true, Cookie) as HttpWebResponse;
             HtmlDocument document = new HtmlDocument();
             document.LoadHtml(RequestToWeb.ReadStream(resposne.GetResponseStream()));
             foreach (HtmlNode node in document.DocumentNode.QuerySelectorAll("a").Where(p => p.OuterHtml.Contains("/tim-ban-bon-phuong/")))
@@ -131,80 +141,87 @@ namespace AutoSendMessageOnWeb.Lib
         {
            return Task.Run<ThongTinTaiKhoan>(() =>
            {
-               string log = $"{DateTime.Now.ToString("HH:mm:ss")} -> ";
-               ThongTinTaiKhoan tk = new ThongTinTaiKhoan();
-
-               var thongTinKq = kq.QuerySelector("p");
-               var spanKq = thongTinKq?.QuerySelectorAll("span");
-
-               var ten_tuoi_tinhTrang = spanKq.ElementAt(0);
-
-               var ten_tuoi_tinh_trang_a = ten_tuoi_tinhTrang?.QuerySelectorAll("a");
-
-               var ten = ten_tuoi_tinh_trang_a.ElementAt(0);
-               tk.TenHienThi = ten.InnerText;
-               tk.Url = $"https://www.ehenho.com{ten.GetAttributeValue("href", "")}";
-               tk.Id = tk.Url?.Split(new[] { "/" }, StringSplitOptions.RemoveEmptyEntries)?.Last();
-               tk.Tuoi = ten_tuoi_tinhTrang.InnerText.Split(new[] { "&nbsp;" }, StringSplitOptions.RemoveEmptyEntries)?.ElementAt(1)?.Trim()?.ConvertToInt32();
-               if (string.IsNullOrEmpty(tk.Id) || tk.Tuoi == null || tk.Tuoi > param.DenTuoi || tk.Tuoi < param.TuTuoi)
+               try
                {
-                   Debug.WriteLine($"{log}{DateTime.Now.ToString("HH:mm:ss")} Faild (không đủ tuổi: {tk.Tuoi})");
-                   return null;
-               }
+                   string log = $"{DateTime.Now.ToString("HH:mm:ss")} -> ";
+                   ThongTinTaiKhoan tk = new ThongTinTaiKhoan();
 
-               #region Tỉnh trạng hôn nhân
-               tk.TinhTrangHonNhan = ten_tuoi_tinh_trang_a.ElementAt(1)?.InnerText;
-               if (!param.HonNhan.Select(p => p.TenTinhTrang).Contains("Tất cả") && !param.HonNhan.Select(p => p.Id).Contains(ten_tuoi_tinh_trang_a.ElementAt(1).GetAttributeValue("href", "")))
-                   if (tk.GioiTinh != param.GioiTinh.ToString())
+                   var thongTinKq = kq.QuerySelector("p");
+                   var spanKq = thongTinKq?.QuerySelectorAll("span");
+
+                   var ten_tuoi_tinhTrang = spanKq.ElementAt(0);
+
+                   var ten_tuoi_tinh_trang_a = ten_tuoi_tinhTrang?.QuerySelectorAll("a");
+
+                   var ten = ten_tuoi_tinh_trang_a.ElementAt(0);
+                   tk.TenHienThi = ten.InnerText;
+                   tk.Url = $"https://www.ehenho.com{ten.GetAttributeValue("href", "")}";
+                   tk.Id = tk.Url?.Split(new[] { "/" }, StringSplitOptions.RemoveEmptyEntries)?.Last();
+                   tk.Tuoi = ten_tuoi_tinhTrang.InnerText.Split(new[] { "&nbsp;" }, StringSplitOptions.RemoveEmptyEntries)?.ElementAt(1)?.Trim()?.ConvertToInt32();
+                   if (string.IsNullOrEmpty(tk.Id) || tk.Tuoi == null || tk.Tuoi > param.DenTuoi || tk.Tuoi < param.TuTuoi)
                    {
-                       Debug.WriteLine($"{log}{DateTime.Now.ToString("HH:mm:ss")} Faild (Tình trạng hôn nhân: {tk.TinhTrangHonNhan})");
+                       Debug.WriteLine($"{log}{DateTime.Now.ToString("HH:mm:ss")} Faild (không đủ tuổi: {tk.Tuoi})");
                        return null;
                    }
-               #endregion Tình trạng hôn nhân
 
-               #region Nơi ở
-               var noiO = spanKq.ElementAt(1);
-               var noiO_a = noiO.QuerySelectorAll("a");
-               List<string> diaChi = new List<string>();
-               for (int i = 1; i < noiO_a.Count(); i++)
-                   diaChi.Add(noiO_a.ElementAt(i).InnerText);
-               tk.NoiO = string.Join(", ", diaChi);
-               #endregion Nơi ở
-
-               #region Giới tính (có thể lấy thông tin qua cách này luôn cho dễ với đầy đủ)
-               tk.GioiTinh = "Tất cả";
-               if (param.GioiTinh.ToString() != "Tất cả" || param.ThoiGianDangNhap.HasValue)
-               {
-                   HtmlDocument docChiTiet = new HtmlDocument();
-                   docChiTiet.LoadHtml(RequestToWeb.ReadStream(RequestToWeb.GET(new Uri(tk.Url), false, true, this.Cookie)));
-                   var allRow = docChiTiet?.DocumentNode?.QuerySelectorAll("table > tr");
-                   if (param.GioiTinh.ToString() != "Tất cả")
-                   {
-                       tk.GioiTinh = allRow?.ElementAt(6)?.QuerySelectorAll("td")?.Last()?.InnerText?.Split(' ')?.First();
+                   #region Tỉnh trạng hôn nhân
+                   tk.TinhTrangHonNhan = ten_tuoi_tinh_trang_a.ElementAt(1)?.InnerText;
+                   if (!param.HonNhan.Select(p => p.TenTinhTrang).Contains("Tất cả") && !param.HonNhan.Select(p => p.Id).Contains(ten_tuoi_tinh_trang_a.ElementAt(1).GetAttributeValue("href", "")))
                        if (tk.GioiTinh != param.GioiTinh.ToString())
                        {
-                           Debug.WriteLine($"{log}{DateTime.Now.ToString("HH:mm:ss")} Faild (Giới tính: {tk.GioiTinh})");
+                           Debug.WriteLine($"{log}{DateTime.Now.ToString("HH:mm:ss")} Faild (Tình trạng hôn nhân: {tk.TinhTrangHonNhan})");
                            return null;
                        }
-                   }
+                   #endregion Tình trạng hôn nhân
 
-                   if(param.ThoiGianDangNhap.HasValue)
+                   #region Nơi ở
+                   var noiO = spanKq.ElementAt(1);
+                   var noiO_a = noiO.QuerySelectorAll("a");
+                   List<string> diaChi = new List<string>();
+                   for (int i = 1; i < noiO_a.Count(); i++)
+                       diaChi.Add(noiO_a.ElementAt(i).InnerText);
+                   tk.NoiO = string.Join(", ", diaChi);
+                   #endregion Nơi ở
+
+                   #region Giới tính (có thể lấy thông tin qua cách này luôn cho dễ với đầy đủ)
+                   tk.GioiTinh = "Tất cả";
+                   if (param.GioiTinh.ToString() != "Tất cả" || param.ThoiGianDangNhap.HasValue)
                    {
-                       try
+                       HtmlDocument docChiTiet = new HtmlDocument();
+                       docChiTiet.LoadHtml(RequestToWeb.ReadStream(RequestToWeb.GET(new Uri(tk.Url), false, true, this.Cookie)));
+                       var allRow = docChiTiet?.DocumentNode?.QuerySelectorAll("table > tr");
+                       if (param.GioiTinh.ToString() != "Tất cả")
                        {
-                           DateTime thoiGianDangNhapganNhat = Convert.ToDateTime(allRow?.ElementAt(allRow.Count() - 2)?.QuerySelectorAll("td")?.Last()?.InnerText?.Replace(".", ""));
-                           if ((DateTime.Now - thoiGianDangNhapganNhat).TotalMinutes > param.ThoiGianDangNhap)
+                           tk.GioiTinh = allRow?.ElementAt(6)?.QuerySelectorAll("td")?.Last()?.InnerText?.Split(' ')?.First();
+                           if (tk.GioiTinh != param.GioiTinh.ToString())
                            {
-                               Debug.WriteLine($"{log}{DateTime.Now.ToString("HH:mm:ss")} Faild (Thời gian đăng nhập: {thoiGianDangNhapganNhat.ToString("dd/MM/yyyy HH:mm")})");
+                               Debug.WriteLine($"{log}{DateTime.Now.ToString("HH:mm:ss")} Faild (Giới tính: {tk.GioiTinh})");
                                return null;
                            }
                        }
-                       catch { }
+
+                       if (param.ThoiGianDangNhap.HasValue)
+                       {
+                           try
+                           {
+                               DateTime thoiGianDangNhapganNhat = Convert.ToDateTime(allRow?.ElementAt(allRow.Count() - 2)?.QuerySelectorAll("td")?.Last()?.InnerText?.Replace(".", ""));
+                               if ((DateTime.Now - thoiGianDangNhapganNhat).TotalMinutes > param.ThoiGianDangNhap)
+                               {
+                                   Debug.WriteLine($"{log}{DateTime.Now.ToString("HH:mm:ss")} Faild (Thời gian đăng nhập: {thoiGianDangNhapganNhat.ToString("dd/MM/yyyy HH:mm")})");
+                                   return null;
+                               }
+                           }
+                           catch { }
+                       }
                    }
+                   #endregion Giới tính
+                   Debug.WriteLine($"{log}{DateTime.Now.ToString("HH:mm:ss")} OK: {tk.Url}");
+                   return tk;
                }
-               #endregion Giới tính
-               Debug.WriteLine($"{log}{DateTime.Now.ToString("HH:mm:ss")} Faild OK: {tk.Url}");
-               return tk;
+               catch(Exception ex)
+               {
+                   return null;
+               }
            });
         }
 

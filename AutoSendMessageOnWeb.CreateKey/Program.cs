@@ -22,7 +22,7 @@ namespace AutoSendMessageOnWeb.CreateKey
 
             StartUpOperation.CheckFile();
 
-            Application.Run(new frmMain());
+            Application.Run(new frmMainV2());
         }
 
         private static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)

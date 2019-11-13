@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -112,5 +113,27 @@ namespace AutoSendMessageOnWeb.Lib.ExtentionMethod
             Random rand = new Random();
             return lst.ElementAt(rand.Next(0, lst.Count()));
         }
+
+        public static async Task<string> ReadStringAsync(this HttpContent content)
+        {
+            byte[] bytes = await content.ReadAsByteArrayAsync();
+
+            Encoding encoding = Encoding.GetEncoding("utf-8");
+            string responseString = encoding.GetString(bytes, 0, bytes.Length);
+            return responseString;
+        }
+
+        public static async Task<string> ReadStringAsync(this HttpResponseMessage response)
+        {
+            return await response?.Content?.ReadStringAsync() ?? null;
+        }
+
+        public static async Task<string> DownloadStringAsync(this HttpClient client, string url)
+        {
+            var response = await client.GetAsync(url);
+            string content = await response.Content.ReadStringAsync();
+            return content;
+        }
+
     }
 }

@@ -18,7 +18,7 @@ namespace AutoSendMessageOnWeb.Data
         public string TenHienThi { set; get; }
         public string TrangThai { set; get; }
         [DefaultValue(true)]
-        public bool ChoPhepGuiNhan { set; get; }
+        public bool ChoPhepGuiNhan { set; get; } = true;
 
         public int SoThuSeGui
         {
