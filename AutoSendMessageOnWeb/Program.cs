@@ -1,5 +1,6 @@
 ﻿using AutoSendMessageOnWeb.Data;
 using AutoSendMessageOnWeb.Lib;
+using AutoSendMessageOnWeb.Lib.ExtentionMethod;
 using AutoSendMessageOnWeb.Lib.Security;
 using System;
 using System.Collections.Generic;
@@ -71,6 +72,7 @@ namespace AutoSendMessageOnWeb
             }
             if (XayRaLoi != null)
                 XayRaLoi();
+            Log.WriteLog("Error.txt", $"{ex.Message}\r\n{ex.ReadAllStatcktrace()}\r\n--------------------------------------");
             MessageBox.Show(loi, "Đã xẩy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }

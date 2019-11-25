@@ -1,5 +1,6 @@
 ﻿using AutoSendMessageOnWeb.Controls;
 using AutoSendMessageOnWeb.Data;
+using AutoSendMessageOnWeb.Lib.ExtentionMethod;
 using AutoSendMessageOnWeb.Lib.ThaoTacControl;
 using AutoSendMessageOnWeb.Lib.ThaoTacWeb.DangKy;
 using System;
@@ -15,11 +16,13 @@ using ThuVienWinform.UI;
 
 namespace AutoSendMessageOnWeb
 {
-    public partial class frmTuDongDangKyTaiKhoan : Form
+    public partial class frmTuDongDangKyTaiKhoan_HangLoat : Form
     {
         TrangWeb _trang;
         private bool _allowResize = true;
         private List<Tuple<string, string>> _gioiTinh;
+        public ITuDongDangKy TuDongDangKy { set; get; }
+        bool _dung = false;
 
         public List<ThongTinTaiKhoan> DanhSachTaiKhoanDaDangKy { private set; get; }
 
@@ -35,33 +38,30 @@ namespace AutoSendMessageOnWeb
             }
         }
 
-        public frmTuDongDangKyTaiKhoan(TrangWeb trang)
+        public frmTuDongDangKyTaiKhoan_HangLoat(TrangWeb trang)
         {
             InitializeComponent();
             _trang = trang;
             this.DanhSachTaiKhoanDaDangKy = new List<ThongTinTaiKhoan>();
             switch(trang)
             {
-                case TrangWeb.HenHo2:
-                    _gioiTinh = new List<Tuple<string, string>>() { new Tuple<string, string>("Nam", "0"),
-                                                                    new Tuple<string, string>("Nữ", "1"),
-                                                                    new Tuple<string, string>("Gay", "2"),
-                                                                    new Tuple<string, string>("Les", "3")};
-                    break;
-                case TrangWeb.DuyenSo:
-                    _gioiTinh = new List<Tuple<string, string>>() { new Tuple<string, string>("Nam", "1"),
-                                                                    new Tuple<string, string>("Nữ", "2"),
-                                                                    new Tuple<string, string>("Gay", "3"),
-                                                                    new Tuple<string, string>("Les", "4")};
-                    break;
                 case TrangWeb.eHenHo:
                     _gioiTinh = new List<Tuple<string, string>>() { new Tuple<string, string>("Nam", "male"),
                                                                     new Tuple<string, string>("Nữ", "female")};
+                    this.TuDongDangKy = new TuDongDangKyEHenho();
                     break;
+                case TrangWeb.HenHoKetBan:
+                    _gioiTinh = new List<Tuple<string, string>>() { new Tuple<string, string>("Nam", "Nam"), new Tuple<string, string>("Nữ", "Nữ"),
+                    new Tuple<string, string>("Less", "Less"),new Tuple<string, string>("Gay", "Gay")};
+                    this.TuDongDangKy = new TuDongDangKyHenHoKetBan();
+                    break;
+                default:
+                    throw new NotSupportedException("Chỉ hỗ trợ ehenho, henhoketban");
             }
             foreach (var gt in _gioiTinh)
                 cbbGioiTinh.Items.Add(gt.Item1);
             cbbGioiTinh.SelectedIndex = 0;
+
             #region Tùy chỉnh các thông số
             //Di chuyển form khi mà di chuyển các điểu khiển sau
             ControlPlus.MovieFormWhenMouseDownControl(topPanel, this.Handle);
@@ -104,28 +104,6 @@ namespace AutoSendMessageOnWeb
             base.WndProc(ref m);
         }
 
-        private void btnTaiCaptcha_Click(object sender, EventArgs e)
-        {
-            btnTaiCaptcha.Enabled = false;
-            txtEmail.Enabled = false;
-            btnTienHanhDangKy.Enabled = true;
-            int dem = 0;
-            foreach (string email in txtEmail.Lines)
-                if (!string.IsNullOrEmpty(email))
-                    this.TaoControlDangKy(email, dem++);
-        }
-
-        private async void TaoControlDangKy(string email, object tag)
-        {
-            cTuDongDangKy c = new cTuDongDangKy();
-            await c.Init(email, ThongTinBoSung.TaoHoTenNgauNhien(), _trang, _gioiTinh, cbbGioiTinh.SelectedIndex);//Tùy trang sẽ khởi tạo khác nhau
-            c.Dock = DockStyle.Top;
-            c.Padding = new Padding(0, 0, 0, 5);
-            panCaptcha.Controls.Add(c);
-            c.BringToFront();
-            c.Tag = tag;//tag phục vụ sắp xếp
-        }
-
         int _delayHienTai = 1;
         private int GetDelay()
         {
@@ -141,20 +119,43 @@ namespace AutoSendMessageOnWeb
 
         private async void btnTienHanhDangKy_Click(object sender, EventArgs e)
         {
-            int delay = GetDelay();
-            foreach (Control c in panCaptcha.Controls.Cast<Control>().OrderBy(p => p.Tag))
+            if (btnTienHanhDangKy.Text == "Tiến hành đăng ký")
             {
-                var cDangKy = c as cTuDongDangKy;
-                if (cDangKy != null && cDangKy.TaiKhoanDaDangKy.TaiKhoan == null)//Chưa đăng ký
+                _dung = false;
+                btnTienHanhDangKy.Text = "Dừng";
+                btnTienHanhDangKy.BackColor = Color.Red;
+                int delay = GetDelay();
+
+                while (true)
                 {
-                    c.Select();
-                    c.Focus();
-                    await cDangKy.DangKyAsync();
-                    if (cDangKy.TaiKhoanDaDangKy.TaiKhoan != null)
-                        this.DanhSachTaiKhoanDaDangKy.Add(cDangKy.TaiKhoanDaDangKy);
-                    delay = GetDelay();
+                    if (_dung)
+                        break;
+                    string email = RandomEmail.GetRandomEmail();
+                    string gioiTinh = _gioiTinh?.FirstOrDefault(p => p.Item1 == cbbGioiTinh.Text)?.Item2;
+                    XuLyDaLuong.ChangeText(lblTrangThai, $"Đang đăng ký {email}...", Color.Blue);
+                    var taiKhoanMoi = await this.TuDongDangKy.DangKyTaiKhoanMoiAsync(email, email, ThongTinBoSung.TaoHoTenNgauNhien(), () => "K cần", new ThongTinBoSung() { GioiTinh = gioiTinh });
+                    if (taiKhoanMoi.TaiKhoan != null)
+                    {
+                        XuLyDaLuong.AppendText(txtDaDangKy, email + "\r\n");
+                        this.DanhSachTaiKhoanDaDangKy.Add(taiKhoanMoi);
+                        XuLyDaLuong.ChangeText(lblTrangThai, $"Đang đăng ký {email} thành công. Delay {delay/1000/60} phút", Color.Blue);
+                    }
+                    else
+                    {
+                        XuLyDaLuong.ChangeText(lblTrangThai, $"Đang đăng ký {email} {taiKhoanMoi.TrangThai}. Delay {delay / 1000 / 60} phút", Color.Red);
+                    }
+                   
                     await Task.Delay(delay);
+                    if (_dung)
+                        break;
+                    delay = GetDelay();
                 }
+            }
+            else
+            {
+                _dung = true;
+                btnTienHanhDangKy.Text = "Tiến hành đăng ký";
+                btnTienHanhDangKy.BackColor = Color.Aquamarine;
             }
         }
     }

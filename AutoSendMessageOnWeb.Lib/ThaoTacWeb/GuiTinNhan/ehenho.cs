@@ -1,21 +1,20 @@
-﻿using AutoSendMessageOnWeb.Lib.ThaoTacWeb;
+﻿using AutoSendMessageOnWeb.Data;
+using AutoSendMessageOnWeb.Lib.ExtentionMethod;
+using AutoSendMessageOnWeb.Lib.ThaoTacWeb;
+using Fizzler.Systems.HtmlAgilityPack;
+using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoSendMessageOnWeb.Data;
-using System.Net;
-using HtmlAgilityPack;
-using System.IO;
-using Fizzler.Systems.HtmlAgilityPack;
-using AutoSendMessageOnWeb.Lib.ExtentionMethod;
 using System.Diagnostics;
+using System.Linq;
+using System.Net;
+using System.Threading.Tasks;
 
 namespace AutoSendMessageOnWeb.Lib
 {
     public class ehenho : IGuiTinNhan
     {
+        string _fileLog = "Data\\ehenho_log.txt";
         public CookieContainer Cookie { set; get; }
 
         public bool TimKiemYeuCauCookie => false;
@@ -53,49 +52,66 @@ namespace AutoSendMessageOnWeb.Lib
         {
             HttpWebResponse response = RequestToWeb.GET(new Uri(nguoinhan.Url), false, true, nguoigui.Cookie) as HttpWebResponse;
             string htmlText = RequestToWeb.ReadStream(response.GetResponseStream());
-            HtmlDocument document = new HtmlDocument();
-            document.LoadHtml(htmlText);
-            var csrfmiddlewaretoken = document.DocumentNode.SelectSingleNode("//input[@type='hidden' and @name='csrfmiddlewaretoken']").Attributes["value"].Value;
-            string data = $"csrfmiddlewaretoken={csrfmiddlewaretoken}&body={noidung}&send=      Gửi!      ";
-            string responseHtml = RequestToWeb.ReadStream(RequestToWeb.POST(new Uri(nguoinhan.Url), nguoigui.Cookie, data, false, true,
-                config_more:(request) => {
-                    request.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3";
-                    request.Referer = nguoinhan.Url;
-                }));
-            if (responseHtml.Contains("Thư gửi không thành công!"))
+            if (htmlText.Contains("class=\"msg-cp\""))
             {
-                nguoinhan.TrangThai = nguoigui.TrangThai = "Gửi lỗi\nQuá giới hạn 48 thư";
-                nguoigui.ChoPhepGuiNhan = false;
+                HtmlDocument document = new HtmlDocument();
+                document.LoadHtml(htmlText);
+                var csrfmiddlewaretoken = document.DocumentNode.SelectSingleNode("//input[@type='hidden' and @name='csrfmiddlewaretoken']").Attributes["value"].Value;
+                string data = $"csrfmiddlewaretoken={csrfmiddlewaretoken}&body={noidung}&send=      Gửi!      ";
+                string responseHtml = RequestToWeb.ReadStream(RequestToWeb.POST(new Uri(nguoinhan.Url), nguoigui.Cookie, data, false, true,
+                    config_more: (request) =>
+                    {
+                        request.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3";
+                        request.Referer = nguoinhan.Url;
+                    }));
+                if (responseHtml.Contains("Thư gửi không thành công!"))
+                {
+                    nguoinhan.TrangThai = nguoigui.TrangThai = "Gửi lỗi\nQuá giới hạn 48 thư";
+                    nguoigui.ChoPhepGuiNhan = false;
+                }
+                else
+                {
+                    nguoinhan.TrangThai = nguoigui.TaiKhoan;
+                }
             }
             else
             {
-                nguoinhan.TrangThai = nguoigui.TaiKhoan;
+                nguoinhan.TrangThai = nguoigui.TrangThai = "Gửi lỗi. Tài khoản bị khóa";
+                nguoigui.ChoPhepGuiNhan = false;
             }
         }
 
         public DanhSachDuLieuTimKiem TaoDuLieuTimKiem()
         {
-            DanhSachDuLieuTimKiem res = new DanhSachDuLieuTimKiem();
+            //try
+            //{
+                DanhSachDuLieuTimKiem res = new DanhSachDuLieuTimKiem();
 
-            //HttpWebResponse resposne = RequestToWeb.GET(new Uri("https://www.ehenho.com/tim-ban-cac-noi-o-chinh/"), false, true, Cookie) as HttpWebResponse;
-            HttpWebResponse resposne = RequestToWeb.GET(new Uri("https://www.ehenho.com/tim-ban-bon-phuong-theo-noi-o/"), false, true, Cookie) as HttpWebResponse;
-            HtmlDocument document = new HtmlDocument();
-            document.LoadHtml(RequestToWeb.ReadStream(resposne.GetResponseStream()));
-            foreach (HtmlNode node in document.DocumentNode.QuerySelectorAll("a").Where(p => p.OuterHtml.Contains("/tim-ban-bon-phuong/")))
-                try { res.NoiO.Add(node.GetAttributeValue("href", ""), node.InnerText?.Replace("Tìm bạn ", "")?.Replace(",", "")?.Replace("&nbsp;", "")); }
-                catch { }
+                //HttpWebResponse resposne = RequestToWeb.GET(new Uri("https://www.ehenho.com/tim-ban-cac-noi-o-chinh/"), false, true, Cookie) as HttpWebResponse;
+                HttpWebResponse resposne = RequestToWeb.GET(new Uri("https://www.ehenho.com/tim-ban-bon-phuong-theo-noi-o/"), false, true, Cookie) as HttpWebResponse;
+                HtmlDocument document = new HtmlDocument();
+                document.LoadHtml(RequestToWeb.ReadStream(resposne.GetResponseStream()));
+                foreach (HtmlNode node in document.DocumentNode.QuerySelectorAll("a").Where(p => p.OuterHtml.Contains("/tim-ban-bon-phuong/")))
+                    try { res.NoiO.Add(node.GetAttributeValue("href", ""), node.InnerText?.Replace("Tìm bạn ", "")?.Replace(",", "")?.Replace("&nbsp;", "")); }
+                    catch { }
 
-            res.TinhTrangHonNhan.Add(new ThongTinTimKiem.TinhTrangHonNhan() { Id = "/tim-ban-ban-phuong/", TenTinhTrang = "Tất cả" });
-            res.TinhTrangHonNhan.Add(new ThongTinTimKiem.TinhTrangHonNhan() { Id = "/tim-ban-doc-than/", TenTinhTrang = "Độc thân" });
-            res.TinhTrangHonNhan.Add(new ThongTinTimKiem.TinhTrangHonNhan() { Id = "/tim-ban-ly-di/", TenTinhTrang = "Ly dị" });
-            res.TinhTrangHonNhan.Add(new ThongTinTimKiem.TinhTrangHonNhan() { Id = "/tim-ban-o-goa/", TenTinhTrang = "Ở góa" });
-            res.TinhTrangHonNhan.Add(new ThongTinTimKiem.TinhTrangHonNhan() { Id = "/dang-co-nguoi-yeu-tim-ban/", TenTinhTrang = "Đang có người yêu" });
+                res.TinhTrangHonNhan.Add(new ThongTinTimKiem.TinhTrangHonNhan() { Id = "/tim-ban-ban-phuong/", TenTinhTrang = "Tất cả" });
+                res.TinhTrangHonNhan.Add(new ThongTinTimKiem.TinhTrangHonNhan() { Id = "/tim-ban-doc-than/", TenTinhTrang = "Độc thân" });
+                res.TinhTrangHonNhan.Add(new ThongTinTimKiem.TinhTrangHonNhan() { Id = "/tim-ban-ly-di/", TenTinhTrang = "Ly dị" });
+                res.TinhTrangHonNhan.Add(new ThongTinTimKiem.TinhTrangHonNhan() { Id = "/tim-ban-o-goa/", TenTinhTrang = "Ở góa" });
+                res.TinhTrangHonNhan.Add(new ThongTinTimKiem.TinhTrangHonNhan() { Id = "/dang-co-nguoi-yeu-tim-ban/", TenTinhTrang = "Đang có người yêu" });
 
-            res.GioiTinh.Add("Tất cả", "Tất cả");
-            res.GioiTinh.Add("Nam", "Nam");
-            res.GioiTinh.Add("Nữ", "Nữ");
+                res.GioiTinh.Add("Tất cả", "Tất cả");
+                res.GioiTinh.Add("Nam", "Nam");
+                res.GioiTinh.Add("Nữ", "Nữ");
 
-            return res;
+                return res;
+            //}
+            //catch(Exception ex)
+            //{
+            //    Log.WriteLog(_fileLog, $"Lỗi TaoDuLieuTimKiem() {ex.Message}\r\n{ex.ReadAllStatcktrace()}\r\n--------------------------------");
+            //    throw new Exception("Không tạo được dữ liệu tìm kiếm");
+            //}
         }
 
         public IEnumerable<ThongTinTaiKhoan> TimKiem(ThongTinTimKiem param)
@@ -105,35 +121,48 @@ namespace AutoSendMessageOnWeb.Lib
 
         public async Task<IEnumerable<ThongTinTaiKhoan>> TimKiemAll(ThongTinTimKiem param)
         {
-            Log.WriteLog("Bắt đầu tìm kiếm ehenho...").Wait();
+            Log.WriteLog(_fileLog, "Bắt đầu tìm kiếm ehenho...");
             List<ThongTinTaiKhoan> res = new List<ThongTinTaiKhoan>();
             int pageindex = 1;
             HtmlDocument document = new HtmlDocument();
             string linkNoiO = $"https://www.ehenho.com{param.NoiO}";// $"https://www.ehenho.com{tinhtrang.Id}";
+            int countTry = 0;
             while (true)
             {
-                Debug.WriteLine($"Trang {pageindex}----------------------------------");
-                HttpWebResponse response = RequestToWeb.GET(new Uri(linkNoiO), false, true, this.Cookie) as HttpWebResponse;
-                string htmlText = RequestToWeb.ReadStream(response.GetResponseStream());
-                document.LoadHtml(htmlText);
+                try
+                {
+                    Debug.WriteLine($"Trang {pageindex}----------------------------------");
+                    Log.WriteLog(_fileLog, $"Trang {pageindex}----------------------------------");
+                    HttpWebResponse response = RequestToWeb.GET(new Uri(linkNoiO), false, true, this.Cookie) as HttpWebResponse;
+                    string htmlText = RequestToWeb.ReadStream(response.GetResponseStream());
+                    document.LoadHtml(htmlText);
 
-                var bangKetQua = document.DocumentNode.QuerySelectorAll("#pro_info");//
-                res.AddRange(await Task.WhenAll(bangKetQua.Select(p => TimKiemTaiKhoan(param, p))));
+                    var bangKetQua = document.DocumentNode.QuerySelectorAll("#pro_info");//
+                    res.AddRange(await Task.WhenAll(bangKetQua.Select(p => TimKiemTaiKhoan(param, p))));
 
-                TimThayKetQua?.Invoke(res.Where(p => p!= null));
-                
-                //Tạo link trang tiếp
-                if (htmlText.Contains($"?page={pageindex + 1}"))
-                    linkNoiO = $"https://www.ehenho.com{param.NoiO}?page={++pageindex}";
-                else if (htmlText.Contains($"?trang={pageindex + 1}"))
-                    linkNoiO = $"https://www.ehenho.com{param.NoiO}?trang={++pageindex}";
-                else
-                    break;
+                    TimThayKetQua?.Invoke(res.Where(p => p != null));
 
-                if (param.DungTimKiem)
-                    break;
+                    //Tạo link trang tiếp
+                    if (htmlText.Contains($"?page={pageindex + 1}"))
+                        linkNoiO = $"https://www.ehenho.com{param.NoiO}?page={++pageindex}";
+                    else if (htmlText.Contains($"?trang={pageindex + 1}"))
+                        linkNoiO = $"https://www.ehenho.com{param.NoiO}?trang={++pageindex}";
+                    else
+                        break;
+
+                    if (param.DungTimKiem)
+                        break;
+                    countTry = 0;
+                }
+                catch(Exception ex)
+                {
+                    if (countTry++ >= 20)
+                        break;
+                    Log.WriteLog(_fileLog, $"Lỗi {ex.Message}\r\n{ex.StackTrace}");
+                }
             }
             Debug.WriteLine($"Kết thúc tìm kiếm tại {param.NoiO}, trang {pageindex}");
+            Log.WriteLog(_fileLog, $"Kết thúc tìm kiếm tại {param.NoiO}, trang {pageindex}");
             return res;
         }
 
@@ -141,10 +170,10 @@ namespace AutoSendMessageOnWeb.Lib
         {
            return Task.Run<ThongTinTaiKhoan>(() =>
            {
+               ThongTinTaiKhoan tk = new ThongTinTaiKhoan();
                try
                {
                    string log = $"{DateTime.Now.ToString("HH:mm:ss")} -> ";
-                   ThongTinTaiKhoan tk = new ThongTinTaiKhoan();
 
                    var thongTinKq = kq.QuerySelector("p");
                    var spanKq = thongTinKq?.QuerySelectorAll("span");
@@ -188,7 +217,14 @@ namespace AutoSendMessageOnWeb.Lib
                    if (param.GioiTinh.ToString() != "Tất cả" || param.ThoiGianDangNhap.HasValue)
                    {
                        HtmlDocument docChiTiet = new HtmlDocument();
-                       docChiTiet.LoadHtml(RequestToWeb.ReadStream(RequestToWeb.GET(new Uri(tk.Url), false, true, this.Cookie)));
+                       string html = RequestToWeb.ReadStream(RequestToWeb.GET(new Uri(tk.Url), false, true, this.Cookie));
+                       int countTry = 0;
+                       while (string.IsNullOrEmpty(html) && countTry++ < 3)
+                       {
+                           Log.WriteLog(_fileLog, $"TimKiemTaiKhoan() Thử lại {tk?.Url}");
+                           html = RequestToWeb.ReadStream(RequestToWeb.GET(new Uri(tk.Url), false, true, this.Cookie));
+                       }
+                       docChiTiet.LoadHtml(html);
                        var allRow = docChiTiet?.DocumentNode?.QuerySelectorAll("table > tr");
                        if (param.GioiTinh.ToString() != "Tất cả")
                        {
@@ -220,6 +256,7 @@ namespace AutoSendMessageOnWeb.Lib
                }
                catch(Exception ex)
                {
+                   Log.WriteLog(_fileLog, $"Lỗi TimKiemTaiKhoan({tk?.Url}) {ex.Message}\r\n{ex.StackTrace}");
                    return null;
                }
            });
@@ -231,5 +268,10 @@ namespace AutoSendMessageOnWeb.Lib
         }
 
         public event Action<IEnumerable<ThongTinTaiKhoan>> TimThayKetQua;
+
+        public IEnumerable<ThongTinTaiKhoan> TimKiemAsync(ThongTinTimKiem param)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

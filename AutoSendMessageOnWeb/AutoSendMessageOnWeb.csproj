@@ -13,7 +13,7 @@
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -120,6 +120,12 @@
     <Compile Include="Form\frmTest.Designer.cs">
       <DependentUpon>frmTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\frmTuDongDangKyTaiKhoan_HangLoat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmTuDongDangKyTaiKhoan_HangLoat.Designer.cs">
+      <DependentUpon>frmTuDongDangKyTaiKhoan_HangLoat.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\frmTuDongDangKyTaiKhoan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\frmTest.resx">
       <DependentUpon>frmTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmTuDongDangKyTaiKhoan_HangLoat.resx">
+      <DependentUpon>frmTuDongDangKyTaiKhoan_HangLoat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\frmTuDongDangKyTaiKhoan.resx">
       <DependentUpon>frmTuDongDangKyTaiKhoan.cs</DependentUpon>

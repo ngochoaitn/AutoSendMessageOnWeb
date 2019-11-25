@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -75,12 +76,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExtentionMethod\RandomEmail.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="ThaoTacWeb\DangKy\ThongTinBoSung.cs" />
     <Compile Include="ThaoTacWeb\DangKy\ITuDongDangKy.cs" />
     <Compile Include="ThaoTacWeb\DangKy\TuDongDangKyDuyenSo.cs" />
     <Compile Include="ThaoTacWeb\DangKy\TuDongDangKyEHenho.cs" />
     <Compile Include="ThaoTacWeb\DangKy\TuDongDangKyHenHo2.cs" />
+    <Compile Include="ThaoTacWeb\DangKy\TuDongDangKyHenHoKetBan.cs" />
     <Compile Include="ThaoTacWeb\GuiTinNhan\Badoo.cs" />
     <Compile Include="ThaoTacWeb\GuiTinNhan\DocThan.cs" />
     <Compile Include="ThaoTacWeb\GuiTinNhan\DuyenSo.cs" />

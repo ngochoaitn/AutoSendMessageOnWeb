@@ -349,5 +349,10 @@ namespace AutoSendMessageOnWeb.Lib
             }
             #endregion
         }
+
+        public IEnumerable<ThongTinTaiKhoan> TimKiemAsync(ThongTinTimKiem param)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

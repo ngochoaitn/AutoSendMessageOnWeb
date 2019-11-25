@@ -135,5 +135,16 @@ namespace AutoSendMessageOnWeb.Lib.ExtentionMethod
             return content;
         }
 
+        public static string ReadAllStatcktrace(this Exception ex)
+        {
+            Exception temp = ex;
+            string res = ex.StackTrace;
+            while(temp.InnerException != null)
+            {
+                temp = temp.InnerException;
+                res += "\r\n" + temp.StackTrace;
+            }
+            return res;
+        }
     }
 }

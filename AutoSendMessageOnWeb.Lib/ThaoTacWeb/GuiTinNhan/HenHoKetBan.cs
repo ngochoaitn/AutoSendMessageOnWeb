@@ -15,6 +15,7 @@ namespace AutoSendMessageOnWeb.Lib
 {
     public class HenHoKetBan : IGuiTinNhan
     {
+        string _fileLog = "Data\\henhoketban_log.txt";
         public CookieContainer Cookie
         {
             get
@@ -142,6 +143,7 @@ namespace AutoSendMessageOnWeb.Lib
                     #region Tạo reqeuest
                     string linkTimKiem = string.Format("?page={0}&gioitinh={1}&tuoi1={2}&tuoi2={3}&dentu={4}&honnhan={5}&muctieu=Tất cả&nuoc=Vietnam&btn_submit=",
                                                 page, param.GioiTinh, param.TuTuoi, param.DenTuoi, param.NoiO, hn.Id);
+                    Log.WriteLog(_fileLog, $"Tìm {linkTimKiem}");
                     linkTimKiem = "https://henhoketban.vn/timnguoiyeuonline.php" + linkTimKiem;
                     var response = RequestToWeb.GET(new Uri(linkTimKiem), false);
                     #endregion
@@ -207,7 +209,9 @@ namespace AutoSendMessageOnWeb.Lib
                     if (param.DungTimKiem)
                         break;
                     page++;
+                    Log.WriteLog(_fileLog, $"Chuyển page tìm kiếm");
                 }
+                Log.WriteLog(_fileLog, $"Hoàn tất tìm kiếm");
             }
         }
 
@@ -292,6 +296,11 @@ namespace AutoSendMessageOnWeb.Lib
                 }
             }
             #endregion
+        }
+
+        public IEnumerable<ThongTinTaiKhoan> TimKiemAsync(ThongTinTimKiem param)
+        {
+            throw new NotImplementedException();
         }
     }
 }

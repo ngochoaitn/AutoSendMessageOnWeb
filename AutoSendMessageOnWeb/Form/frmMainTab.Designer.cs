@@ -34,10 +34,6 @@
             this.cAutoHenHo2 = new AutoSendMessageOnWeb.cAuto();
             this.tabDuyenSo = new System.Windows.Forms.TabPage();
             this.cAutoDuyenSo = new AutoSendMessageOnWeb.cAuto();
-            this.tabVietNamCupid = new System.Windows.Forms.TabPage();
-            this.cAutoVietNamCupid = new AutoSendMessageOnWeb.cAuto();
-            this.tabLikeYou = new System.Windows.Forms.TabPage();
-            this.cAutoLikeYou = new AutoSendMessageOnWeb.cAuto();
             this.henHoKetBanTabPage = new System.Windows.Forms.TabPage();
             this.cAutoHenHoKetBan = new AutoSendMessageOnWeb.cAuto();
             this.timBangaiTabPage = new System.Windows.Forms.TabPage();
@@ -51,8 +47,6 @@
             this.mainTabControl.SuspendLayout();
             this.tabHenHo2.SuspendLayout();
             this.tabDuyenSo.SuspendLayout();
-            this.tabVietNamCupid.SuspendLayout();
-            this.tabLikeYou.SuspendLayout();
             this.henHoKetBanTabPage.SuspendLayout();
             this.timBangaiTabPage.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -64,8 +58,6 @@
             // 
             this.mainTabControl.Controls.Add(this.tabHenHo2);
             this.mainTabControl.Controls.Add(this.tabDuyenSo);
-            this.mainTabControl.Controls.Add(this.tabVietNamCupid);
-            this.mainTabControl.Controls.Add(this.tabLikeYou);
             this.mainTabControl.Controls.Add(this.henHoKetBanTabPage);
             this.mainTabControl.Controls.Add(this.timBangaiTabPage);
             this.mainTabControl.Controls.Add(this.tabPage1);
@@ -115,46 +107,6 @@
             this.cAutoDuyenSo.Name = "cAutoDuyenSo";
             this.cAutoDuyenSo.Size = new System.Drawing.Size(923, 395);
             this.cAutoDuyenSo.TabIndex = 0;
-            // 
-            // tabVietNamCupid
-            // 
-            this.tabVietNamCupid.Controls.Add(this.cAutoVietNamCupid);
-            this.tabVietNamCupid.Location = new System.Drawing.Point(4, 22);
-            this.tabVietNamCupid.Name = "tabVietNamCupid";
-            this.tabVietNamCupid.Padding = new System.Windows.Forms.Padding(3);
-            this.tabVietNamCupid.Size = new System.Drawing.Size(929, 401);
-            this.tabVietNamCupid.TabIndex = 2;
-            this.tabVietNamCupid.Text = "vietnamcupid.com";
-            this.tabVietNamCupid.UseVisualStyleBackColor = true;
-            // 
-            // cAutoVietNamCupid
-            // 
-            this.cAutoVietNamCupid.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.cAutoVietNamCupid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cAutoVietNamCupid.Location = new System.Drawing.Point(3, 3);
-            this.cAutoVietNamCupid.Name = "cAutoVietNamCupid";
-            this.cAutoVietNamCupid.Size = new System.Drawing.Size(923, 395);
-            this.cAutoVietNamCupid.TabIndex = 0;
-            // 
-            // tabLikeYou
-            // 
-            this.tabLikeYou.Controls.Add(this.cAutoLikeYou);
-            this.tabLikeYou.Location = new System.Drawing.Point(4, 22);
-            this.tabLikeYou.Name = "tabLikeYou";
-            this.tabLikeYou.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLikeYou.Size = new System.Drawing.Size(929, 401);
-            this.tabLikeYou.TabIndex = 3;
-            this.tabLikeYou.Text = "likeyou.vn";
-            this.tabLikeYou.UseVisualStyleBackColor = true;
-            // 
-            // cAutoLikeYou
-            // 
-            this.cAutoLikeYou.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.cAutoLikeYou.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cAutoLikeYou.Location = new System.Drawing.Point(3, 3);
-            this.cAutoLikeYou.Name = "cAutoLikeYou";
-            this.cAutoLikeYou.Size = new System.Drawing.Size(923, 395);
-            this.cAutoLikeYou.TabIndex = 0;
             // 
             // henHoKetBanTabPage
             // 
@@ -297,8 +249,6 @@
             this.mainTabControl.ResumeLayout(false);
             this.tabHenHo2.ResumeLayout(false);
             this.tabDuyenSo.ResumeLayout(false);
-            this.tabVietNamCupid.ResumeLayout(false);
-            this.tabLikeYou.ResumeLayout(false);
             this.henHoKetBanTabPage.ResumeLayout(false);
             this.timBangaiTabPage.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -320,10 +270,6 @@
         private cAuto cAutoHenHo2;
         private cAuto cAutoDuyenSo;
         private System.Windows.Forms.Label lblWebChinhThuc;
-        private System.Windows.Forms.TabPage tabVietNamCupid;
-        private cAuto cAutoVietNamCupid;
-        private System.Windows.Forms.TabPage tabLikeYou;
-        private cAuto cAutoLikeYou;
         private System.Windows.Forms.TabPage henHoKetBanTabPage;
         private cAuto cAutoHenHoKetBan;
         private System.Windows.Forms.TabPage timBangaiTabPage;

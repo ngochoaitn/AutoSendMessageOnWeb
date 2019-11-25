@@ -42,8 +42,8 @@ namespace AutoSendMessageOnWeb
         {
             cAutoHenHo2.CaiDatTrang(Data.TrangWeb.HenHo2);
             cAutoDuyenSo.CaiDatTrang(Data.TrangWeb.DuyenSo);
-            cAutoVietNamCupid.CaiDatTrang(Data.TrangWeb.VietNamCupid);
-            cAutoLikeYou.CaiDatTrang(Data.TrangWeb.LikeYou);
+            //cAutoVietNamCupid.CaiDatTrang(Data.TrangWeb.VietNamCupid);
+            //cAutoLikeYou.CaiDatTrang(Data.TrangWeb.LikeYou);
             cAutoHenHoKetBan.CaiDatTrang(Data.TrangWeb.HenHoKetBan);
             cAutoTimBanGai.CaiDatTrang(Data.TrangWeb.TimBanGai);
             cAutoEHenHo.CaiDatTrang(Data.TrangWeb.eHenHo);
@@ -53,11 +53,12 @@ namespace AutoSendMessageOnWeb
 
             StartUpOperation.CheckVersion(CoPhienBanMoi);
 
-            lblWebChinhThuc.Text = Properties.Settings.Default.WebChinhThuc;
+            lblWebChinhThuc.Text = " " + Properties.Settings.Default.WebChinhThuc;
 
             cAutoHenHo2.ChoPhepDangKy(true);
             cAutoDuyenSo.ChoPhepDangKy(true);
             cAutoEHenHo.ChoPhepDangKy(true);
+            cAutoHenHoKetBan.ChoPhepDangKy(true);
         }
 
         private void CoPhienBanMoi()

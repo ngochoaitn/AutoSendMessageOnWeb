@@ -54,25 +54,9 @@ namespace AutoSendMessageOnWeb.CreateKey
             dateHanNhieuMa.Value = DateTime.Now.AddMonths(1);
         }
 
-        private void btnThemNguoiDungMoi_Click(object sender, EventArgs e)
-        {
-            frmThemNguoiDung frmThem = new frmThemNguoiDung();
-            if (frmThem.ShowDialog() == DialogResult.OK)
-            {
-                if ((thongTinNguoiDungBindingSource.List as IList<ThongTinNguoiDung>)
-                                                  .Where(p => p.MAC == frmThem.NguoiDung.MAC
-                                                           && p.TenMay == frmThem.NguoiDung.TenMay)
-                                                  .FirstOrDefault() == null)
-                {
-                    thongTinNguoiDungBindingSource.Add(frmThem.NguoiDung);
-                    _db.SaveChange();
-                }
-            }
-        }
-
         private void btnTaoNhieuMa_Click(object sender, EventArgs e)
         {
-                txtMaKichHoat.Text = NguoiDung.TaoMaSuDung(dateHanNhieuMa.Value);
+            txtMaKichHoat.Text = NguoiDung.TaoMaSuDung(dateHanNhieuMa.Value);
         }
 
         private void btnTaoKhoaMoi_Click(object sender, EventArgs e)

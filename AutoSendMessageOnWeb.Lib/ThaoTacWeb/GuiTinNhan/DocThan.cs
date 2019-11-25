@@ -154,5 +154,10 @@ namespace AutoSendMessageOnWeb.Lib
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<ThongTinTaiKhoan> TimKiemAsync(ThongTinTimKiem param)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

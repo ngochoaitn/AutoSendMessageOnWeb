@@ -166,14 +166,16 @@ namespace AutoSendMessageOnWeb.Lib
 
                             string thongTinNguoiNhanThu_string = RequestToWeb.ReadStream(thongTinNguoiNhanThu_Response);
                             HtmlAgilityPack.HtmlDocument thongTinNguoiNhanThu_document = new HtmlAgilityPack.HtmlDocument();
-                            thongTinNguoiNhanThu_document.LoadHtml(thongTinNguoiNhanThu_string);
+                            if (!string.IsNullOrEmpty(thongTinNguoiNhanThu_string))
+                            {
+                                thongTinNguoiNhanThu_document.LoadHtml(thongTinNguoiNhanThu_string);
 
-                            var thongTinNguoiNhanThu_message = thongTinNguoiNhanThu_document.DocumentNode.Descendants("li").Where(div => div.HasClass("message")).FirstOrDefault();
-                            string thongTinNguoiNhanThu_Url = thongTinNguoiNhanThu_message.QuerySelector("a").GetAttributeValue("href", "");
-                            tk.Id = thongTinNguoiNhanThu_Url.Split('/')[7];
+                                var thongTinNguoiNhanThu_message = thongTinNguoiNhanThu_document.DocumentNode.Descendants("li").Where(div => div.HasClass("message")).FirstOrDefault();
+                                string thongTinNguoiNhanThu_Url = thongTinNguoiNhanThu_message.QuerySelector("a").GetAttributeValue("href", "");
+                                tk.Id = thongTinNguoiNhanThu_Url.Split('/')[7];
+                            }
                         });
                         #endregion
-                        
                         yield return tk;
 
                         if (param.DungTimKiem)
@@ -238,6 +240,11 @@ namespace AutoSendMessageOnWeb.Lib
                 nguoinhan.TrangThai = tk.TaiKhoan;
             else
                 nguoinhan.TrangThai = "Gửi lỗi";
+        }
+
+        public IEnumerable<ThongTinTaiKhoan> TimKiemAsync(ThongTinTimKiem param)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(cAuto));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(cAuto));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.grbTimKiem = new ThuVienWinform.UI.Flat.Containers.GroupBoxFlat();
             this.grvTimKiem = new ThuVienWinform.UI.Flat.Data.DataGridViewFlat();
@@ -75,14 +75,14 @@
             this.urlDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSoThuSeGui = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuGrvTaiKhoan = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.càiĐạtSLGửiTheoTàiKhoảnNàyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thongTinTaiKhoan_GuiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnDangKyTaiKhoan = new ThuVienWinform.UI.Flat.CommonControls.ButtonFlat();
             this.btnThemTaiKhoan = new ThuVienWinform.UI.Flat.CommonControls.ButtonFlat();
             this.backgroundWorkerTimKiem = new System.ComponentModel.BackgroundWorker();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.menuGrvTaiKhoan = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.càiĐạtSLGửiTheoTàiKhoảnNàyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2.SuspendLayout();
             this.grbTimKiem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvTimKiem)).BeginInit();
@@ -94,9 +94,9 @@
             this.panel4.SuspendLayout();
             this.groupLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvGui)).BeginInit();
+            this.menuGrvTaiKhoan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.thongTinTaiKhoan_GuiBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
-            this.menuGrvTaiKhoan.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -135,14 +135,14 @@
             this.grvTimKiem.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.grvTimKiem.BackgroundColor = System.Drawing.Color.White;
             this.grvTimKiem.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grvTimKiem.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grvTimKiem.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.grvTimKiem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grvTimKiem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn2,
@@ -159,6 +159,7 @@
             this.grvTimKiem.Location = new System.Drawing.Point(3, 16);
             this.grvTimKiem.MultiSelect = false;
             this.grvTimKiem.Name = "grvTimKiem";
+            this.grvTimKiem.ReadOnly = true;
             this.grvTimKiem.RowHeadersVisible = false;
             this.grvTimKiem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grvTimKiem.Size = new System.Drawing.Size(391, 367);
@@ -181,6 +182,7 @@
             this.colTuoi.FillWeight = 45F;
             this.colTuoi.HeaderText = "Tuổi";
             this.colTuoi.Name = "colTuoi";
+            this.colTuoi.ReadOnly = true;
             this.colTuoi.Width = 45;
             // 
             // colGioiTinh
@@ -198,12 +200,14 @@
             this.colNoiO.DataPropertyName = "NoiO";
             this.colNoiO.HeaderText = "Nơi ở";
             this.colNoiO.Name = "colNoiO";
+            this.colNoiO.ReadOnly = true;
             // 
             // colTinhTrangHonNhan
             // 
             this.colTinhTrangHonNhan.DataPropertyName = "TinhTrangHonNhan";
             this.colTinhTrangHonNhan.HeaderText = "Tình trạng";
             this.colTinhTrangHonNhan.Name = "colTinhTrangHonNhan";
+            this.colTinhTrangHonNhan.ReadOnly = true;
             // 
             // colUrl
             // 
@@ -211,14 +215,15 @@
             this.colUrl.FillWeight = 97.72733F;
             this.colUrl.HeaderText = "Link";
             this.colUrl.Name = "colUrl";
+            this.colUrl.ReadOnly = true;
             this.colUrl.Visible = false;
             // 
             // colTrangThai_Nhan
             // 
             this.colTrangThai_Nhan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colTrangThai_Nhan.DataPropertyName = "TrangThai";
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.colTrangThai_Nhan.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.colTrangThai_Nhan.DefaultCellStyle = dataGridViewCellStyle6;
             this.colTrangThai_Nhan.FillWeight = 150F;
             this.colTrangThai_Nhan.HeaderText = "Gửi bởi";
             this.colTrangThai_Nhan.Name = "colTrangThai_Nhan";
@@ -499,14 +504,14 @@
             this.grvGui.BackgroundColor = System.Drawing.Color.White;
             this.grvGui.CausesValidation = false;
             this.grvGui.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grvGui.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grvGui.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.grvGui.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grvGui.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.taiKhoanDataGridViewTextBoxColumn,
@@ -516,6 +521,7 @@
             this.urlDataGridViewTextBoxColumn,
             this.colSoThuSeGui,
             this.colTrangThai});
+            this.grvGui.ContextMenuStrip = this.menuGrvTaiKhoan;
             this.grvGui.DataSource = this.thongTinTaiKhoan_GuiBindingSource;
             this.grvGui.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grvGui.Location = new System.Drawing.Point(3, 16);
@@ -577,6 +583,20 @@
             this.colTrangThai.HeaderText = "Trạng thái";
             this.colTrangThai.Name = "colTrangThai";
             // 
+            // menuGrvTaiKhoan
+            // 
+            this.menuGrvTaiKhoan.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.càiĐạtSLGửiTheoTàiKhoảnNàyToolStripMenuItem});
+            this.menuGrvTaiKhoan.Name = "menuGrvTaiKhoan";
+            this.menuGrvTaiKhoan.Size = new System.Drawing.Size(248, 26);
+            // 
+            // càiĐạtSLGửiTheoTàiKhoảnNàyToolStripMenuItem
+            // 
+            this.càiĐạtSLGửiTheoTàiKhoảnNàyToolStripMenuItem.Name = "càiĐạtSLGửiTheoTàiKhoảnNàyToolStripMenuItem";
+            this.càiĐạtSLGửiTheoTàiKhoảnNàyToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.càiĐạtSLGửiTheoTàiKhoảnNàyToolStripMenuItem.Text = "Cài đạt SL gửi theo tài khoản này";
+            this.càiĐạtSLGửiTheoTàiKhoảnNàyToolStripMenuItem.Click += new System.EventHandler(this.càiĐạtSLGửiTheoTàiKhoảnNàyToolStripMenuItem_Click);
+            // 
             // thongTinTaiKhoan_GuiBindingSource
             // 
             this.thongTinTaiKhoan_GuiBindingSource.DataSource = typeof(AutoSendMessageOnWeb.Data.ThongTinTaiKhoan);
@@ -624,20 +644,6 @@
             this.backgroundWorkerTimKiem.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerTimKiem_DoWork);
             this.backgroundWorkerTimKiem.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorkerTimKiem_RunWorkerCompleted);
             // 
-            // menuGrvTaiKhoan
-            // 
-            this.menuGrvTaiKhoan.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.càiĐạtSLGửiTheoTàiKhoảnNàyToolStripMenuItem});
-            this.menuGrvTaiKhoan.Name = "menuGrvTaiKhoan";
-            this.menuGrvTaiKhoan.Size = new System.Drawing.Size(248, 48);
-            // 
-            // càiĐạtSLGửiTheoTàiKhoảnNàyToolStripMenuItem
-            // 
-            this.càiĐạtSLGửiTheoTàiKhoảnNàyToolStripMenuItem.Name = "càiĐạtSLGửiTheoTàiKhoảnNàyToolStripMenuItem";
-            this.càiĐạtSLGửiTheoTàiKhoảnNàyToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
-            this.càiĐạtSLGửiTheoTàiKhoảnNàyToolStripMenuItem.Text = "Cài đạt SL gửi theo tài khoản này";
-            this.càiĐạtSLGửiTheoTàiKhoảnNàyToolStripMenuItem.Click += new System.EventHandler(this.càiĐạtSLGửiTheoTàiKhoảnNàyToolStripMenuItem_Click);
-            // 
             // cAuto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -660,9 +666,9 @@
             this.panel4.ResumeLayout(false);
             this.groupLeft.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grvGui)).EndInit();
+            this.menuGrvTaiKhoan.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.thongTinTaiKhoan_GuiBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.menuGrvTaiKhoan.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

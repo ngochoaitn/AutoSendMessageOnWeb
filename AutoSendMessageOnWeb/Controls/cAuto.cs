@@ -155,6 +155,7 @@ namespace AutoSendMessageOnWeb
 
                     //backgroundWorkerTimKiem.RunWorkerAsync(tkiem.ParamTimKiem);
                     await TimKiemTask(tkiem.ParamTimKiem, _timKiemTokenResource.Token);
+                    //await Task.Run(() => TimKiemTask(tkiem.ParamTimKiem, _timKiemTokenResource.Token));
                 }
             }
             else
@@ -189,9 +190,9 @@ namespace AutoSendMessageOnWeb
             XuLyDaLuong.ChangeText(lblTrangThaiTimKiem, "Hoàn tất tìm kiếm", Color.Green);
         }
 
-        private Task TimKiemTask(ThongTinTimKiem param, CancellationToken token)
+        private async Task TimKiemTask(ThongTinTimKiem param, CancellationToken token)
         {
-            return Task.Run(() =>
+            await Task.Run(() =>
             {
                 int dem = 0;
                 _danhSach = new BindingList<ThongTinTaiKhoan>();
@@ -202,21 +203,23 @@ namespace AutoSendMessageOnWeb
                         continue;
                     if (token.IsCancellationRequested)
                         break;
-                    if (!_danhSach.Select(p => p.Id).Contains(kq.Id))
+                    if (!_danhSach.Select(p => p.Id).Contains(kq.Id) || (_guiTinNhan is TimBanGai && !string.IsNullOrEmpty(kq.TenHienThi)))
                     {
                         _danhSach.Add(kq);
                         XuLyDaLuong.ChangeText(lblSoLuongKetQua,
                                     string.Format("Số lượng kết quả: {0}", ++dem), Color.Black);
+                        if (token.IsCancellationRequested)
+                            break;
                     }
                 }
-                XuLyDaLuong.ChangeText(lblTrangThaiTimKiem, "Hoàn tất tìm kiếm", Color.Green);
-                btnTimKiem.Enabled = true;
-
-                thongTinTaiKhoan_TimKiemBindingSource.DataSource = _danhSach;
-                btnTimKiem.Text = "Tìm kiếm (F3)";
-                lblSoLuongKetQua.Text = "Số lượng kết quả: " + thongTinTaiKhoan_TimKiemBindingSource.Count.ToString();
-                btnTimKiem.BackColor = Color.FromArgb(255, 255, 128);
             });
+            //Thread.Sleep(1000);
+            XuLyDaLuong.ChangeText(lblTrangThaiTimKiem, "Hoàn tất tìm kiếm", Color.Green);
+            btnTimKiem.Enabled = true;
+            thongTinTaiKhoan_TimKiemBindingSource.DataSource = _danhSach;
+            btnTimKiem.Text = "Tìm kiếm (F3)";
+            lblSoLuongKetQua.Text = "Số lượng kết quả: " + thongTinTaiKhoan_TimKiemBindingSource.Count.ToString();
+            btnTimKiem.BackColor = Color.FromArgb(255, 255, 128);
         }
 
         private void backgroundWorkerTimKiem_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -609,10 +612,21 @@ namespace AutoSendMessageOnWeb
 
         private void btnDangKyTaiKhoan_Click(object sender, EventArgs e)
         {
-            frmTuDongDangKyTaiKhoan frmDangKy = new frmTuDongDangKyTaiKhoan(_trang);
-            frmDangKy.ShowDialog();
-            foreach (var tk in frmDangKy.DanhSachTaiKhoanDaDangKy)
-                thongTinTaiKhoan_GuiBindingSource.Add(tk);
+            if (_trang == TrangWeb.eHenHo || _trang == TrangWeb.HenHoKetBan)
+            {
+                frmTuDongDangKyTaiKhoan_HangLoat frmDangKy = new frmTuDongDangKyTaiKhoan_HangLoat(_trang);
+                frmDangKy.ShowDialog();
+                foreach (var tk in frmDangKy.DanhSachTaiKhoanDaDangKy)
+                    thongTinTaiKhoan_GuiBindingSource.Add(tk);
+            }
+            else
+            {
+                frmTuDongDangKyTaiKhoan frmDangKy = new frmTuDongDangKyTaiKhoan(_trang);
+                frmDangKy.ShowDialog();
+                foreach (var tk in frmDangKy.DanhSachTaiKhoanDaDangKy)
+                    thongTinTaiKhoan_GuiBindingSource.Add(tk);
+            }
+            _db.SaveChange();
         }
     }
 }

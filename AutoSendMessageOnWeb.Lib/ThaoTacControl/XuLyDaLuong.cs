@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AutoSendMessageOnWeb.Lib.ThaoTacControl
@@ -24,6 +20,21 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacControl
             {
                 lbl.ForeColor = forcecolor;
                 lbl.Text = text;
+            }
+        }
+
+        public static void AppendText(TextBox txt, string text)
+        {
+            if (txt.InvokeRequired)
+            {
+                txt.BeginInvoke((Action)(() =>
+                {
+                    txt.AppendText(text);
+                }));
+            }
+            else
+            {
+                txt.AppendText(text);
             }
         }
     }

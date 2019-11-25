@@ -1,6 +1,6 @@
 ﻿namespace AutoSendMessageOnWeb
 {
-    partial class frmTuDongDangKyTaiKhoan
+    partial class frmTuDongDangKyTaiKhoan_HangLoat
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.lblTrangThai = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtDaDangKy = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cbbGioiTinh = new System.Windows.Forms.ComboBox();
             this.grbDelay = new System.Windows.Forms.GroupBox();
@@ -37,8 +40,6 @@
             this.txtThoiGian3 = new System.Windows.Forms.TextBox();
             this.txtThoiGian2 = new System.Windows.Forms.TextBox();
             this.txtThoiGian1 = new System.Windows.Forms.TextBox();
-            this.panCaptcha = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.bottomPanel = new System.Windows.Forms.Panel();
             this.infoLabel = new System.Windows.Forms.Label();
             this.statusLabel = new System.Windows.Forms.Label();
@@ -46,9 +47,6 @@
             this.topPanel = new System.Windows.Forms.Panel();
             this.formNameLabel = new System.Windows.Forms.Label();
             this.controlBox = new ThuVienWinform.UI.Flat.CommonControls.ControlBoxFlat();
-            this.btnTaiCaptcha = new ThuVienWinform.UI.Flat.CommonControls.ButtonFlat();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.mainPanel.SuspendLayout();
             this.grbDelay.SuspendLayout();
             this.bottomPanel.SuspendLayout();
@@ -58,30 +56,56 @@
             // mainPanel
             // 
             this.mainPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mainPanel.Controls.Add(this.lblTrangThai);
+            this.mainPanel.Controls.Add(this.label1);
+            this.mainPanel.Controls.Add(this.txtDaDangKy);
             this.mainPanel.Controls.Add(this.label3);
             this.mainPanel.Controls.Add(this.cbbGioiTinh);
             this.mainPanel.Controls.Add(this.grbDelay);
-            this.mainPanel.Controls.Add(this.panCaptcha);
-            this.mainPanel.Controls.Add(this.label2);
             this.mainPanel.Controls.Add(this.bottomPanel);
             this.mainPanel.Controls.Add(this.btnTienHanhDangKy);
             this.mainPanel.Controls.Add(this.topPanel);
-            this.mainPanel.Controls.Add(this.btnTaiCaptcha);
-            this.mainPanel.Controls.Add(this.txtEmail);
-            this.mainPanel.Controls.Add(this.label1);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.ForeColor = System.Drawing.Color.Black;
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Padding = new System.Windows.Forms.Padding(3);
-            this.mainPanel.Size = new System.Drawing.Size(594, 403);
+            this.mainPanel.Size = new System.Drawing.Size(231, 443);
             this.mainPanel.TabIndex = 0;
+            // 
+            // lblTrangThai
+            // 
+            this.lblTrangThai.Location = new System.Drawing.Point(7, 157);
+            this.lblTrangThai.Name = "lblTrangThai";
+            this.lblTrangThai.Size = new System.Drawing.Size(215, 43);
+            this.lblTrangThai.TabIndex = 11;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 200);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(167, 13);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Danh sách tài khoản đã đăng ký:";
+            // 
+            // txtDaDangKy
+            // 
+            this.txtDaDangKy.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDaDangKy.Location = new System.Drawing.Point(9, 216);
+            this.txtDaDangKy.Multiline = true;
+            this.txtDaDangKy.Name = "txtDaDangKy";
+            this.txtDaDangKy.ReadOnly = true;
+            this.txtDaDangKy.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtDaDangKy.Size = new System.Drawing.Size(213, 191);
+            this.txtDaDangKy.TabIndex = 9;
             // 
             // label3
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 296);
+            this.label3.Location = new System.Drawing.Point(3, 40);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(94, 13);
             this.label3.TabIndex = 8;
@@ -89,26 +113,24 @@
             // 
             // cbbGioiTinh
             // 
-            this.cbbGioiTinh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cbbGioiTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbGioiTinh.FormattingEnabled = true;
-            this.cbbGioiTinh.Location = new System.Drawing.Point(11, 312);
+            this.cbbGioiTinh.Location = new System.Drawing.Point(6, 56);
             this.cbbGioiTinh.Name = "cbbGioiTinh";
-            this.cbbGioiTinh.Size = new System.Drawing.Size(171, 21);
+            this.cbbGioiTinh.Size = new System.Drawing.Size(110, 21);
             this.cbbGioiTinh.TabIndex = 7;
             // 
             // grbDelay
             // 
-            this.grbDelay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.grbDelay.Controls.Add(this.txtThoiGian5);
             this.grbDelay.Controls.Add(this.txtThoiGian4);
             this.grbDelay.Controls.Add(this.txtThoiGian3);
             this.grbDelay.Controls.Add(this.txtThoiGian2);
             this.grbDelay.Controls.Add(this.txtThoiGian1);
             this.grbDelay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.grbDelay.Location = new System.Drawing.Point(188, 296);
+            this.grbDelay.Location = new System.Drawing.Point(6, 83);
             this.grbDelay.Name = "grbDelay";
-            this.grbDelay.Size = new System.Drawing.Size(398, 42);
+            this.grbDelay.Size = new System.Drawing.Size(216, 42);
             this.grbDelay.TabIndex = 6;
             this.grbDelay.TabStop = false;
             this.grbDelay.Text = "Thời gian chờ lần lượt giữa 2 lần đăng ký";
@@ -153,34 +175,15 @@
             this.txtThoiGian1.TabIndex = 0;
             this.txtThoiGian1.Text = "1";
             // 
-            // panCaptcha
-            // 
-            this.panCaptcha.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.panCaptcha.AutoScroll = true;
-            this.panCaptcha.Location = new System.Drawing.Point(188, 53);
-            this.panCaptcha.Name = "panCaptcha";
-            this.panCaptcha.Size = new System.Drawing.Size(398, 237);
-            this.panCaptcha.TabIndex = 5;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(185, 37);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Captcha:";
-            // 
             // bottomPanel
             // 
             this.bottomPanel.Controls.Add(this.infoLabel);
             this.bottomPanel.Controls.Add(this.statusLabel);
             this.bottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.bottomPanel.ForeColor = System.Drawing.Color.Black;
-            this.bottomPanel.Location = new System.Drawing.Point(3, 373);
+            this.bottomPanel.Location = new System.Drawing.Point(3, 413);
             this.bottomPanel.Name = "bottomPanel";
-            this.bottomPanel.Size = new System.Drawing.Size(586, 25);
+            this.bottomPanel.Size = new System.Drawing.Size(223, 25);
             this.bottomPanel.TabIndex = 3;
             // 
             // infoLabel
@@ -188,7 +191,7 @@
             this.infoLabel.AutoSize = true;
             this.infoLabel.Dock = System.Windows.Forms.DockStyle.Right;
             this.infoLabel.ForeColor = System.Drawing.Color.Black;
-            this.infoLabel.Location = new System.Drawing.Point(470, 0);
+            this.infoLabel.Location = new System.Drawing.Point(107, 0);
             this.infoLabel.Name = "infoLabel";
             this.infoLabel.Padding = new System.Windows.Forms.Padding(5);
             this.infoLabel.Size = new System.Drawing.Size(116, 23);
@@ -209,11 +212,9 @@
             // 
             // btnTienHanhDangKy
             // 
-            this.btnTienHanhDangKy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnTienHanhDangKy.BackColor = System.Drawing.Color.Aquamarine;
-            this.btnTienHanhDangKy.Enabled = false;
             this.btnTienHanhDangKy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTienHanhDangKy.Location = new System.Drawing.Point(194, 344);
+            this.btnTienHanhDangKy.Location = new System.Drawing.Point(6, 131);
             this.btnTienHanhDangKy.Name = "btnTienHanhDangKy";
             this.btnTienHanhDangKy.Size = new System.Drawing.Size(118, 23);
             this.btnTienHanhDangKy.TabIndex = 2;
@@ -230,7 +231,7 @@
             this.topPanel.ForeColor = System.Drawing.Color.Black;
             this.topPanel.Location = new System.Drawing.Point(3, 3);
             this.topPanel.Name = "topPanel";
-            this.topPanel.Size = new System.Drawing.Size(586, 31);
+            this.topPanel.Size = new System.Drawing.Size(223, 31);
             this.topPanel.TabIndex = 1;
             // 
             // formNameLabel
@@ -239,9 +240,9 @@
             this.formNameLabel.ForeColor = System.Drawing.Color.Black;
             this.formNameLabel.Location = new System.Drawing.Point(3, 8);
             this.formNameLabel.Name = "formNameLabel";
-            this.formNameLabel.Size = new System.Drawing.Size(94, 13);
+            this.formNameLabel.Size = new System.Drawing.Size(141, 13);
             this.formNameLabel.TabIndex = 1;
-            this.formNameLabel.Text = "Đăng ký tài khoản";
+            this.formNameLabel.Text = "Đăng ký tài khoản hàng loạt";
             // 
             // controlBox
             // 
@@ -253,8 +254,8 @@
             this.controlBox.Dock = System.Windows.Forms.DockStyle.Right;
             this.controlBox.ForeColor = System.Drawing.Color.Black;
             this.controlBox.FormTextColor = System.Drawing.Color.Black;
-            this.controlBox.Location = new System.Drawing.Point(518, 0);
-            this.controlBox.MaxSize = true;
+            this.controlBox.Location = new System.Drawing.Point(177, 0);
+            this.controlBox.MaxSize = false;
             this.controlBox.MaxSizeColor = System.Drawing.Color.Transparent;
             this.controlBox.MaxSizeHoverColor = System.Drawing.Color.Empty;
             this.controlBox.MaxSizeText = "⌂";
@@ -265,55 +266,23 @@
             this.controlBox.MiniSizeText = "–";
             this.controlBox.MiniSizeTextColor = System.Drawing.Color.Black;
             this.controlBox.Name = "controlBox";
-            this.controlBox.Size = new System.Drawing.Size(68, 31);
+            this.controlBox.Size = new System.Drawing.Size(46, 31);
             this.controlBox.TabIndex = 0;
             this.controlBox.TipClose = "Đóng";
             this.controlBox.TipMaxsize = "Phóng to";
             this.controlBox.TipMaxsize2 = "Khôi phục kích thước";
             this.controlBox.TipMinisize = "Thu nhỏ";
             // 
-            // btnTaiCaptcha
-            // 
-            this.btnTaiCaptcha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnTaiCaptcha.BackColor = System.Drawing.Color.SpringGreen;
-            this.btnTaiCaptcha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTaiCaptcha.Location = new System.Drawing.Point(9, 344);
-            this.btnTaiCaptcha.Name = "btnTaiCaptcha";
-            this.btnTaiCaptcha.Size = new System.Drawing.Size(173, 23);
-            this.btnTaiCaptcha.TabIndex = 2;
-            this.btnTaiCaptcha.Text = "Tải captcha";
-            this.btnTaiCaptcha.UseVisualStyleBackColor = false;
-            this.btnTaiCaptcha.Click += new System.EventHandler(this.btnTaiCaptcha_Click);
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtEmail.Location = new System.Drawing.Point(9, 53);
-            this.txtEmail.Multiline = true;
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(173, 237);
-            this.txtEmail.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Danh sách email:";
-            // 
-            // frmTuDongDangKyTaiKhoan
+            // frmTuDongDangKyTaiKhoan_HangLoat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(596, 408);
+            this.ClientSize = new System.Drawing.Size(233, 448);
             this.Controls.Add(this.mainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximumSize = new System.Drawing.Size(600, 1080);
-            this.Name = "frmTuDongDangKyTaiKhoan";
+            this.Name = "frmTuDongDangKyTaiKhoan_HangLoat";
             this.Padding = new System.Windows.Forms.Padding(0, 0, 2, 5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Tự động đăng ký tài khoản";
@@ -339,13 +308,8 @@
         private System.Windows.Forms.Label statusLabel;
         private System.Windows.Forms.Label infoLabel;
         private System.Windows.Forms.FlatStyle flatStyle1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtEmail;
-        private ThuVienWinform.UI.Flat.CommonControls.ButtonFlat btnTaiCaptcha;
-        private System.Windows.Forms.Label label2;
         private ThuVienWinform.UI.Flat.CommonControls.ButtonFlat btnTienHanhDangKy;
         private System.Windows.Forms.GroupBox grbDelay;
-        private System.Windows.Forms.Panel panCaptcha;
         private System.Windows.Forms.TextBox txtThoiGian5;
         private System.Windows.Forms.TextBox txtThoiGian4;
         private System.Windows.Forms.TextBox txtThoiGian3;
@@ -353,6 +317,9 @@
         private System.Windows.Forms.TextBox txtThoiGian1;
         private System.Windows.Forms.ComboBox cbbGioiTinh;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtDaDangKy;
+        private System.Windows.Forms.Label lblTrangThai;
     }
 }
 

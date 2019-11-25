@@ -117,7 +117,7 @@ namespace AutoSendMessageOnWeb.Lib
         public IEnumerable<ThongTinTaiKhoan> TimKiem(ThongTinTimKiem param)
         {
             int page = 1;
-
+            int numTry = 0;
             while (true)
             {
 
@@ -150,7 +150,13 @@ namespace AutoSendMessageOnWeb.Lib
                 #region Lấy dữ liệu
                 string sKQTimKiem = RequestToWeb.ReadStream(response);
                 sKQTimKiem = HttpUtility.HtmlDecode(sKQTimKiem);
-
+                if (string.IsNullOrEmpty(sKQTimKiem))
+                {
+                    if (numTry++ < 10)
+                        continue;
+                    else
+                        break;
+                }
                 HtmlAgilityPack.HtmlDocument document = new HtmlAgilityPack.HtmlDocument();
                 document.LoadHtml(sKQTimKiem);
 
@@ -232,6 +238,11 @@ namespace AutoSendMessageOnWeb.Lib
             var guiTin = RequestToWeb.POST(new Uri("http://likeyou.vn/messages/send-message"), tk.Cookie, "fuid=636691&tuid=636421&message=Không có id người gửi", false);
             string s3 = Uri.UnescapeDataString(RequestToWeb.ReadStream(guiTin));
             var header3 = RequestToWeb.ReadHeader(guiTin.Headers);
+        }
+
+        public IEnumerable<ThongTinTaiKhoan> TimKiemAsync(ThongTinTimKiem param)
+        {
+            throw new NotImplementedException();
         }
     }
 }

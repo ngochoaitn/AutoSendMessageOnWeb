@@ -16,6 +16,7 @@ namespace AutoSendMessageOnWeb.Lib
 {
     public class HenHo2 : IGuiTinNhan
     {
+        string _fileLog = "Data\\henho2_log.txt";
         public CookieContainer Cookie { set; get; }
         public bool TimKiemYeuCauCookie
         {
@@ -169,7 +170,7 @@ namespace AutoSendMessageOnWeb.Lib
 
         public IEnumerable<ThongTinTaiKhoan> TimKiem(ThongTinTimKiem param)
         {
-            Log.WriteLog("Bắt đầu tìm kiếm henho2...").Wait();
+            Log.WriteLog(_fileLog, "Bắt đầu tìm kiếm henho2...");
             foreach (var tinhtrang in param.HonNhan)
             {
                 int pageindex = 1;
@@ -189,97 +190,104 @@ namespace AutoSendMessageOnWeb.Lib
                     query["pageindex"] = pageindex.ToString();
                     uri.Query = query.ToString();
 
-                    Log.WriteLog($"Truy vấn {uri.Uri.ToString()}").Wait();
+                    Log.WriteLog(_fileLog, $"Truy vấn {uri.Uri.ToString()}");
                     var response = RequestToWeb.GET(uri.Uri, false);
                     //var response = RequestToWeb.GET(new Uri("http://localhost:8081/"), false);
                     #endregion
-                    Log.WriteLog($"Truy vấn xong {uri.Uri.ToString()}").Wait();
+                    Log.WriteLog(_fileLog, $"Truy vấn xong {uri.Uri.ToString()}");
                     #region Lấy dữ liệu
-                    using (StreamReader sr = new StreamReader(response.GetResponseStream()))
+                    //using (StreamReader sr = new StreamReader(response.GetResponseStream()))
+                    //{
+                    string content = RequestToWeb.ReadStream(response);// sr.ReadToEnd();
+                                                                       //content = File.ReadAllText("C:\\Users\\ngochoaitn\\Desktop\\new2.html");
+                                                                       //content = HttpUtility.HtmlDecode(content);
+
+                    HtmlAgilityPack.HtmlDocument document = new HtmlAgilityPack.HtmlDocument();
+                    document.LoadHtml(content);
+
+                    //Bảng có 24 hàng, trong đó 20 hàng dữ liệu, 1 hàng header, 2 hàng quảng cáo, 1 hàng footer
+                    var bangKetQua2 = document.DocumentNode.QuerySelectorAll("table > tbody > tr").ToList();
+                    if (bangKetQua2.Count <= 1)//hết dữ liệu
+                        break;
+                    Log.WriteLog(_fileLog, "Lấy bảng kết quả");
+                    bool continueAll = true;
+                    for (int i = 0; i < bangKetQua2.Count; i++)
                     {
-                        string content = sr.ReadToEnd();
-                        //content = File.ReadAllText("C:\\Users\\ngochoaitn\\Desktop\\new2.html");
-                        //content = HttpUtility.HtmlDecode(content);
+                        var tableData = bangKetQua2[i].QuerySelectorAll("td");
+                        if (tableData.Count() != 2)
+                            continue;
+                        continueAll = false;
 
-                        HtmlAgilityPack.HtmlDocument document = new HtmlAgilityPack.HtmlDocument();
-                        document.LoadHtml(content);
+                        var td1 = tableData.ElementAt(0);
+                        var td2 = tableData.ElementAt(1);
 
-                        //Bảng có 24 hàng, trong đó 20 hàng dữ liệu, 1 hàng header, 2 hàng quảng cáo, 1 hàng footer
-                        var bangKetQua2 = document.DocumentNode.QuerySelectorAll("table > tbody > tr").ToList();
-                        Log.WriteLog("Lấy bảng kết quả").Wait();
-                        for (int i = 0; i < bangKetQua2.Count; i++)
+                        ThongTinTaiKhoan taiKhoan = new ThongTinTaiKhoan();
+
+                        var tenHienThi = td1.QuerySelector("a");
+                        if (tenHienThi != null)
                         {
-                                var tableData = bangKetQua2[i].QuerySelectorAll("td");
-                                if (tableData.Count() != 2)
-                                    continue;
-                                var td1 = tableData.ElementAt(0);
-                                var td2 = tableData.ElementAt(1);
-
-                                ThongTinTaiKhoan taiKhoan = new ThongTinTaiKhoan();
-
-                                var tenHienThi = td1.QuerySelector("a");
-                            if (tenHienThi != null)
+                            string duongDan = tenHienThi.GetAttributeValue("href", "");
+                            if (!string.IsNullOrEmpty(duongDan))
                             {
-                                string duongDan = tenHienThi.GetAttributeValue("href", "");
-                                if (!string.IsNullOrEmpty(duongDan))
+                                try
                                 {
-                                    try
-                                    {
-                                        int id = Convert.ToInt32(duongDan.Split('/')[3]);
-                                        string[] ten_gioitinh_tuoi = td2.InnerText.Split('\n');
-                                        string ten = td1.InnerText.Trim();
-                                        string gioiTinh = ten_gioitinh_tuoi[2]?.Trim();
-                                        string tuoi = ten_gioitinh_tuoi[4].Trim().Replace(" -", "");
+                                    int id = Convert.ToInt32(duongDan.Split('/')[3]);
+                                    string[] ten_gioitinh_tuoi = td2.InnerText.Split('\n');
+                                    string ten = td1.InnerText.Trim();
+                                    string gioiTinh = ten_gioitinh_tuoi[2]?.Trim();
+                                    string tuoi = ten_gioitinh_tuoi[4].Trim().Replace(" -", "");
 
-                                        taiKhoan.Url = string.Format("https://henho2.com{0}", duongDan);
-                                        taiKhoan.Id = duongDan.Split('/')[3];
-                                        taiKhoan.TenHienThi = ten.Trim();
-                                        taiKhoan.ChoPhepGuiNhan = true;
-                                        taiKhoan.Tuoi = tuoi.ConvertToInt32();
-                                        taiKhoan.GioiTinh = gioiTinh;
-                                        taiKhoan.NoiO = ten_gioitinh_tuoi[12].Trim();
-                                        taiKhoan.TinhTrangHonNhan = ten_gioitinh_tuoi[6].Trim();
-                                        //Thời gian đăng nhập
-                                        if(param.ThoiGianDangNhap.HasValue)
+                                    taiKhoan.Url = string.Format("https://henho2.com{0}", duongDan);
+                                    taiKhoan.Id = duongDan.Split('/')[3];
+                                    taiKhoan.TenHienThi = ten.Trim();
+                                    taiKhoan.ChoPhepGuiNhan = true;
+                                    taiKhoan.Tuoi = tuoi.ConvertToInt32();
+                                    taiKhoan.GioiTinh = gioiTinh;
+                                    taiKhoan.NoiO = ten_gioitinh_tuoi[12].Trim();
+                                    taiKhoan.TinhTrangHonNhan = ten_gioitinh_tuoi[6].Trim();
+                                    //Thời gian đăng nhập
+                                    if (param.ThoiGianDangNhap.HasValue)
+                                    {
+                                        HtmlAgilityPack.HtmlDocument docThongTinCaNhan = new HtmlAgilityPack.HtmlDocument();
+                                        var thongTinCaNhan = RequestToWeb.ReadStream(RequestToWeb.GET(new Uri(taiKhoan.Url), false));
+                                        docThongTinCaNhan.LoadHtml(thongTinCaNhan);
+                                        var bangThongTin = docThongTinCaNhan.DocumentNode.QuerySelectorAll("table > tbody > tr").ToList();
+                                        var thoiGianDangNhap = bangThongTin.FirstOrDefault(p => p.InnerText.ToLower().Contains("đăng nhập"));
+                                        if (thoiGianDangNhap != null && !string.IsNullOrEmpty(thoiGianDangNhap.InnerText))
                                         {
-                                            HtmlAgilityPack.HtmlDocument docThongTinCaNhan = new HtmlAgilityPack.HtmlDocument();
-                                            var thongTinCaNhan = RequestToWeb.ReadStream(RequestToWeb.GET(new Uri(taiKhoan.Url), false));
-                                            docThongTinCaNhan.LoadHtml(thongTinCaNhan);
-                                            var bangThongTin = docThongTinCaNhan.DocumentNode.QuerySelectorAll("table > tbody > tr").ToList();
-                                            var thoiGianDangNhap = bangThongTin.FirstOrDefault(p => p.InnerText.ToLower().Contains("đăng nhập"));
-                                            if (thoiGianDangNhap != null && !string.IsNullOrEmpty(thoiGianDangNhap.InnerText))
+                                            try
                                             {
-                                                try
-                                                {
-                                                    DateTime thoiGianDangNhapganNhat = Convert.ToDateTime(thoiGianDangNhap.InnerText.ToLower().Replace("đăng nhập", "").TrimAll());
-                                                    if ((DateTime.Now - thoiGianDangNhapganNhat).TotalMinutes > param.ThoiGianDangNhap)
-                                                        taiKhoan = null;
-                                                }
-                                                catch { }
+                                                DateTime thoiGianDangNhapganNhat = Convert.ToDateTime(thoiGianDangNhap.InnerText.ToLower().Replace("đăng nhập", "").TrimAll());
+                                                if ((DateTime.Now - thoiGianDangNhapganNhat).TotalMinutes > param.ThoiGianDangNhap)
+                                                    taiKhoan = null;
                                             }
+                                            catch { }
                                         }
                                     }
-                                    catch (Exception ex)
-                                    {
-                                        taiKhoan = null;
-                                        Log.WriteLog($"Truy vấn xong {ex.Message}").Wait();
-                                    }
-
-                                    if (taiKhoan != null)
-                                        yield return taiKhoan;
                                 }
+                                catch (Exception ex)
+                                {
+                                    taiKhoan = null;
+                                    Log.WriteLog(_fileLog, $"Truy vấn xong {ex.Message}");
+                                }
+
+                                if (taiKhoan != null)
+                                    yield return taiKhoan;
                             }
-                            if (param.DungTimKiem)
-                                break;
                         }
-                        if (bangKetQua2.Count <= 1)//hết dữ liệu
+                        
+                        if (param.DungTimKiem)
                             break;
                     }
+                    if (continueAll)
+                        break;
+
+                    // }
                     #endregion
                     if (param.DungTimKiem)
                         break;
                     pageindex++;
-                    Log.WriteLog($"Next trang {pageindex}").Wait();
+                    Log.WriteLog(_fileLog, $"Next trang {pageindex}");
                 }
             }
         }
@@ -296,6 +304,10 @@ namespace AutoSendMessageOnWeb.Lib
                 return binding;
         }
 
+        public IEnumerable<ThongTinTaiKhoan> TimKiemAsync(ThongTinTimKiem param)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class CONST_HENHO2

@@ -1,21 +1,31 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace AutoSendMessageOnWeb.Lib
 {
     public class Log
     {
         private const string FILE_LOG = "Data\\log.txt";
-        public static async Task WriteLog(string content)
+        public static void WriteLog(string content)
         {
-            if (!File.Exists(FILE_LOG))
-                File.Create(FILE_LOG).Close();
-            File.AppendAllText(FILE_LOG, $"{DateTime.Now}: {content}{Environment.NewLine}", Encoding.UTF8);
-            await Task.Delay(1);
+            try
+            {
+                if (!File.Exists(FILE_LOG))
+                    File.Create(FILE_LOG).Close();
+                File.AppendAllText(FILE_LOG, $"{DateTime.Now}: {content}{Environment.NewLine}", Encoding.UTF8);
+            }
+            catch { }
+        }
+        public static void WriteLog(string path, string content)
+        {
+            try
+            {
+                if (!File.Exists(path))
+                    File.Create(path).Close();
+                File.AppendAllText(path, $"{DateTime.Now}: {content}{Environment.NewLine}", Encoding.UTF8);
+            }
+            catch { }
         }
     }
 }

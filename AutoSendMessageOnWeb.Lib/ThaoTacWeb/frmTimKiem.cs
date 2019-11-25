@@ -48,7 +48,7 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb
             ControlPlus.MovieFormWhenMouseDownControl(controlBoxFlat1.lblFormText, this.Handle);
 
             panTimKiemThoiGianDangNhap.DataBindings.Add("Enabled", chkTimNguoiMoiDangNhap, "Checked");
-
+            
             _duLieuTimKiem = gui_tin_nhan.TaoDuLieuTimKiem();
 
             foreach (var noio in _duLieuTimKiem.NoiO)
