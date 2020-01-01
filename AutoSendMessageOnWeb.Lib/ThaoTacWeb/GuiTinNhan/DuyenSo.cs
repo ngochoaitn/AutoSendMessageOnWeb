@@ -150,6 +150,7 @@ namespace AutoSendMessageOnWeb.Lib
                 query["city"] = "0";                                      //huyện=0=> cả tỉnh
                 query["state"] = param.NoiO.ToString();                   //tỉnh
                 query["radius"] = "50";
+                query["i_am_here_to"] = "1";
                 if ((int)param.GioiTinh != -1)
                     query["p_orientation[]"] = param.GioiTinh.ToString(); //Giới tính
                 else                                                      //Tất cả
@@ -160,9 +161,14 @@ namespace AutoSendMessageOnWeb.Lib
                 }
                 query["p_age_from"] = param.TuTuoi.ToString();
                 query["p_age_to"] = param.DenTuoi.ToString();
-                query["p_status[]"] = param.HonNhan.FirstOrDefault().Id.ToString();
-                for(int i = 2; i < param.HonNhan.Count; i++)
-                    query["p_status[]"] += string.Format("&p_status[]={0}", param.HonNhan[i].Id.ToString());
+
+                if (param.HonNhan.Count >= 1)
+                {
+                    query["p_status[]"] = param.HonNhan.FirstOrDefault().Id.ToString();
+                    for (int i = 1; i < param.HonNhan.Count; i++)
+                        query["p_status[]"] += string.Format("&p_status[]={0}", param.HonNhan[i].Id.ToString());
+                }
+                
                 query["with_photo"] = "1";
 
                 if (param.TimNguoiOnline)
@@ -176,7 +182,7 @@ namespace AutoSendMessageOnWeb.Lib
 
                 uri.Query = query.ToString();
 
-                HttpWebRequest request = WebRequest.CreateHttp(uri.Uri);
+                HttpWebRequest request = WebRequest.CreateHttp(HttpUtility.UrlDecode(uri.Uri.ToString()));
                 request.Method = "POST";
 
                 StreamWriter sw = new StreamWriter(request.GetRequestStream());
@@ -197,8 +203,8 @@ namespace AutoSendMessageOnWeb.Lib
 
                     document.LoadHtml(content);
                     IEnumerable<HtmlNode> hasFloatClass = document.DocumentNode.Descendants("div").Where(div => div.HasClass("filter_result"));
-
-                    document.LoadHtml(hasFloatClass.FirstOrDefault().OuterHtml);
+                    string filter_result = hasFloatClass.FirstOrDefault().OuterHtml;
+                    document.LoadHtml(filter_result);
                     var bangKetQua = document.DocumentNode.Descendants("div").Where(div => div.HasClass("item"));
                     for (int i = 0; i < bangKetQua.Count(); i++)
                     {

@@ -94,6 +94,11 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb
                     return response;
                 }
             }
+            catch(WebException webEx)
+            {
+                string error = ReadStream(webEx.Response);
+                return null;
+            }
             catch (Exception ex)
             {
                 return null;

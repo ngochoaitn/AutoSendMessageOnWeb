@@ -98,6 +98,15 @@ namespace AutoSendMessageOnWeb.Lib.ExtentionMethod
             return cookieCollection;
         }
 
+        public static string GetCookie(this CookieContainer cookieJar, string key)
+        {
+            foreach (Cookie co in cookieJar.GetAllCookies())
+                if (co.Name == key)
+                    return co.Value;
+
+            return "";
+        }
+
         public static string ConvertToUrlEncode(this System.Collections.Specialized.NameValueCollection co)
         {
             string res = "";
