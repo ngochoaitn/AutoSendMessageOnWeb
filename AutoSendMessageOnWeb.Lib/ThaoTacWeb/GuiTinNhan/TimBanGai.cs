@@ -60,6 +60,15 @@ namespace AutoSendMessageOnWeb.Lib
             string guiThu_data = string.Format("subject={0}&body={1}&submit=Gởi&ismessage=1", tieude, noidung);
             var guiThu_Response = RequestToWeb.POST(new Uri(string.Format("http://www.timbangai.com/timbangai/account/messages/compose/{0}", nguoinhan.Id)), nguoigui.Cookie, guiThu_data, false);
             string guiThu_string = RequestToWeb.ReadStream(guiThu_Response);
+
+            if(guiThu_string == null)
+            {
+                nguoigui.ChoPhepGuiNhan = false;
+                nguoigui.TrangThai = "Chuyển tài khoản";
+                nguoinhan.TrangThai = "Gửi lỗi (Web không trả về dữ liệu để xử lý)";
+                return;
+            }
+
             if (guiThu_string == "")
                 nguoinhan.TrangThai = nguoigui.TaiKhoan;
             else

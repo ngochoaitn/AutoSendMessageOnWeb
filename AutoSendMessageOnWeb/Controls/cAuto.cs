@@ -194,24 +194,29 @@ namespace AutoSendMessageOnWeb
         {
             await Task.Run(() =>
             {
-                int dem = 0;
-                _danhSach = new BindingList<ThongTinTaiKhoan>();
-                XuLyDaLuong.ChangeText(lblTrangThaiTimKiem, "Đang nhận dữ liệu...", Color.Red);
-                foreach (var kq in _guiTinNhan.TimKiem(param))
+                try
                 {
-                    if (kq == null)
-                        continue;
-                    if (token.IsCancellationRequested)
-                        break;
-                    if (!_danhSach.Select(p => p.Id).Contains(kq.Id) || (_guiTinNhan is TimBanGai && !string.IsNullOrEmpty(kq.TenHienThi)))
+                    int dem = 0;
+                    _danhSach = new BindingList<ThongTinTaiKhoan>();
+                    XuLyDaLuong.ChangeText(lblTrangThaiTimKiem, "Đang nhận dữ liệu...", Color.Red);
+                    foreach (var kq in _guiTinNhan.TimKiem(param))
                     {
-                        _danhSach.Add(kq);
-                        XuLyDaLuong.ChangeText(lblSoLuongKetQua,
-                                    string.Format("Số lượng kết quả: {0}", ++dem), Color.Black);
+                        if (kq == null)
+                            continue;
                         if (token.IsCancellationRequested)
                             break;
+                        if (!_danhSach.Select(p => p.Id).Contains(kq.Id) || (_guiTinNhan is TimBanGai && !string.IsNullOrEmpty(kq.TenHienThi)))
+                        {
+                            _danhSach.Add(kq);
+                            XuLyDaLuong.ChangeText(lblSoLuongKetQua,
+                                        string.Format("Số lượng kết quả: {0}", ++dem), Color.Black);
+                            if (token.IsCancellationRequested)
+                                break;
+                        }
                     }
                 }
+                catch
+                { }
             });
             //Thread.Sleep(1000);
             XuLyDaLuong.ChangeText(lblTrangThaiTimKiem, "Hoàn tất tìm kiếm", Color.Green);
@@ -268,7 +273,11 @@ namespace AutoSendMessageOnWeb
                     if (!string.IsNullOrEmpty(tk.TaiKhoan) && tk.SoThuSeGui > 0)
                     {
                         XuLyDaLuong.ChangeText(lblTrangThai, string.Format("Đang đăng nhập {0}...", tk.TaiKhoan), Color.Black);
-                        tk.DangNhap(_guiTinNhan);
+                        try
+                        {
+                            tk.DangNhap(_guiTinNhan);
+                        }
+                        catch { }
                     }
                 }
                 thongTinTaiKhoan_GuiBindingSource.EndEdit();
@@ -334,11 +343,20 @@ namespace AutoSendMessageOnWeb
                         XuLyDaLuong.ChangeText(lblTrangThai, string.Format("Đang gửi {0}/{1} {2}...", demGui++, soThuSeGui, nguoiNhan.TenHienThi), Color.Green);
                         var noiDung = danhSachNoiDung[index_NoiDungHienTai];
                         Debug.WriteLine($"Gửi:/r/nTiêu đề:/r/n{this.LayTextTuSpinText(noiDung.TieuDe)}/r/nNội dung:/r/n{this.LayTextTuSpinText(noiDung.NoiDung)}");
-                        _guiTinNhan.GuiTin(nguoiGui, nguoiNhan, this.LayTextTuSpinText(noiDung.TieuDe), this.LayTextTuSpinText(noiDung.NoiDung),
-                            (code => {
-                                if (code == CONST_HENHO2.TAI_KHOAN_BI_KHOA)
-                                    breakNow = true;
-                            }));
+                        try
+                        {
+                            _guiTinNhan.GuiTin(nguoiGui, nguoiNhan, this.LayTextTuSpinText(noiDung.TieuDe), this.LayTextTuSpinText(noiDung.NoiDung),
+                                (code =>
+                                {
+                                    if (code == CONST_HENHO2.TAI_KHOAN_BI_KHOA)
+                                        breakNow = true;
+                                }));
+                        }
+                        catch
+                        {
+                            //nguoiGui.TrangThai = "Chuyển tài khoản";
+                            break;
+                        }
                         if (breakNow)
                         {
                             nguoiGui.TrangThai = "Bị khóa";
@@ -349,6 +367,7 @@ namespace AutoSendMessageOnWeb
                         }
                         if (!nguoiGui.ChoPhepGuiNhan)
                             break;
+
                         await Task.Delay(thoiGianCho * 1000);
                         thongTinTaiKhoan_TimKiemBindingSource.EndEdit();
                         grvTimKiem.Refresh();
@@ -423,18 +442,29 @@ namespace AutoSendMessageOnWeb
                         {
                             XuLyDaLuong.ChangeText(lblTrangThai, string.Format("Đang gửi {0}/{1} {2}...", demGui++, soThuSeGui, nguoiNhan.TenHienThi), Color.Green);
                             Debug.WriteLine($"Gửi:/r/nTiêu đề:/r/n{this.LayTextTuSpinText(nd.TieuDe)}/r/nNội dung:/r/n{this.LayTextTuSpinText(nd.NoiDung)}");
-                            _guiTinNhan.GuiTin(nguoiGui, nguoiNhan, this.LayTextTuSpinText(nd.TieuDe), this.LayTextTuSpinText(nd.NoiDung),
-                                (code =>
-                                {
-                                    if (code == CONST_HENHO2.TAI_KHOAN_BI_KHOA)
-                                        breakNow = true;
-                                }));
+                            try
+                            {
+                                _guiTinNhan.GuiTin(nguoiGui, nguoiNhan, this.LayTextTuSpinText(nd.TieuDe), this.LayTextTuSpinText(nd.NoiDung),
+                                    (code =>
+                                    {
+                                        if (code == CONST_HENHO2.TAI_KHOAN_BI_KHOA)
+                                            breakNow = true;
+                                    }));
+                            }
+                            catch
+                            {
+                                break;
+                            }
+
                             if (breakNow)
                                 break;
+
                             await Task.Delay(thoiGianCho * 1000);
                             thongTinTaiKhoan_TimKiemBindingSource.EndEdit();
                             grvTimKiem.Refresh();
                             if (_guiTinNhanTokenResource.IsCancellationRequested)
+                                break;
+                            if (!nguoiGui.ChoPhepGuiNhan)
                                 break;
                         }
                         if (breakNow)
@@ -445,6 +475,8 @@ namespace AutoSendMessageOnWeb
                             grvTimKiem.Focus();
                             break;
                         }
+                        if (!nguoiGui.ChoPhepGuiNhan)
+                            break;
                     }
                     else
                     {

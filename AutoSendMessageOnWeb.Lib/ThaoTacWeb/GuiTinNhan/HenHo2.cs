@@ -103,22 +103,39 @@ namespace AutoSendMessageOnWeb.Lib
             using (var sr = new StreamReader(response.GetResponseStream()))
             {
                 string stringResponse = sr.ReadToEnd();
-                if (!stringResponse.Contains("Gửi tin nhắn th&#224;nh c&#244;ng"))
+                if(stringResponse == null)
+                {
+                    nguoigui.TrangThai = "Chuyển tài khoản";
+                    nguoigui.ChoPhepGuiNhan = false;
+                    nguoinhan.TrangThai = "Gửi lỗi (Web không trả về dữ liệu để xử lý)";
+                }
+                if (stringResponse != null && !stringResponse.Contains("Gửi tin nhắn th&#224;nh c&#244;ng"))
                 {
                     if (stringResponse.Contains("gửi qu&#225; số thư cho ph&#233;p"))
+                    {
                         nguoinhan.TrangThai = "Gửi lỗi\n(quá số thư cho phép)";
+                        nguoigui.TrangThai = "Quá số thư cho phép";
+                        nguoigui.ChoPhepGuiNhan = false;
+                    }
                     else if (stringResponse.Contains("Vui l&#242;ng nhập từ"))
                         nguoinhan.TrangThai = "Gửi lỗi\n(quá ngắn)";
                     else if (stringResponse.Contains("Chưa kích hoạt"))
-                        nguoinhan.TrangThai = "Chưa kích hoạt";
+                    {
+                        nguoigui.TrangThai = nguoinhan.TrangThai = "Chưa kích hoạt";
+                        nguoigui.ChoPhepGuiNhan = false;
+                    }
                     else if (stringResponse.Contains("Bạn đ&#227; bị ban"))
                     {
-                        nguoinhan.TrangThai = "Gửi lỗi\n(tài khoản bị khóa)";
+                        nguoigui.TrangThai = nguoinhan.TrangThai = "Gửi lỗi\n(tài khoản bị khóa)";
                         if (callback != null)
                             callback(CONST_HENHO2.TAI_KHOAN_BI_KHOA);
+                        nguoigui.ChoPhepGuiNhan = false;
                     }
                     else
-                        nguoinhan.TrangThai = "Gửi lỗi\n(nhập lại tài khoản)";
+                    {
+                        nguoigui.TrangThai = nguoinhan.TrangThai = "Gửi lỗi\n(nhập lại tài khoản)";
+                        nguoigui.ChoPhepGuiNhan = false;
+                    }
                 }
             }
         }
@@ -202,12 +219,15 @@ namespace AutoSendMessageOnWeb.Lib
                                                                        //content = File.ReadAllText("C:\\Users\\ngochoaitn\\Desktop\\new2.html");
                                                                        //content = HttpUtility.HtmlDecode(content);
 
+                    if (content == null)
+                        content = "";
+
                     HtmlAgilityPack.HtmlDocument document = new HtmlAgilityPack.HtmlDocument();
                     document.LoadHtml(content);
 
                     //Bảng có 24 hàng, trong đó 20 hàng dữ liệu, 1 hàng header, 2 hàng quảng cáo, 1 hàng footer
                     var bangKetQua2 = document.DocumentNode.QuerySelectorAll("table > tbody > tr").ToList();
-                    if (bangKetQua2.Count <= 1)//hết dữ liệu
+                    if (bangKetQua2 == null || bangKetQua2.Count <= 1)//hết dữ liệu
                         break;
                     Log.WriteLog(_fileLog, "Lấy bảng kết quả");
                     bool continueAll = true;
@@ -250,19 +270,30 @@ namespace AutoSendMessageOnWeb.Lib
                                     {
                                         HtmlAgilityPack.HtmlDocument docThongTinCaNhan = new HtmlAgilityPack.HtmlDocument();
                                         var thongTinCaNhan = RequestToWeb.ReadStream(RequestToWeb.GET(new Uri(taiKhoan.Url), false));
-                                        docThongTinCaNhan.LoadHtml(thongTinCaNhan);
-                                        var bangThongTin = docThongTinCaNhan.DocumentNode.QuerySelectorAll("table > tbody > tr").ToList();
-                                        var thoiGianDangNhap = bangThongTin.FirstOrDefault(p => p.InnerText.ToLower().Contains("đăng nhập"));
-                                        if (thoiGianDangNhap != null && !string.IsNullOrEmpty(thoiGianDangNhap.InnerText))
+                                        if (thongTinCaNhan != null)
                                         {
-                                            try
+                                            docThongTinCaNhan.LoadHtml(thongTinCaNhan);
+                                            var bangThongTin = docThongTinCaNhan.DocumentNode.QuerySelectorAll("table > tbody > tr").ToList();
+                                            var thoiGianDangNhap = bangThongTin?.FirstOrDefault(p => p.InnerText?.ToLower()?.Contains("đăng nhập") ?? false);
+                                            if (thoiGianDangNhap != null && !string.IsNullOrEmpty(thoiGianDangNhap.InnerText))
                                             {
-                                                DateTime thoiGianDangNhapganNhat = Convert.ToDateTime(thoiGianDangNhap.InnerText.ToLower().Replace("đăng nhập", "").TrimAll());
-                                                if ((DateTime.Now - thoiGianDangNhapganNhat).TotalMinutes > param.ThoiGianDangNhap)
-                                                    taiKhoan = null;
+                                                try
+                                                {
+                                                    DateTime thoiGianDangNhapganNhat = Convert.ToDateTime(thoiGianDangNhap.InnerText.ToLower().Replace("đăng nhập", "").TrimAll());
+                                                    if ((DateTime.Now - thoiGianDangNhapganNhat).TotalMinutes > param.ThoiGianDangNhap)
+                                                        taiKhoan = null;
+                                                }
+                                                catch { }
                                             }
-                                            catch { }
+                                            else
+                                            {
+                                                taiKhoan = null;
+                                            }
                                         }
+                                        else
+                                        {
+                                            taiKhoan = null;
+                                        }                                        
                                     }
                                 }
                                 catch (Exception ex)

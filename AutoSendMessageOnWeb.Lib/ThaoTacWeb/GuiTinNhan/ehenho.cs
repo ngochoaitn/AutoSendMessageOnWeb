@@ -64,7 +64,14 @@ namespace AutoSendMessageOnWeb.Lib
                         request.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3";
                         request.Referer = nguoinhan.Url;
                     }));
-                if (responseHtml.Contains("Thư gửi không thành công!"))
+
+                if (responseHtml == null)
+                {
+                    nguoinhan.TrangThai = nguoigui.TrangThai = "Gửi lỗi\r\nKhông đọc được nội dung";
+                    nguoigui.ChoPhepGuiNhan = false;
+                    nguoinhan.TrangThai = "Gửi lỗi (Web không trả về dữ liệu để xử lý)";
+                }
+                else if (responseHtml?.Contains("Thư gửi không thành công!") ?? true)
                 {
                     nguoinhan.TrangThai = nguoigui.TrangThai = "Gửi lỗi\nQuá giới hạn 48 thư";
                     nguoigui.ChoPhepGuiNhan = false;
@@ -224,6 +231,10 @@ namespace AutoSendMessageOnWeb.Lib
                            Log.WriteLog(_fileLog, $"TimKiemTaiKhoan() Thử lại {tk?.Url}");
                            html = RequestToWeb.ReadStream(RequestToWeb.GET(new Uri(tk.Url), false, true, this.Cookie));
                        }
+
+                       if (string.IsNullOrEmpty(html))
+                           return null;
+
                        docChiTiet.LoadHtml(html);
                        var allRow = docChiTiet?.DocumentNode?.QuerySelectorAll("table > tr");
                        if (param.GioiTinh.ToString() != "Tất cả")

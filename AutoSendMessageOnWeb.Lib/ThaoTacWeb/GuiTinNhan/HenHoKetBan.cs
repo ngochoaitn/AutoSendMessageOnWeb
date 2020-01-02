@@ -44,7 +44,7 @@ namespace AutoSendMessageOnWeb.Lib
             var dangNhapResponse = RequestToWeb.POST(new Uri("https://henhoketban.vn/login.php"), tk.Cookie, dangNhapData, false);
             string dangNhapStringResponse = RequestToWeb.ReadStream(dangNhapResponse);
             var dangNhapHeader = RequestToWeb.ReadHeader(dangNhapResponse.Headers);
-            if (dangNhapStringResponse.Contains("ĐĂNG NHẬP THÀNH CÔNG"))
+            if (dangNhapStringResponse?.Contains("ĐĂNG NHẬP THÀNH CÔNG") ?? false)
             {
                 tk.TrangThai = "Đăng nhập thành công";
                 tk.ChoPhepGuiNhan = true;
@@ -87,7 +87,13 @@ namespace AutoSendMessageOnWeb.Lib
 
             var guiTinResponse = RequestToWeb.POST(new Uri("https://henhoketban.vn/guithu.php"), nguoigui.Cookie, guiData, false, true);
             string guiStringResponse = RequestToWeb.ReadStream(guiTinResponse);
-
+            if(guiStringResponse == null)
+            {
+                nguoigui.ChoPhepGuiNhan = false;
+                nguoigui.TrangThai = "Chuyển tài khoản";
+                nguoinhan.TrangThai = "Gửi lỗi (Web không trả về dữ liệu để xử lý)";
+                return;
+            }
             if (guiStringResponse.Contains("message.php?guithu=thanhcong"))
             {
                 nguoinhan.TrangThai = nguoigui.TaiKhoan;

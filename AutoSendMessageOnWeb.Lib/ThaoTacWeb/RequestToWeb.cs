@@ -191,10 +191,17 @@ namespace AutoSendMessageOnWeb.Lib.ThaoTacWeb
 
         public static string ReadStream(Stream s)
         {
-            using (StreamReader sr = new StreamReader(s))
+            try
             {
-                string res = sr.ReadToEnd();
-                return res;
+                using (StreamReader sr = new StreamReader(s))
+                {
+                    string res = sr.ReadToEnd();
+                    return res;
+                }
+            }
+            catch
+            {
+                return null;
             }
         }
         public static string ReadStream(WebResponse response)

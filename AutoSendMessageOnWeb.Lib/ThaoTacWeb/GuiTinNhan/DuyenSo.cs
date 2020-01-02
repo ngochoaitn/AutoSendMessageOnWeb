@@ -85,7 +85,14 @@ namespace AutoSendMessageOnWeb.Lib
             using (var sr = new StreamReader(response.GetResponseStream()))
             {
                 string stringResponse = sr.ReadToEnd();
-                if (!stringResponse.Contains("ERROR") && !stringResponse.Contains("Error"))
+                if(stringResponse == null)
+                {
+                    nguoigui.ChoPhepGuiNhan = false;
+                    nguoigui.TrangThai = "Chuyển tài khoản";
+                    nguoinhan.TrangThai = "Gửi lỗi (Web không trả về dữ liệu để xử lý)";
+                    return;
+                }
+                if (stringResponse != null && !stringResponse.Contains("ERROR") && !stringResponse.Contains("Error"))
                 {
                     if (stringResponse.Contains("VIP"))
                         nguoinhan.TrangThai = "Thất bại (Cần VIP)";
@@ -95,12 +102,15 @@ namespace AutoSendMessageOnWeb.Lib
                     nguoinhan.TrangThai = "Gửi lỗi (Server)";
                 }
 
-                var dataResponse = stringResponse.Split('"');
-                string senderId = dataResponse[6].Trim();
+                if (stringResponse != null)
+                {
+                    var dataResponse = stringResponse.Split('"');
+                    string senderId = dataResponse[6].Trim();
 
-                string dataUpdate = string.Format("cmd=pp_messages&user_id={0}&is_mode_fb=false", nguoinhan.Id);
+                    string dataUpdate = string.Format("cmd=pp_messages&user_id={0}&is_mode_fb=false", nguoinhan.Id);
 
-                var resUpdate = RequestToWeb.POST(new Uri("http://duyenso.com/ajax.php"), nguoigui.Cookie, dataUpdate, true);
+                    var resUpdate = RequestToWeb.POST(new Uri("http://duyenso.com/ajax.php"), nguoigui.Cookie, dataUpdate, true);
+                }
             }
         }
 
